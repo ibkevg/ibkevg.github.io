@@ -25,8 +25,8 @@
 		F1C6C39F1DB2BBD600727B77 = {
 			isa = PBXGroup;
 			children = (
-				F1C6C3B81DB2D58D00727B77 /* blog */,
 				F1C6C3AA1DB2BBF600727B77 /* _config.yml */,
+				F1C6C3B81DB2D58D00727B77 /* blog */,
 				F1C6C3AB1DB2BBF600727B77 /* assets */,
 				F1C6C3AC1DB2BBF600727B77 /* elements.md */,
 				F1C6C3AD1DB2BBF600727B77 /* generic.md */,

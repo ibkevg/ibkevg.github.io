@@ -5,7 +5,7 @@ layout: post
 ---
 
 
-![]({{ "/assets/images/micromass-area-problem.jpg" | relative_url }})
+![Problem]( {{ site.baseurl }}/assets/images/micromass-area-problem.jpg)
 
 Strategy: We can take advantage of the symmetry of the diagram, to simplify the problem. We can take right half of the diagram, rotate it counter clockwise by 180 degrees and overlay it ontop of the left half of the diagram. In doing this, we find that the top 2 corners and the lower right corners are completely filled with red. The remaining corner is partially filled in and for it, we can determine the area that's red by subtracting the amount that's white from the area of the entire corner. We will call this area that's white, W. It is the area under two intervals, first the line and then the curve. 
 
