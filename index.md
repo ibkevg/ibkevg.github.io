@@ -20,9 +20,6 @@ nav-menu:
 			<ul class="actions">
 				<li><a href="#one" class="button next scrolly">Get Started</a></li>
 			</ul>
-        <!-- ul class="actions">
-            <li><a href="#two" class="button next scrolly">Blog</a></li>
-        </ul -->
 		</div>
 	</div>
 </section>
@@ -33,7 +30,7 @@ nav-menu:
     <!-- One -->
     {% include tiles.html %}
 
-    <section id="two">
+    <!-- section id="two">
         <div class="inner">
             <header class="major">
                 <h2>Blog</h2>
@@ -43,15 +40,15 @@ nav-menu:
                 <article>
                     <p><a href="{{ site.baseurl }}{{ post.url }}" class="link">{{ post.title }}</a></p>
                     <p>{{ post.description }}</p>
-                <!-- header class="major"></header -->
+                < header class="major"></header>
                 </article>
             {% endfor %}
 
-            <!-- ul class="actions">
+            <ul class="actions">
                 <li><a href="landing.html" class="button next">Go to Landing</a></li>
-            </ul -->
+            </ul>
         </div>
-    </section>
+    </section -->
      
 </div>
 
