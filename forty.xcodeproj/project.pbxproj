@@ -10,7 +10,6 @@
 		F1C6C3AA1DB2BBF600727B77 /* _config.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = _config.yml; sourceTree = "<group>"; };
 		F1C6C3AB1DB2BBF600727B77 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 		F1C6C3AC1DB2BBF600727B77 /* elements.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = elements.md; sourceTree = "<group>"; };
-		F1C6C3AD1DB2BBF600727B77 /* generic.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = generic.md; sourceTree = "<group>"; };
 		F1C6C3AE1DB2BBF600727B77 /* index.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = index.md; sourceTree = "<group>"; };
 		F1C6C3AF1DB2BBF600727B77 /* landing.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = landing.md; sourceTree = "<group>"; };
 		F1C6C3B01DB2BBF600727B77 /* _includes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _includes; sourceTree = "<group>"; };
@@ -18,7 +17,9 @@
 		F1C6C3B31DB2BBF600727B77 /* _sass */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _sass; sourceTree = "<group>"; };
 		F1C6C3B61DB2BBF600727B77 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		F1C6C3B71DB2BBF600727B77 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		F1C6C3B81DB2D58D00727B77 /* blog */ = {isa = PBXFileReference; lastKnownFileType = folder; path = blog; sourceTree = "<group>"; };
+		F1C6C3D31DB3626600727B77 /* math */ = {isa = PBXFileReference; lastKnownFileType = folder; path = math; sourceTree = "<group>"; };
+		F1C6C3D41DB3627200727B77 /* physics */ = {isa = PBXFileReference; lastKnownFileType = folder; path = physics; sourceTree = "<group>"; };
+		F1C6C3D51DB364EC00727B77 /* blog */ = {isa = PBXFileReference; lastKnownFileType = folder; path = blog; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -26,11 +27,12 @@
 			isa = PBXGroup;
 			children = (
 				F1C6C3AA1DB2BBF600727B77 /* _config.yml */,
-				F1C6C3B81DB2D58D00727B77 /* blog */,
-				F1C6C3AB1DB2BBF600727B77 /* assets */,
-				F1C6C3AC1DB2BBF600727B77 /* elements.md */,
-				F1C6C3AD1DB2BBF600727B77 /* generic.md */,
 				F1C6C3AE1DB2BBF600727B77 /* index.md */,
+				F1C6C3D51DB364EC00727B77 /* blog */,
+				F1C6C3AC1DB2BBF600727B77 /* elements.md */,
+				F1C6C3D41DB3627200727B77 /* physics */,
+				F1C6C3D31DB3626600727B77 /* math */,
+				F1C6C3AB1DB2BBF600727B77 /* assets */,
 				F1C6C3AF1DB2BBF600727B77 /* landing.md */,
 				F1C6C3B01DB2BBF600727B77 /* _includes */,
 				F1C6C3B11DB2BBF600727B77 /* _layouts */,

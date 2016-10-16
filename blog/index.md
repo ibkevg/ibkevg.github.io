@@ -1,0 +1,116 @@
+---
+title: Blog
+image: assets/images/NASA/Black-Hole-Precocious-Black-Hole.jpg
+layout: page
+istile: true
+---
+
+* This will become a table of contents (this text will be scraped).
+{:toc}
+
+# Basic Formatting
+_Kevin_ was _here_
+
+*Kevin* **was** here
+
+[www.google.com](http://www.google.com)
+
+<center>This text is centered.  And clean.  Amen.</center>
+
+> Sample block quote
+>> Nested block quote
+
+
+# Lists
+
+## Ordered Lists
+
+<p>These are a bunch of ordered list items:</p>
+1. Do something.
+
+2. Do something else.
+
+    1. If the reverse-Pi separation gauge is set to `OFF` you can follow
+       the following procedure.
+
+        1. Use the flux capacitor on Mondays, Tuesdays and Thursdays
+
+        2. Do not use the flux capacitor if it's raining
+
+
+    2. If the reverse-Pi separation gauge is set to `ON` then you
+       should follow Procedure 42.
+
+3. Go back to doing things
+
+## Unordered Lists
+
+<p>These are a bunch of unordered list items:</p>
+* item 1
+  + item 2
+    - item 3
+
+# Tables
+
+| Header1 | Header2 | Header3 |
+|:--------|:-------:|--------:|
+| cell1   | cell2   | cell3   |
+| cell4   | cell5   | cell6   |
+|----
+| cell1   | cell2   | cell3   |
+| cell4   | cell5   | cell6   |
+|=====
+| Foot1   | Foot2   | Foot3
+{: rules="groups"}
+
+|one|two|three|
+|--
+|1|2|3
+
+
+# Terminology
+
+term1
+: definition1
+
+: another definition
+
+term2
+term3
+: definition1
+
+
+# Equations
+
+Kevin $$\infty$$ was here
+
+We want to solve:
+
+$$\int \frac{1}{x}\ dx$$
+
+Using integration by parts, whose formula is:
+
+$$\int u\ dv=uv-\int v\ du$$
+
+We substitute $$u=\frac {1}{x}\ $$, $$du=-\frac{1}{x^2}\ dx$$ and $$dv=dx$$, $$v=x$$ into the formula and find:
+
+$$= \frac {1}{x}\ x-\int x \left(  -\frac {1}{x^2}\ dx\right)$$
+
+And we've now arrived at the second paradox that micromass explains in his Insight:
+
+$$\int \frac{1}{x}\ dx = 1 + \int \frac{1}{x}\ dx$$
+
+
+$$
+\begin{aligned}
+\dot{x} & = \sigma(y-x) \\
+\dot{y} & = \rho x - y - xz \\
+\dot{z} & = -\beta z + xy
+\end{aligned}
+$$
+
+# Images
+
+
+
+![Real Analysis and Abstract Algebra](/assets/images/analysis.jpg)

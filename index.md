@@ -16,9 +16,13 @@ nav-menu:
 		</header>
 		<div class="content">
 			<p style="text-transform: uppercase;">{{ site.description }}</p>
+            <p></p>
 			<ul class="actions">
 				<li><a href="#one" class="button next scrolly">Get Started</a></li>
 			</ul>
+        <!-- ul class="actions">
+            <li><a href="#two" class="button next scrolly">Blog</a></li>
+        </ul -->
 		</div>
 	</div>
 </section>
@@ -26,22 +30,28 @@ nav-menu:
 <!-- Main -->
 <div id="main">
 
-<!-- One -->
-{% include tiles.html %}
+    <!-- One -->
+    {% include tiles.html %}
 
-<!-- Two 
-<section id="two">
-	<div class="inner">
-		<header class="major">
-			<h2>Massa libero</h2>
-		</header>
-		<p></p>
-		<ul class="actions">
-			<li><a href="landing.html" class="button next">Go to Landing</a></li>
-		</ul>
-	</div>
-</section>
- 
--->
+    <section id="two">
+        <div class="inner">
+            <header class="major">
+                <h2>Blog</h2>
+            </header>
+
+            {% for post in site.posts limit:site.tiles-count %}
+                <article>
+                    <p><a href="{{ site.baseurl }}{{ post.url }}" class="link">{{ post.title }}</a></p>
+                    <p>{{ post.description }}</p>
+                <!-- header class="major"></header -->
+                </article>
+            {% endfor %}
+
+            <!-- ul class="actions">
+                <li><a href="landing.html" class="button next">Go to Landing</a></li>
+            </ul -->
+        </div>
+    </section>
+     
 </div>
 

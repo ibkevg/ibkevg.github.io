@@ -29,7 +29,7 @@ gems:
   - jemoji
 
 # Homepage tiles
-tiles-source: posts # accepts "posts" or "pages" 
+tiles-source: pages # accepts "posts" or "pages"
 tiles-count: 6
 
 # Social settings

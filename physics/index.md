@@ -1,7 +1,8 @@
 ---
-title: Mathematics
-image: assets/images/mathematics.jpg
-layout: post
+title: Physics
+image: assets/images/NASA/Black-Hole-Precocious-Black-Hole.jpg
+layout: page
+istile: true
 ---
 
 * This will become a table of contents (this text will be scraped).
@@ -24,7 +25,7 @@ _Kevin_ was _here_
 
 ## Ordered Lists
 
-These are a bunch of ordered list items:
+<p>These are a bunch of ordered list items:</p>
 1. Do something.
 
 2. Do something else.
@@ -44,7 +45,7 @@ These are a bunch of ordered list items:
 
 ## Unordered Lists
 
-These are a bunch of unordered list items:
+<p>These are a bunch of unordered list items:</p>
 * item 1
   + item 2
     - item 3

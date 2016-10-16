@@ -1,7 +1,8 @@
 ---
 title: Getting Started
 image: assets/images/NASA/ISS-Expedition-48-Crew-Launch.jpg
-layout: post
+layout: page
+istile: true
 ---
 
 fluidistic said: ↑
