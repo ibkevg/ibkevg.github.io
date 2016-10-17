@@ -1,10 +1,8 @@
 ---
 title: Micromass Physics Forum October Challenge
-image: assets/images/NASA/ISS-Moonset.jpg 
+#image: assets/images/micromass-area-problem.jpg 
 layout: post
-istile: false
 ---
-
 
 ![Problem]( {{site.baseurl}}/assets/images/micromass-area-problem.jpg)
 

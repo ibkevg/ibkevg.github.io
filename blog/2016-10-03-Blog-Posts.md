@@ -1,11 +1,10 @@
 ---
-title: Blog
+title: Blog Posts
 image: assets/images/Feynmans-Notebook.jpg
 layout: page
 istile: true
 ---
 
-<h2>Blog Posts</h2>
 <ul>
 {% for post in site.categories.blog %}
 <li>
