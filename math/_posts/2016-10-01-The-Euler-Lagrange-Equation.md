@@ -1,14 +1,12 @@
 ---
 title: The Euler-Lagrange Equation
-image: assets/images/NASA/Pluto-Haze.jpg
-layout: post
+layout: page
 ---
 
 * This will become a table of contents (this text will be scraped).
 {:toc}
 
 TODO:
-
 1. Motivating example.
 * Shortest distance between two points on a plane?
 * Shortest distance between two points on a sphere?
@@ -16,14 +14,10 @@ TODO:
 1. What does "stationary" actually mean?
 
 Applications of the calculus of variations include:
-
-Variational method (quantum mechanics), one way of finding approximations to the lowest energy eigenstate or ground state, and some excited states;
-
-Variational Bayesian methods, a family of techniques for approximating intractable integrals arising in Bayesian inference and machine learning.
-
-Variational methods in general relativity, a family of techniques using calculus of variations to solve problems in Einstein's theory of general relativity.
-
-Finite element method is a variational method for finding approximate solutions to boundary value problems in differential equations.
+* Variational method (quantum mechanics), one way of finding approximations to the lowest energy eigenstate or ground state, and some excited states;
+* Variational Bayesian methods, a family of techniques for approximating intractable integrals arising in Bayesian inference and machine learning.
+* Variational methods in general relativity, a family of techniques using calculus of variations to solve problems in Einstein's theory of general relativity.
+* Finite element method is a variational method for finding approximate solutions to boundary value problems in differential equations.
 
 # References
 TODO:
@@ -31,18 +25,19 @@ TODO:
 * Morin
 * Mathematics of Technology
 * wikipedia
+* [Edwin Taylor](http://www.eftaylor.com/leastaction.html)
 
 # Proof
 
-$$ S(x)=\int_{x_1}^{x_2} L[y(x),y'(x),x]\,dx $$
-
 We're looking for the function $$ y(x) $$ that connects $$ (x_1,y_1) $$ and $$ (x_2, y_2) $$ and makes the integral of S a min/max/inflection point. Another way to say this is that we're looking for a function that makes S stationary.
+
+$$ S(x)=\int_{x_1}^{x_2} L[y(x),y'(x),x]\,dx $$
 
 To start, let's simplify our notation a bit:
 
 $$ S(x) = \int_{x_1}^{x_2} L(y,y',x)\,dx $$
 
-The answer we're looking for, $$ y(x) $$, is a specific path - the min/max/saddlepoint - between the two points. Any other path is wrong. In order to find this path, we need some way to describe how close a solution is getting to the correct one. So we next explore a modified $$ y(x) $$ that is guaranteed to produce the wrong path between the points:
+The answer we're looking for, $$ y(x) $$, is a specific path - the min/max/inflection point - between the two points. Any other path is wrong. In order to find this path, we need some way to describe how close a solution is getting to the correct one. So we next explore a modified $$ y(x) $$ that is guaranteed to produce the wrong path between the points:
 
 $$
 \begin{align}
@@ -51,7 +46,7 @@ Y'(x) &= y'(x) + \eta'(x)
 \end{align}
 $$
 
-Here we've introduced this "wrongness" by adding $$ \eta(x). $$ There are infinitely many choices for the $$ \eta(x) $$ function and when added to $$ y(x) $$ they all give the wrong answer. (Note that to ensure $$ Y $$ still connects the two points, there is the constraint that $$ \eta(x_1) = \eta(x_2) = 0 $$.)
+Here we've introduced this variation from the correct value by adding $$ \eta(x). $$ There are infinitely many choices for the $$ \eta(x) $$ function and when added to $$ y(x) $$ they all give the wrong answer. (Note that to ensure $$ Y $$ still connects the two points, there is the constraint that $$ \eta(x_1) = \eta(x_2) = 0 $$.)
 
 If $$ \eta(x) $$ was zero on the interval $$ [x_1, x_2] $$, then $$Y(x)$$ would be the same as $$y(x)$$, making it the function we're looking for. However, $$ \eta(x) $$ is not zero, it's any one of an infinite set of functions that when added to $$ y(x) $$ make it wrong. We can "fix" this with a small tweak:
 
@@ -66,12 +61,7 @@ Now $$ Y(x) $$ will be the correct answer when $$ \alpha = 0 $$ and the bigger $
 
 So we can rewrite our original problem as:
 
-$$
-\begin{align}
-S(\alpha) &= \int_{x_1}^{x_2} L(y+\alpha\eta, y'+\alpha\eta', x)\,dx \\[10pt]
-&= \int_{x_1}^{x_2} f(Y, Y', x)\ dx
-\end{align}
-$$
+$$ S(\alpha) = \int_{x_1}^{x_2} f(Y, Y', x)\ dx $$
 
 Since S is a function of $$ \alpha $$ now, the original problem, of finding the function that makes the integral of S stationary, has become a vanilla "find the local minimum" calculus problem where we set the derivative to zero. We now also require that $$ \alpha = 0 $$.
 
