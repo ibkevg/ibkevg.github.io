@@ -21,12 +21,14 @@
 		F1C6C3D41DB3627200727B77 /* physics */ = {isa = PBXFileReference; lastKnownFileType = folder; path = physics; sourceTree = "<group>"; };
 		F1C6C3D51DB364EC00727B77 /* blog */ = {isa = PBXFileReference; lastKnownFileType = folder; path = blog; sourceTree = "<group>"; };
 		F1C6C3D61DB8939D00727B77 /* _drafts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _drafts; sourceTree = "<group>"; };
+		F1C6C3D71DBB2D6A00727B77 /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		F1C6C39F1DB2BBD600727B77 = {
 			isa = PBXGroup;
 			children = (
+				F1C6C3D71DBB2D6A00727B77 /* Gemfile */,
 				F1C6C3AA1DB2BBF600727B77 /* _config.yml */,
 				F1C6C3AE1DB2BBF600727B77 /* index.md */,
 				F1C6C3AF1DB2BBF600727B77 /* landing.md */,

@@ -7,6 +7,7 @@ layout: page
 {:toc}
 
 TODO:
+
 1. Motivating example.
 * Shortest distance between two points on a plane?
 * Shortest distance between two points on a sphere?
@@ -14,6 +15,7 @@ TODO:
 1. What does "stationary" actually mean?
 
 Applications of the calculus of variations include:
+
 * Variational method (quantum mechanics), one way of finding approximations to the lowest energy eigenstate or ground state, and some excited states;
 * Variational Bayesian methods, a family of techniques for approximating intractable integrals arising in Bayesian inference and machine learning.
 * Variational methods in general relativity, a family of techniques using calculus of variations to solve problems in Einstein's theory of general relativity.
@@ -21,6 +23,7 @@ Applications of the calculus of variations include:
 
 # References
 TODO:
+
 * Taylor
 * Morin
 * Mathematics of Technology
