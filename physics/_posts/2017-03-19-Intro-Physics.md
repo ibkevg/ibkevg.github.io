@@ -6,10 +6,12 @@ layout: page
 * This will become a table of contents (this text will be scraped).
 {:toc}
 
+Our goal here is to get a first exposure to a broad swath of calculus-based physics.
+
+"Fundamentals of Physics" by Halliday and Resnick is a very friendly and commonly used intro to physics.
 
 # Yale PHYS 200/201 FUNDAMENTALS OF PHYSICS I and II
-Open Yales Physics Lectures by Professor R. Shankar. These include video lectures, assignments and exams all with solutions.  
-Professor Shankar has a great sense of humour and seems to be very pragmatic in his approach. As a bonus, it turns out that he is the author of one of the more popular Quantum Mechanics textbooks used in universities today. So if you like his style here, it's a good bet that his approach to quantum mechanics will appeal to you as well.
+Open Yales Physics Lectures by Professor R. Shankar. These include video lectures, assignments and exams all with solutions. Professor Shankar has a great sense of humour and seems to be very pragmatic in his approach. As a bonus, it turns out that he is the author of one of the more popular Quantum Mechanics textbooks used in universities today. So if you like his style here, it's a good bet that his approach to quantum mechanics will appeal to you as well.
 
 [FUNDAMENTALS OF PHYSICS I: Mechanics, Relativity, and Thermodynamics](http://oyc.yale.edu/physics/phys-200)  
 [FUNDAMENTALS OF PHYSICS II: Electricity, Magnetism, Optics and Quantum mechanics](http://oyc.yale.edu/physics/phys-201)
