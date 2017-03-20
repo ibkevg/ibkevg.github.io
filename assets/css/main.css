@@ -1695,44 +1695,42 @@
 	}
 
 	p {
-		margin: 0 0 2em 0;
+		margin: 0 0 1em 0;
 	}
+
+    h1 {
+        margin: 1em 0 0.5em 0;
+        font-size: 2.5em;
+    }
+
+    h2 {
+        margin: 1em 0 0 0;
+        font-size: 1.75em;
+    }
+
+    h3 {
+        margin: 0.5em 0 0 0;
+        font-size: 1.35em;
+    }
+
+    h1, h2, h3 {
+        color: #ffffff;
+        line-height: 1.65;
+    }
+
+    h4, h5, h6 {
+        margin: 0 0 0 0;
+    }
 
 	h1, h2, h3, h4, h5, h6 {
 		color: #ffffff;
 		font-weight: 600;
-		line-height: 1.65;
-		margin: 0 0 1em 0;
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 			color: inherit;
 			border-bottom: 0;
 		}
-
-	h1 {
-		font-size: 2.5em;
-	}
-
-	h2 {
-		font-size: 1.75em;
-	}
-
-	h3 {
-		font-size: 1.35em;
-	}
-
-	h4 {
-		font-size: 1.1em;
-	}
-
-	h5 {
-		font-size: 0.9em;
-	}
-
-	h6 {
-		font-size: 0.7em;
-	}
 
 	@media screen and (max-width: 736px) {
 
@@ -2258,6 +2256,10 @@
 		ul li {
 			padding-left: 0.5em;
 		}
+
+            ul li ul {
+                margin: 0 0 0 0;
+            }
 
 		ul.alt {
 			list-style: none;

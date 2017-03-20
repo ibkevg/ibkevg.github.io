@@ -8,28 +8,28 @@ layout: page
 
 Our goal here is to get a first exposure to a broad swath of calculus-based physics.
 
-"Fundamentals of Physics" by Halliday and Resnick is a very friendly and commonly used intro to physics.
-
 # Yale PHYS 200/201 FUNDAMENTALS OF PHYSICS I and II
 Open Yales Physics Lectures by Professor R. Shankar. These include video lectures, assignments and exams all with solutions. Professor Shankar has a great sense of humour and seems to be very pragmatic in his approach. As a bonus, it turns out that he is the author of one of the more popular Quantum Mechanics textbooks used in universities today. So if you like his style here, it's a good bet that his approach to quantum mechanics will appeal to you as well.
 
-[FUNDAMENTALS OF PHYSICS I: Mechanics, Relativity, and Thermodynamics](http://oyc.yale.edu/physics/phys-200)  
-[FUNDAMENTALS OF PHYSICS II: Electricity, Magnetism, Optics and Quantum mechanics](http://oyc.yale.edu/physics/phys-201)
+#### Lecture Videos and Assignments
++ [FUNDAMENTALS OF PHYSICS I: Mechanics, Relativity, and Thermodynamics](http://oyc.yale.edu/physics/phys-200)  
++ [FUNDAMENTALS OF PHYSICS II: Electricity, Magnetism, Optics and Quantum mechanics](http://oyc.yale.edu/physics/phys-201)
 
 
-Textbooks
-+ [Fundamentals of Physics: Mechanics, Relativity, and Thermodynamics](http://www.amazon.com/Fundamentals-Physics-Mechanics-Relativity-Thermodynamics/dp/0300192207), R. Shankar, 2013.
-+ [Fundamentals of Physics II: Electromagnetism, Optics, and Quantum Mechanics](https://www.amazon.com/Fundamentals-Physics-II-Electromagnetism-Mechanics/dp/0300212364), R. Shankar, 2016.
-
+#### Textbooks
++ [*Fundamentals of Physics: Mechanics, Relativity, and Thermodynamics*](http://www.amazon.com/Fundamentals-Physics-Mechanics-Relativity-Thermodynamics/dp/0300192207), R. Shankar, 2013.
++ [*Fundamentals of Physics II: Electromagnetism, Optics, and Quantum Mechanics*](https://www.amazon.com/Fundamentals-Physics-II-Electromagnetism-Mechanics/dp/0300212364), R. Shankar, 2016.
++ [*Fundamentals of Physics*](), Halliday and Resnick.
+  + A very friendly and commonly used intro to physics.
 
 # Improving Physical Intuition
 
-[Feynman's Tips on Physics](http://www.amazon.com/Feynmans-Tips-Physics-Reflections-Problem-Solving/dp/0465027970)
+[*Feynman's Tips on Physics*](http://www.amazon.com/Feynmans-Tips-Physics-Reflections-Problem-Solving/dp/0465027970)
 by Richard P. Feynman
 
 "With characteristic flair, insight, and humor, Feynman discusses topics physics students often struggle with and offers valuable tips on addressing them. Included here are three lectures on problem-solving and a lecture on inertial guidance omitted from The Feynman Lectures on Physics." - Amazon description
 
-[Thinking Physics: Practical Lessons in Critical Thinking](http://www.amazon.com/Thinking-Physics-Practical-Lessons-Critical/dp/0935218068)
+[*Thinking Physics: Practical Lessons in Critical Thinking*](http://www.amazon.com/Thinking-Physics-Practical-Lessons-Critical/dp/0935218068)
 by Lewis Carroll Epstein
 
 Epstein's fun to read book is a great way to hone your intuitive understanding of physics. It is structured in a problem/answer format that covers topics ranging from Newton's laws all the way to thermodynamics and special relativity. Each question is posed in a manner that requires no mathematics to solve, just an understanding of the physical principles involved. Answers are often counter intuitive but are presented in an easy to understand way. Questions include things like:

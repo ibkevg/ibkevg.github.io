@@ -48,6 +48,9 @@ twitter_url: https://twitter.com/
 # Build settings
 markdown: kramdown
 
+kramdown:
+  toc_levels: "1,2"
+
 # Plugin: jekyll-seo-tag
 twitter:
   username:
