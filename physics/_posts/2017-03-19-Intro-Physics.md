@@ -24,8 +24,7 @@ Open Yales Physics Lectures by Professor R. Shankar. These include video lecture
 
 # Improving Physical Intuition
 
-[*Feynman's Tips on Physics*](http://www.amazon.com/Feynmans-Tips-Physics-Reflections-Problem-Solving/dp/0465027970)
-by Richard P. Feynman
+[*Feynman's Tips on Physics*](http://www.amazon.com/Feynmans-Tips-Physics-Reflections-Problem-Solving/dp/0465027970), Richard P. Feynman
 
 "With characteristic flair, insight, and humor, Feynman discusses topics physics students often struggle with and offers valuable tips on addressing them. Included here are three lectures on problem-solving and a lecture on inertial guidance omitted from The Feynman Lectures on Physics." - Amazon description
 
@@ -36,6 +35,9 @@ Epstein's fun to read book is a great way to hone your intuitive understanding o
 
 + "If you are holding a jar of flies (with the lid on it, so they don't fly away), at which point is it heavier: when they are all flying around or when they all land at the bottom?"  
 + "Which collision has more force: a car driving 100 mph into a wall or 2 cars, each going 100 mph in a head on collision?"
+
+[Professor Povey's Perplexing Problems: Pre-university Physics and Maths Puzzles with Solutions](https://www.amazon.com/gp/product/1780747756), Thomas Povey, 2015
+
 
 # How to Get Questions Answered?
 
