@@ -17,10 +17,16 @@ Open Yales Physics Lectures by Professor R. Shankar. These include video lecture
 
 
 #### Textbooks
++ [*Fundamentals of Physics Extended*](https://www.amazon.com/Fundamentals-Physics-Extended-David-Halliday/dp/1118230728), Halliday and Resnick.
+  + Extended edition covers topics such as an intro quantum mechanics and nuclear physics
+  + Huge, very friendly and commonly used intro to physics
+  + Contains a large number of worked out examples, a student solutions manual is available and it's easy to find even more solutions to problems online 
+  + An additional, book for fun that is designed to integrate with the main text is this: [*The Flying Circus of Physics*](https://www.amazon.com/gp/product/0471762733), Jearl Walker, 2006
+
+The following books are a good supplement. I consider them to be a supplement because they follow the video lecture material so closely that its good to have Halliday/Resnick as a different viewpoint for those times you get stuck.
 + [*Fundamentals of Physics: Mechanics, Relativity, and Thermodynamics*](http://www.amazon.com/Fundamentals-Physics-Mechanics-Relativity-Thermodynamics/dp/0300192207), R. Shankar, 2013.
 + [*Fundamentals of Physics II: Electromagnetism, Optics, and Quantum Mechanics*](https://www.amazon.com/Fundamentals-Physics-II-Electromagnetism-Mechanics/dp/0300212364), R. Shankar, 2016.
-+ [*Fundamentals of Physics*](), Halliday and Resnick.
-  + A very friendly and commonly used intro to physics.
+
 
 # Improving Physical Intuition
 
