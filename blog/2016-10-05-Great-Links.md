@@ -29,6 +29,7 @@ istile: true
 1. Euclid's [Elements](http://aleph0.clarku.edu/~djoyce/java/elements/toc.html)
 1. Einstein's 1905 Paper on Special Relativity: [Electrodynamics of Moving Bodies](http://einsteinpapers.press.princeton.edu/vol2-trans/154?ajax)
 1. Einstain's 1915 Paper on General Relativity: [The Field Equations of Gravitation](http://einsteinpapers.press.princeton.edu/vol6-trans/129)
+1. Stephen Hawking's 1975 paper on Black Hole evaporation, aka Hawking Radiation: [Particle Creation by Black Holes](https://projecteuclid.org/euclid.cmp/1103899181)
 
 # Great Video Series
 
