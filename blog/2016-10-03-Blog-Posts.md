@@ -1,5 +1,6 @@
 ---
 title: Blog Posts
+description: Miscellaneous Thoughts
 image: assets/images/Feynmans-Notebook.jpg
 layout: page
 istile: true
