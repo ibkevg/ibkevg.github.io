@@ -1,6 +1,7 @@
 ---
 title: The Euler-Lagrange Equation
 layout: page
+jsarr: scripts/kev-chart.js
 ---
 
 * This will become a table of contents (this text will be scraped).
@@ -136,4 +137,68 @@ $$
 \boxed {\frac {\partial L} {\partial y} - \frac {d} {dx} \left( \frac {\partial L} {\partial y'} \right) = 0}
 $$
 
+<style>
+
+body {
+  width: 960px;
+  height: 500px;
+  position: relative;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: white;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  font: 10px sans-serif;
+  stroke: white;
+}
+
+.line {
+  fill: none;
+  stroke-linecap: round;
+  stroke: white;
+}
+
+line {
+  stroke: white;
+  shape-rendering: crispEdges;
+}
+
+form {
+  position: absolute;
+  bottom: 27px;
+  right: 50px;
+}
+
+input {
+  width: 140px;
+}
+
+span {
+  position: relative;
+  top: -3px;
+}
+
+output {
+  display: inline-block;
+  width: 3.5em;
+}
+
+</style>
+
+
+<div id="kdgform">
+  <div id="acceleration">
+    <input type="range" min="0" max="1" step=".01" value=".55">
+    <span><i>a</i> = <output name="acceleration"></output></span>
+  </div>
+  <div id="reflection">
+    <input type="range" min="0" max="1" step=".01" value=".5">
+    <span><i>r</i> = <output name="reflection"></output></span>
+  </div>
+</div>
 
