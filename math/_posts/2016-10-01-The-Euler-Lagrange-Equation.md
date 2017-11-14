@@ -7,7 +7,7 @@ jsarr: scripts/kev-chart.js
 * This will become a table of contents (this text will be scraped).
 {:toc}
 
-TODO:
+# TODO:
 
 1. Motivating example.
 * Shortest distance between two points on a plane?
@@ -22,26 +22,15 @@ Applications of the calculus of variations include:
 * Variational methods in general relativity, a family of techniques using calculus of variations to solve problems in Einstein's theory of general relativity.
 * Finite element method is a variational method for finding approximate solutions to boundary value problems in differential equations.
 
-# References
-TODO:
-
-* Taylor
-* Morin
-* Mathematics of Technology
-* wikipedia
-* [Edwin Taylor](http://www.eftaylor.com/leastaction.html)
-
 # Proof
 
-We're looking for the function $$ y(x) $$ that connects $$ (x_1,y_1) $$ and $$ (x_2, y_2) $$ and makes the integral of S a min/max/inflection point. Another way to say this is that we're looking for a function that makes S stationary.
+In terms of physics, the problem is: given a function representing the laws of classical mechanics, and two points representing the start and end position and velocity, we want to find the function $$ y(x) $$ that would be the only path between the two points the satisfies the laws of physics. Mathematically, the goal is: given a Lagrangian, $$ \mathscr{L} $$ which is a function of a function, find the function $$ y(x) $$ that connects $$ (x_1,y_1) $$ and $$ (x_2, y_2) $$ and makes the integral of $$ \mathscr{L} $$, called the action, a min/max/inflection point. Another way to say this is that we're looking for a function that makes the action, $$ S $$, stationary. Now you might think at first that this is exactly the kind of min/max problem that calculus is good at by taking the derivative and solving it for 0. However, that can only tell us the value of x where there is a minimum. In this case, we're not simply looking for a value of x, we're looking for an entire function!
 
-$$ S(x)=\int_{x_1}^{x_2} L[y(x),y'(x),x]\,dx $$
+Here we want to find the function $$ y(x) $$ that makes $$ S(x) $$ a minimum (or more precisely, stationary).
 
-To start, let's simplify our notation a bit:
+$$ Action = S(x)=\int_{x_1}^{x_2} \mathscr{L}[y(x),y'(x),x]\,dx = \int_{x_1}^{x_2} \mathscr{L}(y,y',x)\,dx $$
 
-$$ S(x) = \int_{x_1}^{x_2} L(y,y',x)\,dx $$
-
-The answer we're looking for, $$ y(x) $$, is a specific path - the min/max/inflection point - between the two points. Any other path is wrong. In order to find this path, we need some way to describe how close a solution is getting to the correct one. So we next explore a modified $$ y(x) $$ that is guaranteed to produce the wrong path between the points:
+We can think of many possible functions $$ y(x) $$ that connect the two points, but only a single specific path between the two points meets our requirements. In order to find this path, we need some way to describe how close a solution is getting to the correct one. So we next explore a modified $$ y(x) $$ that is guaranteed to produce the wrong path between the points:
 
 $$
 \begin{align}
@@ -61,11 +50,11 @@ Y'(\alpha, x) &= y'(x) + \alpha\eta'(x)
 \end{align}
 $$
 
-Now $$ Y(x) $$ will be the correct answer when $$ \alpha = 0 $$ and the bigger $$ \alpha $$ is, the more wrong $$ Y(x) $$ will be. We refer to $$ \alpha\eta(x) $$ as a variation of the minimizing function.  Calculus of Variations owes it's name to this idea.
+Now the bigger $$ \alpha $$ is, the more wrong $$ Y(x) $$ will be but $$ Y(x) $$ will be the correct answer when $$ \alpha = 0 $$. We refer to $$ \alpha\eta(x) $$ as a variation of the minimizing function.  Calculus of Variations owes it's name to this idea.
 
 So we can rewrite our original problem as:
 
-$$ S(\alpha) = \int_{x_1}^{x_2} f(Y, Y', x)\ dx $$
+$$ S(\alpha) = \int_{x_1}^{x_2} \mathscr{L}(Y, Y', x)\ dx $$
 
 Since S is a function of $$ \alpha $$ now, the original problem, of finding the function that makes the integral of S stationary, has become a vanilla "find the local minimum" calculus problem where we set the derivative to zero. We now also require that $$ \alpha = 0 $$.
 
@@ -137,6 +126,10 @@ $$
 \boxed {\frac {\partial L} {\partial y} - \frac {d} {dx} \left( \frac {\partial L} {\partial y'} \right) = 0}
 $$
 
+This is the Euler-Lagrange equation.
+
+# D3 Graph
+
 <style>
 
 body {
@@ -197,3 +190,11 @@ output {
   </div>
 </div>
 
+# References
+TODO:
+
+* Taylor
+* Morin
+* Mathematics of Technology
+* wikipedia
+* [Edwin Taylor](http://www.eftaylor.com/leastaction.html)
