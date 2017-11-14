@@ -178,11 +178,6 @@ input {
   width: 140px;
 }
 
-span {
-  position: relative;
-  top: -3px;
-}
-
 output {
   display: inline-block;
   width: 3.5em;
