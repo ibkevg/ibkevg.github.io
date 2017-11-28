@@ -19,6 +19,8 @@ A block of mass $$ M $$ is positioned against a vertical wall. The coeffient of 
 
 # Solution
 
+TODO: insert free body diagram here
+
 ## Minimum Force
 $$ \begin{align}
 \sum F_y = 0 &= \mu N + F \sin \theta - gM \tag{1} \label{eq:1} \\
