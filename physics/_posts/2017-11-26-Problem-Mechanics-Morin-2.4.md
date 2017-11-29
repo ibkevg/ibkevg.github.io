@@ -8,7 +8,7 @@ layout: page
 A block of mass $$ M $$ is positioned against a vertical wall. The coeffient of friction between the block and the wall is $$ \mu $$. You wish to keep the block from falling by pushing on it with a force of $$ F $$ at an angle $$ \theta $$ wrt horizontal ($$ -\frac \pi 2 \lt \theta \lt \frac \pi 2 $$).
 
 <div style="text-align:center;">
-<embed src="{{ site.url }}{{ site.baseurl }}/assets/svg/Mechanics-Morin-2.4-a.svg" type="image/svg+xml" align="center"/>
+<embed src="{{ site.url }}{{ site.baseurl }}/assets/svg/Mechanics-Morin-2.4-a.svg" type="image/svg+xml"/>
 </div>
 
 (a) What's the minimum force required to prevent the block from falling for any given angle $$ \theta $$?
@@ -19,9 +19,14 @@ A block of mass $$ M $$ is positioned against a vertical wall. The coeffient of 
 
 # Solution
 
-TODO: insert free body diagram here
-
 ## Minimum Force
+
+We start by drawing the free body diagram:
+
+<div style="text-align:left;">
+<embed src="{{ site.url }}{{ site.baseurl }}/assets/svg/Mechanics-Morin-2.4-b.svg" type="image/svg+xml"/>
+</div>
+
 $$ \begin{align}
 \sum F_y = 0 &= \mu N + F \sin \theta - gM \tag{1} \label{eq:1} \\
 \sum F_x = 0 &= F \cos \theta - N \\
@@ -72,7 +77,7 @@ $$ F \geq \frac {gM} {\mu \cos \left( \tan^{-1} \frac 1 \mu \right) + \sin \left
 To simplify we would like to find a way to change $$ \cos ( \tan^{-1} ) $$ into $$ \cos ( \cos^{-1} ) $$ because  $$ \cos ( \cos^{-1} \theta) = \theta $$. Since $$ \tan \theta = \frac 1 \mu $$, we know the opposite and adjacent sides and can relate the hypotenuse, $$ h^2 = 1^2 + \mu^2 $$. With that, we can re-express $$ \theta $$ in terms of $$ \cos $$ and $$ \sin $$.
 
 <div style="text-align:center;">
-<embed src="{{ site.url }}{{ site.baseurl }}/assets/svg/Mechanics-Morin-2.4-c.svg" type="image/svg+xml" align="center"/>
+<embed src="{{ site.url }}{{ site.baseurl }}/assets/svg/Mechanics-Morin-2.4-c.svg" type="image/svg+xml"/>
 </div>
 
 So, we get $$ \cos \theta = \frac \mu {\sqrt {1 + \mu^2}} $$ and $$ \sin \theta = \frac 1 {\sqrt{1 + \mu^2}} $$ which can now use to simplify $$ F $$:
