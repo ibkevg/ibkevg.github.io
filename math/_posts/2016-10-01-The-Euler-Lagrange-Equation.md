@@ -7,21 +7,6 @@ jsarr: scripts/kev-chart.js
 * This will become a table of contents (this text will be scraped).
 {:toc}
 
-# TODO:
-
-1. Motivating example.
-* Shortest distance between two points on a plane?
-* Shortest distance between two points on a sphere?
-1. What is the difference between the Calculus of Variations and Principle of Stationary Action?
-1. What does "stationary" actually mean?
-
-Applications of the calculus of variations include:
-
-* Variational method (quantum mechanics), one way of finding approximations to the lowest energy eigenstate or ground state, and some excited states;
-* Variational Bayesian methods, a family of techniques for approximating intractable integrals arising in Bayesian inference and machine learning.
-* Variational methods in general relativity, a family of techniques using calculus of variations to solve problems in Einstein's theory of general relativity.
-* Finite element method is a variational method for finding approximate solutions to boundary value problems in differential equations.
-
 # Proof
 
 In terms of physics/mechanics, our goal is: given a function representing a mechanics problem, and two points representing the start and end position and velocity, we want to find the function $$ y(x) $$ that would be the only path between the two points the satisfies the laws of physics. Mathematically, the goal is: given a Lagrangian, $$ \mathscr{L} $$ which is a function of the function $$ y(x) $$ that we are looking for, find $$ y(x) $$ that connects $$ (x_1,y_1) $$ and $$ (x_2, y_2) $$ and makes the integral of $$ \mathscr{L} $$, called the action, a min/max/inflection point. If we succeed, we have found a function that makes the action, $$ S $$, stationary. Now you might think at first that this is exactly the kind of min/max problem that calculus is good at by taking the derivative and solving it for 0. However, that can only tell us the value of x where there is a minimum. In this case, we're not simply looking for a value of x, we're looking for an entire function!
@@ -129,6 +114,22 @@ $$
 $$
 
 This is the Euler-Lagrange equation.
+
+# TODO:
+
+1. Motivating example.
+* Shortest distance between two points on a plane?
+* Shortest distance between two points on a sphere?
+1. What is the difference between the Calculus of Variations and Principle of Stationary Action?
+1. What does "stationary" actually mean?
+
+Applications of the calculus of variations include:
+
+* Variational method (quantum mechanics), one way of finding approximations to the lowest energy eigenstate or ground state, and some excited states;
+* Variational Bayesian methods, a family of techniques for approximating intractable integrals arising in Bayesian inference and machine learning.
+* Variational methods in general relativity, a family of techniques using calculus of variations to solve problems in Einstein's theory of general relativity.
+* Finite element method is a variational method for finding approximate solutions to boundary value problems in differential equations.
+
 
 # D3 Graph
 
