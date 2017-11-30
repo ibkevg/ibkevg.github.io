@@ -27,6 +27,8 @@ We start by drawing the free body diagram:
 <embed src="{{ site.url }}{{ site.baseurl }}/assets/svg/Mechanics-Morin-2.4-b.svg" type="image/svg+xml"/>
 </div>
 
+We choose the sign for the static friction force to oppose gravity, since our goal is for the combination of the friction and our applied force to counter the block's own weight.
+
 $$ \begin{align}
 \sum F_y = 0 &= \mu N + F \sin \theta - gM \tag{1} \label{eq:1} \\
 \sum F_x = 0 &= F \cos \theta - N \\
@@ -42,8 +44,9 @@ $$ F \geq \frac {gM} {\mu \cos \theta + \sin \theta} $$
 We call this the minimum force because static friction is able to resist higher forces too.
 
 ## Angle $$ \theta $$ of the smallest force?
+This is the classic use for a derivative where we look for a minimum, which is when the rate of change equals zero. Strictly speaking we would need to confirm we did indeed find a minimum and not a max or point of inflection.
 
-Find $$ \frac {dF} {d\theta} = 0 $$
+So our goal is to find $$ \frac {dF} {d\theta} = 0 $$
 
 $$ \begin{align}
 
