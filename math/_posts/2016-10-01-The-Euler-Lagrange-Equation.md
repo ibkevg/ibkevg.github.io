@@ -24,9 +24,9 @@ Y'(x) &= y'(x) + \eta'(x)
 \end{align}
 $$
 
-We do this by introducing a variation from the correct value by adding $$ \eta(x) $$. In this case, we define $$ \eta(x) $$ to not be zero, so that adding it to the original will always give a wrong answer and to ensure $$ Y(x) $$ still connects the two points, we also maintain the constraint that $$ \eta(x_1) = \eta(x_2) = 0 $$.) So $$ Y(x) $$ now represents functions that could connect $$ (x_1,y_1) $$ and $$ (x_2, y_2) $$ _except_ the one we are really looking for.
+We do this by introducing a variation from the correct value by adding $$ \eta(x) $$. In this case, we define $$ \eta(x) $$ to not be zero, so that adding it to the original will always give a wrong answer. We also need to ensure $$ Y(x) $$ still connects the two points, so we also add the constraint that $$ \eta(x_1) = \eta(x_2) = 0 $$.) So, now $$ Y(x) $$ represents functions that could connect $$ (x_1,y_1) $$ and $$ (x_2, y_2) $$ _except_ the one we are really looking for.
 
-In a typical minimization problem, we will need to be able to express varying degrees of correctness/wrongness, so we introduce a scaling faction $$ \alpha $$:
+In a typical minimization problem, we will need to be able to express varying degrees of correctness/wrongness, so we introduce a scaling factor $$ \alpha $$:
 
 $$
 \begin{align}
@@ -39,9 +39,9 @@ Now the bigger $$ \alpha $$ is, the more wrong $$ Y(x) $$ will be and $$ Y(x) $$
 
 So we can rewrite our original problem in terms of our new function as:
 
-$$ S(\alpha) = \int_{x_1}^{x_2} \mathscr{L}(Y, Y', x)\ dx $$
+$$ S(\alpha, x) = \int_{x_1}^{x_2} \mathscr{L}(Y(\alpha, x), Y(\alpha, x)', x)\ dx $$
 
-Since S is a function of $$ \alpha $$ now, the original problem, of finding the function that makes the integral of S stationary, has become a vanilla "find the local minimum" calculus problem where we set the derivative to zero. We now also require that $$ \alpha = 0 $$.
+Since S is a function of $$ \alpha $$ now, the original problem of finding the function that makes the integral of S stationary, has become a vanilla "find the local minimum" calculus problem where we set the derivative to zero. We now also require that $$ \alpha = 0 $$.
 
 Restating in mathematical notation, we want to solve this equation for the action $$ S $$:
 
