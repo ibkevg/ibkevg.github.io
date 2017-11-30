@@ -54,14 +54,13 @@ $$ \begin{align}
 
 &= -gM ( \mu \cos \theta + \sin \theta)^{-2} (-\mu \sin \theta + \cos \theta) \\
 
-&= -\mu \sin \theta + \cos \theta \\
-
 \end{align} $$
 
 Setting the derivative to zero we find:
 
 $$
 \begin{align}
+-gM ( \mu \cos \theta + \sin \theta)^{-2} (-\mu \sin \theta + \cos \theta) &= 0 \\
 
 -\mu \sin \theta + \cos \theta &= 0 \\
 \mu \sin \theta &= \cos \theta \\
