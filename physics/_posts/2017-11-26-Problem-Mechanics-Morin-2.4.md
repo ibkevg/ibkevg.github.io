@@ -54,15 +54,15 @@ $$ \begin{align}
 
 &= -gM ( \mu \cos \theta + \sin \theta)^{-2} (-\mu \sin \theta + \cos \theta) \\
 
+&= gM \frac {(\mu \sin \theta - \cos \theta)} {( \mu \cos \theta + \sin \theta)^2} \\
+
 \end{align} $$
 
-Setting the derivative to zero we find:
+We can now solve this for 0. Observe that the numerator of the fraction is what can make this equation zero, so we can divide out/ignore the denominator. Also we can ignore/divide out the $$ gM $$ term because our block can never be massless. So we are left with:
 
 $$
 \begin{align}
--gM ( \mu \cos \theta + \sin \theta)^{-2} (-\mu \sin \theta + \cos \theta) &= 0 \\
-
--\mu \sin \theta + \cos \theta &= 0 \\
+\mu \sin \theta - \cos \theta &= 0 \\
 \mu \sin \theta &= \cos \theta \\
 
 \frac {\sin \theta} {\cos \theta} &= \frac 1 \mu \\
