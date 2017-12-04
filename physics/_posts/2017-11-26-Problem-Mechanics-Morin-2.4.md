@@ -3,7 +3,12 @@ title: Morin, Classical Mechanics, Problem 2.4
 layout: page
 ---
 
-# Problem 2.4
+# Why this Problem is Cool
+
+1. It requires you to consider how the result's numerator and the denominator each affect it's characteristics and constrain it's overall validity
+2. It requires you to figure out how to simplify things like $$ \cos ( \tan^{-1} \theta ) $$
+
+# Problem
 
 A block of mass $$ M $$ is positioned against a vertical wall. The coeffient of friction between the block and the wall is $$ \mu $$. You wish to keep the block from falling by pushing on it with a force of $$ F $$ at an angle $$ \theta $$ wrt horizontal ($$ -\frac \pi 2 \lt \theta \lt \frac \pi 2 $$).
 
