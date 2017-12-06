@@ -3,12 +3,14 @@ title: Morin, Classical Mechanics, Problem 2.4
 layout: page
 ---
 
-# Why this Problem is Cool
+# Problem 2.4
+
+## Why this Problem is Cool
 
 1. It requires you to consider how the result's numerator and the denominator each affect it's characteristics and constrain it's overall validity
 2. It requires you to figure out how to simplify things like $$ \cos ( \tan^{-1} \theta ) $$
 
-# Problem
+## Problem
 
 A block of mass $$ M $$ is positioned against a vertical wall. The coeffient of friction between the block and the wall is $$ \mu $$. You wish to keep the block from falling by pushing on it with a force of $$ F $$ at an angle $$ \theta $$ wrt horizontal ($$ -\frac \pi 2 \lt \theta \lt \frac \pi 2 $$).
 
@@ -22,9 +24,9 @@ A block of mass $$ M $$ is positioned against a vertical wall. The coeffient of 
 
 (c) What is the limiting value of $$ \theta $$ below which there does not exist an $$ F $$ that keeps the block up?
 
-# Solution
+## Solution
 
-## Minimum Force
+### Minimum Force
 
 We start by drawing the free body diagram:
 
@@ -48,7 +50,7 @@ $$ F \geq \frac {gM} {\mu \cos \theta + \sin \theta} $$
 
 We call this the minimum force because static friction is able to resist higher forces too.
 
-## Angle $$ \theta $$ of the smallest force?
+### Angle $$ \theta $$ of the smallest force?
 This is the classic use for a derivative where we look for a minimum, which is when the rate of change equals zero. Strictly speaking we would need to confirm we did indeed find a minimum and not a max or point of inflection.
 
 So our goal is to find $$ \frac {dF} {d\theta} = 0 $$
@@ -102,7 +104,7 @@ F &\geq \frac {gM} {\sqrt{1 + \mu^2}}
 \end{align}
 $$
 
-## Limiting value of $$ \theta $$
+### Limiting value of $$ \theta $$
 
 Given that: $$ F \geq \frac {gM} {\mu \cos \theta + \sin \theta} $$, we can see that $$ F $$ has no solution when
 

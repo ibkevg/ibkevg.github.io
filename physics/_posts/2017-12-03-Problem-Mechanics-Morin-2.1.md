@@ -3,17 +3,19 @@ title: Morin, Classical Mechanics, Problem 2.1
 layout: page
 ---
 
-# Why this Problem is Cool
+# Problem 2.1
 
-1. The physical aspect is simple enough that we can use it as a toy for understanding how to solve the problem by analyzing an infinitesimally small section.
+## Why this Problem is Cool
 
-# Problem
+The physical aspect is simple enough that we can use it as a toy for understanding how to solve the problem by analyzing an infinitesimally small section.
+
+## Problem
 
 A rope with length $$ L $$ and mass density per unit length $$ \rho $$ is suspended vertically from one end. Find the tension as a function of height along the rope.
 
 <embed src="{{ site.url }}{{ site.baseurl }}/assets/svg/Mechanics-Morin-2.1-a.svg" type="image/svg+xml"/>
 
-# Solution
+## Solution
 
 The tension in the rope is the force that opposes/supports the rope's weight. If we consider the very bottom of the rope, we note that it has no tension at all because there is no rope hanging below it, whereas the top of the rope, at $$ L $$, is supporting the entire weight of rope below it. So we can say that $$ T(0) = 0 $$ and $$ T(L) = g\rho L $$. Using this same logic, we can say that any point on the rope is supporting the weight of the rope below it. Therefore:
 
