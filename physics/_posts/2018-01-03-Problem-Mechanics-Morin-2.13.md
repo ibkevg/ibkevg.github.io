@@ -40,7 +40,7 @@ $$ (a+b)F_1 + bF_2 = \left( \frac {a+b} {2} \right) Mg \tag{4} \label{eq:4} $$
 
 So we have 4 equations and 3 unknowns - seems almost too good to be true. Let's see if it is, by expressing this system of equations in augmented matrix form and then using Gaussian elimination from linear algebra to row reduce.
 
-First, lets make a prediction about how it will turn out. To be held in place, a beam really only needs 2 supports but in our system we have 3. So the 3rd is redundant and could provide anywhere from all or nearly all the support, leaving little to be provided by the other two or it might provide almost no support, in which case the other two must shoulder the load. So we should find that our solution requires one of the supports to provide a fixed amount of support before the support provided by the other two can be determined. For example, if we set one of the supports to provide a force of zero then the weight of the beam should be divided between the other two.
+Before we turn the crank on the math, lets make a prediction about how it will turn out based on the physics. To be held in place, a beam really only needs 2 supports but in our system we have 3. So the 3rd is redundant and could provide anywhere from all or nearly all the support, leaving little to be provided by the other two or it might provide almost no support, in which case the other two must shoulder the load. So we should find that our solution requires one of the supports to provide a fixed amount of support before the support provided by the other two can be determined. For example, if we set one of the supports to provide a force of zero then the weight of the beam should be divided between the other two.
 
 ### Gaussian Elimination
 
