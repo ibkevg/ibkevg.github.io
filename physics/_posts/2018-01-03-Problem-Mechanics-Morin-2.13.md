@@ -66,6 +66,8 @@ $$
 
 It looks like row 4 is just a linear combination of rows 1 and 2. We can zero row 4 out by dividing it by $$ (a+b) $$ and then subtracting row 1. Since we only needed 3 equations for 3 unknowns anyways lets just get rid of this one. Unfortunately, it also looks like row 3 is just a linear combination of rows 1 and 2. We can zero it out by dividing by $$ -a $$ and then subtracting row 1.
 
+So it's turned out that we really only had 2 equations for our 3 unknowns. 
+
 $$
 \begin{bmatrix}
 1 & 1 & 1   & Mg \\
@@ -74,7 +76,7 @@ $$
 \end{bmatrix} 
 $$
 
-So it's turned out that we really only had 2 equations for our 3 unknowns. We continue reducing by dividing row 2 by a.
+We continue reducing by dividing row 2 by a.
 
 $$
 \begin{bmatrix}
@@ -94,8 +96,7 @@ $$
 \end{bmatrix} 
 $$
 
-So our system is singular and $$ F_3 $$ is a free variable. 
-So our solution is going to be parametric in terms of $$ F_3 $$:
+So our system is singular, i.e. cannot be fully resolved. $$ F_3 $$ is a free variable and our solution is going to be parametric in terms of $$ F_3 $$:
 
 $$ \begin{align}
 F_1(f) &= \left( \frac {a-b} {a} \right) \frac {Mg} 2 + \frac b a f
@@ -105,6 +106,8 @@ F_2(f) &= \left( \frac {a+b} {a} \right) \left( \frac {Mg} 2 - f \right)
 F_3(f) &= f
   \tag{7} \label{eq:7} \\
 \end{align} $$
+
+### Exploring the Answer
 
 So let's play with this a bit. Let's check if our prediction was right and see what happens if the inner support provides no force.
 
