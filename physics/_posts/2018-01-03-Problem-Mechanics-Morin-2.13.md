@@ -64,7 +64,7 @@ a+b & a+b & a+b & (a+b)Mg
 \end{bmatrix} 
 $$
 
-It looks like row 4 is just linear combinations of rows 1 and 2. We can zero row 4 out by dividing it by $$ (a+b) $$ and then subtracting row 1. Since we only needed 3 equations for 3 unknowns anyways lets just get rid of this one. Unfortunately, it also looks like row 3 is just a linear combination of rows 1 and 2. We can zero it out by dividing by $$ -a $$ and then subtracting row 1.
+It looks like row 4 is just a linear combination of rows 1 and 2. We can zero row 4 out by dividing it by $$ (a+b) $$ and then subtracting row 1. Since we only needed 3 equations for 3 unknowns anyways lets just get rid of this one. Unfortunately, it also looks like row 3 is just a linear combination of rows 1 and 2. We can zero it out by dividing by $$ -a $$ and then subtracting row 1.
 
 $$
 \begin{bmatrix}
