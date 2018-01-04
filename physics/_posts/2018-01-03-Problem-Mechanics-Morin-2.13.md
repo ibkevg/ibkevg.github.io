@@ -11,13 +11,13 @@ layout: page
 
 ## Problem
 
-We have a beam supported on each end and a support in the middle. The mass of the beam, M, is uniformly distributed along it's length. Find an expression for each of the supporting forces. Is it completely solvable?
+We have a beam supported on each end and a support somewhere in the middle. The mass of the beam, M, is uniformly distributed along it's length. Find an expression for each of the supporting forces. Is it completely solvable?
 
 ## Solution
 
-Let $$ F_1 $$, $$ F_2 $$ and $$ F_3 $$ be the upward force at the leftmost, middle and rightmost supports respectively.
-Let $$ a $$ be the distance from the leftmost support to the middle support.
-Let $$ b $$ be the distance from the middle support to the rightmost support.
+Let $$ F_1 $$, $$ F_2 $$ and $$ F_3 $$ be the upward force at the leftmost, inner and rightmost supports respectively.
+Let $$ a $$ be the distance from the leftmost support to the inner support.
+Let $$ b $$ be the distance from the inner support to the rightmost support.
 
 We can start by coming up with all the relevant equations by summing the forces to zero and summing the torque/moments to zero.
 
@@ -27,7 +27,7 @@ Take the moment around the 1st (leftmost) support assuming positive moment is in
 
 $$ aF_2 + (a+b)F_3 = \left( \frac {a+b} {2} \right) Mg \tag{2} \label{eq:2} $$
 
-Take the moment around the 2nd (middle) support:
+Take the moment around the 2nd (inner) support:
 
 $$ \begin{align}
 -aF_1 + bF_3 &= \left( \frac {a+b} {2} - a \right) Mg = \left( \frac {a-2a+b} {2} \right) Mg \\
@@ -38,7 +38,7 @@ Take the moment around the 3rd (rightmost) support:
 
 $$ (a+b)F_1 + bF_2 = \left( \frac {a+b} {2} \right) Mg \tag{4} \label{eq:4} $$
 
-So we have 4 equations and 3 unknowns - seems almost too good to be true. Let's use Gaussian elimination from linear algebra to see if it is by expressing this system of equations in augmented matrix form and then row reducing. First though, lets make a prediction. To be held in place, a beam really only needs 2 supports but in our system we have 3. So the 3rd is redundant and could provide anywhere from nearly all the support, leaving little to be provided by the other two or it might provide almost no support, in which case the other two must shoulder the load. So we should find that only if one of the 3 supports is constrained in the force it can provide is this system completely solveable otherwise, the forces will be specified in terms of each other and the distances between them.
+So we have 4 equations and 3 unknowns - seems almost too good to be true. Let's use Gaussian elimination from linear algebra to see if it is by expressing this system of equations in augmented matrix form and then row reducing. First though, lets make a prediction. To be held in place, a beam really only needs 2 supports but in our system we have 3. So the 3rd is redundant and could provide anywhere from nearly all the support, leaving little to be provided by the other two or it might provide almost no support, in which case the other two must shoulder most or all of the load. So we should find that only if one of the 3 supports is constrained in the force it can provide is this system completely solveable otherwise, the forces will be specified in terms of each other and the distances between them.
 
 ### Gaussian Elimination
 
