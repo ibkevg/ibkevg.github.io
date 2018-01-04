@@ -11,7 +11,7 @@ layout: page
 
 ## Problem
 
-We have a beam supported on each end and a support somewhere in the middle. The mass of the beam, M, is uniformly distributed along it's length. Find an expression for each of the supporting forces. Is it completely solvable?
+We have a horizontal beam supported on each end and a support somewhere in the middle. The mass of the beam, M, is uniformly distributed along it's length. Find an expression for each of the supporting forces. Is it completely solvable?
 
 ## Solution
 
@@ -38,7 +38,9 @@ Take the moment around the 3rd (rightmost) support:
 
 $$ (a+b)F_1 + bF_2 = \left( \frac {a+b} {2} \right) Mg \tag{4} \label{eq:4} $$
 
-So we have 4 equations and 3 unknowns - seems almost too good to be true. Let's use Gaussian elimination from linear algebra to see if it is by expressing this system of equations in augmented matrix form and then row reducing. First though, lets make a prediction. To be held in place, a beam really only needs 2 supports but in our system we have 3. So the 3rd is redundant and could provide anywhere from nearly all the support, leaving little to be provided by the other two or it might provide almost no support, in which case the other two must shoulder most or all of the load. So we should find that only if one of the 3 supports is constrained in the force it can provide is this system completely solveable otherwise, the forces will be specified in terms of each other and the distances between them.
+So we have 4 equations and 3 unknowns - seems almost too good to be true. Let's see if it is, by expressing this system of equations in augmented matrix form and then using Gaussian elimination from linear algebra to row reduce.
+
+First, lets make a prediction about how it will turn out. To be held in place, a beam really only needs 2 supports but in our system we have 3. So the 3rd is redundant and could provide anywhere from all or nearly all the support, leaving little to be provided by the other two or it might provide almost no support, in which case the other two must shoulder the load. So we should find that our solution requires one of the supports to provide a fixed amount of support before the support provided by the other two can be determined. For example, if we set one of the supports to provide a force of zero then the weight of the beam should be divided between the other two.
 
 ### Gaussian Elimination
 
@@ -96,12 +98,30 @@ So our system is singular and $$ F_3 $$ is a free variable.
 So our solution is going to be parametric in terms of $$ F_3 $$:
 
 $$ \begin{align}
-F_1(f) &= \left( \frac {a-b} {a} \right) \frac {Mg} 2 + \frac b a f \\
-F_2(f) &= \left( \frac {a+b} {a} \right) \left( \frac {Mg} 2 - f \right) \\
-F_3(f) &= f \\
+F_1(f) &= \left( \frac {a-b} {a} \right) \frac {Mg} 2 + \frac b a f
+  \tag{5} \label{eq:5} \\
+F_2(f) &= \left( \frac {a+b} {a} \right) \left( \frac {Mg} 2 - f \right)
+  \tag{6} \label{eq:6} \\
+F_3(f) &= f
+  \tag{7} \label{eq:7} \\
 \end{align} $$
 
-So let's play with this a bit. What should happen if $$ b = 0 $$ ? $$ F_1 $$ should support the leftmost edge of the beam along with half of it's weight, while $$ F_2 $$ and $$ F_3 $$ should support the rightmost edge and the other half of the beam. Let's see if our solution works out that way...
+So let's play with this a bit. Let's check if our prediction was right and see what happens if the inner support provides no force.
+
+$$ \begin{align}
+F_2(f)           &= 0 \\
+\left( \frac {a+b} {a} \right) \left( \frac {Mg} 2 - f \right) &= 0 \\
+\left( \frac {Mg} 2 - f \right) &= 0 \\
+f                &= \frac {Mg} 2
+\end{align} $$
+
+Plugging the value of $$ f $$ back in we find:
+
+$$ ( F_1, F_2, F_3) = \left( \frac {Mg} 2, 0, \frac {Mg} 2 \right) $$
+
+Just as we predicted!
+
+What should happen if $$ b = 0 $$ ? $$ F_1 $$ should support the leftmost edge of the beam along with half of it's weight, while $$ F_2 $$ and $$ F_3 $$ should support the rightmost edge and the other half of the beam. Let's see if our solution works out that way...
 
 $$ \begin{align}
 F_1(f) &= \left( \frac {a-0} {a} \right) \frac {Mg} 2 + \frac 0 a f = \frac {Mg} 2 \\
