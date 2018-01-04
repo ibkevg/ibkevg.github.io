@@ -134,6 +134,8 @@ F_3(f) &= f \\
 
 Sure enough it does!
 
+$$ ( F_1, F_2, F_3) = \left( \frac {Mg} 2, \frac {Mg} 2 - f, f \right) $$
+
 ### Why did we end up with only 2 equations and 3 unknowns?
 
 We observed during elimination that:
