@@ -8,18 +8,17 @@ layout: page
 
 These are some great resources that can help motivate and inspire learning physics
 
-# Entertaining Talks
+# Entertaining Talks and Videos
 * David Tong - [Quantum Fields: The Real Building Blocks of the Universe](https://www.youtube.com/watch?v=zNVQfWC_evg), [Q&A](https://youtu.be/QUMeKDlgKmk)
 * David Tong - [Einstein, Relativity and Gravity Waves](https://www.youtube.com/watch?v=G8r9Dg5PBRk)
 * Lawrence Krauss - [Hidden Realities: The Greatest Story Ever Told.. So Far](https://www.youtube.com/watch?v=BRNtcj6YRuc)
 * Sean Carroll - [The Particle at the End of the Universe](https://www.youtube.com/watch?v=RwdY7Eqyguo), [Q&A](https://www.youtube.com/watch?v=aom5SiHakGM)
+* [The Royal Institution](https://www.youtube.com/user/TheRoyalInstitution)
+  + fun talks given by leading physicists in the same lecture hall used by Faraday back in the 19th century
 
 # Web
 
 [The Particle Adventure](http://particleadventure.org)
-
-[The Royal Institution](https://www.youtube.com/user/TheRoyalInstitution)
-+ fun talks given by leading physicists in the same lecture hall used by Faraday back in the 19th century
 
 # Books
 

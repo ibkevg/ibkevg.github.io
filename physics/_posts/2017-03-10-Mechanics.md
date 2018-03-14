@@ -71,6 +71,12 @@ Lecture Notes, Professor David Tong, Cambridge University
 # Advanced Mechanics
 Here the  focus is largely on the geometric concepts underlying classical mechanics, in the language of differential geometry, symplectic geometry, differential forms, and Riemannian manifolds.
 
+Configuration space is a differentiable manifold.
+
+The Lagrangian $$ L(q, \dot{q}) $$ is a real-valued function on the tangent bundle. The generalized coordinate $$ q $$ labels which point in the manifold and the generalized velocities $$ \dot{q} $$ are tangent vectors in the tangent spaces at these points.
+
+The Hamiltonian $$ H(q,p) $$ is a real-valued function on the cotangent bundle. The generalized momenta $$ p $$ are covectors in the cotangent spaces.
+
 #### Primary Text
 [*Mathematical Methods of Classical Mechanics, 2nd Edition*](https://www.amazon.com/Mathematical-Methods-Classical-Mechanics-Arnold/dp/0387968903), V.I. Arnold, 1997
 
