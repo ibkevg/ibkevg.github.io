@@ -6,6 +6,26 @@ layout: page
 * This will become a table of contents (this text will be scraped).
 {:toc}
 
+jtbell Nov 9, 2017
+In the US, the usual sequence is:
+
+Undergraduate years 1-2: A broad introductory course using a single book, e.g. Halliday/Resnick. This is often two semesters (1 year) for classical physics, and one semester for "modern physics" which may be a separate book.
+
+Undergraduate years 2-4: Intermediate-level courses using separate textbooks for each subject (e.g. Griffiths for electromagnetism, Symon for mechanics)
+
+Graduate (MS/PhD): Advanced courses using separate textbooks again (e.g. Jackson for electromagnetism, Goldstein for classical mechanics)
+
+Three times through the material, at increasing levels of mathematical sophistication.
+
+Kleppner/Kolenkow is a special case in classical mechanics, sort of intermediate between the books that are usually used in the first two stages above. I think Purcell is similar for electromagnetism, although I haven't used it myself. They're sometimes used for fast-paced introductory courses, at places like MIT.
+
+Nov 9, 2017 #6
+Demystifier
+The usual process of learning physics is to first learn basics from a book such as Resnick, and then learn all this again in more detail from more specialized books. However, if the specialized books (like Kleppner which you already have) are not too difficult for you, you can skip the basics and go directly to the specialized books.
+- classical mechanics at 2nd year 
+- classical electrodynamics, statistical physics and quantum mechanics at 3rd year
+- condensed matter, nuclear physics, particle physics, quantum field theory and general relativity at 4th year
+
 # Introductory Mechanics
 Before tackling Kleppner, review Shankar's' "Fundamentals of Physics" book and online course.
 Here we are looking at mechanics using Newton's original formulation.
@@ -50,6 +70,12 @@ Lecture Notes, Professor David Tong, Cambridge University
 
 # Advanced Mechanics
 Here the  focus is largely on the geometric concepts underlying classical mechanics, in the language of differential geometry, symplectic geometry, differential forms, and Riemannian manifolds.
+
+Configuration space is a differentiable manifold.
+
+The Lagrangian $$ L(q, \dot{q}) $$ is a real-valued function on the tangent bundle. The generalized coordinate $$ q $$ labels which point in the manifold and the generalized velocities $$ \dot{q} $$ are tangent vectors in the tangent spaces at these points.
+
+The Hamiltonian $$ H(q,p) $$ is a real-valued function on the cotangent bundle. The generalized momenta $$ p $$ are covectors in the cotangent spaces.
 
 #### Primary Text
 [*Mathematical Methods of Classical Mechanics, 2nd Edition*](https://www.amazon.com/Mathematical-Methods-Classical-Mechanics-Arnold/dp/0387968903), V.I. Arnold, 1997
