@@ -8,8 +8,8 @@ istile: true
 
 <ul>
 {% for post in site.categories.blog %}
-<li>
-<a href="{{ post.url }}">{{ post.title }}</a>
-</li>
+    <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
 {% endfor %}
 </ul>
