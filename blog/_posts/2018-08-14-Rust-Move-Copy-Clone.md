@@ -12,13 +12,19 @@ explicit deep copy to be implemented (recognizing that for simple data types the
 
 The absence of the Copy trait means: **when assignment or pass by value are needed, the compiler will move the instance from src to dst instead of copying**
 
+### Ownership vs Move and Copy/Clone
+An important aspect of ownership is that the variable that owns the data is responsible for destroying it when it goes out of scope.
+When we do a copy from src to dst, we end up with two variables each of which owns it's data and each of which is responsible for dropping (aka destroying) it.
+When we do a move from src to dst, the src becomes invalid, dst becomes the owner and is responsible for dropping it.
+
 Now lets clarify what "move" actually does because of it's surprisingly similar to copy:
-1. at runtime: a bitwise copy of src to dst is performed, exactly the same as what is performed when the Copy trait is in effect
-2. at compile time: the compiler disallows further use of the src (because as a result of copying both src and dst might now reference the same resources)
-3. Note that a copy produces the same result in memory as a move does except the compiler knows the src is still valid and allows continued use of it.
+1. at runtime: a bitwise copy of src to dst is performed, exactly the same as what is performed when the Copy trait is in effect. However, as a result of the bitwise copy, both src and dst might now reference the same resources
+2. at compile time: logically, ownership is now said to have been transfered from the src to dst and as a result the compiler treats src as no longer valid, no longer in scope and it's drop is never called
+4. at compile time: since dst now is owner, when it goes out of scope, the Drop trait will be called (aka it's destructor) is nolonger the owner, the compiler does not call it's destructor (via the Drop trait).
+5. Note that a copy produces the same result in memory as a move does except the compiler knows the src is still valid and allows continued use of it.
 
 ### Using clone/copy/move
-Every type has one of the following sets of move/clone/copy properties:
+Every type has one of the following sets of move/clone/copy operations and the following suggests reasons why you might need one over the other:
 1. **move only** - Objects for which neither Clone nor Copy support is typically desirable include
 singletons, system managers/controllers or those that are tied to a
 single physical device or resource, such as a file descriptor.
