@@ -1,22 +1,28 @@
 ---
-title: Rust Move, Copy and Clone
+title: Rust Ownership, Move, Copy and Clone
 layout: page
 ---
 
 ### Overview
+
+Ownership is a key tenant of Rust. It says that a variable/object is responsible for cleaning up any resources it has acquired when it goes out of scope and is destroyed. The offical Rust docs identify the following key tenants:
+
+> Each value in Rust has a variable that’s called its owner.\\
+> There can only be one owner at a time.\\
+> When the owner goes out of scope, the value will be dropped (aka destroyed.)
+
+If you're familiar with C++, this is conceptually similar to having a unique_ptr<> however some of the safety guarantees a unique_ptr can provide only at runtime are made by Rust at compile time. This compile-time notion of ownership has implications for assigning/passing variables (copying) and transfering their ownership.
+
 Clone means: **An instance of this type can be explicitly duplicated but to do so may require hand written code.**\\
-Clone + Copy means: **The compiler is allowed to duplicate an instance of this type automatically using a trivial bitwise copy.**
+Clone + Copy means: **The compiler is allowed to duplicate an instance of this type automatically using a trivial bitwise copy.**\\
+Move is implied by the absence of the Copy trait and means: **when assignment or pass by value are needed, the compiler will move the instance from src to dst instead of copying**
+
+Ownership has implications for move/copy/clone because when we duplicate an object, we end up with two variables each of which owns it's data and thus each is responsible for dropping (aka destroying) it. Not surprisingly if we move an object to a dst variable, the dst becomes the new owner.
 
 In C++ terms, a Copy is a shallow copy performed automatically by the compiler whereas Clone allows an
-explicit deep copy to be implemented (recognizing that for simple data types there is no distinction between the two.)                   
-
-The absence of the Copy trait means: **when assignment or pass by value are needed, the compiler will move the instance from src to dst instead of copying**
+explicit deep copy to be implemented (recognizing that for simple data types there is no distinction between the two.) Move, however, has no direct compile analogy with C++ but is loosely similar to copying from one unique_ptr<> to another behaves at runtime.
 
 ### Ownership vs Move and Copy/Clone
-An important aspect of ownership is that the variable that owns the data is responsible for destroying it when it goes out of scope.
-When we do a copy from src to dst, we end up with two variables each of which owns it's data and each of which is responsible for dropping (aka destroying) it.
-When we do a move from src to dst, the src becomes invalid, dst becomes the owner and is responsible for dropping it.
-
 Now lets clarify what "move" actually does because of it's surprisingly similar to copy:
 1. at runtime: a bitwise copy of src to dst is performed, exactly the same as what is performed when the Copy trait is in effect. However, as a result of the bitwise copy, both src and dst might now reference the same resources
 2. at compile time: logically, ownership is now said to have been transfered from the src to dst and as a result the compiler treats src as no longer valid, no longer in scope and it's drop is never called
@@ -36,6 +42,21 @@ string buffer in the heap.
 3. **clone + copy** - Note: Copy without Clone is not allowed because Copy represents a characteristic that is additive to Clone.
 
 To use these, clone must be called explicitly, whereas copy and move happen implicitly during assignment or when passing by value.
+
+### Implementing Drop
+If all fields of your struct or type have implemented Drop, then the Rust compiler will automatically call them when you variable goes out of scope, otherwise you have to implement Drop by hand. For example:
+
+~~~
+struct NuclearPowerPlant {
+    fuel : u32;
+}
+
+impl Drop for NuclearPowerPlant {
+    fn drop(&mut self) {
+        disposeOfUranium(self.fuel);
+    }
+}
+~~~
 
 ### Implementing Clone + Move
 When all the members of a struct implement the Clone trait, we can have the
