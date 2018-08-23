@@ -45,6 +45,7 @@ Copy:
 * performed implicitly when assignment or pass by value is needed
 * only types simple enough that they can be duplicated via a simple memcpy can support Copy because Rust does not allow you to reimplement Copy in order to ensure Copy is inexpensive
 * opt-in via the Copy trait, which is purely a marker trait that you can think of as a flag turning copy support on/off
+* all std primitive types implement Copy, thus copy is relatively common behavior
 
 Clone:
 * allows an instance of a type to be duplicated in a general purpose manner
@@ -104,6 +105,8 @@ impl Clone for FullName {
 
 ### Implementing Copy
 
+The Copy trait is not implemented by default and must be opted into. A type such as a struct may implement the Copy trait only if all of it's fields also implement the Copy trait. As a rule of thumb for primitive types, you should support Copy, similar to the convention established by the Rust std library.
+
 Logically a type that supports Copy also supports Clone, so ideally the
 compiler would automatically provide a Clone implementation for Copy types (as
 Clone can be implemented using the Copy) but current limitations of the type
@@ -111,6 +114,7 @@ system prevent it from doing so. Instead, Rust requires that if your type
 supports Copy then you must manually supply Clone as well.
 
 A shorthand that tells the compiler to supply the implementation for you is:
+
 ~~~
 #[derive(Clone, Copy)]
 struct Point {
