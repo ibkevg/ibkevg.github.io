@@ -5,31 +5,20 @@ layout: page
 
 ### Overview
 
-In this post we talk about data ownership and how this influences the way Rust works with values such as pass by value, assignment and duplication of objects. We explicitly don't talk about references, that will come in later post.
+In this post we talk about data/object ownership and how this influences the way Rust works with values such as pass by value, assignment and duplication of objects. We explicitly don't talk about references, that will come in later post.
 
 ### Ownership
-Ownership is one of the core pillars of Rust. It says that an instance of a type is responsible for cleaning up any resources it has acquired when it goes out of scope and is destroyed. If you're familiar with C++, this is analogous to unique_ptr<>. The offical Rust docs identify the following key tenants of ownership:
+The idea of ownership is a key part of programming in Rust, C, and C++. An "owner" is responsible for releasing associated resources when they are nolonger needed. It's important to realize that a resource may be any number of things such as hardware resources such as memory, or OS resources such as threads, or file system resources, etc., etc.
+
+With C, the responsibility of ownership must be conveyed through documentation, naming conventions, etc. and it is up to the programmer to adhere to these conventions. For example, if a function call returns a pointer to a struct, then it must be made clear whether the caller or callee has the responsibility to release it and how. Conversely, if a function call is *provided* with a pointer to a struct, again it must be made clear between the caller and callee whose responsibility it is to release it.
+
+C++ is fully compatible with C and so code can be written in C++ that has all the same requirements as C. However, modern C++ also has many features oriented towards making ownership explicit. For example, a class constructor initializes, while the destructor uninitializes as necessary. The "Resource Acquisition is Initialization" Pattern (RAII) builds on this by saying resources (which includes memory) that are needed should be acquired during object initialization and returned when uninitializing. For example, a C++ unique_ptr<SomeClassName> owns whatever it is pointing to and will release the memory when it goes out of scope. It is common to find C++ programs that use a mixture of these old and new styles.
+
+The Rust language leaves no ambiguity wrt ownership and enforces it at compile time. Both Rust and modern C++ use many of the same techniques to do this however, Rust has no requirement to be backwards compatible with C and this has lead to Rust having a very different flavour when it comes to assigning and passing variables. The offical Rust docs identify the following key tenants of ownership:
 
 > Each value in Rust has a variable that’s called its owner.\\
 > There can only be one owner at a time.\\
 > When the owner goes out of scope, the value will be dropped (aka destroyed.)
-
-Unlike C/C++, where these are widely adhered to idiomatic conventions, Rust enforces these at _compile time_ and this leads to Rust having a very different flavour when it comes to assigning and passing variables.
-
-#### Implementing Drop
-If all fields of your struct or type have implemented Drop, then the Rust compiler will automatically call them when your variable goes out of scope, otherwise you have to implement Drop by hand. For example:
-
-~~~
-struct NuclearPowerPlant {
-    fuel : u32;
-}
-
-impl Drop for NuclearPowerPlant {
-    fn drop(&mut self) {
-        disposeOfUranium(self.fuel);
-    }
-}
-~~~
 
 ### Clone/Copy/Move Overview
 
@@ -170,3 +159,19 @@ fn test() {
   println!("a= {:?}, b= {:?}", a, b);
 }
 ~~~
+
+#### Implementing Drop
+If all fields of your struct or type have implemented Drop, then the Rust compiler will automatically call them when your variable goes out of scope, otherwise you have to implement Drop by hand. For example:
+
+~~~
+struct NuclearPowerPlant {
+    fuel : u32;
+}
+
+impl Drop for NuclearPowerPlant {
+    fn drop(&mut self) {
+        disposeOfUranium(self.fuel);
+    }
+}
+~~~
+
