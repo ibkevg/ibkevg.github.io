@@ -103,12 +103,12 @@ Since it produces a number, it is sometimes referred to as the Scalar Prodcut.
 
 ## Definition
 
-Let's start with two ways to define the dot product from the perspective of geometry, where a vector has a length and a direction and the other from coordinates where we have components:
+Let's start with two ways to define the dot product: one from the perspective of geometry, where a vector has a length and a direction and the other from the perspective of algebra and coordinates:
 
 __Definition #1:__ $$ \vec{u} \cdot \vec{v} = \lvert u \rvert \lvert v \rvert \cos {\theta} $$ \\
 __Definition #2:__ $$ \vec{u} \cdot \vec{v} = u_x v_x + u_y v_y + u_z v_z $$
 
-A way to think of this is the dot product multiplies the magnitudes of two vectors _but only the parts that lie in the same direction_.
+A way to think of this is the dot product multiplies the magnitudes of two vectors _but only the parts that lie in the same direction_. The geometric viewpoint does this all at once via $$ \cos{\theta} whereas the algebraic viewpoint accomplishes this by multiplying like components together. $$
 
 We will explore what this means in detail but for now just play around with the example by dragging the vectors around and observing that effect of making the vectors longer, shorter, more parallel and more perpendicular have on the dot product.
 
