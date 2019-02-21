@@ -25,7 +25,7 @@ Multiplying a vector by a scalar produces another vector.
 
 $$
 \vec{u}
-= a \vec{v} =
+= a \vec{v}
 = a \begin{bmatrix} v_x \\ v_y \end{bmatrix} = \begin{bmatrix} a v_x \\ a v_y \end{bmatrix}
 $$
 
