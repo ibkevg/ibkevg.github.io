@@ -41,7 +41,7 @@ Much of the intuition from multipling two scalars applies when multiplying a vec
 
 ## Unit Vectors
 
-A unit vector represents a direction by having a fixed length of 1. Since it has a length of 1, you can multiply it by a scalar to create a new vector of any length. For example, consider the standard $$ \mathbb{R}3 $$ unit vectors:
+Scalar multiplication is handy for creating and using unit vectors. A unit vector is a vector that represents a direction. This has many uses, for example, consider the standard $$ \mathbb{R}3 $$ unit vectors which are the foundation of the (x, y, z) coordinate system:
 
 $$
 \begin{align}
@@ -55,13 +55,17 @@ Any vector in $$ \mathbb{R}3 $$ can be written as a linear combination of these 
 
 $$ \vec{u} = u_x \ihat + u_y \jhat + u_z \khat $$
 
-We can also go the other way and turn a given vector into a unit vector. A vector's magnitude is:
+So how does a unit vector represent a direction then? (You may already know that anything with "unit" in it's name is going to be 1 but let's pretend you didn't know that already.) You might think that for a vector to represent a direction alone it should have no notion of length at all. So if the vector is $$ (r, \angle{\theta}) $$ , it's corresponding the unit vector might be just the $$ \angle{theta} $$ part (i.e. just the angle.) But a vector with no length is not a unit vector, it's the zero vector, $$ \vec{0} $$ and the zero vector has no particular direction. If you take any vector and multiply it by zero, you get the zero vector so you could say the zero vector points in every direction, but with zero magnitude, but "Every direction" is the same as "no particular direction"; it's just a different way of phrasing things. This is perhaps a weakness in the traditional description of a vector as being a pair consisting of a magnitude and a direction: For the zero vector, the magnitude is zero, but the direction is arbitrary.
 
-$$ \lvert\vec{u}\rvert = \sqrt{u_x^2 + u_y^2 + u_z^2} $$
+All that to say, for a vector to have a direction it must also have a length. A unit vector has a length of 1 and because of that you can multiply it by any scalar magnitude to create a vectors of any length you need.
 
-if we divide the vector by it's magnitude, we in effect normalize it to 1, creating a unit vector in the same direction:
+To make a unit vector, say $$ \hat{u} $$, we take a vector and divide out it's magnitude, in effect normalizing it to 1.
 
 $$ \hat{u} = \frac{\vec{u}}{\lvert\vec{u}\rvert} $$
+
+Where a vector's magnitude is:
+
+$$ \lvert\vec{u}\rvert = \sqrt{u_x^2 + u_y^2 + u_z^2} $$
 
 To recreate the original vector we combine the two using the following scalar multiplication:
 
