@@ -87,7 +87,7 @@ $$ \vec{b} = \lvert\vec{b}\rvert \hat{b} $$
 $$ (c \vec{a}) \cdot \vec{b} = \vec{a} \cdot (c \vec{b}) = c (\vec{a} \cdot \vec{b}) $$ \\
 $$ (c \vec{a}) \times \vec{b} = \vec{a} \times (c \vec{b}) = c (\vec{a} \times \vec{b}) $$
 
-Working this out, we can see that indeed the vector products both start by multiplying the vector lengths together:
+Working this out, we can see that indeed for both vector products we begin by multiplying the vector lengths together:
 
 $$ \begin{align}
 \vec{a} \cdot \vec{b} = (\lvert\vec{a} \rvert \hat{a}) \cdot (\lvert\vec{b} \rvert \hat{b})
