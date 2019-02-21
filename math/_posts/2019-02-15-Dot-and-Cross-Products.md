@@ -185,7 +185,7 @@ $$
 \ihat \cdot \jhat = \ihat \cdot \khat = \jhat \cdot \khat = 0
 $$
 
-Therefore most of the terms cancel and we are left with:
+Therefore most of the terms cancel and we are left with what we stated as Definition #2 above:
 
 $$ \vec{u} \cdot \vec{v} = u_x v_x + u_y v_y + u_z v_z $$
 
