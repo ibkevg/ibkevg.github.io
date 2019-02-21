@@ -230,8 +230,9 @@ $$ u_v =
 \frac{\vec{u} \cdot \vec{v}}{\lvert v \rvert}
 $$
 
-$$ \vec{u_v} =
-\vec{u} \cdot \hat{v} =
-\begin{pmatrix} \vec{u} \cdot \frac{\vec{v}}{\lvert v \rvert} \end{pmatrix} \frac{\vec{v}}{\lvert v \rvert} =
-\frac{\vec{u} \cdot \vec{v}}{\lvert v \rvert^2} \vec{v}
+$$ \vec{u_v}
+= u_v \hat{v}
+= ( \vec{u} \cdot \hat{v} ) \hat{v}
+= \frac{\vec{u} \cdot \vec{v}}{\lvert v \rvert} \frac{\vec{v}}{\lvert v \rvert}
+= \frac{\vec{u} \cdot \vec{v}}{\lvert v \rvert^2} \vec{v}
 $$
