@@ -70,7 +70,7 @@ $$ \vec{u} = \lvert\vec{u}\rvert \hat{u} $$
 
 # Vector/Vector Products
 
-Vector products can be tricky to understand at first because it's not obvious how we should extend our experience multiplying two numbers together to account for the directionality that vectors have. So before we introduce the equations that define dot and cross products, I'd like show you that both the dot and cross products have, at their core, the ordinary multiplication of vector lengths as you might expect.
+Vector products can be tricky to understand at first because it's not obvious how we should extend our experience multiplying two numbers together to account for the directionality that vectors have. So before we introduce the equations that define dot and cross products, lets check if the dot and cross products have, at their core, the ordinary multiplication of vector lengths as you might expect.
 
 To do this, let's express our vectors as the product of a magnitude and a unit vector and then track how each part influences the dot and cross products $$ \vec{a} \cdot \vec{b} $$ and $$ \vec{a} \times \vec{b} $$.
 
@@ -136,8 +136,8 @@ So as expected, we find:
 
 $$
 \begin{align}
-\vec{u} \cdot \vec{v} &= 0 \text{, where } \vec{u} \perp \vec{v} \\
-\vec{u} \cdot \vec{v} &= \lvert\vec{u}\rvert \lvert\vec{v}\rvert \text{, where } \vec{u} \parallel \vec{v}
+\vec{u} \cdot \vec{v} &= 0 \text{, when } \vec{u} \perp \vec{v} \\
+\vec{u} \cdot \vec{v} &= \lvert\vec{u}\rvert \lvert\vec{v}\rvert \text{, when } \vec{u} \parallel \vec{v}
 \end{align}
 $$
 
@@ -152,11 +152,11 @@ $$
 \end{align}
 $$
 
-Here we find that the dot product has given us the projection of the vector onto the x and y axis respectively.
+Here we find that the dot product has given us the projection of the vector onto the x and y axis respectively, something done frequently in engineering and physics.
 
-Now we are in a position to see how the dot product works. If instead of a unit vector we used a second regular vector, we would still have the $$ r \cos \theta $$ part but instead of (1) for the unit vector we will have the magnitude of the second vector. It's saying take all of the second vector and multiply it by the amount of the first vector that lies in the same direction. Conversely you could think of the projection being from the second onto the first, it doesn't matter.
+Now we are finally in a position to see how the dot product works. If instead of a unit vector we used a second regular vector, we would still have the $$ r \cos \theta $$ part but instead of (1) for the unit vector we will have the magnitude of the second vector. It's saying take all of the second vector and multiply it by the amount of the first vector that lies in the same direction. Conversely you could think of the projection being from the second onto the first, it doesn't matter.
 
-Now lets look at this from a more coordinate oriented viewpoint. Here we write $$ \vec{u} $$ and $$ \vec{v} $$ as a linear combination of the standard $$ \mathbb{R}3 $$ unit vectors:
+Now lets look at how the coordinate oriented definition #2 can be derived from definition #1. Here we write $$ \vec{u} $$ and $$ \vec{v} $$ as a linear combination of the standard $$ \mathbb{R}3 $$ unit vectors:
 
 $$
 \begin{align}
@@ -185,9 +185,9 @@ $$
 \ihat \cdot \jhat = \ihat \cdot \khat = \jhat \cdot \khat = 0
 $$
 
-Therefore most of the terms cancel and we are left with the following:
+Therefore most of the terms cancel and we are left with:
 
-__Definition #2:__ $$ \vec{u} \cdot \vec{v} = u_x v_x + u_y v_y + u_z v_z $$
+$$ \vec{u} \cdot \vec{v} = u_x v_x + u_y v_y + u_z v_z $$
 
 This component-based description is interesting in the sense that it's kind of like regular 1 dimensional multiplication except you multiply only the parts of the vector that are in the same direction.
 
