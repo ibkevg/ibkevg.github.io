@@ -39,25 +39,39 @@ Much of the intuition from multipling two scalars applies when multiplying a vec
 </script>
 <div id="ggb-ScalarMultiplication"></div>
 
-## Unit Vectors
+## The Null or Zero Vector
 
-Scalar multiplication is handy for creating and using unit vectors. A unit vector is a vector that represents a direction. This has many uses, for example, consider the standard $$ \mathbb{R}3 $$ unit vectors which are the foundation of the (x, y, z) coordinate system:
+So what happens if we multiply a vector by the scalar 0? We get the null vector aka the zero vector, $$\vec{0}$$.
 
 $$
 \begin{align}
-\ihat &= (1,0,0) \\
-\jhat &= (0,1,0) \\
-\khat &= (0,0,1) \\
+\vec{u}
+&= 0 \vec{v} = \vec{0} \\
+&= 0 \begin{bmatrix} v_x \\ v_y \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}
 \end{align}
 $$
 
-Any vector in $$ \mathbb{R}3 $$ can be written as a linear combination of these standard unit vectors:
+That doesn't seem particularly startling because after all anything times 0 is 0, right? Except... we're dealing with vectors now and while it makes sense that $$ \vec{v} $$'s length becomes zero, what happens to it's direction?
 
-$$ \vec{u} = u_x \ihat + u_y \jhat + u_z \khat $$
+There are several ways to look at this. One is that it has no direction at all. The direction a vector points in is the triangle formed by the vector line, drawn tip to tail, and a reference, say the X axis. If the length from tip to tail is 0 we have no line to measure an angle from! It's a point in space rather than a line and a point can't have an angle.
 
-So how does a unit vector represent a direction then? (You may already know that anything with "unit" in it's name is going to be 1 but let's pretend you didn't know that already.) You might think that for a vector to represent a direction alone it should have no notion of length at all. So if the vector is $$ (r, \angle{\theta}) $$ , it's corresponding the unit vector might be just the $$ \angle{theta} $$ part (i.e. just the angle.) But a vector with no length is not a unit vector, it's the zero vector, $$ \vec{0} $$ and the zero vector has no particular direction. If you take any vector and multiply it by zero, you get the zero vector so you could say the zero vector points in every direction, but with zero magnitude, but "Every direction" is the same as "no particular direction"; it's just a different way of phrasing things. This is perhaps a weakness in the traditional description of a vector as being a pair consisting of a magnitude and a direction: For the zero vector, the magnitude is zero, but the direction is arbitrary.
+Another, opposite, way to look at this is that the null vector is pointing in all directions at once because all vectors of all directions, shrink in the limit down to the null vector:
 
-All that to say, for a vector to have a direction it must also have a length. A unit vector has a length of 1 and because of that you can multiply it by any scalar magnitude to create a vectors of any length you need.
+$$ \lim_{r \to 0} r \angle{\theta }= \vec{0} $$
+
+Given this limit, you could also think of the null vector as pointing in every direction. It might seem contradictory to say that the null vector is both "every direction" and "no particular direction" but really it's just wordsmithing and these are just different ways of phrasing the same thing.
+
+Finally we could think of this physically. If we have a velocity vector and multiply it by 0 to bring our speed to 0, what direction are we moving? A velocity vector, by definition, is a speed and the direction of movement. If the speed is 0, then there cannot be a direction of movement.
+
+So for $$\vec{0}$$, the magnitude is zero, but the direction is unspecified.
+
+## Unit Vectors
+
+Scalar multiplication is also handy for creating and using unit vectors. A unit vector represents a specific direction and it's defined in such a way that it's easy to turn it into a vector of any length you might need. This was done by giving it the length of 1. This way you can multiply it by any scalar magnitude to create vectors of any length you need.
+
+You might think that for a vector to represent a direction alone it should have no notion of length at all, i.e. if the vector is $$ (r, \angle{\theta}) $$, it's corresponding unit vector might be just the $$ \angle{theta} $$ part (i.e. just the angle.) But as we just learned, a vector with no length is the zero vector, $$ \vec{0} $$ and the zero vector has no particular direction. All that to say, for a vector to have a direction it must also have a length.
+
+We write unit vectors with a hat. For example, $$ \hat{a} $$ is a unit vector in the direction of $$ \vec{a} $$.
 
 To make a unit vector, say $$ \hat{u} $$, we take a vector and divide out it's magnitude, in effect normalizing it to 1.
 
@@ -71,6 +85,21 @@ To recreate the original vector we combine the two using the following scalar mu
 
 $$ \vec{u} = \lvert\vec{u}\rvert \hat{u} $$
 
+Unit vectors have many uses, for example, $$ \mathbb{R}3 $$ has standard unit vectors that form the foundation of it's (x, y, z) coordinate system:
+
+$$
+\begin{align}
+\ihat &= (1,0,0) \\
+\jhat &= (0,1,0) \\
+\khat &= (0,0,1) \\
+\end{align}
+$$
+
+Any vector in $$ \mathbb{R}3 $$ can be written as a linear combination of these standard unit vectors:
+
+$$ \vec{u} = u_x \ihat + u_y \jhat + u_z \khat $$
+
+So how does a unit vector represent a direction then? (You may already know that anything with "unit" in it's name is going to be 1 but let's pretend you didn't know that already.) 
 
 # Vector/Vector Products
 
