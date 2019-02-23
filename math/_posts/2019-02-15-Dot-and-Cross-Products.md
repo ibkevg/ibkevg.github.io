@@ -61,7 +61,7 @@ $$ \lim_{r \to 0} r \angle{\theta }= \vec{0} $$
 
 Given this limit, you could also think of the null vector as pointing in every direction. It might seem contradictory to say that the null vector is both "every direction" and "no particular direction" but really it's just wordsmithing and these are just different ways of phrasing the same thing.
 
-Finally we could think of this physically. If we have a velocity vector and multiply it by 0 to bring our speed to 0, what direction are we moving? A velocity vector, by definition, is a speed and the direction of movement. If the speed is 0, then there cannot be a direction of movement.
+Finally we could think of this physically. If we have a velocity vector and multiply it by 0 to bring our speed to 0, then what direction are we moving? A velocity vector, by definition, is a speed and direction of movement. So if the speed is 0, then there can be no direction of movement.
 
 So for $$\vec{0}$$, the magnitude is zero, but the direction is unspecified.
 
