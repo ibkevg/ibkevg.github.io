@@ -69,7 +69,7 @@ So for $$\vec{0}$$, the magnitude is zero, but the direction is unspecified.
 
 Scalar multiplication is also handy for creating and using unit vectors. A unit vector represents a specific direction and it's defined in such a way that it's easy to turn it into a vector of any length you might need. This was done by giving it the length of 1. This way you can multiply it by any scalar magnitude to create vectors of any length you need.
 
-You might think that for a vector to represent a direction alone it should have no notion of length at all, i.e. if the vector is $$ (r, \angle{\theta}) $$, it's corresponding unit vector might be just the $$ \angle{theta} $$ part (i.e. just the angle.) But as we just learned, a vector with no length is the zero vector, $$ \vec{0} $$ and the zero vector has no particular direction. All that to say, for a vector to have a direction it must also have a length.
+You might think that for a vector to represent a direction alone it should have no notion of length at all, i.e. if the vector is $$ (r, \angle{\theta}) $$, it's corresponding unit vector might be just the $$ \angle{\theta} $$ part (i.e. just the angle.) But as we just learned, a vector with no length is the zero vector, $$ \vec{0} $$ and the zero vector has no particular direction. All that to say, for a vector to have a direction it must also have a length.
 
 We write unit vectors with a hat. For example, $$ \hat{a} $$ is a unit vector in the direction of $$ \vec{a} $$.
 
