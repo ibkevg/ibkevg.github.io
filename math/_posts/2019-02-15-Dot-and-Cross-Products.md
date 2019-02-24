@@ -15,8 +15,8 @@ $$
 
 There are several ways to multiply vectors and here we will be talking about three of them.
 
-| $$ a \vec{u} $$ | scalar multiplication | scalar to vector | produces a vector |
-| $$ \vec{u} \cdot \vec{v} $$ | dot product (aka scalar product) | vector to vector | produces a scalar |
+| $$ a \vec{u} $$ | scalar multiplication | scalar to vector | produces a vector |  
+| $$ \vec{u} \cdot \vec{v} $$ | dot product (aka scalar product) | vector to vector | produces a scalar |  
 | $$ \vec{u} \times \vec{v} $$ | cross product | vector to vector | produces a vector |
 
 # Scalar Multiplication
@@ -44,11 +44,11 @@ Much of the intuition from multipling two scalars applies when multiplying a vec
 So what happens if we multiply a vector by the scalar 0? We get the null vector aka the zero vector, $$\vec{0}$$.
 
 $$
-\begin{align}
+\begin{aligned}
 \vec{u}
 &= 0 \vec{v} = \vec{0} \\
 &= 0 \begin{bmatrix} v_x \\ v_y \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}
-\end{align}
+\end{aligned}
 $$
 
 That doesn't seem particularly startling because after all anything times 0 is 0, right? Except... we're dealing with vectors now and while it makes sense that $$ \vec{v} $$'s length becomes zero, what happens to it's direction?
@@ -88,11 +88,11 @@ $$ \vec{u} = \lvert\vec{u}\rvert \hat{u} $$
 Unit vectors have many uses, for example, $$ \mathbb{R}3 $$ has standard unit vectors that form the foundation of it's (x, y, z) coordinate system:
 
 $$
-\begin{align}
+\begin{aligned}
 \ihat &= (1,0,0) \\
 \jhat &= (0,1,0) \\
 \khat &= (0,0,1) \\
-\end{align}
+\end{aligned}
 $$
 
 Any vector in $$ \mathbb{R}3 $$ can be written as a linear combination of these standard unit vectors:
@@ -109,19 +109,18 @@ $$ \vec{a} = \lvert\vec{a}\rvert \hat{a} $$
 
 $$ \vec{b} = \lvert\vec{b}\rvert \hat{b} $$
 
->Note: we also need to know how the dot and cross products behave under scalar multiplication. For now, please accept that the following properties are true:\\
-\\
-$$ (c \vec{a}) \cdot \vec{b} = \vec{a} \cdot (c \vec{b}) = c (\vec{a} \cdot \vec{b}) $$ \\
+>Note: we also need to know how the dot and cross products behave under scalar multiplication. For now, please accept that the following properties are true:  
+$$ (c \vec{a}) \cdot \vec{b} = \vec{a} \cdot (c \vec{b}) = c (\vec{a} \cdot \vec{b}) $$  
 $$ (c \vec{a}) \times \vec{b} = \vec{a} \times (c \vec{b}) = c (\vec{a} \times \vec{b}) $$
 
 Working this out, we can see that indeed for both vector products we begin by multiplying the vector lengths together:
 
-$$ \begin{align}
+$$ \begin{aligned}
 \vec{a} \cdot \vec{b} = (\lvert\vec{a} \rvert \hat{a}) \cdot (\lvert\vec{b} \rvert \hat{b})
 &= \lvert \vec{a} \rvert \lvert \vec{b} \rvert (\hat{a} \cdot \hat{b})\\
 \vec{a} \times \vec{b} = (\lvert\vec{a} \rvert \hat{a}) \times (\lvert\vec{b} \rvert \hat{b})
 &= \lvert \vec{a} \rvert \lvert \vec{b} \rvert (\hat{a} \times \hat{b})
-\end{align} $$
+\end{aligned} $$
 
 Where the magic happens is how the dot and cross products vary in how they account for the vector directions. As we'll see below, the dot product of the unit vectors scales the result according to how parallel the vectors are while the cross product of two vectors is another vector that is perpendicular to both.
 
@@ -136,7 +135,7 @@ Since it produces a number, it is sometimes referred to as the Scalar Prodcut.
 
 Let's start with two ways to define the dot product: one from the perspective of geometry, where a vector has a length and a direction and the other from the perspective of algebra and coordinates:
 
-__Definition #1:__ $$ \vec{u} \cdot \vec{v} = \lvert u \rvert \lvert v \rvert \cos {\theta} $$ \\
+__Definition #1:__ $$ \vec{u} \cdot \vec{v} = \lvert u \rvert \lvert v \rvert \cos {\theta} $$  
 __Definition #2:__ $$ \vec{u} \cdot \vec{v} = u_x v_x + u_y v_y + u_z v_z $$
 
 A way to think of this is the dot product multiplies the magnitudes of two vectors _but only the parts that lie in the same direction_. The geometric viewpoint does this all at once via $$ \cos{\theta} $$ whereas the algebraic viewpoint accomplishes this by multiplying like components together.
@@ -156,20 +155,20 @@ Notice also that if the vectors are 1 dimensional, then the dot product simplifi
 Now to develop our intuition, let's first try this out with some simple vectors, $$ \ihat $$ and $$ \jhat $$ the x and y axis unit vectors.
 
 $$
-\begin{align}
+\begin{aligned}
 \ihat \cdot \ihat &= (1)(1) \cos 0 = 1  \\
 \ihat \cdot \jhat &= (1)(1) \cos 90^\circ = 0 \\
 \jhat \cdot \jhat &= (1)(1) \cos 0 = 1
-\end{align}
+\end{aligned}
 $$
 
 So as expected, we find:
 
 $$
-\begin{align}
+\begin{aligned}
 \vec{u} \cdot \vec{v} &= 0 \text{, when } \vec{u} \perp \vec{v} \\
 \vec{u} \cdot \vec{v} &= \lvert\vec{u}\rvert \lvert\vec{v}\rvert \text{, when } \vec{u} \parallel \vec{v}
-\end{align}
+\end{aligned}
 $$
 
 So the dot product can be a handy way to find out if two vectors are perpendicular or not. If dotting them produces 0 then they are perpendicular. Another way this can be useful is if you want to find a line that is perpendicular to the one you have.
@@ -177,10 +176,10 @@ So the dot product can be a handy way to find out if two vectors are perpendicul
 Next lets see what happens when we dot a regular vector, $$ \vec{u} = ( r, \angle \theta) $$, with these same unit vectors.
 
 $$
-\begin{align}
+\begin{aligned}
 \vec{u} \cdot \ihat &= r (1) \cos{\theta} &= r \cos \theta \\
 \vec{u} \cdot \jhat &= r (1) \cos{90^\circ - \theta} &= r \sin \theta
-\end{align}
+\end{aligned}
 $$
 
 Here we find that the dot product has given us the projection of the vector onto the x and y axis respectively, something done frequently in engineering and physics.
@@ -190,23 +189,23 @@ Now we are finally in a position to see how the dot product works. If instead of
 Now lets look at how the coordinate oriented definition #2 can be derived from definition #1. Here we write $$ \vec{u} $$ and $$ \vec{v} $$ as a linear combination of the standard $$ \mathbb{R}3 $$ unit vectors:
 
 $$
-\begin{align}
+\begin{aligned}
 \vec{u} &= u_x \ihat + u_y \jhat + u_z \khat \\
 \vec{v} &=  v_x \ihat + v_y \jhat + v_z \khat
-\end{align}
+\end{aligned}
 $$
 
 Now we can write out the dot product as:
 
 $$
-\begin{align}
+\begin{aligned}
 \vec{u} \cdot \vec{v} = \;
 &\begin{pmatrix} u_x \ihat + u_y \jhat + u_z \khat \end{pmatrix} \cdot
 \begin{pmatrix} v_x \ihat + v_y \jhat + v_z \khat \end{pmatrix} \\
 = \; &u_x v_x \ihat \cdot \ihat + u_x v_y \ihat \cdot \jhat + u_x v_z \ihat \cdot \khat +\\
 &u_y v_x \jhat \cdot \ihat + u_y v_y \jhat \cdot \jhat + u_y v_z \jhat \cdot \khat +\\
 &u_z v_x \khat \cdot \ihat + u_z v_y \khat \cdot \jhat + u_z v_z \khat \cdot \khat
-\end{align}
+\end{aligned}
 $$
 
 Remember that above we found:
@@ -225,7 +224,7 @@ This component-based description is interesting in the sense that it's kind of l
 Notice that we can also write this as the following matrix multiplication:
 
 $$
-\begin{align}
+\begin{aligned}
 \vec{u} \cdot \vec{v} = \vec{u}^\intercal \vec{v}
 &= \begin{bmatrix}
 u_x \\
@@ -240,17 +239,17 @@ v_z \\
 &= \begin{bmatrix} u_x & u_y & u_z \end{bmatrix}
 \begin{bmatrix} v_x \\ v_y \\ v_z \end{bmatrix}
 = u_x v_x + u_y v_y + u_z v_z
-\end{align}
+\end{aligned}
 $$
 
 Now lets see what happens when we dot a vector, $$ \vec{u} = (u_x, u_y, u_z) $$ with the standard unit vectors in $$\mathbb{R}3$$.
 
 $$
-\begin{align}
+\begin{aligned}
 \vec{u} \cdot \ihat = \begin{pmatrix} u_x & u_y & u_z \end{pmatrix} \cdot \begin{pmatrix} 1 & 0 & 0 \end{pmatrix} = \begin{pmatrix} u_x & 0 & 0 \end{pmatrix} \\
 \vec{u} \cdot \jhat = \begin{pmatrix} u_x & u_y & u_z \end{pmatrix} \cdot \begin{pmatrix} 0 & 1 & 0 \end{pmatrix} = \begin{pmatrix} 0 & u_y & 0 \end{pmatrix} \\
 \vec{u} \cdot \khat = \begin{pmatrix} u_x & u_y & u_z \end{pmatrix} \cdot \begin{pmatrix} 0 & 0 & 1 \end{pmatrix} = \begin{pmatrix} 0 & 0 & u_z \end{pmatrix}
-\end{align}
+\end{aligned}
 $$
 
 Again we find that the dot product is a useful tool for finding the projection of a vector in the direction of a unit vector. We can generalize this to finding the projection in the direction of any vector using:
