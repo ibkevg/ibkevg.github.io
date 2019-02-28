@@ -202,7 +202,9 @@ $$
 
 Here we find that the dot product has given us the projection of the vector onto the x and y axis respectively, something done frequently in engineering and physics.
 
-Now we are finally in a position to see how the dot product works. If instead of a unit vector we used a second regular vector, we would still have the $$ r \cos \theta $$ part but instead of (1) for the unit vector we will have the length of the second vector. It's saying take all of the second vector and multiply it by the amount of the first vector that lies in the same direction. Conversely you could think of the projection being from the second onto the first, it doesn't matter.
+### Geometric Interpretation #3: Projection + Multiplication
+
+Now we are in a position to put this all together. If instead of a unit vector we used a second regular vector, we would still have the $$ r \cos \theta $$ part but instead of (1) for the unit vector we will have the length of the second vector. It's saying take all of the second vector and multiply it by the amount of the first vector that lies in the same direction. Conversely you could think of the projection being from the second onto the first, it doesn't matter.
 
 ### Dot Product using Coordinates
 
@@ -280,7 +282,9 @@ $$
 \end{aligned}
 $$
 
-Again we find that the dot product is a useful tool for finding the projection of a vector in the direction of a unit vector. We can generalize this to finding the projection in the direction of any vector using:
+Again we find that the dot product is a useful tool for finding the projection of a vector in the direction of a unit vector.
+
+We can now generalize this to finding the projection in the direction of any vector using, for example, $$ \vec{u_v} $$ the projection of $$ \vec{u} $$ in the direction of $$ \vec{v} $$:
 
 $$ u_v =
 \vec{u} \cdot \hat{v} =
