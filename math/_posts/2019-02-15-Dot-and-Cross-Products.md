@@ -228,9 +228,10 @@ $$ \vec{u} \cdot \vec{v}
 \begin{pmatrix} v_x \ihat + v_y \jhat + v_z \khat \end{pmatrix}
 $$
 
-Now, we can multiply it out, noting that the dot product has these properties:
+Now we can multiply it all out because the dot product has the following properties:
 
->Distributive over vector addition: $$ \vec {a} \cdot (\vec {b} +\vec {c} )=\vec {a} \cdot \vec {b} +\vec {a} \cdot \vec {c} $$  
+>Left Distributive over vector addition: $$ \vec{a} \cdot (\vec{b} + \vec{c} ) = \vec{a} \cdot \vec{b} + \vec{a} \cdot \vec{c} $$  
+Right Distributive over vector addition: $$ (\vec{a} + \vec{b}) \cdot \vec{c} = \vec{a} \cdot \vec{c} + \vec{b} \cdot \vec {c} $$  
 Scalar multiplication:  $$ (c_{1}\vec {a} )\cdot (c_{2}\vec {b} )=c_{1}c_{2}(\vec {a} \cdot \vec {b} ) $$
 
 $$
