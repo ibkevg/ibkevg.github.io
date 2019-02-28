@@ -158,7 +158,15 @@ Notice also that if the vectors are 1 dimensional, then the dot product simplifi
 </script>
 <div id="ggb-DotProduct"></div> 
 
-### The Dot Product of Unit Vectors
+### Geometric Interpretation #1: the Angle between Two Vectors
+
+Another way to think of the dot product is as a means of determining the angle between two vectors. The angle should be independent of whatever lengths the two vectors may have so we can write:
+
+$$ \hat{a} \cdot \hat{b} = \cos{\theta} $$
+
+If we now substitute $$ \hat{a} = \frac{\vec{a}}{\lvert a \rvert} $$ we get the original definition:
+
+$$ \vec{a} \cdot \vec{b} = \lvert a \rvert \lvert b \rvert \cos {\theta} $$  
 
 Now to develop our intuition, let's first try this out with some simple vectors, $$ \ihat $$ and $$ \jhat $$ the x and y axis unit vectors.
 
@@ -180,17 +188,6 @@ $$
 $$
 
 So the dot product can be a handy way to find out if two vectors are perpendicular or not. If dotting them produces 0 then they are perpendicular. Another way this can be useful is if you want to find a line that is perpendicular to the one you have.
-
-### Geometric Interpretation #1: the Angle between Two Vectors
-
-Another way to think of the dot product is as a means of determining the angle between two vectors. The angle should be independent of whatever lengths the two vectors may have so we can write:
-
-$$ \hat{a} \cdot \hat{b} = \cos{\theta} $$
-
-If we now substitute $$ \hat{a} = \frac{\vec{a}}{\lvert a \rvert} $$ we get the original definition:
-
-$$ \vec{a} \cdot \vec{b} = \lvert a \rvert \lvert b \rvert \cos {\theta} $$  
-
 
 ### Geometric Interpretation #2: Projection
 
