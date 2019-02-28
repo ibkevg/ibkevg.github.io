@@ -223,11 +223,24 @@ $$
 
 Now we can write out the dot product as:
 
+$$ \vec{u} \cdot \vec{v}
+= \begin{pmatrix} u_x \ihat + u_y \jhat + u_z \khat \end{pmatrix} \cdot
+\begin{pmatrix} v_x \ihat + v_y \jhat + v_z \khat \end{pmatrix}
+$$
+
+Now, we can multiply it out, noting that the dot product has these properties:
+
+>Distributive over vector addition: $$ \vec {a} \cdot (\vec {b} +\vec {c} )=\vec {a} \cdot \vec {b} +\vec {a} \cdot \vec {c} $$  
+Scalar multiplication:  $$ (c_{1}\vec {a} )\cdot (c_{2}\vec {b} )=c_{1}c_{2}(\vec {a} \cdot \vec {b} ) $$
+
 $$
 \begin{aligned}
-\vec{u} \cdot \vec{v} = \;
-&\begin{pmatrix} u_x \ihat + u_y \jhat + u_z \khat \end{pmatrix} \cdot
+\vec{u} \cdot \vec{v}
+= \; &\begin{pmatrix} u_x \ihat + u_y \jhat + u_z \khat \end{pmatrix} \cdot
 \begin{pmatrix} v_x \ihat + v_y \jhat + v_z \khat \end{pmatrix} \\
+= \; &u_x \ihat \cdot v_x \ihat + u_x \ihat \cdot v_y \jhat + u_x \ihat \cdot v_z \khat + \\
+&u_y \jhat \cdot v_x \ihat + u_y \jhat \cdot v_y \jhat + u_y \jhat \cdot v_z \khat + \\
+&u_z \khat \cdot v_x \ihat + u_z \khat \cdot v_y \jhat + u_z \khat \cdot v_z \khat \\
 = \; &u_x v_x \ihat \cdot \ihat + u_x v_y \ihat \cdot \jhat + u_x v_z \ihat \cdot \khat +\\
 &u_y v_x \jhat \cdot \ihat + u_y v_y \jhat \cdot \jhat + u_y v_z \jhat \cdot \khat +\\
 &u_z v_x \khat \cdot \ihat + u_z v_y \khat \cdot \jhat + u_z v_z \khat \cdot \khat
