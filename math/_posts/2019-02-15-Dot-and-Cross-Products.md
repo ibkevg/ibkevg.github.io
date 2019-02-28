@@ -196,7 +196,7 @@ Next lets see what happens when we dot a regular vector, $$ \vec{u} = ( r, \angl
 $$
 \begin{aligned}
 \vec{u} \cdot \ihat &= r (1) \cos{\theta} &= r \cos \theta \\
-\vec{u} \cdot \jhat &= r (1) \cos{90^\circ - \theta} &= r \sin \theta
+\vec{u} \cdot \jhat &= r (1) \cos{(90^\circ - \theta)} &= r \sin \theta
 \end{aligned}
 $$
 
