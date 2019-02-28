@@ -140,11 +140,11 @@ Since it produces a number, it is sometimes referred to as the Scalar Prodcut.
 
 ## Definition
 
-Let's start with two ways to define the dot product: one from the perspective of geometry, where a vector has a length and a direction and the other from the perspective of algebra and coordinates:
+We will define the dot product in two different ways. Once from the perspective of geometry, where a vector has a length and a direction and the other from the perspective of algebra and coordinates. Let's start with the geometric viewpoint:
 
 __Definition #1, The Geometric Viewpoint:__ $$ \vec{u} \cdot \vec{v} = \lvert u \rvert \lvert v \rvert \cos {\theta} $$  
 
-A way to think of this is the dot product multiplies the lengths of two vectors _but only the parts that lie in the same direction_ and that is was the $$ \cos{\theta} $$ term is for.
+A way to think of this is the dot product multiplies the lengths of two vectors _but only the parts that lie in the same direction_ and that is what the $$ \cos{\theta} $$ term is for.
 
 We will explore what this means in detail but for now just play around with the example by dragging the vectors around and observing that effect of making the vectors longer, shorter, more parallel and more perpendicular have on the dot product.
 
@@ -196,7 +196,7 @@ Next lets see what happens when we dot a regular vector, $$ \vec{u} = ( r, \angl
 $$
 \begin{aligned}
 \vec{u} \cdot \ihat &= r (1) \cos{\theta} &= r \cos \theta \\
-\vec{u} \cdot \jhat &= r (1) \cos{90^\circ - \theta} &= r \sin \theta
+\vec{u} \cdot \jhat &= r (1) \cos{(90^\circ - \theta)} &= r \sin \theta
 \end{aligned}
 $$
 
