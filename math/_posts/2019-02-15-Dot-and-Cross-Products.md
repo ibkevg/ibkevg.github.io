@@ -292,13 +292,13 @@ $$
 
 Again we find that the dot product is a useful tool for finding the projection of a vector in the direction of a unit vector.
 
-### Dot product in matrix form
+# The Dot/Inner and Outer Product
 
-Notice that we can also write the dot product as the following matrix multiplication:
+We can also write the dot product, aka inner product, as the following matrix multiplication:
 
 $$
 \begin{aligned}
-\vec{u} \cdot \vec{v} = \vec{u}^\intercal \vec{v}
+\text{inner product} = \vec{u} \cdot \vec{v} = \vec{u}^\intercal \vec{v}
 &= \begin{bmatrix}
 u_x \\
 u_y \\
@@ -311,11 +311,29 @@ v_z \\
 \end{bmatrix} \\
 &= \begin{bmatrix} u_x & u_y & u_z \end{bmatrix}
 \begin{bmatrix} v_x \\ v_y \\ v_z \end{bmatrix}
-= u_x v_x + u_y v_y + u_z v_z
+= u_x v_x + u_y v_y + u_z v_z \\
+\text{outer product} = \vec{u} \otimes \vec{v}
+= \vec{u} \vec{v}^\intercal
+&= \begin{bmatrix}
+u_x \\
+u_y \\
+u_z \\
+\end{bmatrix}
+\begin{bmatrix}
+v_x \\
+v_y \\
+v_z \\
+\end{bmatrix}^\intercal \\
 \end{aligned}
 $$
 
+Notice that for the inner product, the transpose is on the inner vector and for the outer product, the transpose is on the outer most vector.
+
+TODO
+
 # Cross Product
+
+TODO
 
 # Lagrange's Identity
 
@@ -343,3 +361,21 @@ $$ \boxed{
 {\lvert \vec{a} \rvert}^2 {\lvert\vec{b} \rvert}^2
 = {\lvert \vec{a} \times \vec{b} \rvert}^2 + \lvert \vec{a} \cdot \vec{b} \rvert^2
 } $$
+
+TODO
+
+# The Wedge Product
+
+You might think of the wedge product as analagous to the cross product but in a way that isn't limited to 3 dimensions like the cross product is. This is sometimes referred to as the exterior product.
+
+$$ \vec{a} \times \vec{b} \text{ ... analagous to ... } \vec{a} \wedge \vec{b} $$
+
+TODO
+
+# Geometric Algebra
+
+The big idea of geometric algebra (aka Clifford Algebra) is to explicitly define vector multiplication in the following way:
+
+$$ \vec{a} \vec{b} = \vec{a} \cdot \vec{b} + \vec{a} \wedge \vec{b} $$
+
+TODO
