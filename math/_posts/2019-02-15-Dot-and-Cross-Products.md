@@ -195,12 +195,27 @@ Next lets see what happens when we dot a regular vector, $$ \vec{u} = ( r, \angl
 
 $$
 \begin{aligned}
-\vec{u} \cdot \ihat &= r (1) \cos{\theta} &= r \cos \theta \\
-\vec{u} \cdot \jhat &= r (1) \cos{(90^\circ - \theta)} &= r \sin \theta
+u_x = \vec{u} \cdot \ihat &= r (1) \cos{\theta} &= r \cos \theta \\
+u_y = \vec{u} \cdot \jhat &= r (1) \cos{(90^\circ - \theta)} &= r \sin \theta
 \end{aligned}
 $$
 
-Here we find that the dot product has given us the projection of the vector onto the x and y axis respectively, something done frequently in engineering and physics.
+Here we find that the dot product has given us the scalar projection/component of the vector $$ \vec{u} $$ onto the x and y axis respectively, something done frequently in engineering and physics.
+
+We can take this further and find the vector projection (aka vector component) in the direction of any vector using, for example, $$ \vec{u_v} $$ the projection of $$ \vec{u} $$ in the direction of $$ \vec{v} $$:
+
+$$ u_v =
+\vec{u} \cdot \hat{v} =
+\vec{u} \cdot \frac{\vec{v}}{\lvert v \rvert} =
+\frac{\vec{u} \cdot \vec{v}}{\lvert v \rvert}
+$$
+
+$$ \vec{u_v}
+= u_v \hat{v}
+= ( \vec{u} \cdot \hat{v} ) \hat{v}
+= \frac{\vec{u} \cdot \vec{v}}{\lvert v \rvert} \frac{\vec{v}}{\lvert v \rvert}
+= \frac{\vec{u} \cdot \vec{v}}{\lvert v \rvert^2} \vec{v}
+$$
 
 ### Geometric Interpretation #3: Projection + Multiplication
 
@@ -259,27 +274,6 @@ $$ \vec{u} \cdot \vec{v} = u_x v_x + u_y v_y + u_z v_z $$
 
 This component-based description is interesting in the sense that it's kind of like regular 1 dimensional multiplication except you multiply only the parts of the vector that are in the same direction.
 
-Notice that we can also write this as the following matrix multiplication:
-
-$$
-\begin{aligned}
-\vec{u} \cdot \vec{v} = \vec{u}^\intercal \vec{v}
-&= \begin{bmatrix}
-u_x \\
-u_y \\
-u_z \\
-\end{bmatrix}^\intercal
-\begin{bmatrix}
-v_x \\
-v_y \\
-v_z \\
-\end{bmatrix} \\
-&= \begin{bmatrix} u_x & u_y & u_z \end{bmatrix}
-\begin{bmatrix} v_x \\ v_y \\ v_z \end{bmatrix}
-= u_x v_x + u_y v_y + u_z v_z
-\end{aligned}
-$$
-
 Now lets see what happens when we dot a vector, $$ \vec{u} = (u_x, u_y, u_z) $$ with the standard unit vectors in $$\mathbb{R}^3$$.
 
 $$
@@ -298,19 +292,27 @@ $$
 
 Again we find that the dot product is a useful tool for finding the projection of a vector in the direction of a unit vector.
 
-We can now generalize this to finding the projection in the direction of any vector using, for example, $$ \vec{u_v} $$ the projection of $$ \vec{u} $$ in the direction of $$ \vec{v} $$:
+### Dot product in matrix form
 
-$$ u_v =
-\vec{u} \cdot \hat{v} =
-\vec{u} \cdot \frac{\vec{v}}{\lvert v \rvert} =
-\frac{\vec{u} \cdot \vec{v}}{\lvert v \rvert}
+Notice that we can also write the dot product as the following matrix multiplication:
+
 $$
-
-$$ \vec{u_v}
-= u_v \hat{v}
-= ( \vec{u} \cdot \hat{v} ) \hat{v}
-= \frac{\vec{u} \cdot \vec{v}}{\lvert v \rvert} \frac{\vec{v}}{\lvert v \rvert}
-= \frac{\vec{u} \cdot \vec{v}}{\lvert v \rvert^2} \vec{v}
+\begin{aligned}
+\vec{u} \cdot \vec{v} = \vec{u}^\intercal \vec{v}
+&= \begin{bmatrix}
+u_x \\
+u_y \\
+u_z \\
+\end{bmatrix}^\intercal
+\begin{bmatrix}
+v_x \\
+v_y \\
+v_z \\
+\end{bmatrix} \\
+&= \begin{bmatrix} u_x & u_y & u_z \end{bmatrix}
+\begin{bmatrix} v_x \\ v_y \\ v_z \end{bmatrix}
+= u_x v_x + u_y v_y + u_z v_z
+\end{aligned}
 $$
 
 # Cross Product
