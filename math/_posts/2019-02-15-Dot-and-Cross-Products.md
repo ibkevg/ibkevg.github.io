@@ -336,8 +336,6 @@ $$
 &= {\lvert \vec{a} \rvert}^2 {\lvert\vec{b} \rvert}^2 - ({\lvert \vec{a} \rvert} {\lvert\vec{b} \rvert} \cos{\theta} )^2 \\
 {\lvert \vec{a} \times \vec{b} \rvert}^2
 &= {\lvert \vec{a} \rvert}^2 {\lvert\vec{b} \rvert}^2 - \lvert \vec{a} \cdot \vec{b} \rvert^2 \\
-{\lvert \vec{a} \rvert}^2 {\lvert\vec{b} \rvert}^2
-&= {\lvert \vec{a} \times \vec{b} \rvert}^2 + \lvert \vec{a} \cdot \vec{b} \rvert^2
 \end{aligned}
 $$
 
