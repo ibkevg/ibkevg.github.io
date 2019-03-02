@@ -6,12 +6,16 @@ $$
 \newcommand{\ihat}{\hat{\boldsymbol{\imath}}}
 \newcommand{\jhat}{\hat{\boldsymbol{\jmath}}}
 \newcommand{\khat}{\hat{\boldsymbol{k}}}
+\newcommand{\vc}[1]{\mathbf{#1}}
 $$
 
 * This will become a table of contents (this text will be scraped).
 {:toc}
 
 # Basis Vectors
+
+Basis vectors are often referred to as $$ \vc{e_1}, \vc{e_2}, \vc{e_3} $$, etc.
+
 The $$ \ihat $$, $$ \jhat $$ and $$ \khat $$ vectors are called the standard basis vectors for $$ \mathbb{R}3 $$.
 They are the vectors $$ \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} $$, $$ \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} $$ and $$ \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} $$ respectively. Notice also that they are the columns of the 3 x 3 identity matrix:
 $$
