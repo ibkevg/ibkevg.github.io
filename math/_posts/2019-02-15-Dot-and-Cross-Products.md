@@ -247,7 +247,8 @@ Now we can multiply it all out because the dot product has the following propert
 
 >Left Distributive over vector addition: $$ \vec{a} \cdot (\vec{b} + \vec{c} ) = \vec{a} \cdot \vec{b} + \vec{a} \cdot \vec{c} $$  
 Right Distributive over vector addition: $$ (\vec{a} + \vec{b}) \cdot \vec{c} = \vec{a} \cdot \vec{c} + \vec{b} \cdot \vec {c} $$  
-Scalar multiplication:  $$ (c_{1}\vec {a} )\cdot (c_{2}\vec {b} )=c_{1}c_{2}(\vec {a} \cdot \vec {b} ) $$
+Scalar multiplication:  $$ (c_{1}\vec {a} )\cdot (c_{2}\vec {b} )=c_{1}c_{2}(\vec {a} \cdot \vec {b} ) $$  
+And we found above: $$ \ihat \cdot \ihat = \jhat \cdot \jhat = \khat \cdot \khat = 1 $$ and $$ \ihat \cdot \jhat = \ihat \cdot \khat = \jhat \cdot \khat = 0 $$
 
 $$
 \begin{aligned}
@@ -257,16 +258,14 @@ $$
 = \; &u_x \ihat \cdot v_x \ihat + u_x \ihat \cdot v_y \jhat + u_x \ihat \cdot v_z \khat + \\
 &u_y \jhat \cdot v_x \ihat + u_y \jhat \cdot v_y \jhat + u_y \jhat \cdot v_z \khat + \\
 &u_z \khat \cdot v_x \ihat + u_z \khat \cdot v_y \jhat + u_z \khat \cdot v_z \khat \\
-= \; &u_x v_x \ihat \cdot \ihat + u_x v_y \ihat \cdot \jhat + u_x v_z \ihat \cdot \khat +\\
-&u_y v_x \jhat \cdot \ihat + u_y v_y \jhat \cdot \jhat + u_y v_z \jhat \cdot \khat +\\
-&u_z v_x \khat \cdot \ihat + u_z v_y \khat \cdot \jhat + u_z v_z \khat \cdot \khat
+= \;&
+u_x v_x \underbrace{\ihat \cdot \ihat}_{=1} +
+u_x v_y \underbrace{\ihat \cdot \jhat}_{=0} +
+u_x v_z \underbrace{\ihat \cdot \khat}_{=0} +\\
+&u_y v_x \jhat \cdot \ihat + u_y v_y \underbrace{\jhat \cdot \jhat}_{=1} + u_y v_z \jhat \cdot \khat +\\
+&u_z v_x \khat \cdot \ihat + u_z v_y \khat \cdot \jhat + u_z v_z \underbrace{\khat \cdot \khat}_{=1}
 \end{aligned}
 $$
-
-Remember that above we found:
-
-$$ \ihat \cdot \ihat = \jhat \cdot \jhat = \khat \cdot \khat = 1 $$
-$$ \ihat \cdot \jhat = \ihat \cdot \khat = \jhat \cdot \khat = 0 $$
 
 Therefore most of the terms cancel and we are left with what we stated as Definition #2 above:
 
