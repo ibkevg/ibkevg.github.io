@@ -7,6 +7,7 @@ $$
 \newcommand{\jhat}{\hat{\boldsymbol{\jmath}}}
 \newcommand{\khat}{\hat{\boldsymbol{k}}}
 \newcommand{\vc}[1]{\mathbf{#1}}
+\newcommand{\inner}[2]{ \langle #1, #2 \rangle }
 $$
 
 * This will become a table of contents (this text will be scraped).
@@ -20,7 +21,7 @@ There are lots of ways to multiply vectors
 | $$ a \vc{u} $$ | scalar multiplication| vector |  
 | $$ \vc{u} \cdot \vc{v} $$ | dot product (aka scalar product) | scalar |  
 | $$ \vc{u} \times \vc{v} $$ | cross product | vector |  
-| $$ \langle \vc{u}, \vc{v} \rangle $$ | inner product (~= dot product) | scalar |  
+| $$ \inner{\vc u}{\vc v} $$ | inner product (~= dot product) | scalar |  
 | $$ \vc{u} \wedge \vc{v} $$ | wedge product (aka exterior product) | bivector |  
 | $$ \vc{u}\vc{v} = \vc{u} \cdot \vc{v} + \vc{u} \wedge \vc{v} $$ | geometric product | multivector |  
 | $$ \vc{u} \otimes \vc{v} $$ | outer product (aka tensor product) | tensor, multilinear matrix |  
@@ -299,7 +300,14 @@ $$
 
 Again we find that the dot product is a useful tool for finding the projection of a vector in the direction of a unit vector.
 
-# The Dot/Inner and Outer Product
+# The Inner and Outer Products
+
+The dot product is very useful in $$ \mathbb{R}^3 $$ but also very specific to $$ \mathbb{R}^3 $$. Since goal of linear algebra is to apply to vectors of any kind, whether they be audio data, polynomials, etc., the inner product takes the idea of a dot product and makes it more general and abstract so that it can apply to any kind of vector. The inner product of two vectors is shown as $$ \langle \vc{a}, \vc{b} \rangle $$. The inner product is defined as any operator that adheres to the following properties:
+
+>Commutative: $$ \inner{\vc a}{\vc b}  = \inner{\vc b}{\vc a} $$  
+>Scalar Mult: $$ \alpha \inner{\vc a}{\vc b}  = \inner{\alpha \vc a}{\vc b} $$  
+>Distributive: $$ \inner{\vc{a}}{\vc{b}+\vc{c}} = \langle \vc{a}, \vc{b} \rangle + \langle \vc{a}, \vc{c} \rangle $$  
+>Positive Definite $$ \inner{\vc v}{\vc v} \ge 0 $$ and equal iff $$ \vc v= 0 $$
 
 We can also write the dot product, aka inner product, as the following matrix multiplication:
 
