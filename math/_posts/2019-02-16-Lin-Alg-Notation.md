@@ -31,7 +31,9 @@ Also we have:
 
 Component form represents vectors in terms of coordinates with respect to a certain basis vectors (or axis). There are several ways to do this.
 
-### Unit Vector Notation
+### Basis Vector Notation
+
+Basis vectors are often referred to as $$ \vc{e_1}, \vc{e_2}, \vc{e_3} $$, etc.
 
 The unit vectors $$ \ihat $$, $$ \jhat $$ and $$ \khat $$ vectors are called the standard basis vectors for $$ \mathbb{R}3 $$ and represent a magnitude 1 vector in each of the x, y and z directions respectively. An example of a vector written using _unit vector notation_ is:
 
@@ -42,7 +44,7 @@ $$ \vec{u} = 3 \ihat + 4\jhat-2\khat $$
 For convenience writing by hand, it's fairly common to see vector components written in ordered set notation. This is quite efficient in terms of vertical space on the page as well.
 
 | angle brackets | $$ \vec{u} = \langle 3, 4, -2 \rangle = 3 \ihat + 4 \jhat - 2 \khat $$
- |
+ |  
 | parenthesis | $$ \vec{u} = (3, 4, -2) = 3 \ihat + 4 \jhat - 2 \khat $$
  |
 
@@ -50,7 +52,7 @@ For convenience writing by hand, it's fairly common to see vector components wri
 
 Vectors are most often represented as an n x 1 matrix, called a column vector or matrix.
 
-| column | $$ \vec{u} = \begin{pmatrix} 3 \\ 4 \\ -2 \end{pmatrix} = 3 \ihat + 4 \jhat - 2 \khat $$ | |
+| column | $$ \vec{u} = \begin{pmatrix} 3 \\ 4 \\ -2 \end{pmatrix} = 3 \ihat + 4 \jhat - 2 \khat $$ | |  
 | column via transpose | $$ \vec{u} = \begin{pmatrix} 3 & 4 & -2 \end{pmatrix}^\intercal = 3 \ihat + 4 \jhat - 2 \khat $$ | simplifies writing column vectors in-line with other text|
 
 
