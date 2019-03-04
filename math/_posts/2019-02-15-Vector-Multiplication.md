@@ -448,12 +448,12 @@ $$ (a_x b_y - b_x a_y)^2  +  (b_x a_z - a_x b_z)^2  +  (a_y b_z - b_y a_z)^2  = 
 
 This sum of squares equals zero only when $$ \vc{a} \parallel \vc{b} $$ and is consistent with the definition of the cross product:
 
-$$
-\begin{aligned}
-(\vc{a} \times \vc{b})|_x &= a_y b_z - b_y a_z \\
-(\vc{a} \times \vc{b})|_y &= b_x a_z - a_x b_z \\
-(\vc{a} \times \vc{b})|_z &= a_x b_y - b_x a_y
-\end{aligned}
+$$ \vc{a} \times \vc{b}
+= \begin{bmatrix}
+a_y b_z - b_y a_z \\
+a_y b_z - b_y a_z \\
+a_x b_y - b_x a_y
+\end{bmatrix}
 $$
 
 This vector is null if and only if a and b are parallel.  
