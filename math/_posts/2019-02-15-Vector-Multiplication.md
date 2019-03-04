@@ -8,6 +8,7 @@ $$
 \newcommand{\khat}{\hat{\boldsymbol{k}}}
 \newcommand{\vc}[1]{\mathbf{#1}}
 \newcommand{\inner}[2]{ \langle #1, #2 \rangle }
+\newcommand{\abs}[1]{ \lvert #1 \rvert }
 $$
 
 * This will become a table of contents (this text will be scraped).
@@ -378,7 +379,7 @@ $$
 
 # Dot and Cross Product Emergence from Pythagoras' Theorem
 
-The dot and cross products emerge naturally from Pythagoras' theorem. Below we will take advantage of the fact that the dot product of two perpendicular vectors is zero and the cross product of two parallel vectos is zero.
+The dot and cross products emerge naturally from Pythagoras' theorem. To see how this works, below we will take advantage of the fact that the dot product of two perpendicular vectors is zero and the cross product of two parallel vectos is zero.
 
 ## Emergence of the Dot Product from Pythagoras' Theorem
 
@@ -397,7 +398,7 @@ Also, regardless of perpendicularity, the difference between any $$ \vc{a} $$ an
 
 $$ |\vc{s}|^2 = (a_x-b_x)^2 + (a_y-b_y)^2 + (a_z-b_z)^2 $$
 
-Now when $$ \vc{a} \perp \vc{b} $$, we can equate these two expressions, $$ |\vc{s}|^2 = |\vc{s}|^2_{perp} $$, and cancel terms to arrive at:
+Now when $$ \vc{a} \perp \vc{b} $$, we can equate $$ \abs{\vc{s}}^2 = \abs{\vc{s}}^2_{perp} $$ and cancel terms to arrive at:
 
 $$ a_x b_x + a_y b_y + a_z b_z =  0 $$
 
@@ -425,7 +426,7 @@ Also, regardless of parallelity, the sum of any $$ \vc{a} $$ and $$ \vc{b} $$ is
 
 $$ |\vc{s}|^2 = (a_x + b_x)^2 + (a_y + b_y)^2 + (a_z + b_z)^2 $$
 
-Now when $$ \vc{a} \parallel \vc{b} $$, $$ |\vc{s}|^2 = |\vc{s}|^2_{parallel} $$, so we can equate these two expressions, and cancel terms to arrive at:
+Now when $$ \vc{a} \parallel \vc{b} $$, $$ \abs{\vc{s}}^2 = \abs{\vc{s}}^2_{parallel} $$, so we can equate these two expressions, and cancel terms to arrive at:
 
 $$
 \begin{aligned}
