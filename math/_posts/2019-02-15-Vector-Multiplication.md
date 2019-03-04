@@ -352,8 +352,14 @@ TODO
 
 # Lagrange's Identity
 
-Lagrange's Identity is analogous to pythagorous for vector multiplication.
-It shows us that the dot and cross products are two parts of the whole.
+Lagrange's Identity shows us that the dot and cross products are two parts of a greater whole. It is analogous to Pythagoras Theorem but for vector multiplication.
+
+$$ \boxed{
+{\lvert \vc{a} \rvert}^2 {\lvert\vc{b} \rvert}^2
+= {\lvert \vc{a} \times \vc{b} \rvert}^2 + \lvert \vc{a} \cdot \vc{b} \rvert^2
+} $$
+
+We can find this using:
 
 $$
 \begin{aligned}
@@ -364,20 +370,103 @@ $$
 {\lvert \vc{a} \times \vc{b} \rvert}^2
 &= {\lvert \vc{a} \rvert}^2 {\lvert\vc{b} \rvert}^2 (1 - \cos{\theta}^2) \\
 {\lvert \vc{a} \times \vc{b} \rvert}^2
-&= {\lvert \vc{a} \rvert}^2 {\lvert\vc{b} \rvert}^2 - {\lvert \vc{a} \rvert}^2 {\lvert\vc{b} \rvert}^2\cos{\theta}^2 \\
-{\lvert \vc{a} \times \vc{b} \rvert}^2
 &= {\lvert \vc{a} \rvert}^2 {\lvert\vc{b} \rvert}^2 - ({\lvert \vc{a} \rvert} {\lvert\vc{b} \rvert} \cos{\theta} )^2 \\
 {\lvert \vc{a} \times \vc{b} \rvert}^2
 &= {\lvert \vc{a} \rvert}^2 {\lvert\vc{b} \rvert}^2 - \lvert \vc{a} \cdot \vc{b} \rvert^2 \\
 \end{aligned}
 $$
 
-$$ \boxed{
-{\lvert \vc{a} \rvert}^2 {\lvert\vc{b} \rvert}^2
-= {\lvert \vc{a} \times \vc{b} \rvert}^2 + \lvert \vc{a} \cdot \vc{b} \rvert^2
-} $$
+# Dot and Cross Product Emergence from Pythagoras' Theorem
 
-TODO
+The dot and cross products emerge naturally from Pythagoras' theorem. Below we will take advantage of the fact that the dot product of two perpendicular vectors is zero and the cross product of two parallel vectos is zero.
+
+## Emergence of the Dot Product from Pythagoras' Theorem
+
+We first consider the case where $$ \vc{a} $$ is perpendicular to $$ \vc{b} $$. When $$ \vc{a} \perp \vc{b} $$, they form the opposite and adjacent sides of a right triangle, so we can apply Pythagoras to get:
+
+$$
+\begin{aligned}
+|\vc{s}|^2_{perp}
+&=  \lvert \vc{a} \rvert^2  +  \lvert \vc{b} \rvert^2 \\
+|\vc{s}|^2_{perp}
+&=  (a_x^2 + a_y^2 + a_z^2)  +  (b_x^2 + b_y^2 + b_z^2)
+\end{aligned}
+$$
+
+Also, regardless of perpendicularity, the difference between any $$ \vc{a} $$ and $$ \vc{b} $$ is $$ \vc{s} = \vc{a} - \vc{b} $$, therefore:
+
+$$ |\vc{s}|^2 = (a_x-b_x)^2 + (a_y-b_y)^2 + (a_z-b_z)^2 $$
+
+Now when $$ \vc{a} \perp \vc{b} $$, we can equate these two expressions, $$ |\vc{s}|^2 = |\vc{s}|^2_{perp} $$, and cancel terms to arrive at:
+
+$$ a_x b_x + a_y b_y + a_z b_z =  0 $$
+
+This is consistent with the definition of the dot product:
+
+$$ \vc{a} \cdot \vc{b} = a_x b_x + a_y b_y + a_z b_z $$
+
+## Emergence of the Cross Product from Pythagoras' Theorem
+
+Now let's consider the case where $$ \vc{a} $$ is parallel to $$ \vc{b} $$. We can't directly apply Pythagoras but we can apply the law of cosines:
+
+$$ |\vc{s}|^2 = |\vc{a}|^2 + |\vc{b}|^2 - 2|\vc{a}||\vc{b}|\cos S $$
+
+and because our vectors are parallel, $$ S = 180^\circ $$ making $$ \cos 180^\circ = -1 $$, which gives:
+
+$$
+\begin{aligned}
+|\vc{s}|^2_{parallel}
+&=  |\vc{a}|^2 + |\vc{b}|^2 + 2|\vc{a}||\vc{b}| \\
+&=  (a_x^2 + a_y^2 + a_z^2)  +  (b_x^2 + b_y^2 + b_z^2) + 2|\vc{a}||\vc{b}|
+\end{aligned}
+$$
+
+Also, regardless of parallelity, the sum of any $$ \vc{a} $$ and $$ \vc{b} $$ is $$ \vc{s} = \vc{a} + \vc{b} $$, therefore:
+
+$$ |\vc{s}|^2 = (a_x + b_x)^2 + (a_y + b_y)^2 + (a_z + b_z)^2 $$
+
+Now when $$ \vc{a} \parallel \vc{b} $$, $$ |\vc{s}|^2 = |\vc{s}|^2_{parallel} $$, so we can equate these two expressions, and cancel terms to arrive at:
+
+$$
+\begin{aligned}
+a_x b_x + a_y b_y + a_z b_z &=  \sqrt{a_x^2 + a_y^2 + a_z^2}\sqrt{b_x^2 + b_y^2 + b_z^2} \\
+(a_x b_x + a_y b_y + a_z b_z)^2 &=  (a_x^2 + a_y^2 + a_z^2)(b_x^2 + b_y^2 + b_z^2) \\
+\end{aligned}
+$$
+
+Expanding these expressions and cancelling terms, we get:
+
+$$
+2a_x b_x a_y b_y + 2a_x b_x a_z b_z + 2a_y b_y a_z b_z
+= (a_x b_y)^2 + (a_x b_z)^2 + (a_y b_x)^2 + (a_y b_z)^2 + (a_z b_x)^2 + (a_z b_y)^2
+$$
+
+Notice that we can gather terms and re-write this equality as
+
+$$ (a_x b_y - b_x a_y)^2  +  (b_x a_z - a_x b_z)^2  +  (a_y b_z - b_y a_z)^2  =  0 $$
+
+This sum of squares equals zero only when $$ \vc{a} \parallel \vc{b} $$ and is consistent with the definition of the cross product:
+
+$$
+\begin{aligned}
+(\vc{a} \times \vc{b})|_x &= a_y b_z - b_y a_z \\
+(\vc{a} \times \vc{b})|_y &= b_x a_z - a_x b_z \\
+(\vc{a} \times \vc{b})|_z &= a_x b_y - b_x a_y
+\end{aligned}
+$$
+
+This vector is null if and only if a and b are parallel.  
+
+Also as we saw previously, the dot product of two vectors is 0 if and only if the vectors are perpendicular, so we can confirm that $$ \vc{a} \times \vc{b} $$ is perpendicular to both of them.
+
+We find that $$ \vc{a} \cdot (\vc{a} \times \vc{b}) $$  is zero:
+
+$$ a_x a_y b_z - a_x b_y a_z  +  a_y b_x a_z - a_y a_x b_z  +  a_z a_x b_y - a_z b_x a_y  =  0 $$
+
+and likewise $$ \vc{b} \cdot (\vc{a} \times \vc{b}) $$  is zero:
+
+$$ b_x a_y b_z - b_x b_y a_z  +  b_y b_x a_z - b_y a_x b_z  +  b_z a_x b_y - b_z b_x a_y  =  0 $$
+
 
 # The Wedge Product
 
