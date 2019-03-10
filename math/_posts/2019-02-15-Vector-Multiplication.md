@@ -56,37 +56,50 @@ Much of the intuition from multipling two scalars applies when multiplying a vec
 
 ## The Null or Zero Vector
 
-If we multiply a vector by zero, we get the null vector aka the zero vector, $$\vc{0}$$. That doesn't seem particularly startling because after all anything times 0 is 0, right? Except... we're dealing with vectors now, it makes sense that $$ \vc{v} $$'s length becomes zero, but what happens to it's direction?
+If we multiply a vector by zero, we get a null vector aka a zero vector, $$\vc{0}$$.
+
+$$ 0 \vc{v} = \vc{0} $$
+
+That doesn't seem particularly startling because after all anything times 0 is 0, right? So lets explore what this means in terms of rectangular coordinates and then geometrically.
 
 $$
-\begin{aligned}
-\vc{u}
-&= 0 \vc{v} = \vc{0} \\
-&= 0 \begin{bmatrix} v_x \\ v_y \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}
-\end{aligned}
+0 \vc{v} 
+= 0 \begin{bmatrix} v_x \\ v_y \end{bmatrix}
+= \begin{bmatrix} 0v_x \\ 0v_y \end{bmatrix}
+= \begin{bmatrix} 0 \\ 0 \end{bmatrix}
 $$
 
-There are several ways to look at this. One is that it has no direction at all. The direction a vector points in is the triangle formed by the vector's length, drawn tip to tail, and a reference line, say the X axis. If the length is 0 we have no line to measure an angle from. It's a point in space rather than a line and a point can't have an angle.
+Here we find that a Null vector has no direction at all because there's no way to measure the angle between two lines of 0 length. It's like asking what is the angle of a plate of spaghetti? It's a question that doesn't have a meaningful answer.
 
-Another, opposite, way to look at this is that the null vector is pointing in all directions at once because all vectors of all directions, shrink in the limit down to the null vector:
+Now how should we think of this in geometry, length and angle, terms? It makes sense that $$ \vc{v} $$'s length becomes zero, but what happens to it's direction?
+
+$$ 0 \vc{v} = 0 \langle r, \angle{\theta } \rangle = \langle 0, \angle{???} \rangle $$
+
+We could think of a null vector as pointing in any direction because all vectors, of all directions, shrink in the limit down to a null vector:
 
 $$ \lim_{r \to 0} \langle r, \angle{\theta } \rangle = \vc{0} $$
 
-It might seem contradictory to say that the null vector is both "every direction" and "no particular direction" but these are really just different english expressions for the same mathematical concept.
+But then what angle should the zero vector have here:
 
-So for $$\vc{0}$$, the length is zero, but the direction is arbitrary.
+$$ \vc{a} + (-\vc{a}) = \vc{0} $$
+
+So the reality is a direction is only meaningful when accompanied by a non-zero length. It might seem contradictory to say that a null vector is both "any direction" and "no particular direction" but these are really just different ways to express in english that it is mathematically undefined.
+
+So for $$\vc{0}$$, the length is zero, and the direction is undefined.
 
 ## Unit Vectors
 
-Scalar multiplication is also handy for creating and using unit vectors. A unit vector represents a direction and we write it with a hat. For example, $$ \hat{a} $$ is a unit vector in the direction of $$ \vc{a} $$. Having "unit" in the name gives us a hint as to what it's length is because unit means 1 and that is the length of a unit vector. You can multiply a vector whose length is 1 by any scalar length to create vectors of any length you need.
+Scalar multiplication is also useful for creating and using unit vectors.
 
-You might think that for a vector to represent a direction alone it should have no notion of length at all, i.e. if the vector is $$ \langle r, \angle{\theta} \rangle $$, it's corresponding unit vector might be just the angle. But as we just learned, a vector with no length is the zero vector, $$ \vc{0} $$ and the zero vector has no particular direction. So, for a vector to have a direction it must also have a length.
+A unit vector is a handy way to represent a direction without a specific magnitude. Notationally, we write it with a hat, for example, $$ \hat{\vc{a}} $$ is a unit vector in the direction of $$ \vc{a} $$.
 
-As an example, we can make a $$ \vc{b} $$ in the direction of $$ \hat{a} $$ using $$ \vc{b} = 5 \hat{a} $$. So, $$ \vc{b} $$ has length, $$ \lvert\vc{b}\rvert = 5 $$.
+You might think that for a vector to represent a direction alone it should have no notion of length at all, i.e. if the vector is $$ \langle r, \angle{\theta} \rangle $$, it's corresponding unit vector might be just the angle. But as we just learned, a vector with no length is a zero vector, $$ \vc{0}, $$ and a zero vector's direction is undefined. So, for a vector to have a direction it must also have a length. Having "unit" in the name gives us a hint as to what it's length is because unit means 1 and that is the length of a unit vector.
 
-To make $$ \hat{a} $$, we take vector $$ \vc{a} $$ and divide out it's length, $$ \lvert\vc{u}\rvert $$, in effect normalizing it to 1.
+The reason unit vectors are so handy is because anything times 1 is itself, thus unit vectors can be multiplied by any scalar to create vectors of any length you need. As an example, we can make a $$ \vc{b} $$ in the direction of $$ \hat{\vc{a}} $$ using $$ \vc{b} = 5 \hat{\vc{a}} $$. So, $$ \vc{b} $$ has length, $$ \lvert\vc{b}\rvert = 5 $$.
 
-$$ \hat{u} = \frac{\vc{u}}{\lvert\vc{u}\rvert} $$
+To make $$ \hat{\vc{a}} $$, we take vector $$ \vc{a} $$ and divide out it's length, $$ \lvert\vc{a}\rvert $$, in effect normalizing it's components to 1.
+
+$$ \hat{\vc{u}} = \frac{\vc{u}}{\lvert\vc{u}\rvert} $$
 
 where a vector's length is:
 
@@ -456,9 +469,7 @@ a_x b_y - b_x a_y
 \end{bmatrix}
 $$
 
-This vector is null if and only if a and b are parallel.  
-
-Also as we saw previously, the dot product of two vectors is 0 if and only if the vectors are perpendicular, so we can confirm that $$ \vc{a} \times \vc{b} $$ is perpendicular to both of them.
+Also as we saw previously, the dot product of two vectors is 0 if the vectors are perpendicular, so we can confirm that $$ \vc{a} \times \vc{b} $$ is perpendicular to both of them.
 
 We find that $$ \vc{a} \cdot (\vc{a} \times \vc{b}) $$  is zero:
 
@@ -484,3 +495,23 @@ The big idea of geometric algebra (aka Clifford Algebra) is to explicitly define
 $$ \vc{a} \vc{b} = \vc{a} \cdot \vc{b} + \vc{a} \wedge \vc{b} $$
 
 TODO
+
+
+# References to incorporate
+
+Was linear algebra discovered or invented?
+https://www.quora.com/Was-mathematics-invented-or-discovered-1
+
+
+When we talk about a product in mathematics, we generally want the product to have a few features, similar to multiplication among numbers:
+https://www.quora.com/Why-is-the-dot-product-of-two-vectors-a-scalar-number
+
+Dividing with Vectors
+https://physics.stackexchange.com/questions/14082/what-is-the-physical-significance-of-dot-cross-product-of-vectors-why-is-divi
+
+Why does vector multiply require both dot and exterior product?
+https://physics.stackexchange.com/questions/186045/why-do-we-need-both-dot-product-and-cross-product
+
+Some good PDFs
+http://www.math.ucla.edu/~josephbreen/Understanding_the_Dot_Product_and_the_Cross_Product.pdf
+https://math.la.asu.edu/~surgent/mat272/dotcross.pdf
