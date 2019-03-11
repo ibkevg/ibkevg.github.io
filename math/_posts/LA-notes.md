@@ -1,4 +1,91 @@
 
+TODO
+
+# Multiplying Two Vectors
+
+Here we write $$ \vc{u} $$ and $$ \vc{v} $$ as a linear combination of the standard $$ \mathbb{R}^3 $$ unit vectors:
+
+$$
+\begin{aligned}
+\vc{u} &= u_x \ihat + u_y \jhat + u_z \khat \\
+\vc{v} &=  v_x \ihat + v_y \jhat + v_z \khat
+\end{aligned}
+$$
+
+Here's a bit of foreshadowing: it's interesting to note that the unit vectors here take on a role similar to what we have with complex numbers where the real and imaginary parts are kept separate. You can take the real part of a complex number and add it to the imaginary part. They are like two distinct dimensions.
+
+
+
+$$
+\begin{aligned}
+\vc{u} \vc{v}
+= \; &\begin{pmatrix} u_x \ihat + u_y \jhat + u_z \khat \end{pmatrix}
+\begin{pmatrix} v_x \ihat + v_y \jhat + v_z \khat \end{pmatrix} \\
+= \;
+&u_x v_x \ihat \ihat + u_x v_y \ihat \jhat + u_x v_z \ihat \khat +\\
+&u_y v_x \jhat \ihat + u_y v_y \jhat \jhat + u_y v_z \jhat \khat +\\
+&u_z v_x \khat \ihat + u_z v_y \khat \jhat + u_z v_z \khat \khat
+\end{aligned}
+$$
+
+$$
+\begin{tabular}{|c|c|c|}
+\hline
+Column 1 & Column 2 & Column 3 \\
+\hline
+second row & & \\
+\hline
+third row & & \\
+\hline
+\end{tabular}
+$$
+
+|$$       $$|$$ \ihat   $$|$$ \jhat   $$|$$ \khat   $$|  
+|$$ \ihat $$|$$ u_x v_x $$|$$ u_x v_y $$|$$ u_x v_z $$|  
+|$$ \jhat $$|$$ u_y v_x $$|$$ u_y v_y $$|$$ u_y v_z $$|  
+|$$ \khat $$|$$ u_z v_x $$|$$ u_z v_y $$|$$ u_z v_z $$|
+
+## Multiplying Complex Numbers
+
+One source of potential insight are complex numbers because they are, in a sense, vectors. For example, you might think of the real and imaginary parts as X and Y coordinates.
+
+So how do we multiply complex numbers?
+
+$$
+\begin{aligned}
+(a + b\ihat)(c + d\ihat)
+&= ac + ad\ihat + bc\ihat + bd\ihat\ihat \\
+&= (ac - bd) + (ad + bc)\ihat
+\end{aligned}
+$$
+
+
+# References to incorporate
+
+Was linear algebra discovered or invented?
+https://www.quora.com/Was-mathematics-invented-or-discovered-1
+
+
+When we talk about a product in mathematics, we generally want the product to have a few features, similar to multiplication among numbers:
+https://www.quora.com/Why-is-the-dot-product-of-two-vectors-a-scalar-number
+
+Dividing with Vectors
+https://physics.stackexchange.com/questions/14082/what-is-the-physical-significance-of-dot-cross-product-of-vectors-why-is-divi
+
+Why does vector multiply require both dot and exterior product?
+https://physics.stackexchange.com/questions/186045/why-do-we-need-both-dot-product-and-cross-product
+
+Some good PDFs
+http://www.math.ucla.edu/~josephbreen/Understanding_the_Dot_Product_and_the_Cross_Product.pdf
+https://math.la.asu.edu/~surgent/mat272/dotcross.pdf
+
+
+
+# Geometric Algebra vs Matricies
+
+https://math.stackexchange.com/questions/468532/in-geometric-algebra-is-there-a-geometric-product-between-matrices
+
+
 # What can complex numbers do that linear algebra cannot?
 
 Aren't complex numbers basically the same as 2 dimensional linear algebra?

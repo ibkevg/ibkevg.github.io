@@ -23,16 +23,79 @@ There are lots of ways to multiply vectors
 | $$ \vc{u} \cdot \vc{v} $$ | dot product (aka scalar product) | scalar |  
 | $$ \vc{u} \times \vc{v} $$ | cross product | vector |  
 | $$ \inner{\vc u}{\vc v} $$ | inner product (~= dot product) | scalar |  
-| $$ \vc{u} \wedge \vc{v} $$ | wedge product (aka exterior product) | bivector |  
-| $$ \vc{u}\vc{v} = \vc{u} \cdot \vc{v} + \vc{u} \wedge \vc{v} $$ | geometric product | multivector |  
 | $$ \vc{u} \otimes \vc{v} $$ | outer product (aka tensor product) | tensor, multilinear matrix |  
+| $$ \vc{u} \wedge \vc{v} $$ | exterior product (aka wedge product) | bivector |  
+| $$ \vc{u}\vc{v} = \vc{u} \cdot \vc{v} + \vc{u} \wedge \vc{v} $$ | geometric product | multivector |  
+ 
 
 My goal here is to:
 
-1. show what these vector operations do
+1. show how these vector operations work
 1. help build intuition about what they really mean
 1. provide examples of how to use them
 1. show why the vector products took the form that they do and not some other form
+
+# Would the "Real" Vector Multiplication Please Stand Up
+
+Imagine this is the mid-1800s and we are about to begin research into how vectors should be multiplied. We would quickly run into the problem that we can imagine all kinds of different ways to slice and dice the components of two vectors, so by what criteria would we know when we've found what we're looking for? Or, if you believe math is designed, then what would your feature list be?
+
+Our criteria for a "good" vector multiply:
+1. has useful applications
+1. has geometric meaning
+1. real number multiplication is just a special case
+1. closed under multiplication, just like reals and complex numbers
+1. binary operations work the same as real number multiplication
+1. supports division that works the same as real number division
+
+**Has useful applications**  
+
+I think this says it all:
+>"It looks fucking great actually! Yeah, really nice. It's beautiful... but it's useless. And as William Morris once said: "Nothing useless can be truly beautiful." - Tony Wilson, 24 Hour Party People
+
+**Has Geometric Meaning**
+
+Geometrically, the multiplication of reals relates to area. Also it relates to scaling values larger and smaller. Also, the multiplication of complex numbers relates to rotation in the plane formed by a real and imaginary axis. So it seems reasonable that whatever we come up with for vector multiplication of vectors should have elements of those things.
+
+**Closed under multiplication**
+
+Ideally, we hope that multiplying two vectors would result in another vector, just the same as as happens when multiplying reals or complex numbers.
+
+**Binary Operations Work the Same as Real Number Multiplication**
+
+Ideally we could work algebraically with vector multiplication the same as we do with real numbers. No special rules to remember. When we say that, we mean we want them to support the same set of properties.
+
+_Properties of Multiplication_
+
+Commutative Property: $$ \vc{a}\vc{b} = \vc{b}\vc{a} $$  
+Associative Property: $$ \vc{a}(\vc{b}\vc{c}) = (\vc{a}\vc{b})\vc{c} $$  
+Distributive Property: $$ \vc{a} (\vc{b} + \vc{c} ) = \vc{a}\vc{b} + \vc{a}\vc{c} $$  
+Multiplicative Identity: $$ 1\vc{a} = \vc{a} $$ (Note that this is required for division to exist.)
+
+Many of these seem like they're stating the obvious, however its useful to be explicit when listing requirements.
+
+**Supports Division**
+
+When we say we want division to exist and work for vectors the same as it does for real numbers, we again mean we want them to support the same set of properties.
+
+_Properties of Division_
+
+Multiplicative Inverse (or reciprocal): $$ \vc{a} \vc{a}^{-1} = \vc{a}^{-1} \vc{a} = 1 $$
+
+Division is not commutative: $$ \vc{a} \div \vc{b} \neq \vc{b} \div \vc{a} $$
+
+$$ \frac{\vc{a}}{\vc{b}} \ne \frac{\vc{b}}{\vc{a}} $$
+
+Division is also not associative: $$ \vc{a} \div (\vc{b} \div \vc{c}) \neq (\vc{a} \div \vc{b}) \div \vc{c} $$
+
+$$ \frac{\vc{a}\vc{c}}{\vc{b}} \ne \frac{\vc{a}}{\vc{b}\vc{c}} $$  
+
+Division is right distributive: $$ (\vc{a}+\vc{b}) ÷ \vc{c} = (\vc{a} ÷ \vc{c}) + (\vc{b} ÷ \vc{c}) $$
+
+$$ \frac{\vc{a} + \vc{b}}{\vc{c}} = \frac{\vc{a}}{\vc{c}} + \frac{\vc{b}}{\vc{c}} $$
+
+Division is not left distributive: $$ \vc{c} \div (\vc{a}+\vc{b}) = (\vc{c} ÷ \vc{a}) + (\vc{c} ÷ \vc{b}) $$
+
+$$ \frac{\vc{c}}{\vc{a} + \vc{b}} \ne \frac{\vc{c}}{\vc{a}} + \frac{\vc{c}}{\vc{b}} $$  
 
 # Scalar Multiplication
 
@@ -152,8 +215,6 @@ $$
 $$
 
 and where the magic happens is how the dot and cross products vary in how they account for the vector directions.
-
-
 
 # Dot Product
 
@@ -479,7 +540,6 @@ and likewise $$ \vc{b} \cdot (\vc{a} \times \vc{b}) $$  is zero:
 
 $$ b_x a_y b_z - b_x b_y a_z  +  b_y b_x a_z - b_y a_x b_z  +  b_z a_x b_y - b_z b_x a_y  =  0 $$
 
-
 # The Wedge Product
 
 You might think of the wedge product as analagous to the cross product but in a way that isn't limited to 3 dimensions like the cross product is. This is sometimes referred to as the exterior product.
@@ -494,24 +554,4 @@ The big idea of geometric algebra (aka Clifford Algebra) is to explicitly define
 
 $$ \vc{a} \vc{b} = \vc{a} \cdot \vc{b} + \vc{a} \wedge \vc{b} $$
 
-TODO
-
-
-# References to incorporate
-
-Was linear algebra discovered or invented?
-https://www.quora.com/Was-mathematics-invented-or-discovered-1
-
-
-When we talk about a product in mathematics, we generally want the product to have a few features, similar to multiplication among numbers:
-https://www.quora.com/Why-is-the-dot-product-of-two-vectors-a-scalar-number
-
-Dividing with Vectors
-https://physics.stackexchange.com/questions/14082/what-is-the-physical-significance-of-dot-cross-product-of-vectors-why-is-divi
-
-Why does vector multiply require both dot and exterior product?
-https://physics.stackexchange.com/questions/186045/why-do-we-need-both-dot-product-and-cross-product
-
-Some good PDFs
-http://www.math.ucla.edu/~josephbreen/Understanding_the_Dot_Product_and_the_Cross_Product.pdf
-https://math.la.asu.edu/~surgent/mat272/dotcross.pdf
+Think of the sum as like the real and imaginary parts of a complex number.
