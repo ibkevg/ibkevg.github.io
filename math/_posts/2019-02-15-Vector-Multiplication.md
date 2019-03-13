@@ -423,6 +423,10 @@ TODO
 
 # Cross Product
 
+http://en.wikipedia.org/wiki/Cross_product#History
+
+## Cross Product vs Determinant
+
 TODO
 
 # Lagrange's Identity
@@ -452,6 +456,19 @@ $$
 $$
 
 # Dot and Cross Product Emergence from Pythagoras' Theorem
+
+TODO: this link may be even better  
+https://www.quora.com/Why-is-cosine-used-in-dot-products-and-sine-used-in-cross-products
+
+https://www.quora.com/Who-invented-the-dot-product-and-cross-product
+
+https://math.stackexchange.com/questions/62318/origin-of-the-dot-and-cross-product
+
+https://www.physicsforums.com/threads/dot-product-cross-product-where-did-they-come-from.151710/
+
+https://math.stackexchange.com/questions/1916870/what-is-the-relation-between-quaternions-and-imaginary-numbers/1917093#1917093
+
+https://www.quora.com/Who-invented-the-dot-product-and-cross-product
 
 The dot and cross products emerge naturally from Pythagoras' theorem. To see how this works, below we will take advantage of the fact that the dot product of two perpendicular vectors is zero and the cross product of two parallel vectos is zero.
 
