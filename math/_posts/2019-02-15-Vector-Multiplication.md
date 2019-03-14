@@ -26,7 +26,6 @@ There are lots of ways to multiply vectors
 | $$ \vc{u} \otimes \vc{v} $$ | outer product (aka tensor product) | tensor, multilinear matrix |  
 | $$ \vc{u} \wedge \vc{v} $$ | exterior product (aka wedge product) | bivector |  
 | $$ \vc{u}\vc{v} = \vc{u} \cdot \vc{v} + \vc{u} \wedge \vc{v} $$ | geometric product | multivector |  
- 
 
 My goal here is to:
 
@@ -35,17 +34,26 @@ My goal here is to:
 1. provide examples of how to use them
 1. show why the vector products took the form that they do and not some other form
 
-# Would the "Real" Vector Multiplication Please Stand Up
+# What does a vector product even mean?
 
-Imagine this is the mid-1800s and we are about to begin research into how vectors should be multiplied. We would quickly run into the problem that we can imagine all kinds of different ways to slice and dice the components of two vectors, so by what criteria would we know when we've found what we're looking for? Or, if you believe math is designed, then what would your feature list be?
+Our intuition for what it means to take a product is initially formed by multiplying two numbers together. When we start considering the product of two vectors it's not obvious how we should extend our intuition to account for the directionality that vectors have.
 
-Our criteria for a "good" vector multiply:
+Imagine this is the mid-1800s and we are about to begin research into how vectors should be multiplied. We would quickly run into the problem that we can imagine all kinds of different ways to slice, dice and combine vector components, so by what criteria would we know when we've found one that is correct? Or, if you think of math as designed, then what would your feature list be?
+
+For example, when we multiply two numbers, say 5 x 4, we sometimes think of it as shortcut for 5 + 5 + 5 + 5. So should we think of vector multiplication similarly, as repeated sums? This way of thinking gets trickier to hold on to when we consider multiplying real numbers, say 5.2 x 4.75. We might imagine how fractional parts can play into a repeated sum if we stand on our heads and squint a bit, but it's getting tenuous. As you might be starting to suspect, in mathematics a product is not defined as the sum of a repeated addition.
+
+Maybe it is defined somewhere what a product must do? In advanced mathematics there are all kinds of "objects" that can be manipulated using algebra in addition to numbers such as complex numbers and vectors and matricies and sets and groups and rings, etc. Surely there is some universal definition of product that applies to all these things. ie. if someone were to invent a new abstract math object along with the operations you can perform on them, then this universal definition would tell us which of the operations should be considered products.
+
+You may be surprised to learn that there is no universal definition and whether an operation is thought of as multiplicative or not (and laballed a product) is determined by history and convention. For example, convention might be drawn from similarity with multiplication of regular numbers. The same is true for other operations such as addition.
+
+So it seems we have a lot of latitude. Lets base our expections for vector multiplication on how regular numbers behave:
+
 1. has useful applications
 1. has geometric meaning
+1. binary operations (algebraic rules for manipulating expressions that contain vector/vector products) work the same as real number multiplication
+1. supports division that works the same as real number division
 1. real number multiplication is just a special case
 1. closed under multiplication, just like reals and complex numbers
-1. binary operations work the same as real number multiplication
-1. supports division that works the same as real number division
 
 **Has useful applications**  
 
@@ -55,10 +63,6 @@ I think this says it all:
 **Has Geometric Meaning**
 
 Geometrically, the multiplication of reals relates to area. Also it relates to scaling values larger and smaller. Also, the multiplication of complex numbers relates to rotation in the plane formed by a real and imaginary axis. So it seems reasonable that whatever we come up with for vector multiplication of vectors should have elements of those things.
-
-**Closed under multiplication**
-
-Ideally, we hope that multiplying two vectors would result in another vector, just the same as as happens when multiplying reals or complex numbers.
 
 **Binary Operations Work the Same as Real Number Multiplication**
 
@@ -96,6 +100,14 @@ $$ \frac{\vc{a} + \vc{b}}{\vc{c}} = \frac{\vc{a}}{\vc{c}} + \frac{\vc{b}}{\vc{c}
 Division is not left distributive: $$ \vc{c} \div (\vc{a}+\vc{b}) = (\vc{c} ÷ \vc{a}) + (\vc{c} ÷ \vc{b}) $$
 
 $$ \frac{\vc{c}}{\vc{a} + \vc{b}} \ne \frac{\vc{c}}{\vc{a}} + \frac{\vc{c}}{\vc{b}} $$  
+
+**Real number multiplication is just a special case**
+
+It would be beautiful if ordinary real number multiplcation fell out of our new vector/vector product as a special case.
+
+**Closed under multiplication**
+
+Ideally, we hope that multiplying two vectors would result in another vector, just the same as happens when multiplying reals or complex numbers.
 
 # Scalar Multiplication
 
@@ -457,19 +469,6 @@ $$
 
 # Dot and Cross Product Emergence from Pythagoras' Theorem
 
-TODO: this link may be even better  
-https://www.quora.com/Why-is-cosine-used-in-dot-products-and-sine-used-in-cross-products
-
-https://www.quora.com/Who-invented-the-dot-product-and-cross-product
-
-https://math.stackexchange.com/questions/62318/origin-of-the-dot-and-cross-product
-
-https://www.physicsforums.com/threads/dot-product-cross-product-where-did-they-come-from.151710/
-
-https://math.stackexchange.com/questions/1916870/what-is-the-relation-between-quaternions-and-imaginary-numbers/1917093#1917093
-
-https://www.quora.com/Who-invented-the-dot-product-and-cross-product
-
 The dot and cross products emerge naturally from Pythagoras' theorem. To see how this works, below we will take advantage of the fact that the dot product of two perpendicular vectors is zero and the cross product of two parallel vectos is zero.
 
 ## Emergence of the Dot Product from Pythagoras' Theorem
@@ -485,15 +484,27 @@ $$
 \end{aligned}
 $$
 
-Also, regardless of perpendicularity, the difference between any $$ \vc{a} $$ and $$ \vc{b} $$ is $$ \vc{s} = \vc{a} - \vc{b} $$, therefore:
+Also, regardless of perpendicularity, 2 of the vectors that form the sides of the triangle must sum to the other. We arbitrarily choose $$ \vc{a} = \vc{b} + \vc{s} $$ or $$ \vc{s} = \vc{a} - \vc{b} $$ :
 
 $$ |\vc{s}|^2 = (a_x-b_x)^2 + (a_y-b_y)^2 + (a_z-b_z)^2 $$
 
-Now when $$ \vc{a} \perp \vc{b} $$, we can equate $$ \abs{\vc{s}}^2 = \abs{\vc{s}}^2_{perp} $$ and cancel terms to arrive at:
+Now when $$ \vc{a} \perp \vc{b} $$, we can equate $$ \abs{\vc{s}}^2 = \abs{\vc{s}}^2_{perp} $$:
 
-$$ a_x b_x + a_y b_y + a_z b_z =  0 $$
+$$
+\begin{aligned}
+(a_x-b_x)^2 + (a_y-b_y)^2 + (a_z-b_z)^2
+&= (a_x^2 + a_y^2 + a_z^2)  +  (b_x^2 + b_y^2 + b_z^2) \\
+a_x^2 - 2a_x b_x + b_x^2 +
+a_y^2 - 2a_y b_y + b_y^2 + 
+a_z^2 - 2a_z b_z + b_z^2
+&= a_x^2 + a_y^2 + a_z^2 + b_x^2 + b_y^2 + b_z^2 \\
+-2a_x b_x - 2a_y b_y - 2a_z b_z
+&= 0 \\
+a_x b_x + a_y b_y + a_z b_z &= 0
+\end{aligned}
+$$
 
-This is consistent with the definition of the dot product:
+This is consistent with the definition of the dot product which is 0 when the vectors are perpendicular:
 
 $$ \vc{a} \cdot \vc{b} = a_x b_x + a_y b_y + a_z b_z $$
 
@@ -517,7 +528,7 @@ Also, regardless of parallelity, the sum of any $$ \vc{a} $$ and $$ \vc{b} $$ is
 
 $$ |\vc{s}|^2 = (a_x + b_x)^2 + (a_y + b_y)^2 + (a_z + b_z)^2 $$
 
-Now when $$ \vc{a} \parallel \vc{b} $$, $$ \abs{\vc{s}}^2 = \abs{\vc{s}}^2_{parallel} $$, so we can equate these two expressions, and cancel terms to arrive at:
+We can equate these two expressions, $$ \abs{\vc{s}}^2 = \abs{\vc{s}}^2_{parallel} $$, when $$ \vc{a} \parallel \vc{b} $$:
 
 $$
 \begin{aligned}
@@ -533,7 +544,7 @@ $$
 = (a_x b_y)^2 + (a_x b_z)^2 + (a_y b_x)^2 + (a_y b_z)^2 + (a_z b_x)^2 + (a_z b_y)^2
 $$
 
-Notice that we can gather terms and re-write this equality as
+Notice that we can gather terms and re-write this as
 
 $$ (a_x b_y - b_x a_y)^2  +  (b_x a_z - a_x b_z)^2  +  (a_y b_z - b_y a_z)^2  =  0 $$
 
@@ -547,15 +558,40 @@ a_x b_y - b_x a_y
 \end{bmatrix}
 $$
 
-Also as we saw previously, the dot product of two vectors is 0 if the vectors are perpendicular, so we can confirm that $$ \vc{a} \times \vc{b} $$ is perpendicular to both of them.
+Also as we saw previously, the dot product of two vectors is 0 if the vectors are perpendicular. We can use this to confirm the following:
 
-We find that $$ \vc{a} \cdot (\vc{a} \times \vc{b}) $$  is zero:
+that $$ \vc{a} \times \vc{b} $$ is perpendicular to $$ \vc{a} $$:
 
-$$ a_x a_y b_z - a_x b_y a_z  +  a_y b_x a_z - a_y a_x b_z  +  a_z a_x b_y - a_z b_x a_y  =  0 $$
+$$
+\begin{aligned}
+\vc{a} \cdot (\vc{a} \times \vc{b})
+&= \begin{bmatrix} a_x, a_y, a_z \end{bmatrix} \cdot 
+\begin{bmatrix}
+a_y b_z - b_y a_z \\
+a_y b_z - b_y a_z \\
+a_x b_y - b_x a_y
+\end{bmatrix} = 0 \\
+&= a_x a_y b_z - a_x b_y a_z  +  a_y b_x a_z - a_y a_x b_z  +  a_z a_x b_y - a_z b_x a_y \\
+&= 0
+\end{aligned}
+$$
 
-and likewise $$ \vc{b} \cdot (\vc{a} \times \vc{b}) $$  is zero:
+that $$ \vc{a} \times \vc{b} $$ is perpendicular to $$ \vc{b} $$:
 
-$$ b_x a_y b_z - b_x b_y a_z  +  b_y b_x a_z - b_y a_x b_z  +  b_z a_x b_y - b_z b_x a_y  =  0 $$
+$$
+\begin{aligned}
+\vc{b} \cdot (\vc{a} \times \vc{b})
+&= \begin{bmatrix} b_x, b_y, b_z \end{bmatrix} \cdot 
+\begin{bmatrix}
+a_y b_z - b_y a_z \\
+a_y b_z - b_y a_z \\
+a_x b_y - b_x a_y
+\end{bmatrix} = 0 \\
+&= b_x a_y b_z - b_x b_y a_z  +  b_y b_x a_z - b_y a_x b_z  +  b_z a_x b_y - b_z b_x a_y \\
+&= 0 
+\end{aligned}
+$$
+
 
 # The Wedge Product
 
@@ -572,3 +608,25 @@ The big idea of geometric algebra (aka Clifford Algebra) is to explicitly define
 $$ \vc{a} \vc{b} = \vc{a} \cdot \vc{b} + \vc{a} \wedge \vc{b} $$
 
 Think of the sum as like the real and imaginary parts of a complex number.
+
+# TODO
+
+https://math.stackexchange.com/questions/1395970/what-is-the-logic-rationale-behind-the-vector-cross-product
+
+https://math.stackexchange.com/questions/62318/origin-of-the-dot-and-cross-product
+
+https://math.stackexchange.com/questions/1916870/what-is-the-relation-between-quaternions-and-imaginary-numbers/1917093#1917093
+
+https://math.stackexchange.com/questions/185991/is-the-vector-cross-product-only-defined-for-3d
+
+https://math.stackexchange.com/questions/645672/what-is-the-difference-between-a-point-and-a-vector
+
+https://www.quora.com/Why-is-cosine-used-in-dot-products-and-sine-used-in-cross-products
+
+https://www.quora.com/Who-invented-the-dot-product-and-cross-product
+
+https://www.physicsforums.com/threads/dot-product-cross-product-where-did-they-come-from.151710/
+
+https://physics.stackexchange.com/questions/14082/what-is-the-physical-significance-of-dot-cross-product-of-vectors-why-is-divi
+
+https://math.stackexchange.com/questions/180418/calculate-rotation-matrix-to-align-vector-a-to-vector-b-in-3d
