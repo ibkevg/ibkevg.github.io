@@ -1,49 +1,6 @@
 
 TODO
 
-# Multiplying Two Vectors
-
-Here we write $$ \vc{u} $$ and $$ \vc{v} $$ as a linear combination of the standard $$ \mathbb{R}^3 $$ unit vectors:
-
-$$
-\begin{aligned}
-\vc{u} &= u_x \ihat + u_y \jhat + u_z \khat \\
-\vc{v} &=  v_x \ihat + v_y \jhat + v_z \khat
-\end{aligned}
-$$
-
-Here's a bit of foreshadowing: it's interesting to note that the unit vectors here take on a role similar to what we have with complex numbers where the real and imaginary parts are kept separate. You can take the real part of a complex number and add it to the imaginary part. They are like two distinct dimensions.
-
-
-
-$$
-\begin{aligned}
-\vc{u} \vc{v}
-= \; &\begin{pmatrix} u_x \ihat + u_y \jhat + u_z \khat \end{pmatrix}
-\begin{pmatrix} v_x \ihat + v_y \jhat + v_z \khat \end{pmatrix} \\
-= \;
-&u_x v_x \ihat \ihat + u_x v_y \ihat \jhat + u_x v_z \ihat \khat +\\
-&u_y v_x \jhat \ihat + u_y v_y \jhat \jhat + u_y v_z \jhat \khat +\\
-&u_z v_x \khat \ihat + u_z v_y \khat \jhat + u_z v_z \khat \khat
-\end{aligned}
-$$
-
-$$
-\begin{tabular}{|c|c|c|}
-\hline
-Column 1 & Column 2 & Column 3 \\
-\hline
-second row & & \\
-\hline
-third row & & \\
-\hline
-\end{tabular}
-$$
-
-|$$       $$|$$ \ihat   $$|$$ \jhat   $$|$$ \khat   $$|  
-|$$ \ihat $$|$$ u_x v_x $$|$$ u_x v_y $$|$$ u_x v_z $$|  
-|$$ \jhat $$|$$ u_y v_x $$|$$ u_y v_y $$|$$ u_y v_z $$|  
-|$$ \khat $$|$$ u_z v_x $$|$$ u_z v_y $$|$$ u_z v_z $$|
 
 ## Multiplying Complex Numbers
 
@@ -110,9 +67,6 @@ You could also informally motivate the sum by the fact that |𝑣⋅𝑤|^2=‖�
 
 The dot product gives you the multiplication of the parallel components.
 
-Example: The work expression $$ W = \vec{F} \cdot \vec{r} $$, where only the force component parallel to the direction (or likewise, the position component parallel to the force) is wanted.
-The (magnetude of the) cross product gives you the multiplication of the perpendicular components.
-
 Example: The torque expression, $$ \vec{\tau} = \vec{F} \times \vec{r} $$, where only the force component perpendicular to the "arm" (or likewise vise versa) is wanted.
 
 Why cant we just have dot product? Simply because we sometimes want the perpendicular variation and not only the parallel one. At some point the cross product was "invented" to describe this in a neat and concise expression.
@@ -165,10 +119,6 @@ $$
 
 (ix) Two vectors are perpendicular if their dot product is 0 (i.e. $$\theta=90^\circ$$)
 
-Examples? Work (energy) is a dot product of force and displacement. The angle between two vectors is found by knowing that the cosine of the angle between them is their dot product divided by their self dot product.
-
-You’re often interested in knowing to what extent a vector quantity contributes in a given direction (the vector quantity’s component in that direction). This is what the dot (scalar) product, as used in physics, tells you.
-
 When dealing with geometric algorithms, you usually end up using a lot of dot and cross products. For example:
 
 * Dot product let you easily and quickly check if two vectors are perpendicular, or the angle between them (well, to be precise, the cosine of their angle, but having directly the cosine of an angle is sometimes better than having the angle itself). Also, the dot product of a vector with a base vector is the coordinate of this vector in the base along the vector axis, it’s useful for example to compute coordinates in another base.
@@ -180,8 +130,6 @@ Why cos(θ) ?
 OK, to multiply two vectors it makes sense to multiply their lengths together but only when they point in the same direction. So we make one "point in the same direction" as the other by multiplying by cos(θ)
 
 Dot products are also handy because they provide a way to find the angle between two vectors.
-
-We've all been taught that, 𝑊=𝐹𝑑, but that's not actually correct. Only the component of the force that is parallel to the direction of motion does work, so we must calculate it as the dot product of the force and displacement vectors, 𝑊=𝐹⋅𝑑, where F and d are vectors, and the work done is a scalar.
 
 ## References
 https://math.stackexchange.com/questions/348717/dot-product-intuition

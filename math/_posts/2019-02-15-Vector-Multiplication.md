@@ -36,7 +36,7 @@ My goal here is to:
 
 # What does a vector product even mean?
 
-Our intuition for what it means to take a product is initially formed by multiplying two numbers together. When we start considering the product of two vectors it's not obvious how we should extend our intuition to account for the directionality that vectors have.
+Our intuition and expectations for what it means to take a product is initially formed by multiplying two numbers together. When we start considering the product of two vectors it's not obvious how we should extend our intuition to account for the directionality that vectors have.
 
 Imagine this is the mid-1800s and we are about to begin research into how vectors should be multiplied. We would quickly run into the problem that we can imagine all kinds of different ways to slice, dice and combine vector components, so by what criteria would we know when we've found one that is correct? Or, if you think of math as designed, then what would your feature list be?
 
@@ -48,12 +48,12 @@ You may be surprised to learn that there is no universal definition and whether 
 
 So it seems we have a lot of latitude. Lets base our expections for vector multiplication on how regular numbers behave:
 
-1. has useful applications
-1. has geometric meaning
-1. binary operations (algebraic rules for manipulating expressions that contain vector/vector products) work the same as real number multiplication
-1. supports division that works the same as real number division
-1. real number multiplication is just a special case
-1. closed under multiplication, just like reals and complex numbers
+1. should have useful applications
+1. should have geometric meaning
+1. should work the same as regular number multiplication
+1. should support division that works the same as regular number division
+1. regular number multiplication should be just a special case
+1. should be closed under multiplication, just like reals and complex numbers
 
 **Has useful applications**  
 
@@ -62,27 +62,27 @@ I think this says it all:
 
 **Has Geometric Meaning**
 
-Geometrically, the multiplication of reals relates to area. Also it relates to scaling values larger and smaller. Also, the multiplication of complex numbers relates to rotation in the plane formed by a real and imaginary axis. So it seems reasonable that whatever we come up with for vector multiplication of vectors should have elements of those things.
+Geometrically, the multiplication of reals relates to area. Also it relates to scaling values larger and smaller. Also, the multiplication of complex numbers relates to rotation in the plane formed by a real and imaginary axis. So it seems reasonable that whatever we come up with for vector multiplication of vectors could have elements of both of those things.
 
-**Binary Operations Work the Same as Real Number Multiplication**
+**Should Work the Same as Regular Number Multiplication**
 
-Ideally we could work algebraically with vector multiplication the same as we do with real numbers. No special rules to remember. When we say that, we mean we want them to support the same set of properties.
+Ideally we could work algebraically with vector multiplication the same as we do with regular numbers. No special rules to remember. When we say that, we mean we want them to support the same set of properties.
 
 _Properties of Multiplication_
 
 Commutative Property: $$ \vc{a}\vc{b} = \vc{b}\vc{a} $$  
 Associative Property: $$ \vc{a}(\vc{b}\vc{c}) = (\vc{a}\vc{b})\vc{c} $$  
 Distributive Property: $$ \vc{a} (\vc{b} + \vc{c} ) = \vc{a}\vc{b} + \vc{a}\vc{c} $$  
-Multiplicative Identity: $$ 1\vc{a} = \vc{a} $$ (Note that this is required for division to exist.)
 
 Many of these seem like they're stating the obvious, however its useful to be explicit when listing requirements.
 
 **Supports Division**
 
-When we say we want division to exist and work for vectors the same as it does for real numbers, we again mean we want them to support the same set of properties.
+When we say we want division to exist and work for vectors the same as it does for regular numbers, we again mean we want them to support the same set of properties.
 
 _Properties of Division_
 
+Multiplicative Identity: $$ 1\vc{a} = \vc{a} $$ (Note that this is required for division to exist.)
 Multiplicative Inverse (or reciprocal): $$ \vc{a} \vc{a}^{-1} = \vc{a}^{-1} \vc{a} = 1 $$
 
 Division is not commutative: $$ \vc{a} \div \vc{b} \neq \vc{b} \div \vc{a} $$
@@ -101,9 +101,9 @@ Division is not left distributive: $$ \vc{c} \div (\vc{a}+\vc{b}) = (\vc{c} ÷ \
 
 $$ \frac{\vc{c}}{\vc{a} + \vc{b}} \ne \frac{\vc{c}}{\vc{a}} + \frac{\vc{c}}{\vc{b}} $$  
 
-**Real number multiplication is just a special case**
+**Regular number multiplication is just a special case**
 
-It would be beautiful if ordinary real number multiplcation fell out of our new vector/vector product as a special case.
+It would be beautiful if ordinary regular number multiplcation fell out of our new vector/vector product as a special case.
 
 **Closed under multiplication**
 
@@ -158,7 +158,7 @@ But then what angle should the zero vector have here:
 
 $$ \vc{a} + (-\vc{a}) = \vc{0} $$
 
-So the reality is a direction is only meaningful when accompanied by a non-zero length. It might seem contradictory to say that a null vector is both "any direction" and "no particular direction" but these are really just different ways to express in english that it is mathematically undefined.
+So the reality is that a vector's direction is only meaningful when accompanied by a non-zero length. It might seem contradictory to say that a null vector is both "any direction" and "no particular direction" but these are really just different ways to express in english that it is mathematically undefined.
 
 So for $$\vc{0}$$, the length is zero, and the direction is undefined.
 
@@ -188,9 +188,9 @@ Unit vectors have many uses, for example, $$ \mathbb{R}^3 $$ has standard unit v
 
 $$
 \begin{aligned}
-\ihat &= (1,0,0) \\
-\jhat &= (0,1,0) \\
-\khat &= (0,0,1) \\
+\ihat &= \langle 1,0,0 \rangle \\
+\jhat &= \langle 0,1,0 \rangle \\
+\khat &= \langle 0,0,1 \rangle \\
 \end{aligned}
 $$
 
@@ -199,6 +199,13 @@ Any vector in $$ \mathbb{R}^3 $$ can be written as a linear combination of these
 $$ \vc{u} = u_x \ihat + u_y \jhat + u_z \khat $$
 
 # Vector to Vector Products
+
+The dot product of A and B is the length of the projection of A onto B multiplied by the length of B (or the other way around--it's commutative).
+
+The magnitude of the cross product is the area of the parallelogram with two sides A and B. The orientation of the cross product is orthogonal to the plane containing this parallelogram.
+
+
+
 
 | $$ \vc{a} \cdot \vc{b} $$ |dot product  |  the dot product of two vectors provides a measure of how parallel the vectors are |  
 | $$ \vc{a} \times \vc{b} $$ |cross product | the cross product of two vectors provides a measure of how perpendicular the vectors are|
@@ -238,7 +245,7 @@ Since it produces a number, it is sometimes referred to as the Scalar Prodcut.
 
 We will define the dot product in two different ways. Once from the perspective of geometry, where a vector has a length and a direction and the other from the perspective of algebra and coordinates. Let's start with the geometric viewpoint:
 
-__Definition #1, The Geometric Viewpoint:__ $$ \vc{u} \cdot \vc{v} = \lvert u \rvert \lvert v \rvert \cos {\theta} $$  
+__Geometric Definition:__ $$ \vc{u} \cdot \vc{v} = \lvert u \rvert \lvert v \rvert \cos {\theta} $$  
 
 A way to think of this is the dot product multiplies the lengths of two vectors _but only the parts that lie in the same direction_ and that is what the $$ \cos{\theta} $$ term is for.
 
@@ -260,9 +267,15 @@ Another way to think of the dot product is as a means of determining the angle b
 
 $$ \hat{a} \cdot \hat{b} = \cos{\theta} $$
 
-If we now substitute $$ \hat{a} = \frac{\vc{a}}{\lvert a \rvert} $$ we get the original definition:
+If we now substitute
+
+$$ \hat{a} = \frac{\vc{a}}{\lvert a \rvert} \;\;\; \hat{b} = \frac{\vc{b}}{\lvert b \rvert} $$
+
+we get the original definition:
 
 $$ \vc{a} \cdot \vc{b} = \lvert a \rvert \lvert b \rvert \cos {\theta} $$  
+
+### Geometric Interpretation #2: Parallel and Perpendicular Vectors
 
 Now to develop our intuition, let's first try this out with some simple vectors, $$ \ihat $$ and $$ \jhat $$ the x and y axis unit vectors.
 
@@ -285,7 +298,7 @@ $$
 
 So the dot product can be a handy way to find out if two vectors are perpendicular or not. If dotting them produces 0 then they are perpendicular. Another way this can be useful is if you want to find a line that is perpendicular to the one you have.
 
-### Geometric Interpretation #2: Projection
+### Geometric Interpretation #3: Projections
 
 Next lets see what happens when we dot a regular vector, $$ \vc{u} = ( r, \angle \theta) $$, with these same unit vectors.
 
@@ -313,17 +326,17 @@ $$ \vc{u_v}
 = \frac{\vc{u} \cdot \vc{v}}{\lvert v \rvert^2} \vc{v}
 $$
 
-### Geometric Interpretation #3: Projection + Multiplication
+### Geometric Interpretation #4: Projection + Multiplication
 
 Now we are in a position to put this all together. If instead of a unit vector we used a second regular vector, we would still have the $$ r \cos \theta $$ part but instead of (1) for the unit vector we will have the length of the second vector. It's saying take all of the second vector and multiply it by the amount of the first vector that lies in the same direction. Conversely you could think of the projection being from the second onto the first. It's symmetric so it doesn't matter.
 
 ### Dot Product using Coordinates
 
-__Definition #2, The Coordinate Viewpoint:__ $$ \vc{u} \cdot \vc{v} = u_x v_x + u_y v_y + u_z v_z $$
+__Algebraic Definition:__ $$ \vc{u} \cdot \vc{v} = u_x v_x + u_y v_y + u_z v_z $$
 
 Remember that the dot product multiplies two vectors _but only the parts that lie in the same direction_, when dealing with coordinates, this is accomplished by multiplying like components together.
 
-Now lets look at how the coordinate oriented definition #2 can be derived from definition #1. Here we write $$ \vc{u} $$ and $$ \vc{v} $$ as a linear combination of the standard $$ \mathbb{R}^3 $$ unit vectors:
+Now lets look at how the algebraic definition can be derived from the geometric definition. Here we write $$ \vc{u} $$ and $$ \vc{v} $$ as a linear combination of the standard $$ \mathbb{R}^3 $$ unit vectors:
 
 $$
 \begin{aligned}
@@ -367,9 +380,9 @@ Therefore most of the terms cancel and we are left with what we stated as Defini
 
 $$ \vc{u} \cdot \vc{v} = u_x v_x + u_y v_y + u_z v_z $$
 
-This component-based description is interesting in the sense that it's kind of like regular 1 dimensional multiplication except you multiply only the parts of the vector that are in the same direction.
+This component-based description is interesting because it really makes clear that only like components of the two vectors are being multiplied.
 
-Now lets see what happens when we dot a vector, $$ \vc{u} = (u_x, u_y, u_z) $$ with the standard unit vectors in $$\mathbb{R}^3$$.
+Now lets see what happens when we dot a vector, $$ \vc{u} = \langle u_x, u_y, u_z \rangle $$ with the standard unit vectors in $$\mathbb{R}^3$$.
 
 $$
 \begin{aligned}
@@ -386,6 +399,54 @@ $$
 $$
 
 Again we find that the dot product is a useful tool for finding the projection of a vector in the direction of a unit vector.
+
+## Applications
+
+Examples? Work (energy) is a dot product of force and displacement. The angle between two vectors is found by knowing that the cosine of the angle between them is their dot product divided by their self dot product.
+
+Example: The work expression $$ W = \vec{F} \cdot \vec{r} $$, where only the force component parallel to the direction (or likewise, the position component parallel to the force) is wanted.
+The (magnetude of the) cross product gives you the multiplication of the perpendicular components.
+
+You’re often interested in knowing to what extent a vector quantity contributes in a given direction (the vector quantity’s component in that direction). This is what the dot (scalar) product, as used in physics, tells you.
+
+## Division
+
+In order to support division we need to be able to be able to take the result of a dot product and recover one of the original vectors by dividing out the other. For this we need the properties below.
+
+We need a multiplicative identity:
+
+$$ 1 \cdot \vc{u} = \vc{u} $$
+
+We need a multiplicative inverse:
+
+$$ \vc{v} \cdot \vc{v}^{-1} = 1 $$?
+
+If we can make those work we can define division as dotting with an inverse.
+
+$$ \frac{\vc{a}}{\vc{b}} = \vc{a} \cdot \vc{b}^{-1} = \vc{c} $$
+
+A scalar value of 1 works just fine for an identity but we run into a problem when we try to define the inverse of a vector. The dot product loses all directionality information and so recovering an input vector, including it's direction is impossible.
+
+## Cross Product versus our Criteria for a "Good Product"
+
+Let's review the dot product against our expectations:
+
+1. Useful applications  
+**Yes** We showed above that the dot product can be used to determine the angle between vectors, is useful to test perpendicularity and parallelity, find projections onto basis or other vectors, etc.  
+Also an example from physics: $$ W = \vc{F} \cdot \vc{d} $$  
+1. Geometric meaning  
+**Yes** The dot product can be viewed as a projection-based multiply.
+1. Works the same as regular number multiplication  
+**Yes**
+The dot product obeys the commutative, associative and distributive properties.
+1. Support division that works the same as regular number division  
+**No** The dot product loses information in producing it's scalar result. You can't start with a scalar dot product result and recover one of the initial vectors.
+1. Regular number multiplication should be just a special case  
+**Yes** If a vector has a single dimension, then the dot project becomes identical to 
+1. Should be closed under multiplication, just like reals and complex numbers  
+**No** Dot product of two vectors produces a scalar. Why doesn't it produce a vector? Because it is symmetrical, you could think of it as a projection of either vector onto the other. So it would have to choose the dirction of one of the vectors.
+
+So it's a pretty good multiply but not perfect.
 
 # The Inner and Outer Products
 
@@ -437,6 +498,26 @@ TODO
 
 http://en.wikipedia.org/wiki/Cross_product#History
 
+## Cross Product versus our Criteria for a "Good Product"
+
+Let's review the dot product against our expectations:
+
+1. Useful applications  
+**TBD**
+1. Geometric meaning  
+**TBD**
+1. Works the same as regular number multiplication  
+**TBD**
+1. Support division that works the same as regular number division  
+**TBD**
+1. Regular number multiplication should be just a special case  
+**TBD**
+1. Should be closed under multiplication, just like reals and complex numbers  
+**TBD**
+
+So it's a pretty good multiply but not perfect.
+
+
 ## Cross Product vs Determinant
 
 TODO
@@ -445,10 +526,10 @@ TODO
 
 Lagrange's Identity shows us that the dot and cross products are two parts of a greater whole. It is analogous to Pythagoras Theorem but for vector multiplication.
 
-$$ \boxed{
+$$
 {\lvert \vc{a} \rvert}^2 {\lvert\vc{b} \rvert}^2
 = {\lvert \vc{a} \times \vc{b} \rvert}^2 + \lvert \vc{a} \cdot \vc{b} \rvert^2
-} $$
+$$
 
 We can find this using:
 
@@ -464,6 +545,78 @@ $$
 &= {\lvert \vc{a} \rvert}^2 {\lvert\vc{b} \rvert}^2 - ({\lvert \vc{a} \rvert} {\lvert\vc{b} \rvert} \cos{\theta} )^2 \\
 {\lvert \vc{a} \times \vc{b} \rvert}^2
 &= {\lvert \vc{a} \rvert}^2 {\lvert\vc{b} \rvert}^2 - \lvert \vc{a} \cdot \vc{b} \rvert^2 \\
+{\lvert \vc{a} \rvert}^2 {\lvert\vc{b} \rvert}^2
+&= {\lvert \vc{a} \times \vc{b} \rvert}^2 + \lvert \vc{a} \cdot \vc{b} \rvert^2
+\end{aligned}
+$$
+
+
+# Multiplying Two Quarternions
+
+Quarternions are an extension of complex numbers. Here we write $$ \vc{u} $$ and $$ \vc{v} $$ as pure vector quarternions:
+
+$$
+\begin{aligned}
+\vc{u} &= u_x \ihat + u_y \jhat + u_z \khat \\
+\vc{v} &=  v_x \ihat + v_y \jhat + v_z \khat
+\end{aligned}
+$$
+
+Think of i, j and k analogous to x, y, and z.
+
+$$
+\begin{aligned}
+\vc{u} \vc{v}
+= \; &\begin{pmatrix} u_x \ihat + u_y \jhat + u_z \khat \end{pmatrix}
+\begin{pmatrix} v_x \ihat + v_y \jhat + v_z \khat \end{pmatrix} \\
+= \;
+&u_x v_x \ihat \ihat + u_x v_y \ihat \jhat + u_x v_z \ihat \khat +\\
+&u_y v_x \jhat \ihat + u_y v_y \jhat \jhat + u_y v_z \jhat \khat +\\
+&u_z v_x \khat \ihat + u_z v_y \khat \jhat + u_z v_z \khat \khat
+\end{aligned}
+$$
+
+Just like $$ \vc{i} $$ for imaginary numbers, imagine $$ \vc{j}, \vc{k} $$ are similar:
+
+$$ \ihat \ihat = \jhat \jhat = \khat \khat =  \ihat \jhat \khat = -1 $$
+
+We can now derive $$ \ihat \jhat $$:
+
+$$\begin{aligned}
+\ihat \jhat \khat &= -1 \\
+\ihat \jhat \khat \khat &= -1 \khat \\
+\ihat \jhat (-1) &= -1 \khat \\
+\ihat \jhat &= \khat \\
+\end{aligned}$$
+
+A similar process produces:
+
+$$ \ihat \jhat = \khat \;\;\; \jhat \khat = \ihat  \;\;\; \khat \ihat = \jhat $$
+
+Next:
+
+$$\begin{aligned}
+(\jhat \khat)(\khat \ihat) &= \ihat \jhat \\
+\jhat (\khat \khat) \ihat &= \khat \\
+\jhat (-1) \ihat &= \khat \\
+\jhat \ihat &= -\khat \\
+\end{aligned}$$
+
+A similar process produces:
+
+$$ \khat \jhat = -\ihat \;\;\; \jhat \ihat = -\khat \;\;\; \ihat \khat = -\jhat $$
+
+Now we can substitute to get:
+
+$$
+\begin{aligned}
+\vc{u} \vc{v}
+= \;
+&-(u_x v_x + u_y v_y + u_z v_z) \\
+&+ (u_y v_z - u_z v_y) \ihat \\
+&+ (u_z v_x - u_x v_z) \jhat \\
+&+ (u_x v_y - u_y v_x) \khat \\
+\vc{u} \vc{v} = \; &-(\vc{u} \cdot \vc{v}) + (\vc{u} \times \vc{v})
 \end{aligned}
 $$
 
@@ -608,6 +761,144 @@ The big idea of geometric algebra (aka Clifford Algebra) is to explicitly define
 $$ \vc{a} \vc{b} = \vc{a} \cdot \vc{b} + \vc{a} \wedge \vc{b} $$
 
 Think of the sum as like the real and imaginary parts of a complex number.
+
+
+## Division
+
+The question "what does $$ \vc{a} / \vc{b} $$ equal?" is equivalent to asking "What do you multiply with $$ \vc{b} $$ to get $$ \vc{a} $$?"
+
+How would you define the inverse of a vector such that $$ \vc{v}\vc{v}^{-1} = 1 $$? What would be the "identity vector" 1
+
+In fact, the answer is sometimes you can. In particular, in two dimensions, you can make a correspondence between vectors and complex numbers, where the real and imaginary parts of the complex number give the (x,y) coordinates of the vector. Division is well-defined for the complex numbers.
+
+The cross-product only exists in 3D.
+
+Division is defined in some higher-dimensional spaces too (such as the quaternions), but only if you give up commutativity and/or associativity.
+
+For ordinary numbers, I think of $$ x/y $$ as being the number that, when multiplied by $$ y $$, gives $$ x $$. So, $$ \vc{x} / \vc{y} $$ would have to be the vector that, when "multiplied" by $$ \vc{y} $$, gives $$ \vc{x} $$. If our multiplication involves the dot product, we're already in trouble, because the dot product of two vectors is a scalar, and the definition above would therefore require $$ \vc{x} / \vc{y} $$ to simultaneously be a vector and a scalar.
+
+QUESTION: WHY DO WE KNOW THIS? IS IT A PROPERTY? Similarly, if our operation is the cross product, then we know that, for any vectors 𝑥⃗ and 𝑦⃗
+ and any scalar 𝑐, we have 𝑥⃗×𝑦⃗=𝑥⃗×(𝑦⃗+𝑐𝑥⃗), so this means that there are an infinite number of vectors that satisfy the property "when crossproducted by 𝑦⃗, gives 𝑥⃗". Therefore, division over the cross product is not unique.
+
+
+
+
+You can divide vectors with clifford ("geometric") algebra.
+
+The geometric product of vectors is associative: 𝑎𝑏𝑐=(𝑎𝑏)𝑐=𝑎(𝑏𝑐)
+
+And the geometric product of a vector with itself is a scalar.
+
+𝑎𝑎=|𝑎|2
+
+These are all the properties required to define a unique product of vectors. All other properties can be derived. I'll sum them up, however: for two vectors, the geometric product marries the dot and cross products.
+
+𝑎𝑏=𝑎⋅𝑏+𝑎∧𝑏
+
+We use wedges instead of crosses because this second term is not a vector. We call it a bivector, and it represents an oriented plane. It can be instructive to introduce a basis to see this. 𝑒1𝑒1=𝑒2𝑒2=1 and 𝑒1𝑒2=−𝑒2𝑒1 capture the geometric product's properties for these orthonormal basis vectors. The geometric product is then,
+
+𝑎𝑏=(𝑎1𝑒1+𝑎2𝑒2)(𝑏1𝑒1+𝑏2𝑒2)=(𝑎1𝑏1+𝑎2𝑏2)+(𝑎1𝑏2−𝑎2𝑏1)𝑒1𝑒2
+
+As I said, the geometric product of two vectors is invertible in Euclidean space. This is obvious from the associativity property: 𝑎𝑏𝑏−1=𝑎(𝑏𝑏−1)=𝑎. That 𝑏𝑏−1=1 implies that 𝑏−1=𝑏/|𝑏|2
+
+It's informative to look at the quantity 𝑎=(𝑎𝑏)𝑏−1, using the grouping to decompose it a different way.
+
+𝑎=(𝑎𝑏)𝑏−1=(𝑎⋅𝑏)𝑏−1+(𝑎∧𝑏)⋅𝑏−1
+
+The first term is in the direction of 𝑏, the second is orthogonal to 𝑏. This decomposes 𝑎
+a into 𝑎∥ and 𝑎⊥.
+
+What others have said is right, you can't define just the vector cross product to be invertible. This decomposition should convince you--you cannot fully reconstruct a vector without information from both the dot and cross products. And as has been said, this product is not commutative.
+
+## Another take on division
+
+Division is typically considered the inverse operation of multiplication. That is to say that if we write 𝑎/𝑏=𝑐, it is the same as 𝑎=𝑏𝑐. If 𝑐 is 𝑎 divided by 𝑏, then 𝑎 is the product of 𝑏 and 𝑐.
+
+When dealing with scalar quantities this is all well and good, but it becomes more complicated when you have objects with different structure, such as vectors. But vectors are kind of like matrices, right? So how does division work there?
+
+Well... it kind of does in some sense, but it kind of doesn't. Instead we consider division to simply be multiplication of a number (or matrix) by its (unique) multiplicative inverse. That is, if 𝑎∈ℝ, then $$ a^{-1} = 1/a $$ is the multiplicative inverse of 𝑎 - or the number such that $$ a a^{-1} = 1 $$. Note that 1 is its own inverse because it is the multiplicative identity. Matrices are not as simple as scalars, but some similarities in how they behave carry through.
+
+Assuming matrix multiplication is familiar to you, we know that any square matrix with nonzero determinant has an inverse, and that the inverse is unique. Multiplication of a matrix 𝐴 by its inverse 𝐴−1 gives the identity matrix, so multiplying any other matrix 𝐵 by 𝐴−1 is sort of the same as "dividing by 𝐴", although in general left- and right-multiplication give different results unless all the matrices involved have special properties.
+
+So this is the matrix equivalent of division. What about vectors?
+
+Well, they're just non-square matrices. One row or one column.
+
+Suppose 𝑢,𝑣 are column vectors in ℝ𝑛. Then the way matrix multiplication normally works we have $$ 𝑢^T𝑣 ∈ ℝ $$ and $$ 𝑢𝑣^𝑇 ∈ ℝ^𝑛 × ℝ^𝑛 $$.
+
+Can we choose for any vector 𝑣 a vector 𝑢 such that 𝑢𝑇𝑣=1?
+
+Well, in terms of the structure of matrix multiplication, this is just the dot product 𝑢⋅𝑣=𝑢1𝑣1+⋯+𝑢𝑛𝑣𝑛. Certainly as long as not all the elements of 𝑣 are zero, we can choose elements of 𝑢 such that it is equal to 1. In fact you'd have infinitely many choices. Consider 𝑛=2. Then, given 𝑣1,𝑣2, we can rearrange 𝑢1𝑣1+𝑢2𝑣2=1 so that $$ 𝑢_2 = \frac{1}{𝑣+2}(1 − 𝑢_1 𝑣_1) $$ is the equation of a line. Any point on that line will satisfy some of the idea of an inverse, but it is not unique.
+
+The other possibility, the dyadic product, $$ 𝑢𝑣^𝑇 = \begin{bmatrix} 𝑢1𝑣1 \\ 𝑢2𝑣1 \\ 𝑢1𝑣2 \\ 𝑢2𝑣2 \end{bmatrix} $$ is more interesting, because it requires that 𝑢1𝑣2=𝑢2𝑣1=0 and 𝑢1𝑣1=𝑢2𝑣2=1. I hope you can see why that's never going to give you an identity matrix given any 𝑣1,𝑣2. Certainly you could not use the same 𝑢 as for the previous scenario.
+
+So with the one way of multiplying two vectors we have a family of multiplicative inverses for a given vector, and the other way we have no multiplicative inverse at all!
+
+It seems that given the way we normally think of multiplying vectors, there's no way of defining a multiplicative inverse of a vector that satisfies the properties we want such an inverse to have.
+
+And that is why division of vectors isn't possible.
+
+## Division
+
+Well… it can be. The problem is that an arbitrary vector space doesn’t naturally come with multiplication.
+
+You can always define multiplication in the naive, component-wise way—e.g.:
+
+(𝑥1,𝑥2,𝑥3)(𝑦1,𝑦2,𝑦3)=(𝑥1𝑦1,𝑥2𝑦2,𝑥3𝑦3).
+
+The problem is that with this notion of multiplication, two non-zero vectors can multiply to zero—e.g.:
+
+(1,0,0)(0,1,0)=(0,0,0).
+
+As a result, you can’t define division—if you try to do so, you will obtain obvious contradictions. (In the preceding example, divide both sides by (0,1,0) —you get (1,0,0)=(0,0,0).)
+
+So, you need to come up with a different notion of multiplication that will avoid such problems. This turns out to be quite difficult.
+
+It is possible for, say, the complex numbers (which you can think of as real vectors with two coordinates), but generally speaking, you shouldn't expect that such a multiplication exists. I wrote more about this here: What prevents the extension of complex numbers to three-dimensional Euclidean space?
+https://www.quora.com/What-prevents-the-extension-of-complex-numbers-to-three-dimensional-Euclidean-space
+
+## Division
+
+That's an interesting question. What does "divide" mean? We say that x=a÷b if b•x=a, where "•" is some sort of multiplication. If lots of different "x's" satisfy b•x=a then we can't get a unique result for a÷b. For ordinary numbers, either real or complex, we do have a unique solution x for b•x=a, where "•" is ordinary multiplication, so long as b isn't zero. So we can divide numbers by numbers, as long as we don't divide by zero.
+
+So what sort of "•" could be involved with vectors? The most obvious "•" is the vector dot product, which gives an ordinary number for the dot product of two vectors of the same dimension. The problem is this: if the dimension is two or bigger, you can always find various x's with b•x=0, vectors at right angles to b. You can add those x's to any solution to b•x=a and get other solutions. So there's no unique answer for a÷b where a is a number and b is a vector.
+
+You might wonder about the vector cross product for 3 D vectors, instead of the dot product. We run into a similar problem: any x parallel to b gives (b cross x) = 0, etc.
+
+Now you might get fancier and think about how the product of a matrix and a vector is another vector. You end up with the same problem. If an answer exists, it's not unique.
+
+## Division for Complex Numbers
+
+Josel Cioppa’s answer gives you the mathematical formalism behind this. An example where the multiplication is commutative and invertible is the case of complex numbers. If you have
+
+𝐳1=(𝑎,𝑏)
+𝐳2=(𝑐,𝑑)
+
+Then, you have
+
+𝐳1.𝐳2=(𝑎𝑐−𝑏𝑑,𝑎𝑑+𝑏𝑐)
+
+Which you can easily prove is commutative. Also, every non-zero vector in the complex plane is invertible. Note that this also implies that 𝐈=(1,0) is the identity element since
+
+𝐳1.𝐈=(𝑎,𝑏)
+
+We define the multiplicative inverse $$ \vc{z}_1^{-1} $$ of 𝐳1 as the solution to:
+
+𝐳1.𝐳−11=𝐈
+
+It can be seen that the following is a valid definition for $$ \vc{z}_1^{-1} $$:
+
+$$ \vc{z}_1^{-1} = (\frac{a}{a^2+b^2}, -\frac{b}{a^2+b^2}) $$
+
+This can be verified by doing the multiplication. To prove the uniqueness of the $$ \vc{z}_1^{-1} $$, suppose there are two distinct complex vectors 𝐯1 and 𝐯2 that work for $$ \vc{z}_1^{-1} $$.
+
+Then,
+
+𝐳1.(𝐯1−𝐯2)=0⟹𝐯1=𝐯2
+
+We conclude that in the complex plane, the multiplicative inverse of a non-zero complex number is unique.
+
+Among other things, note that defining complex numbers this way is also consistent with (0,1).(0,1)=(−1,0). Also, (𝑎,0).(𝑎,0)=(𝑎^2,0).
 
 # TODO
 
