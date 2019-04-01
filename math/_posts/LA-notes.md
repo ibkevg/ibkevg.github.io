@@ -88,18 +88,17 @@ Just keep in mind that while the dot product (or scalar product) gives you a num
 @ibsenv The 'dot' product is not a product by any means, actually. The cross product is a 'proper' product operation, but it is not 'natural' either. The cross product depends on 1) the dot product; 2) the orientation of the space; 3) the 3-dimensionality of the space. It is a representation of the exterior product, that can only be made if the above three conditions are satisfied. So in essence, the cross product 'depends on' the 'dot product', but it is absolutely not "another version" of the dot product. – Bence Racskó May 28 '15 at 7:06
 
 
-
 ## Dot Product Notes
 
-(i) $$ \vec{A} \cdot \vec{B} = \vec{B} \cdot \vec{A} $$
+(i) $$ \vec{a} \cdot \vec{b} = \vec{b} \cdot \vec{a} $$
 
-(ii) $$ \vec{A} \cdot (\vec{B} + \vec{C}) = \vec{A} \cdot \vec{B} + \vec{A} \cdot \vec{C} $$
+(ii) $$ \vec{a} \cdot (\vec{b} + \vec{C}) = \vec{a} \cdot \vec{b} + \vec{a} \cdot \vec{C} $$
 
-(iii) $$ \sqrt{\vec{A} \cdot \vec{A}} = \lvert \vec{A} \rvert $$
+(iii) $$ \sqrt{\vec{a} \cdot \vec{a}} = \lvert \vec{a} \rvert $$
 
-(iv) $$ \vec{A} \cdot \vec{B} = A(B \cos \theta) = \text{A times the component of B along A} $$
+(iv) $$ \vec{a} \cdot \vec{b} = a(b \cos \theta) = \text{a times the component of b along a} $$
 
-or $$ \vec{A} \cdot \vec{B} = B(A \cos \theta) = \text{ B times the component of A along B} $$
+or $$ \vec{a} \cdot \vec{b} = b(a \cos \theta) = \text{ b times the component of a along b} $$
 
 (v) $$ \ihat \cdot \ihat = \jhat \cdot \jhat = \khat \cdot \khat = (1)(1)\cos 0 = 1 $$
 
@@ -115,7 +114,7 @@ or $$ \vec{A} \cdot \vec{B} = B(A \cos \theta) = \text{ B times the component of
 \end{align}
 $$
 
-(viii) $$ \theta = \arcsin \frac{\vec{A} \cdot \vec{B}}{AB} $$
+(viii) $$ \theta = \arcsin \frac{\vec{a} \cdot \vec{b}}{ab} $$
 
 (ix) Two vectors are perpendicular if their dot product is 0 (i.e. $$\theta=90^\circ$$)
 
@@ -155,6 +154,17 @@ $$
        &= \vec l \times \vec F
 \end{align}
 $$
+
+# From Ray Vickson at Physics Forums
+
+Start with $$ a \cdot b = a*b*\cos(w) $$, where w is the angle between a and b. Note that the dot product is unchanged under rotation, so if $$ a' = R(a) $$ and b' = R(b) (for any fixed rotation R) then a' dot b' = a dot b.
+
+So, rotate until a' points along the x-axis and b' is in the xy-plane; then we have $$ a' = <a,0,0> $$ and $$ b' = <b \cos(w), b \sin(w),0> $$ (where I write $$ <a,b,c> $$ instead of $$ a \ihat + b \jhat + c \khat $$). We have $$ a' \cdot b' = ab \cos(w) $$, by definition, but this equals $$ a'_x b'_x $$, which is also equal to $$ a'_x b'_x + a'_y b'_y + a'_z b'_z $$ in this particular case. Now, the important point is that sums of the form $$ a_x b_x + a_y b_y + a_z b_z $$ remain unchanged under a rotation, so that
+$$ a \cdot b = a' \cdot b' = a'_x b'_x + a'_y b'_y + a'_z b'_z = a_x b_x + a_y b_y + a_z b_z $$, which is what you wanted to prove.
+
+Of course, you are left with the problem of proving that $$ \sum_{i=x,y,z} a_i b_i $$ is unchanged under a rotation, but that is just an algebraic problem, whose only requirement is that you adopt a relevant definition/characterization of "rotation".
+
+Of course, once you have $$ a \cdot b = \sum a_i b_i $$ you can prove all the needed algebraic properties of "dot", because they become simple algebra.
 
 # References
 

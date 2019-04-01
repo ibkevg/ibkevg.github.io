@@ -34,6 +34,10 @@ My goal here is to:
 1. provide examples of how to use them
 1. show why the vector products took the form that they do and not some other form
 
+# What was Hamilton looking for?
+
+One good way (especially in the present context) of describing Hamilton’s search for quaternions is to state that his search was for numbers with the following six characteristics, all of which are found in ordinary complex numbers: (1) associativity for multiplication and division, (2) commutativity for addition and multiplication, (3) the distributive property, (4) the property that division is unambiguous, (5) the property that the numbers obey the law of the moduli,4 (6) the property of being useful for the analysis of three-dimensional space. Quaternions possess all of six characteristics, with the exception that they are not commutative for multiplication. One can get a sense of why quaternionists objected to modern vector analysis when it is noted that modern vector analysis involves two forms of multiplication, the scalar (dot) and vector (cross) products. For the scalar product, associativity is irrelevant, and both the law of the moduli and unambiguity of division must be abandoned. For the vector product, the associative and commutative properties must be abandoned, division is not unambiguous, and the law of the moduli fails as well.
+
 # What does a vector product even mean?
 
 Our intuition and expectations for what it means to take a product is initially formed by multiplying two numbers together. When we start considering the product of two vectors it's not obvious how we should extend our intuition to account for the directionality that vectors have.
@@ -243,7 +247,7 @@ Since it produces a number, it is sometimes referred to as the Scalar Prodcut.
 
 ## Definition
 
-We will define the dot product in two different ways. Once from the perspective of geometry, where a vector has a length and a direction and the other from the perspective of algebra and coordinates. Let's start with the geometric viewpoint:
+We will define the dot product in two different ways. Once from the perspective of geometry, where a vector has a length and a direction and the other from the perspective of algebra where a vector is comprised of coordinates. Let's start with the geometric viewpoint:
 
 __Geometric Definition:__ $$ \vc{u} \cdot \vc{v} = \lvert u \rvert \lvert v \rvert \cos {\theta} $$  
 
@@ -549,6 +553,26 @@ $$
 &= {\lvert \vc{a} \times \vc{b} \rvert}^2 + \lvert \vc{a} \cdot \vc{b} \rvert^2
 \end{aligned}
 $$
+
+Or starting with the dot product:
+
+$$
+\begin{aligned}
+\lvert \vc{a} \cdot \vc{b} \rvert
+&= \lvert \vc{a} \rvert \lvert\vc{b} \rvert \cos{\theta} \\
+{\lvert \vc{a} \cdot \vc{b} \rvert}^2
+&= {\lvert \vc{a} \rvert}^2 {\lvert\vc{b} \rvert}^2 \cos{\theta}^2 \\
+{\lvert \vc{a} \cdot \vc{b} \rvert}^2
+&= {\lvert \vc{a} \rvert}^2 {\lvert\vc{b} \rvert}^2 (1 - \sin{\theta}^2) \\
+{\lvert \vc{a} \cdot \vc{b} \rvert}^2
+&= {\lvert \vc{a} \rvert}^2 {\lvert\vc{b} \rvert}^2 - ({\lvert \vc{a} \rvert} {\lvert\vc{b} \rvert} \sin{\theta} )^2 \\
+{\lvert \vc{a} \cdot \vc{b} \rvert}^2
+&= {\lvert \vc{a} \rvert}^2 {\lvert\vc{b} \rvert}^2 - \lvert \vc{a} \times \vc{b} \rvert^2 \\
+{\lvert \vc{a} \rvert}^2 {\lvert\vc{b} \rvert}^2
+&= {\lvert \vc{a} \times \vc{b} \rvert}^2 + \lvert \vc{a} \cdot \vc{b} \rvert^2
+\end{aligned}
+$$
+
 
 
 # Multiplying Two Quarternions
