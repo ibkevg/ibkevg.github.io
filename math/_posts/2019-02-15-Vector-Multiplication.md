@@ -924,6 +924,68 @@ We conclude that in the complex plane, the multiplicative inverse of a non-zero 
 
 Among other things, note that defining complex numbers this way is also consistent with (0,1).(0,1)=(−1,0). Also, (𝑎,0).(𝑎,0)=(𝑎^2,0).
 
+# Geometric Algebra Vector Product
+
+https://math.stackexchange.com/questions/3193125/intuition-for-geometric-product-being-dot-wedge-product/3194357?noredirect=1#comment6577962_3194357
+
+
+Peeter Joot:
+Some authors define the geometric product in terms of the dot and wedge product, which are introduced separately. I think that accentuates an apples vs oranges view. Suppose instead you expand a geometric product in terms of coordinates, with $$ \mathbf{a} = \sum_{i = 1}^N a_i \mathbf{e}_i, \mathbf{b} = \sum_{i = 1}^N b_i \mathbf{e}_i $$, so that the product is:
+
+$$ \mathbf{a} \mathbf{b}= \sum_{i, j = 1}^N a_i b_j \mathbf{e}_i \mathbf{e}_j= \sum_{i = 1}^N a_i b_i \mathbf{e}_i \mathbf{e}_i+ \sum_{1 \le i \ne j \le N}^N a_i b_j \mathbf{e}_i \mathbf{e}_j $$
+
+An axiomatic presentation of geometric algebra defines the square of a vector as $$ \mathbf{x}^2 = \left\lVert {\mathbf{x}} \right\rVert^2 $$ (the contraction axiom.). An immediate consequence of this axiom is that $$ \mathbf{e}_i \mathbf{e}_i = 1 $$. Another consequence of the axiom is that any two orthogonal vectors, such as 𝐞𝑖,𝐞𝑗 for 𝑖≠𝑗 anticommute. That is, for 𝑖≠𝑗 :
+
+$$ \mathbf{e}_i \mathbf{e}_j = - \mathbf{e}_j \mathbf{e}_i $$
+
+Utilizing these consequences of the contraction axiom, we see that the geometric product splits into two irreducible portions:
+
+$$ \mathbf{a} \mathbf{b}=\sum_{i = 1}^N a_i b_i+ \sum_{1 \le i < j \le N}^N (a_i b_j - b_i a_j) \mathbf{e}_i \mathbf{e}_j $$
+
+The first sum (the symmetric sum) is a scalar, which we recognize as the dot product 𝐚⋅𝐛, and the second (the antisymmetric sum) is something else. We call this a bivector, or identify it as the wedge product 𝐚∧𝐛.
+
+In this sense, the dot and wedge product sum representation of a geometric product, are just groupings of terms of a larger integrated product.
+
+Another way of reconciling the fact that we appear able to add two unlike entities, is to recast the geometric product in polar form. To do so, consider a decomposition of a geometric product in terms of constituent unit vectors $$ \mathbf{a} \mathbf{b} = \left\lVert {\mathbf{a}} \right\rVert \left\lVert {\mathbf{b}} \right\rVert \left( { \hat{\mathbf{a}} \cdot \hat{\mathbf{b}} + \hat{\mathbf{a}} \wedge \hat{\mathbf{b}} } \right) $$, and assume that we are interested in the non-trivial case where 𝐚 and 𝐛 are not colinear (where the product reduces to just $$ \mathbf{a} \mathbf{b} = \left\lVert {\mathbf{a}} \right\rVert \left\lVert {\mathbf{b}} \right\rVert $$ ). It can be shown that the square of a wedge product is always non-positive, so it is reasonable to define the length of a wedge product like so:
+
+$$ \left\lVert {\hat{\mathbf{a}} \wedge \hat{\mathbf{b}}} \right\rVert = \sqrt{-(\hat{\mathbf{a}} \wedge \hat{\mathbf{b}})^2} $$
+
+We can use this to massage the dot plus wedge unit vector sum above into:
+
+$$ \mathbf{a} \mathbf{b} = \left\lVert {\mathbf{a}} \right\rVert \left\lVert {\mathbf{b}} \right\rVert \left( { \hat{\mathbf{a}} \cdot \hat{\mathbf{b}} +\frac{\hat{\mathbf{a}} \wedge \hat{\mathbf{b}} }{\left\lVert {\hat{\mathbf{a}} \wedge \hat{\mathbf{b}}} \right\rVert}\left\lVert {\hat{\mathbf{a}} \wedge \hat{\mathbf{b}}} \right\rVert} \right) $$
+
+The sum has two scalar factors of interest, the dot product 𝐚̂⋅𝐛̂ and the length of the wedge product $$ \left\lVert {\hat{\mathbf{a}} \wedge \hat{\mathbf{b}}} \right\rVert $$. Viewed geometrically, these are the respective projections onto two perpendicular axes, as crudely sketched in the figure "unit circle dot and wedge product components"
+
+That is, we can make the identifications
+
+$$ \hat{\mathbf{a}} \cdot \hat{\mathbf{b}} = \cos\theta $$
+
+$$ \left\lVert { \hat{\mathbf{a}} \wedge \hat{\mathbf{b}} } \right\rVert = \sin\theta $$
+
+Inserting the trigonometric identification of these two scalars into the expansion of the geometric product, we now have
+
+$$ \mathbf{a} \mathbf{b} = \left\lVert {\mathbf{a}} \right\rVert \left\lVert {\mathbf{b}} \right\rVert \left( { \cos\theta +\frac{\hat{\mathbf{a}} \wedge \hat{\mathbf{b}} }{\left\lVert {\hat{\mathbf{a}} \wedge \hat{\mathbf{b}}} \right\rVert}\sin\theta} \right) $$
+
+This has a complex structure that can be called out explicitly by making the identification
+
+$$ \mathbf{i} \equiv\frac{\hat{\mathbf{a}} \wedge \hat{\mathbf{b}} }{\left\lVert {\hat{\mathbf{a}} \wedge \hat{\mathbf{b}}} \right\rVert} $$
+
+where by our definition of the length of a wedge product $$ \mathbf{i}^2 = -1 $$. With such an identification, we see that the multivector factor of a geometric product has a complex exponential structure
+
+$$ \begin{aligned}\mathbf{a} \mathbf{b}= \left\lVert {\mathbf{a}} \right\rVert \left\lVert {\mathbf{b}} \right\rVert \left( { \cos\theta + \mathbf{i} \sin\theta } \right)= \left\lVert {\mathbf{a}} \right\rVert \left\lVert {\mathbf{b}} \right\rVert e^{\mathbf{i} \theta } \end{aligned} $$
+
+In this view of the geometric product, while we initially added two apparently dissimilar objects, this was really no less foreign than adding real and imaginary portions of a complex number, and we see that the geometric product can be viewed as a scaled rotation operator operating in the plane spanned by the two vectors.
+
+In 3D, the wedge and the cross products are related by what is called a duality relationship, relating a bivector that can be interpreted as an oriented plane, and the normal to that plane. Algebraically, this relationship is
+
+$$ \mathbf{a} \wedge \mathbf{b} = I (\mathbf{a} \times \mathbf{b}) $$
+
+where $$ I = \mathbf{e}_1 \mathbf{e}_2 \mathbf{e}_3 $$ is a unit trivector (often called the 3D pseudoscalar), which also satisfies $$ I^2 = -1 $$. With the usual normal notation for the cross product $$ \mathbf{a} \times \mathbf{b} = \hat{\mathbf{n}} \left\lVert {\mathbf{a}} \right\rVert \left\lVert {\mathbf{b}} \right\rVert \sin\theta $$ we see our unit bivector 𝐢, is related to the cross product normal-direction by $$ \mathbf{i} = I \hat{\mathbf{n}} $$. A rough characterization of this is that 𝐢 is a unit (oriented) plane that is spanned by 𝐚,𝐛 normal to 𝐧̂.
+
+The intuition of that the geometric product and the Lagrange identity are related is on the mark. There is a wedge product generalization of the Lagrange identity in geometric algebra. The 3D form stated in the question follows from the duality relationship of the wedge and cross products.
+
+
+
 # TODO
 
 https://math.stackexchange.com/questions/1395970/what-is-the-logic-rationale-behind-the-vector-cross-product
