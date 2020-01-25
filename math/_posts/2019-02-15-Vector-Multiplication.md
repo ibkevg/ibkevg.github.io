@@ -40,24 +40,24 @@ One good way (especially in the present context) of describing Hamilton’s sear
 
 # What does a vector product even mean?
 
-Our intuition and expectations for what it means to take a product is initially formed by multiplying two numbers together. When we start considering the product of two vectors it's not obvious how we should extend our intuition to account for the directionality that vectors have.
+Our intuition and expectations for what it means to calculate a product is initially formed from multiplying two ordinary numbers together. When we start considering the product of two vectors it's not obvious how we should extend our intuition to account for the directionality that vectors have.
 
-Imagine this is the mid-1800s and we are about to begin research into how vectors should be multiplied. We would quickly run into the problem that we can imagine all kinds of different ways to slice, dice and combine vector components, so by what criteria would we know when we've found one that is correct? Or, if you think of math as designed, then what would your feature list be?
+Imagine this is the formative period when vectors were being invented/discovered and we have figured out how to add, subtract and multiply vectors by a scalar and are now embarking on vector products. We quickly run into the problem that we can imagine all kinds of different ways to slice, dice and combine vector components, but by what criteria would we know when we've found one that is "correct"? Or, if you think of math as invented, then what would your feature list be?
 
 For example, when we multiply two numbers, say 5 x 4, we sometimes think of it as shortcut for 5 + 5 + 5 + 5. So should we think of vector multiplication similarly, as repeated sums? This way of thinking gets trickier to hold on to when we consider multiplying real numbers, say 5.2 x 4.75. We might imagine how fractional parts can play into a repeated sum if we stand on our heads and squint a bit, but it's getting tenuous. As you might be starting to suspect, in mathematics a product is not defined as the sum of a repeated addition.
 
 Maybe it is defined somewhere what a product must do? In advanced mathematics there are all kinds of "objects" that can be manipulated using algebra in addition to numbers such as complex numbers and vectors and matricies and sets and groups and rings, etc. Surely there is some universal definition of product that applies to all these things. ie. if someone were to invent a new abstract math object along with the operations you can perform on them, then this universal definition would tell us which of the operations should be considered products.
 
-You may be surprised to learn that there is no universal definition and whether an operation is thought of as multiplicative or not (and laballed a product) is determined by history and convention. For example, convention might be drawn from similarity with multiplication of regular numbers. The same is true for other operations such as addition.
+You may be surprised to learn that there is no universal definition and whether an operation is thought of as multiplicative or not (and labelled a product) is determined by history and convention. For example, convention might be drawn from similarity with multiplication of regular numbers. The same is true for other operations such as addition.
 
 So it seems we have a lot of latitude. Lets base our expections for vector multiplication on how regular numbers behave:
 
 1. should have useful applications
-1. should have geometric meaning
-1. should work the same as regular number multiplication
-1. should support division that works the same as regular number division
-1. regular number multiplication should be just a special case
-1. should be closed under multiplication, just like reals and complex numbers
+2. should have geometric meaning
+3. should work the same as regular number multiplication
+4. should support division that works the same as regular number division
+5. regular number multiplication should be just a special case
+6. should be closed under multiplication, just like reals and complex numbers
 
 **Has useful applications**  
 
@@ -526,7 +526,33 @@ So it's a pretty good multiply but not perfect.
 
 TODO
 
-# Lagrange's Identity
+# Combining Dot and Cross Products
+
+While dot and cross products on their own don't satisfy our requirements for multiplying vectors, we have some hints that suggest the two may be combined. Perhaps this combination does?
+
+Earlier we learned that $$ \vc{u} \cdot \vc{v} \propto \cos{\theta} $$ and $$ \vc{u} \times \vc{v} \propto \sin{\theta} $$. This suggests we may find a pythagorean relation, $$ \sin^2 + \cos^2 = 1 $$, between them.
+
+Also, suggesting a possible relation are the multiplication tables for both kinds of products.
+
+Dot product multiplication table: $$
+\begin{matrix}
+\cdot & e_1 & e_2 & e_3 \\
+e_1 & 1 & 0 & 0 \\
+e_2 & 0 & 1 & 0 \\
+e_3 & 0 & 0 & 1
+\end{matrix} 
+$$
+
+Cross product multiplication table: $$
+\begin{matrix}
+\times & e_1 & e_2 & e_3 \\
+e_1 & 0 & e_3 & -e_2 \\
+e_2 & -e_3 & 0 & e_1 \\
+e_3 & e_2 & -e_1 & 0
+\end{matrix} 
+$$
+
+## Lagrange's Identity
 
 Lagrange's Identity shows us that the dot and cross products are two parts of a greater whole. It is analogous to Pythagoras Theorem but for vector multiplication.
 
