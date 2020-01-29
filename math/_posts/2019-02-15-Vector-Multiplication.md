@@ -243,7 +243,7 @@ and where the magic happens is how the dot and cross products vary in how they a
 
 A dot product takes two vectors and produces a number that represents the degree to which the two vectors point in the same direction. The closer they are to pointing in the same direction, the larger the result will be and if they are not parallel at all, then the result will be 0. So what does all this have to do with multiplication? When the dot product is largest because the vectors are both pointing in the same direction, the result is the two lengths multiplied together. So the dot product combines both multiplying the vector lengths with measuring how parallel the vectors are.
 
-Since it produces a number, it is sometimes referred to as the Scalar Prodcut.
+Since it produces a number, it is sometimes referred to as the Scalar Product.
 
 ## Definition
 
