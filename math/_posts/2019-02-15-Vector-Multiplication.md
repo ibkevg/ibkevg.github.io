@@ -73,13 +73,14 @@ Geometrically, the multiplication of reals relates to area. Also it relates to s
 
 Ideally we could work algebraically with vector multiplication the same as we do with regular numbers. No special rules to remember. When we say that, we mean we want them to support the same set of properties.
 
-_Properties of Multiplication_
-
-|Property||
+|Multiplication Property||
 |-|-|
-Commutative Property | $ \vc{a}\vc{b} = \vc{b}\vc{a} $
-Associative Property | $ \vc{a}(\vc{b}\vc{c}) = (\vc{a}\vc{b})\vc{c} $  
-Distributive Property | $ \vc{a} (\vc{b} + \vc{c} ) = \vc{a}\vc{b} + \vc{a}\vc{c} $  
+Commutative | $ \vc{a}\vc{b} = \vc{b}\vc{a} $
+Associative | $ \vc{a}(\vc{b}\vc{c}) = (\vc{a}\vc{b})\vc{c} $  
+Distributive | $ \vc{a} (\vc{b} + \vc{c} ) = \vc{a}\vc{b} + \vc{a}\vc{c} $
+Identity (Note that this is required for division to exist.) | $ 1\vc{a} = \vc{a} $ 
+Inverse (or reciprocal) | $ \vc{a} \vc{a}^{-1} = \vc{a}^{-1} \vc{a} = 1 $
+
 
 Many of these seem like they're stating the obvious, however its useful to be explicit when listing requirements.
 
@@ -87,26 +88,12 @@ Many of these seem like they're stating the obvious, however its useful to be ex
 
 When we say we want division to exist and work for vectors the same as it does for regular numbers, we again mean we want them to support the same set of properties.
 
-_Properties of Division_
-
-Multiplicative Identity: $ 1\vc{a} = \vc{a} $ (Note that this is required for division to exist.)
-Multiplicative Inverse (or reciprocal): $ \vc{a} \vc{a}^{-1} = \vc{a}^{-1} \vc{a} = 1 $
-
-Division is not commutative: $ \vc{a} \div \vc{b} \neq \vc{b} \div \vc{a} $
-
-$$ \frac{\vc{a}}{\vc{b}} \ne \frac{\vc{b}}{\vc{a}} $$
-
-Division is also not associative: $ \vc{a} \div (\vc{b} \div \vc{c}) \neq (\vc{a} \div \vc{b}) \div \vc{c} $
-
-$$ \frac{\vc{a}\vc{c}}{\vc{b}} \ne \frac{\vc{a}}{\vc{b}\vc{c}} $$  
-
-Division is right distributive: $ (\vc{a}+\vc{b}) ÷ \vc{c} = (\vc{a} ÷ \vc{c}) + (\vc{b} ÷ \vc{c}) $
-
-$$ \frac{\vc{a} + \vc{b}}{\vc{c}} = \frac{\vc{a}}{\vc{c}} + \frac{\vc{b}}{\vc{c}} $$
-
-Division is not left distributive: $ \vc{c} \div (\vc{a}+\vc{b}) = (\vc{c} ÷ \vc{a}) + (\vc{c} ÷ \vc{b}) $
-
-$$ \frac{\vc{c}}{\vc{a} + \vc{b}} \ne \frac{\vc{c}}{\vc{a}} + \frac{\vc{c}}{\vc{b}} $$  
+|Division Property|||
+|-|-|-|
+Not commutative| $ \vc{a} \div \vc{b} \neq \vc{b} \div \vc{a} $| $ \frac{\vc{a}}{\vc{b}} \ne \frac{\vc{b}}{\vc{a}} $
+Not associative| $ \vc{a} \div (\vc{b} \div \vc{c}) \neq (\vc{a} \div \vc{b}) \div \vc{c} $ | $ \frac{\vc{a}\vc{c}}{\vc{b}} \ne \frac{\vc{a}}{\vc{b}\vc{c}} $
+Not left distributive | $ \vc{c} \div (\vc{a}+\vc{b}) \ne (\vc{c} ÷ \vc{a}) + (\vc{c} ÷ \vc{b}) $ | $ \frac{\vc{c}}{\vc{a} + \vc{b}} \ne \frac{\vc{c}}{\vc{a}} + \frac{\vc{c}}{\vc{b}} $
+But is right distributive | $ (\vc{a}+\vc{b}) ÷ \vc{c} = (\vc{a} ÷ \vc{c}) + (\vc{b} ÷ \vc{c}) $ | $ \frac{\vc{a} + \vc{b}}{\vc{c}} = \frac{\vc{a}}{\vc{c}} + \frac{\vc{b}}{\vc{c}} $
 
 **Regular number multiplication is just a special case**
 
@@ -207,17 +194,11 @@ $$ \vc{u} = u_x \ihat + u_y \jhat + u_z \khat $$
 
 # Vector to Vector Products
 
-The dot product of A and B is the length of the projection of A onto B multiplied by the length of B (or the other way around--it's commutative).
+The dot product of A and B is written $ \vc{a} \cdot \vc{b} $ and provides a measure of how parallel the vectors are. It is the length of the projection of A onto B multiplied by the length of B (or the other way around--it's commutative).
 
-The magnitude of the cross product is the area of the parallelogram with two sides A and B. The orientation of the cross product is orthogonal to the plane containing this parallelogram.
+The cross product of A and B is written $ \vc{a} \times \vc{b} $ and provides a measure of how perpendicular the vectors are. The magnitude of the cross product is the area of the parallelogram with two sides A and B. The orientation of the cross product is orthogonal to the plane containing this parallelogram.
 
-
-
-
-| $ \vc{a} \cdot \vc{b} $ |dot product  |  the dot product of two vectors provides a measure of how parallel the vectors are |  
-| $ \vc{a} \times \vc{b} $ |cross product | the cross product of two vectors provides a measure of how perpendicular the vectors are|
-
- Vector to vector products can be tricky to understand at first because it's not obvious how we should extend our experience multiplying two numbers together to account for the directionality that vectors have. So before we introduce the equations that define dot and cross products, lets check if the dot and cross products have, at their core, the ordinary multiplication of vector lengths as you might expect.
+Vector to vector products can be tricky to understand at first because it's not obvious how we should extend our experience multiplying two numbers together to account for the directionality that vectors have. So before we introduce the equations that define dot and cross products, lets check if the dot and cross products have, at their core, the ordinary multiplication of vector lengths as you might expect.
 
 To do this, let's express our vectors as the product of a length and a unit vector and then track how each part influences $ \vc{a} \cdot \vc{b} $ and $ \vc{a} \times \vc{b} $.
 
