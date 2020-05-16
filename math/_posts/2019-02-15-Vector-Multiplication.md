@@ -19,7 +19,7 @@ $$
 There are lots of ways to multiply vectors
 
 | *Notation* | *Description* | *Produces ...* |  
-| $$ a \vc{u} $$ | scalar multiplication| vector |  
+| $ a \vc{u} $ | scalar multiplication| vector |  
 | $$ \vc{u} \cdot \vc{v} $$ | dot product (aka scalar product) | scalar |  
 | $$ \vc{u} \times \vc{v} $$ | cross product | vector |  
 | $$ \inner{\vc u}{\vc v} $$ | inner product (~= dot product) | scalar |  
