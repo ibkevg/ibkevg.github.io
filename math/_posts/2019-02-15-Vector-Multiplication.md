@@ -16,18 +16,17 @@ $$
 
 # Introduction
 
-Testing $ \vc{a} $ testing 1 2 3.
-
 There are lots of ways to multiply vectors
 
-| *Notation* | *Description* | *Produces ...* |  
+| *Notation* | *Description* | *Produces ...* |
+|-|-|-|
 | $ a \vc{u} $ | scalar multiplication| vector |  
-| $$ \vc{u} \cdot \vc{v} $$ | dot product (aka scalar product) | scalar |  
-| $$ \vc{u} \times \vc{v} $$ | cross product | vector |  
-| $$ \inner{\vc u}{\vc v} $$ | inner product (~= dot product) | scalar |  
-| $$ \vc{u} \otimes \vc{v} $$ | outer product (aka tensor product) | tensor, multilinear matrix |  
-| $$ \vc{u} \wedge \vc{v} $$ | exterior product (aka wedge product) | bivector |  
-| $$ \vc{u}\vc{v} = \vc{u} \cdot \vc{v} + \vc{u} \wedge \vc{v} $$ | geometric product | multivector |  
+| $ \vc{u} \cdot \vc{v} $ | dot product (aka scalar product) | scalar |  
+| $ \vc{u} \times \vc{v} $ | cross product | vector |  
+| $ \inner{\vc u}{\vc v} $ | inner product (~= dot product) | scalar |  
+| $ \vc{u} \otimes \vc{v} $ | outer product (aka tensor product) | tensor, multilinear matrix |  
+| $ \vc{u} \wedge \vc{v} $ | exterior product (aka wedge product) | bivector |  
+| $ \vc{u}\vc{v} = \vc{u} \cdot \vc{v} + \vc{u} \wedge \vc{v} $ | geometric product | multivector |  
 
 My goal here is to:
 
@@ -76,9 +75,11 @@ Ideally we could work algebraically with vector multiplication the same as we do
 
 _Properties of Multiplication_
 
-Commutative Property: $$ \vc{a}\vc{b} = \vc{b}\vc{a} $$  
-Associative Property: $$ \vc{a}(\vc{b}\vc{c}) = (\vc{a}\vc{b})\vc{c} $$  
-Distributive Property: $$ \vc{a} (\vc{b} + \vc{c} ) = \vc{a}\vc{b} + \vc{a}\vc{c} $$  
+|Property||
+|-|-|
+Commutative Property | $ \vc{a}\vc{b} = \vc{b}\vc{a} $
+Associative Property | $ \vc{a}(\vc{b}\vc{c}) = (\vc{a}\vc{b})\vc{c} $  
+Distributive Property | $ \vc{a} (\vc{b} + \vc{c} ) = \vc{a}\vc{b} + \vc{a}\vc{c} $  
 
 Many of these seem like they're stating the obvious, however its useful to be explicit when listing requirements.
 
@@ -88,22 +89,22 @@ When we say we want division to exist and work for vectors the same as it does f
 
 _Properties of Division_
 
-Multiplicative Identity: $$ 1\vc{a} = \vc{a} $$ (Note that this is required for division to exist.)
-Multiplicative Inverse (or reciprocal): $$ \vc{a} \vc{a}^{-1} = \vc{a}^{-1} \vc{a} = 1 $$
+Multiplicative Identity: $ 1\vc{a} = \vc{a} $ (Note that this is required for division to exist.)
+Multiplicative Inverse (or reciprocal): $ \vc{a} \vc{a}^{-1} = \vc{a}^{-1} \vc{a} = 1 $
 
-Division is not commutative: $$ \vc{a} \div \vc{b} \neq \vc{b} \div \vc{a} $$
+Division is not commutative: $ \vc{a} \div \vc{b} \neq \vc{b} \div \vc{a} $
 
 $$ \frac{\vc{a}}{\vc{b}} \ne \frac{\vc{b}}{\vc{a}} $$
 
-Division is also not associative: $$ \vc{a} \div (\vc{b} \div \vc{c}) \neq (\vc{a} \div \vc{b}) \div \vc{c} $$
+Division is also not associative: $ \vc{a} \div (\vc{b} \div \vc{c}) \neq (\vc{a} \div \vc{b}) \div \vc{c} $
 
 $$ \frac{\vc{a}\vc{c}}{\vc{b}} \ne \frac{\vc{a}}{\vc{b}\vc{c}} $$  
 
-Division is right distributive: $$ (\vc{a}+\vc{b}) ÷ \vc{c} = (\vc{a} ÷ \vc{c}) + (\vc{b} ÷ \vc{c}) $$
+Division is right distributive: $ (\vc{a}+\vc{b}) ÷ \vc{c} = (\vc{a} ÷ \vc{c}) + (\vc{b} ÷ \vc{c}) $
 
 $$ \frac{\vc{a} + \vc{b}}{\vc{c}} = \frac{\vc{a}}{\vc{c}} + \frac{\vc{b}}{\vc{c}} $$
 
-Division is not left distributive: $$ \vc{c} \div (\vc{a}+\vc{b}) = (\vc{c} ÷ \vc{a}) + (\vc{c} ÷ \vc{b}) $$
+Division is not left distributive: $ \vc{c} \div (\vc{a}+\vc{b}) = (\vc{c} ÷ \vc{a}) + (\vc{c} ÷ \vc{b}) $
 
 $$ \frac{\vc{c}}{\vc{a} + \vc{b}} \ne \frac{\vc{c}}{\vc{a}} + \frac{\vc{c}}{\vc{b}} $$  
 
@@ -137,7 +138,7 @@ Much of the intuition from multipling two scalars applies when multiplying a vec
 
 ## The Null or Zero Vector
 
-If we multiply a vector by zero, we get a null vector aka a zero vector, $$\vc{0}$$.
+If we multiply a vector by zero, we get a null vector aka a zero vector, $\vc{0}$.
 
 $$ 0 \vc{v} = \vc{0} $$
 
@@ -152,7 +153,7 @@ $$
 
 Here we find that a Null vector has no direction at all because there's no way to measure the angle between two lines of 0 length. It's like asking what is the angle of a plate of spaghetti? It's a question that doesn't have a meaningful answer.
 
-Now how should we think of this in geometry, length and angle, terms? It makes sense that $$ \vc{v} $$'s length becomes zero, but what happens to it's direction?
+Now how should we think of this in geometry, length and angle, terms? It makes sense that $ \vc{v} $'s length becomes zero, but what happens to it's direction?
 
 $$ 0 \vc{v} = 0 \langle r, \angle{\theta } \rangle = \langle 0, \angle{???} \rangle $$
 
@@ -166,19 +167,19 @@ $$ \vc{a} + (-\vc{a}) = \vc{0} $$
 
 So the reality is that a vector's direction is only meaningful when accompanied by a non-zero length. It might seem contradictory to say that a null vector is both "any direction" and "no particular direction" but these are really just different ways to express in english that it is mathematically undefined.
 
-So for $$\vc{0}$$, the length is zero, and the direction is undefined.
+So for $\vc{0}$, the length is zero, and the direction is undefined.
 
 ## Unit Vectors
 
 Scalar multiplication is also useful for creating and using unit vectors.
 
-A unit vector is a handy way to represent a direction without a specific magnitude. Notationally, we write it with a hat, for example, $$ \hat{\vc{a}} $$ is a unit vector in the direction of $$ \vc{a} $$.
+A unit vector is a handy way to represent a direction without a specific magnitude. Notationally, we write it with a hat, for example, $ \hat{\vc{a}} $ is a unit vector in the direction of $ \vc{a} $.
 
-You might think that for a vector to represent a direction alone it should have no notion of length at all, i.e. if the vector is $$ \langle r, \angle{\theta} \rangle $$, it's corresponding unit vector might be just the angle. But as we just learned, a vector with no length is a zero vector, $$ \vc{0}, $$ and a zero vector's direction is undefined. So, for a vector to have a direction it must also have a length. Having "unit" in the name gives us a hint as to what it's length is because unit means 1 and that is the length of a unit vector.
+You might think that for a vector to represent a direction alone it should have no notion of length at all, i.e. if the vector is $ \langle r, \angle{\theta} \rangle $, it's corresponding unit vector might be just the angle. But as we just learned, a vector with no length is a zero vector, $ \vc{0}, $ and a zero vector's direction is undefined. So, for a vector to have a direction it must also have a length. Having "unit" in the name gives us a hint as to what it's length is because unit means 1 and that is the length of a unit vector.
 
-The reason unit vectors are so handy is because anything times 1 is itself, thus unit vectors can be multiplied by any scalar to create vectors of any length you need. As an example, we can make a $$ \vc{b} $$ in the direction of $$ \hat{\vc{a}} $$ using $$ \vc{b} = 5 \hat{\vc{a}} $$. So, $$ \vc{b} $$ has length, $$ \lvert\vc{b}\rvert = 5 $$.
+The reason unit vectors are so handy is because anything times 1 is itself, thus unit vectors can be multiplied by any scalar to create vectors of any length you need. As an example, we can make a $ \vc{b} $ in the direction of $ \hat{\vc{a}} $ using $ \vc{b} = 5 \hat{\vc{a}} $. So, $ \vc{b} $ has length, $ \lvert\vc{b}\rvert = 5 $.
 
-To make $$ \hat{\vc{a}} $$, we take vector $$ \vc{a} $$ and divide out it's length, $$ \lvert\vc{a}\rvert $$, in effect normalizing it's components to 1.
+To make $ \hat{\vc{a}} $, we take vector $ \vc{a} $ and divide out it's length, $ \lvert\vc{a}\rvert $, in effect normalizing it's components to 1.
 
 $$ \hat{\vc{u}} = \frac{\vc{u}}{\lvert\vc{u}\rvert} $$
 
@@ -190,7 +191,7 @@ To recreate the original vector we combine the two using the following scalar mu
 
 $$ \vc{u} = \lvert\vc{u}\rvert \hat{u} $$
 
-Unit vectors have many uses, for example, $$ \mathbb{R}^3 $$ has standard unit vectors that form the foundation of the (x, y, z) coordinate system:
+Unit vectors have many uses, for example, $ \mathbb{R}^3 $ has standard unit vectors that form the foundation of the (x, y, z) coordinate system:
 
 $$
 \begin{aligned}
@@ -200,7 +201,7 @@ $$
 \end{aligned}
 $$
 
-Any vector in $$ \mathbb{R}^3 $$ can be written as a linear combination of these standard unit vectors:
+Any vector in $ \mathbb{R}^3 $ can be written as a linear combination of these standard unit vectors:
 
 $$ \vc{u} = u_x \ihat + u_y \jhat + u_z \khat $$
 
@@ -213,12 +214,12 @@ The magnitude of the cross product is the area of the parallelogram with two sid
 
 
 
-| $$ \vc{a} \cdot \vc{b} $$ |dot product  |  the dot product of two vectors provides a measure of how parallel the vectors are |  
-| $$ \vc{a} \times \vc{b} $$ |cross product | the cross product of two vectors provides a measure of how perpendicular the vectors are|
+| $ \vc{a} \cdot \vc{b} $ |dot product  |  the dot product of two vectors provides a measure of how parallel the vectors are |  
+| $ \vc{a} \times \vc{b} $ |cross product | the cross product of two vectors provides a measure of how perpendicular the vectors are|
 
  Vector to vector products can be tricky to understand at first because it's not obvious how we should extend our experience multiplying two numbers together to account for the directionality that vectors have. So before we introduce the equations that define dot and cross products, lets check if the dot and cross products have, at their core, the ordinary multiplication of vector lengths as you might expect.
 
-To do this, let's express our vectors as the product of a length and a unit vector and then track how each part influences $$ \vc{a} \cdot \vc{b} $$ and $$ \vc{a} \times \vc{b} $$.
+To do this, let's express our vectors as the product of a length and a unit vector and then track how each part influences $ \vc{a} \cdot \vc{b} $ and $ \vc{a} \times \vc{b} $.
 
 $$ \vc{a} = \lvert\vc{a}\rvert \hat{a} $$
 
@@ -251,9 +252,9 @@ Since it produces a number, it is sometimes referred to as the Scalar Product.
 
 We will define the dot product in two different ways. Once from the perspective of geometry, where a vector has a length and a direction and the other from the perspective of algebra where a vector is comprised of coordinates. Let's start with the geometric viewpoint:
 
-__Geometric Definition:__ $$ \vc{u} \cdot \vc{v} = \lvert u \rvert \lvert v \rvert \cos {\theta} $$  
+__Geometric Definition:__ $ \vc{u} \cdot \vc{v} = \lvert u \rvert \lvert v \rvert \cos {\theta} $  
 
-A way to think of this is the dot product multiplies the lengths of two vectors _but only the parts that lie in the same direction_ and that is what the $$ \cos{\theta} $$ term is for.
+A way to think of this is the dot product multiplies the lengths of two vectors _but only the parts that lie in the same direction_ and that is what the $ \cos{\theta} $ term is for.
 
 We will explore what this means in detail but for now just play around with the example by dragging the vectors around and observing that effect of making the vectors longer, shorter, more parallel and more perpendicular have on the dot product.
 
@@ -283,7 +284,7 @@ $$ \vc{a} \cdot \vc{b} = \lvert a \rvert \lvert b \rvert \cos {\theta} $$
 
 ### Geometric Interpretation #2: Parallel and Perpendicular Vectors
 
-Now to develop our intuition, let's first try this out with some simple vectors, $$ \ihat $$ and $$ \jhat $$ the x and y axis unit vectors.
+Now to develop our intuition, let's first try this out with some simple vectors, $ \ihat $ and $ \jhat $ the x and y axis unit vectors.
 
 $$
 \begin{aligned}
@@ -306,7 +307,7 @@ So the dot product can be a handy way to find out if two vectors are perpendicul
 
 ### Geometric Interpretation #3: Projections
 
-Next lets see what happens when we dot a regular vector, $$ \vc{u} = ( r, \angle \theta) $$, with these same unit vectors.
+Next lets see what happens when we dot a regular vector, $ \vc{u} = ( r, \angle \theta) $, with these same unit vectors.
 
 $$
 \begin{aligned}
@@ -315,9 +316,9 @@ u_y = \vc{u} \cdot \jhat &= r (1) \cos{(90^\circ - \theta)} &= r \sin \theta
 \end{aligned}
 $$
 
-Here we find that the dot product has given us the scalar projection/component of the vector $$ \vc{u} $$ onto the x and y axis respectively, something done frequently in engineering and physics.
+Here we find that the dot product has given us the scalar projection/component of the vector $ \vc{u} $ onto the x and y axis respectively, something done frequently in engineering and physics.
 
-We can take this further and find the vector projection (aka vector component) in the direction of any vector using, for example, $$ \vc{u_v} $$ the projection of $$ \vc{u} $$ in the direction of $$ \vc{v} $$:
+We can take this further and find the vector projection (aka vector component) in the direction of any vector using, for example, $ \vc{u_v} $ the projection of $ \vc{u} $ in the direction of $ \vc{v} $:
 
 $$ u_v =
 \vc{u} \cdot \hat{v} =
@@ -334,15 +335,15 @@ $$
 
 ### Geometric Interpretation #4: Projection + Multiplication
 
-Now we are in a position to put this all together. If instead of a unit vector we used a second regular vector, we would still have the $$ r \cos \theta $$ part but instead of (1) for the unit vector we will have the length of the second vector. It's saying take all of the second vector and multiply it by the amount of the first vector that lies in the same direction. Conversely you could think of the projection being from the second onto the first. It's symmetric so it doesn't matter.
+Now we are in a position to put this all together. If instead of a unit vector we used a second regular vector, we would still have the $ r \cos \theta $ part but instead of (1) for the unit vector we will have the length of the second vector. It's saying take all of the second vector and multiply it by the amount of the first vector that lies in the same direction. Conversely you could think of the projection being from the second onto the first. It's symmetric so it doesn't matter.
 
 ### Dot Product using Coordinates
 
-__Algebraic Definition:__ $$ \vc{u} \cdot \vc{v} = u_x v_x + u_y v_y + u_z v_z $$
+__Algebraic Definition:__ $ \vc{u} \cdot \vc{v} = u_x v_x + u_y v_y + u_z v_z $
 
 Remember that the dot product multiplies two vectors _but only the parts that lie in the same direction_, when dealing with coordinates, this is accomplished by multiplying like components together.
 
-Now lets look at how the algebraic definition can be derived from the geometric definition. Here we write $$ \vc{u} $$ and $$ \vc{v} $$ as a linear combination of the standard $$ \mathbb{R}^3 $$ unit vectors:
+Now lets look at how the algebraic definition can be derived from the geometric definition. Here we write $ \vc{u} $ and $ \vc{v} $ as a linear combination of the standard $ \mathbb{R}^3 $ unit vectors:
 
 $$
 \begin{aligned}
@@ -360,10 +361,10 @@ $$
 
 Now we can multiply it all out because the dot product has the following properties:
 
->Left Distributive over vector addition: $$ \vc{a} \cdot (\vc{b} + \vc{c} ) = \vc{a} \cdot \vc{b} + \vc{a} \cdot \vc{c} $$  
-Right Distributive over vector addition: $$ (\vc{a} + \vc{b}) \cdot \vc{c} = \vc{a} \cdot \vc{c} + \vc{b} \cdot \vc {c} $$  
-Scalar multiplication:  $$ (c_{1}\vc {a} )\cdot (c_{2}\vc {b} )=c_{1}c_{2}(\vc {a} \cdot \vc {b} ) $$  
-And we found above: $$ \ihat \cdot \ihat = \jhat \cdot \jhat = \khat \cdot \khat = 1 $$ and $$ \ihat \cdot \jhat = \ihat \cdot \khat = \jhat \cdot \khat = 0 $$
+>Left Distributive over vector addition: $ \vc{a} \cdot (\vc{b} + \vc{c} ) = \vc{a} \cdot \vc{b} + \vc{a} \cdot \vc{c} $  
+Right Distributive over vector addition: $ (\vc{a} + \vc{b}) \cdot \vc{c} = \vc{a} \cdot \vc{c} + \vc{b} \cdot \vc {c} $  
+Scalar multiplication:  $ (c_{1}\vc {a} )\cdot (c_{2}\vc {b} )=c_{1}c_{2}(\vc {a} \cdot \vc {b} ) $  
+And we found above: $ \ihat \cdot \ihat = \jhat \cdot \jhat = \khat \cdot \khat = 1 $ and $ \ihat \cdot \jhat = \ihat \cdot \khat = \jhat \cdot \khat = 0 $
 
 $$
 \begin{aligned}
@@ -388,7 +389,7 @@ $$ \vc{u} \cdot \vc{v} = u_x v_x + u_y v_y + u_z v_z $$
 
 This component-based description is interesting because it really makes clear that only like components of the two vectors are being multiplied.
 
-Now lets see what happens when we dot a vector, $$ \vc{u} = \langle u_x, u_y, u_z \rangle $$ with the standard unit vectors in $$\mathbb{R}^3$$.
+Now lets see what happens when we dot a vector, $ \vc{u} = \langle u_x, u_y, u_z \rangle $ with the standard unit vectors in $\mathbb{R}^3$.
 
 $$
 \begin{aligned}
@@ -410,7 +411,7 @@ Again we find that the dot product is a useful tool for finding the projection o
 
 Examples? Work (energy) is a dot product of force and displacement. The angle between two vectors is found by knowing that the cosine of the angle between them is their dot product divided by their self dot product.
 
-Example: The work expression $$ W = \vec{F} \cdot \vec{r} $$, where only the force component parallel to the direction (or likewise, the position component parallel to the force) is wanted.
+Example: The work expression $ W = \vec{F} \cdot \vec{r} $, where only the force component parallel to the direction (or likewise, the position component parallel to the force) is wanted.
 The (magnetude of the) cross product gives you the multiplication of the perpendicular components.
 
 You’re often interested in knowing to what extent a vector quantity contributes in a given direction (the vector quantity’s component in that direction). This is what the dot (scalar) product, as used in physics, tells you.
@@ -439,7 +440,7 @@ Let's review the dot product against our expectations:
 
 1. Useful applications  
 **Yes** We showed above that the dot product can be used to determine the angle between vectors, is useful to test perpendicularity and parallelity, find projections onto basis or other vectors, etc.  
-Also an example from physics: $$ W = \vc{F} \cdot \vc{d} $$  
+Also an example from physics: $ W = \vc{F} \cdot \vc{d} $  
 1. Geometric meaning  
 **Yes** The dot product can be viewed as a projection-based multiply.
 1. Works the same as regular number multiplication  
@@ -456,12 +457,12 @@ So it's a pretty good multiply but not perfect.
 
 # The Inner and Outer Products
 
-The dot product is very useful in $$ \mathbb{R}^3 $$ but also very specific to $$ \mathbb{R}^3 $$. Since goal of linear algebra is to apply to vectors of any kind, whether they be audio data, polynomials, etc., the inner product takes the idea of a dot product and makes it more general and abstract so that it can apply to any kind of vector. The inner product of two vectors is shown as $$ \langle \vc{a}, \vc{b} \rangle $$. The inner product is defined as any operator that adheres to the following properties:
+The dot product is very useful in $ \mathbb{R}^3 $ but also very specific to $ \mathbb{R}^3 $. Since goal of linear algebra is to apply to vectors of any kind, whether they be audio data, polynomials, etc., the inner product takes the idea of a dot product and makes it more general and abstract so that it can apply to any kind of vector. The inner product of two vectors is shown as $ \langle \vc{a}, \vc{b} \rangle $. The inner product is defined as any operator that adheres to the following properties:
 
->Commutative: $$ \inner{\vc a}{\vc b}  = \inner{\vc b}{\vc a} $$  
->Scalar Mult: $$ \alpha \inner{\vc a}{\vc b}  = \inner{\alpha \vc a}{\vc b} $$  
->Distributive: $$ \inner{\vc{a}}{\vc{b}+\vc{c}} = \langle \vc{a}, \vc{b} \rangle + \langle \vc{a}, \vc{c} \rangle $$  
->Positive Definite $$ \inner{\vc v}{\vc v} \ge 0 $$ and equal iff $$ \vc v= 0 $$
+>Commutative: $ \inner{\vc a}{\vc b}  = \inner{\vc b}{\vc a} $  
+>Scalar Mult: $ \alpha \inner{\vc a}{\vc b}  = \inner{\alpha \vc a}{\vc b} $  
+>Distributive: $ \inner{\vc{a}}{\vc{b}+\vc{c}} = \langle \vc{a}, \vc{b} \rangle + \langle \vc{a}, \vc{c} \rangle $  
+>Positive Definite $ \inner{\vc v}{\vc v} \ge 0 $ and equal iff $ \vc v= 0 $
 
 We can also write the dot product, aka inner product, as the following matrix multiplication:
 
@@ -532,26 +533,28 @@ TODO
 
 While dot and cross products on their own don't satisfy our requirements for multiplying vectors, we have some hints that suggest the two may be combined. Perhaps this combination does?
 
-Earlier we learned that $$ \vc{u} \cdot \vc{v} \propto \cos{\theta} $$ and $$ \vc{u} \times \vc{v} \propto \sin{\theta} $$. This suggests we may find a pythagorean relation, $$ \sin^2 + \cos^2 = 1 $$, between them.
+Earlier we learned that $ \vc{u} \cdot \vc{v} \propto \cos{\theta} $ and $ \vc{u} \times \vc{v} \propto \sin{\theta} $. This suggests we may find a pythagorean relation, $ \sin^2 + \cos^2 = 1 $, between them.
 
 Also, suggesting a possible relation are the multiplication tables for both kinds of products.
 
-Dot product multiplication table: $$
-\begin{matrix}
-\cdot & e_1 & e_2 & e_3 \\
-e_1 & 1 & 0 & 0 \\
-e_2 & 0 & 1 & 0 \\
+Dot product multiplication table:
+$$
+\begin{array}{c|c|c|c}
+\cdot & e_1 & e_2 & e_3 \\ \hline
+e_1 & 1 & 0 & 0 \\ \hline
+e_2 & 0 & 1 & 0 \\ \hline
 e_3 & 0 & 0 & 1
-\end{matrix} 
+\end{array} 
 $$
 
-Cross product multiplication table: $$
-\begin{matrix}
-\times & e_1 & e_2 & e_3 \\
-e_1 & 0 & e_3 & -e_2 \\
-e_2 & -e_3 & 0 & e_1 \\
+Cross product multiplication table:
+$$
+\begin{array}{c|c|c|c}
+\times & e_1 & e_2 & e_3 \\ \hline
+e_1 & 0 & e_3 & -e_2 \\ \hline
+e_2 & -e_3 & 0 & e_1 \\ \hline
 e_3 & e_2 & -e_1 & 0
-\end{matrix} 
+\end{array} 
 $$
 
 ## Lagrange's Identity
@@ -605,7 +608,7 @@ $$
 
 # Multiplying Two Quarternions
 
-Quarternions are an extension of complex numbers. Here we write $$ \vc{u} $$ and $$ \vc{v} $$ as pure vector quarternions:
+Quarternions are an extension of complex numbers. Here we write $ \vc{u} $ and $ \vc{v} $ as pure vector quarternions:
 
 $$
 \begin{aligned}
@@ -628,11 +631,11 @@ $$
 \end{aligned}
 $$
 
-Just like $$ \vc{i} $$ for imaginary numbers, imagine $$ \vc{j}, \vc{k} $$ are similar:
+Just like $ \vc{i} $ for imaginary numbers, imagine $ \vc{j}, \vc{k} $ are similar:
 
 $$ \ihat \ihat = \jhat \jhat = \khat \khat =  \ihat \jhat \khat = -1 $$
 
-We can now derive $$ \ihat \jhat $$:
+We can now derive $ \ihat \jhat $:
 
 $$\begin{aligned}
 \ihat \jhat \khat &= -1 \\
@@ -678,7 +681,7 @@ The dot and cross products emerge naturally from Pythagoras' theorem. To see how
 
 ## Emergence of the Dot Product from Pythagoras' Theorem
 
-We first consider the case where $$ \vc{a} $$ is perpendicular to $$ \vc{b} $$. When $$ \vc{a} \perp \vc{b} $$, they form the opposite and adjacent sides of a right triangle, so we can apply Pythagoras to get:
+We first consider the case where $ \vc{a} $ is perpendicular to $ \vc{b} $. When $ \vc{a} \perp \vc{b} $, they form the opposite and adjacent sides of a right triangle, so we can apply Pythagoras to get:
 
 $$
 \begin{aligned}
@@ -689,11 +692,11 @@ $$
 \end{aligned}
 $$
 
-Also, regardless of perpendicularity, 2 of the vectors that form the sides of the triangle must sum to the other. We arbitrarily choose $$ \vc{a} = \vc{b} + \vc{s} $$ or $$ \vc{s} = \vc{a} - \vc{b} $$ :
+Also, regardless of perpendicularity, 2 of the vectors that form the sides of the triangle must sum to the other. We arbitrarily choose $ \vc{a} = \vc{b} + \vc{s} $ or $ \vc{s} = \vc{a} - \vc{b} $ :
 
 $$ |\vc{s}|^2 = (a_x-b_x)^2 + (a_y-b_y)^2 + (a_z-b_z)^2 $$
 
-Now when $$ \vc{a} \perp \vc{b} $$, we can equate $$ \abs{\vc{s}}^2 = \abs{\vc{s}}^2_{perp} $$:
+Now when $ \vc{a} \perp \vc{b} $, we can equate $ \abs{\vc{s}}^2 = \abs{\vc{s}}^2_{perp} $:
 
 $$
 \begin{aligned}
@@ -715,11 +718,11 @@ $$ \vc{a} \cdot \vc{b} = a_x b_x + a_y b_y + a_z b_z $$
 
 ## Emergence of the Cross Product from Pythagoras' Theorem
 
-Now let's consider the case where $$ \vc{a} $$ is parallel to $$ \vc{b} $$. We can't directly apply Pythagoras but we can apply the law of cosines:
+Now let's consider the case where $ \vc{a} $ is parallel to $ \vc{b} $. We can't directly apply Pythagoras but we can apply the law of cosines:
 
 $$ |\vc{s}|^2 = |\vc{a}|^2 + |\vc{b}|^2 - 2|\vc{a}||\vc{b}|\cos S $$
 
-and because our vectors are parallel, $$ S = 180^\circ $$ making $$ \cos 180^\circ = -1 $$, which gives:
+and because our vectors are parallel, $ S = 180^\circ $ making $ \cos 180^\circ = -1 $, which gives:
 
 $$
 \begin{aligned}
@@ -729,11 +732,11 @@ $$
 \end{aligned}
 $$
 
-Also, regardless of parallelity, the sum of any $$ \vc{a} $$ and $$ \vc{b} $$ is $$ \vc{s} = \vc{a} + \vc{b} $$, therefore:
+Also, regardless of parallelity, the sum of any $ \vc{a} $ and $ \vc{b} $ is $ \vc{s} = \vc{a} + \vc{b} $, therefore:
 
 $$ |\vc{s}|^2 = (a_x + b_x)^2 + (a_y + b_y)^2 + (a_z + b_z)^2 $$
 
-We can equate these two expressions, $$ \abs{\vc{s}}^2 = \abs{\vc{s}}^2_{parallel} $$, when $$ \vc{a} \parallel \vc{b} $$:
+We can equate these two expressions, $ \abs{\vc{s}}^2 = \abs{\vc{s}}^2_{parallel} $, when $ \vc{a} \parallel \vc{b} $:
 
 $$
 \begin{aligned}
@@ -753,7 +756,7 @@ Notice that we can gather terms and re-write this as
 
 $$ (a_x b_y - b_x a_y)^2  +  (b_x a_z - a_x b_z)^2  +  (a_y b_z - b_y a_z)^2  =  0 $$
 
-This sum of squares equals zero only when $$ \vc{a} \parallel \vc{b} $$ and is consistent with the definition of the cross product:
+This sum of squares equals zero only when $ \vc{a} \parallel \vc{b} $ and is consistent with the definition of the cross product:
 
 $$ \vc{a} \times \vc{b}
 = \begin{bmatrix}
@@ -765,7 +768,7 @@ $$
 
 Also as we saw previously, the dot product of two vectors is 0 if the vectors are perpendicular. We can use this to confirm the following:
 
-that $$ \vc{a} \times \vc{b} $$ is perpendicular to $$ \vc{a} $$:
+that $ \vc{a} \times \vc{b} $ is perpendicular to $ \vc{a} $:
 
 $$
 \begin{aligned}
@@ -781,7 +784,7 @@ a_x b_y - b_x a_y
 \end{aligned}
 $$
 
-that $$ \vc{a} \times \vc{b} $$ is perpendicular to $$ \vc{b} $$:
+that $ \vc{a} \times \vc{b} $ is perpendicular to $ \vc{b} $:
 
 $$
 \begin{aligned}
@@ -817,9 +820,9 @@ Think of the sum as like the real and imaginary parts of a complex number.
 
 ## Division
 
-The question "what does $$ \vc{a} / \vc{b} $$ equal?" is equivalent to asking "What do you multiply with $$ \vc{b} $$ to get $$ \vc{a} $$?"
+The question "what does $ \vc{a} / \vc{b} $ equal?" is equivalent to asking "What do you multiply with $ \vc{b} $ to get $ \vc{a} $?"
 
-How would you define the inverse of a vector such that $$ \vc{v}\vc{v}^{-1} = 1 $$? What would be the "identity vector" 1
+How would you define the inverse of a vector such that $ \vc{v}\vc{v}^{-1} = 1 $? What would be the "identity vector" 1
 
 In fact, the answer is sometimes you can. In particular, in two dimensions, you can make a correspondence between vectors and complex numbers, where the real and imaginary parts of the complex number give the (x,y) coordinates of the vector. Division is well-defined for the complex numbers.
 
@@ -827,7 +830,7 @@ The cross-product only exists in 3D.
 
 Division is defined in some higher-dimensional spaces too (such as the quaternions), but only if you give up commutativity and/or associativity.
 
-For ordinary numbers, I think of $$ x/y $$ as being the number that, when multiplied by $$ y $$, gives $$ x $$. So, $$ \vc{x} / \vc{y} $$ would have to be the vector that, when "multiplied" by $$ \vc{y} $$, gives $$ \vc{x} $$. If our multiplication involves the dot product, we're already in trouble, because the dot product of two vectors is a scalar, and the definition above would therefore require $$ \vc{x} / \vc{y} $$ to simultaneously be a vector and a scalar.
+For ordinary numbers, I think of $ x/y $ as being the number that, when multiplied by $ y $, gives $ x $. So, $ \vc{x} / \vc{y} $ would have to be the vector that, when "multiplied" by $ \vc{y} $, gives $ \vc{x} $. If our multiplication involves the dot product, we're already in trouble, because the dot product of two vectors is a scalar, and the definition above would therefore require $ \vc{x} / \vc{y} $ to simultaneously be a vector and a scalar.
 
 QUESTION: WHY DO WE KNOW THIS? IS IT A PROPERTY? Similarly, if our operation is the cross product, then we know that, for any vectors 𝑥⃗ and 𝑦⃗
  and any scalar 𝑐, we have 𝑥⃗×𝑦⃗=𝑥⃗×(𝑦⃗+𝑐𝑥⃗), so this means that there are an infinite number of vectors that satisfy the property "when crossproducted by 𝑦⃗, gives 𝑥⃗". Therefore, division over the cross product is not unique.
@@ -868,7 +871,7 @@ Division is typically considered the inverse operation of multiplication. That i
 
 When dealing with scalar quantities this is all well and good, but it becomes more complicated when you have objects with different structure, such as vectors. But vectors are kind of like matrices, right? So how does division work there?
 
-Well... it kind of does in some sense, but it kind of doesn't. Instead we consider division to simply be multiplication of a number (or matrix) by its (unique) multiplicative inverse. That is, if 𝑎∈ℝ, then $$ a^{-1} = 1/a $$ is the multiplicative inverse of 𝑎 - or the number such that $$ a a^{-1} = 1 $$. Note that 1 is its own inverse because it is the multiplicative identity. Matrices are not as simple as scalars, but some similarities in how they behave carry through.
+Well... it kind of does in some sense, but it kind of doesn't. Instead we consider division to simply be multiplication of a number (or matrix) by its (unique) multiplicative inverse. That is, if 𝑎∈ℝ, then $ a^{-1} = 1/a $ is the multiplicative inverse of 𝑎 - or the number such that $ a a^{-1} = 1 $. Note that 1 is its own inverse because it is the multiplicative identity. Matrices are not as simple as scalars, but some similarities in how they behave carry through.
 
 Assuming matrix multiplication is familiar to you, we know that any square matrix with nonzero determinant has an inverse, and that the inverse is unique. Multiplication of a matrix 𝐴 by its inverse 𝐴−1 gives the identity matrix, so multiplying any other matrix 𝐵 by 𝐴−1 is sort of the same as "dividing by 𝐴", although in general left- and right-multiplication give different results unless all the matrices involved have special properties.
 
@@ -876,13 +879,13 @@ So this is the matrix equivalent of division. What about vectors?
 
 Well, they're just non-square matrices. One row or one column.
 
-Suppose 𝑢,𝑣 are column vectors in ℝ𝑛. Then the way matrix multiplication normally works we have $$ 𝑢^T𝑣 ∈ ℝ $$ and $$ 𝑢𝑣^𝑇 ∈ ℝ^𝑛 × ℝ^𝑛 $$.
+Suppose 𝑢,𝑣 are column vectors in ℝ𝑛. Then the way matrix multiplication normally works we have $ 𝑢^T𝑣 ∈ ℝ $ and $ 𝑢𝑣^𝑇 ∈ ℝ^𝑛 × ℝ^𝑛 $.
 
 Can we choose for any vector 𝑣 a vector 𝑢 such that 𝑢𝑇𝑣=1?
 
-Well, in terms of the structure of matrix multiplication, this is just the dot product 𝑢⋅𝑣=𝑢1𝑣1+⋯+𝑢𝑛𝑣𝑛. Certainly as long as not all the elements of 𝑣 are zero, we can choose elements of 𝑢 such that it is equal to 1. In fact you'd have infinitely many choices. Consider 𝑛=2. Then, given 𝑣1,𝑣2, we can rearrange 𝑢1𝑣1+𝑢2𝑣2=1 so that $$ 𝑢_2 = \frac{1}{𝑣+2}(1 − 𝑢_1 𝑣_1) $$ is the equation of a line. Any point on that line will satisfy some of the idea of an inverse, but it is not unique.
+Well, in terms of the structure of matrix multiplication, this is just the dot product 𝑢⋅𝑣=𝑢1𝑣1+⋯+𝑢𝑛𝑣𝑛. Certainly as long as not all the elements of 𝑣 are zero, we can choose elements of 𝑢 such that it is equal to 1. In fact you'd have infinitely many choices. Consider 𝑛=2. Then, given 𝑣1,𝑣2, we can rearrange 𝑢1𝑣1+𝑢2𝑣2=1 so that $ 𝑢_2 = \frac{1}{𝑣+2}(1 − 𝑢_1 𝑣_1) $ is the equation of a line. Any point on that line will satisfy some of the idea of an inverse, but it is not unique.
 
-The other possibility, the dyadic product, $$ 𝑢𝑣^𝑇 = \begin{bmatrix} 𝑢1𝑣1 \\ 𝑢2𝑣1 \\ 𝑢1𝑣2 \\ 𝑢2𝑣2 \end{bmatrix} $$ is more interesting, because it requires that 𝑢1𝑣2=𝑢2𝑣1=0 and 𝑢1𝑣1=𝑢2𝑣2=1. I hope you can see why that's never going to give you an identity matrix given any 𝑣1,𝑣2. Certainly you could not use the same 𝑢 as for the previous scenario.
+The other possibility, the dyadic product, $ 𝑢𝑣^𝑇 = \begin{bmatrix} 𝑢1𝑣1 \\ 𝑢2𝑣1 \\ 𝑢1𝑣2 \\ 𝑢2𝑣2 \end{bmatrix} $ is more interesting, because it requires that 𝑢1𝑣2=𝑢2𝑣1=0 and 𝑢1𝑣1=𝑢2𝑣2=1. I hope you can see why that's never going to give you an identity matrix given any 𝑣1,𝑣2. Certainly you could not use the same 𝑢 as for the previous scenario.
 
 So with the one way of multiplying two vectors we have a family of multiplicative inverses for a given vector, and the other way we have no multiplicative inverse at all!
 
@@ -923,26 +926,26 @@ Now you might get fancier and think about how the product of a matrix and a vect
 
 Josel Cioppa’s answer gives you the mathematical formalism behind this. An example where the multiplication is commutative and invertible is the case of complex numbers. If you have
 
+$$
 𝐳1=(𝑎,𝑏)
 𝐳2=(𝑐,𝑑)
+$$
 
 Then, you have
 
-𝐳1.𝐳2=(𝑎𝑐−𝑏𝑑,𝑎𝑑+𝑏𝑐)
+$$ 𝐳1.𝐳2=(𝑎𝑐−𝑏𝑑,𝑎𝑑+𝑏𝑐) $$
 
-Which you can easily prove is commutative. Also, every non-zero vector in the complex plane is invertible. Note that this also implies that 𝐈=(1,0) is the identity element since
+Which you can easily prove is commutative. Also, every non-zero vector in the complex plane is invertible. Note that this also implies that 𝐈=(1,0) is the identity element since $ 𝐳1.𝐈=(𝑎,𝑏) $
 
-𝐳1.𝐈=(𝑎,𝑏)
-
-We define the multiplicative inverse $$ \vc{z}_1^{-1} $$ of 𝐳1 as the solution to:
+We define the multiplicative inverse $ \vc{z}_1^{-1} $ of 𝐳1 as the solution to:
 
 𝐳1.𝐳−11=𝐈
 
-It can be seen that the following is a valid definition for $$ \vc{z}_1^{-1} $$:
+It can be seen that the following is a valid definition for $ \vc{z}_1^{-1} $:
 
 $$ \vc{z}_1^{-1} = (\frac{a}{a^2+b^2}, -\frac{b}{a^2+b^2}) $$
 
-This can be verified by doing the multiplication. To prove the uniqueness of the $$ \vc{z}_1^{-1} $$, suppose there are two distinct complex vectors 𝐯1 and 𝐯2 that work for $$ \vc{z}_1^{-1} $$.
+This can be verified by doing the multiplication. To prove the uniqueness of the $ \vc{z}_1^{-1} $, suppose there are two distinct complex vectors 𝐯1 and 𝐯2 that work for $ \vc{z}_1^{-1} $.
 
 Then,
 
@@ -958,11 +961,11 @@ https://math.stackexchange.com/questions/3193125/intuition-for-geometric-product
 
 
 Peeter Joot:
-Some authors define the geometric product in terms of the dot and wedge product, which are introduced separately. I think that accentuates an apples vs oranges view. Suppose instead you expand a geometric product in terms of coordinates, with $$ \mathbf{a} = \sum_{i = 1}^N a_i \mathbf{e}_i, \mathbf{b} = \sum_{i = 1}^N b_i \mathbf{e}_i $$, so that the product is:
+Some authors define the geometric product in terms of the dot and wedge product, which are introduced separately. I think that accentuates an apples vs oranges view. Suppose instead you expand a geometric product in terms of coordinates, with $ \mathbf{a} = \sum_{i = 1}^N a_i \mathbf{e}_i, \mathbf{b} = \sum_{i = 1}^N b_i \mathbf{e}_i $, so that the product is:
 
 $$ \mathbf{a} \mathbf{b}= \sum_{i, j = 1}^N a_i b_j \mathbf{e}_i \mathbf{e}_j= \sum_{i = 1}^N a_i b_i \mathbf{e}_i \mathbf{e}_i+ \sum_{1 \le i \ne j \le N}^N a_i b_j \mathbf{e}_i \mathbf{e}_j $$
 
-An axiomatic presentation of geometric algebra defines the square of a vector as $$ \mathbf{x}^2 = \left\lVert {\mathbf{x}} \right\rVert^2 $$ (the contraction axiom.). An immediate consequence of this axiom is that $$ \mathbf{e}_i \mathbf{e}_i = 1 $$. Another consequence of the axiom is that any two orthogonal vectors, such as 𝐞𝑖,𝐞𝑗 for 𝑖≠𝑗 anticommute. That is, for 𝑖≠𝑗 :
+An axiomatic presentation of geometric algebra defines the square of a vector as $ \mathbf{x}^2 = \left\lVert {\mathbf{x}} \right\rVert^2 $ (the contraction axiom.). An immediate consequence of this axiom is that $ \mathbf{e}_i \mathbf{e}_i = 1 $. Another consequence of the axiom is that any two orthogonal vectors, such as 𝐞𝑖,𝐞𝑗 for 𝑖≠𝑗 anticommute. That is, for 𝑖≠𝑗 :
 
 $$ \mathbf{e}_i \mathbf{e}_j = - \mathbf{e}_j \mathbf{e}_i $$
 
@@ -974,7 +977,7 @@ The first sum (the symmetric sum) is a scalar, which we recognize as the dot pro
 
 In this sense, the dot and wedge product sum representation of a geometric product, are just groupings of terms of a larger integrated product.
 
-Another way of reconciling the fact that we appear able to add two unlike entities, is to recast the geometric product in polar form. To do so, consider a decomposition of a geometric product in terms of constituent unit vectors $$ \mathbf{a} \mathbf{b} = \left\lVert {\mathbf{a}} \right\rVert \left\lVert {\mathbf{b}} \right\rVert \left( { \hat{\mathbf{a}} \cdot \hat{\mathbf{b}} + \hat{\mathbf{a}} \wedge \hat{\mathbf{b}} } \right) $$, and assume that we are interested in the non-trivial case where 𝐚 and 𝐛 are not colinear (where the product reduces to just $$ \mathbf{a} \mathbf{b} = \left\lVert {\mathbf{a}} \right\rVert \left\lVert {\mathbf{b}} \right\rVert $$ ). It can be shown that the square of a wedge product is always non-positive, so it is reasonable to define the length of a wedge product like so:
+Another way of reconciling the fact that we appear able to add two unlike entities, is to recast the geometric product in polar form. To do so, consider a decomposition of a geometric product in terms of constituent unit vectors $ \mathbf{a} \mathbf{b} = \left\lVert {\mathbf{a}} \right\rVert \left\lVert {\mathbf{b}} \right\rVert \left( { \hat{\mathbf{a}} \cdot \hat{\mathbf{b}} + \hat{\mathbf{a}} \wedge \hat{\mathbf{b}} } \right) $, and assume that we are interested in the non-trivial case where 𝐚 and 𝐛 are not colinear (where the product reduces to just $ \mathbf{a} \mathbf{b} = \left\lVert {\mathbf{a}} \right\rVert \left\lVert {\mathbf{b}} \right\rVert $ ). It can be shown that the square of a wedge product is always non-positive, so it is reasonable to define the length of a wedge product like so:
 
 $$ \left\lVert {\hat{\mathbf{a}} \wedge \hat{\mathbf{b}}} \right\rVert = \sqrt{-(\hat{\mathbf{a}} \wedge \hat{\mathbf{b}})^2} $$
 
@@ -982,7 +985,7 @@ We can use this to massage the dot plus wedge unit vector sum above into:
 
 $$ \mathbf{a} \mathbf{b} = \left\lVert {\mathbf{a}} \right\rVert \left\lVert {\mathbf{b}} \right\rVert \left( { \hat{\mathbf{a}} \cdot \hat{\mathbf{b}} +\frac{\hat{\mathbf{a}} \wedge \hat{\mathbf{b}} }{\left\lVert {\hat{\mathbf{a}} \wedge \hat{\mathbf{b}}} \right\rVert}\left\lVert {\hat{\mathbf{a}} \wedge \hat{\mathbf{b}}} \right\rVert} \right) $$
 
-The sum has two scalar factors of interest, the dot product 𝐚̂⋅𝐛̂ and the length of the wedge product $$ \left\lVert {\hat{\mathbf{a}} \wedge \hat{\mathbf{b}}} \right\rVert $$. Viewed geometrically, these are the respective projections onto two perpendicular axes, as crudely sketched in the figure "unit circle dot and wedge product components"
+The sum has two scalar factors of interest, the dot product 𝐚̂⋅𝐛̂ and the length of the wedge product $ \left\lVert {\hat{\mathbf{a}} \wedge \hat{\mathbf{b}}} \right\rVert $. Viewed geometrically, these are the respective projections onto two perpendicular axes, as crudely sketched in the figure "unit circle dot and wedge product components"
 
 That is, we can make the identifications
 
@@ -998,7 +1001,7 @@ This has a complex structure that can be called out explicitly by making the ide
 
 $$ \mathbf{i} \equiv\frac{\hat{\mathbf{a}} \wedge \hat{\mathbf{b}} }{\left\lVert {\hat{\mathbf{a}} \wedge \hat{\mathbf{b}}} \right\rVert} $$
 
-where by our definition of the length of a wedge product $$ \mathbf{i}^2 = -1 $$. With such an identification, we see that the multivector factor of a geometric product has a complex exponential structure
+where by our definition of the length of a wedge product $ \mathbf{i}^2 = -1 $. With such an identification, we see that the multivector factor of a geometric product has a complex exponential structure
 
 $$ \begin{aligned}\mathbf{a} \mathbf{b}= \left\lVert {\mathbf{a}} \right\rVert \left\lVert {\mathbf{b}} \right\rVert \left( { \cos\theta + \mathbf{i} \sin\theta } \right)= \left\lVert {\mathbf{a}} \right\rVert \left\lVert {\mathbf{b}} \right\rVert e^{\mathbf{i} \theta } \end{aligned} $$
 
@@ -1008,7 +1011,7 @@ In 3D, the wedge and the cross products are related by what is called a duality 
 
 $$ \mathbf{a} \wedge \mathbf{b} = I (\mathbf{a} \times \mathbf{b}) $$
 
-where $$ I = \mathbf{e}_1 \mathbf{e}_2 \mathbf{e}_3 $$ is a unit trivector (often called the 3D pseudoscalar), which also satisfies $$ I^2 = -1 $$. With the usual normal notation for the cross product $$ \mathbf{a} \times \mathbf{b} = \hat{\mathbf{n}} \left\lVert {\mathbf{a}} \right\rVert \left\lVert {\mathbf{b}} \right\rVert \sin\theta $$ we see our unit bivector 𝐢, is related to the cross product normal-direction by $$ \mathbf{i} = I \hat{\mathbf{n}} $$. A rough characterization of this is that 𝐢 is a unit (oriented) plane that is spanned by 𝐚,𝐛 normal to 𝐧̂.
+where $ I = \mathbf{e}_1 \mathbf{e}_2 \mathbf{e}_3 $ is a unit trivector (often called the 3D pseudoscalar), which also satisfies $ I^2 = -1 $. With the usual normal notation for the cross product $ \mathbf{a} \times \mathbf{b} = \hat{\mathbf{n}} \left\lVert {\mathbf{a}} \right\rVert \left\lVert {\mathbf{b}} \right\rVert \sin\theta $ we see our unit bivector 𝐢, is related to the cross product normal-direction by $ \mathbf{i} = I \hat{\mathbf{n}} $. A rough characterization of this is that 𝐢 is a unit (oriented) plane that is spanned by 𝐚,𝐛 normal to 𝐧̂.
 
 The intuition of that the geometric product and the Lagrange identity are related is on the mark. There is a wedge product generalization of the Lagrange identity in geometric algebra. The 3D form stated in the question follows from the duality relationship of the wedge and cross products.
 
