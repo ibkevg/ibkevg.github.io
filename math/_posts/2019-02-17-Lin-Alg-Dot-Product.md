@@ -188,3 +188,133 @@ The (magnetude of the) cross product gives you the multiplication of the perpend
 
 You’re often interested in knowing to what extent a vector quantity contributes in a given direction (the vector quantity’s component in that direction). This is what the dot (scalar) product, as used in physics, tells you.
 
+# Dot Product Emergence from Pythagoras' Theorem
+
+The dot product emerges naturally from Pythagoras' theorem. To see how this works, below we will take advantage of the fact that the dot product of two perpendicular vectors is zero.
+
+We first consider the case where $ \vc{a} $ is perpendicular to $ \vc{b} $. When $ \vc{a} \perp \vc{b} $, they form the opposite and adjacent sides of a right triangle, so we can apply Pythagoras to get:
+
+$$
+\begin{aligned}
+|\vc{s}|^2_{perp}
+&=  \lvert \vc{a} \rvert^2  +  \lvert \vc{b} \rvert^2 \\
+|\vc{s}|^2_{perp}
+&=  (a_x^2 + a_y^2 + a_z^2)  +  (b_x^2 + b_y^2 + b_z^2)
+\end{aligned}
+$$
+
+Also, regardless of perpendicularity, 2 of the vectors that form the sides of the triangle must sum to the other. We arbitrarily choose $ \vc{a} = \vc{b} + \vc{s} $ or $ \vc{s} = \vc{a} - \vc{b} $ :
+
+$$ |\vc{s}|^2 = (a_x-b_x)^2 + (a_y-b_y)^2 + (a_z-b_z)^2 $$
+
+Now when $ \vc{a} \perp \vc{b} $, we can equate $ \abs{\vc{s}}^2 = \abs{\vc{s}}^2_{perp} $:
+
+$$
+\begin{aligned}
+(a_x-b_x)^2 + (a_y-b_y)^2 + (a_z-b_z)^2
+&= (a_x^2 + a_y^2 + a_z^2)  +  (b_x^2 + b_y^2 + b_z^2) \\
+a_x^2 - 2a_x b_x + b_x^2 +
+a_y^2 - 2a_y b_y + b_y^2 + 
+a_z^2 - 2a_z b_z + b_z^2
+&= a_x^2 + a_y^2 + a_z^2 + b_x^2 + b_y^2 + b_z^2 \\
+-2a_x b_x - 2a_y b_y - 2a_z b_z
+&= 0 \\
+a_x b_x + a_y b_y + a_z b_z &= 0
+\end{aligned}
+$$
+
+This is consistent with the definition of the dot product which is 0 when the vectors are perpendicular:
+
+$$ \vc{a} \cdot \vc{b} = a_x b_x + a_y b_y + a_z b_z $$
+
+# The Inner and Outer Products
+
+The dot product is very useful in $ \mathbb{R}^3 $ but also very specific to $ \mathbb{R}^3 $. Since goal of linear algebra is to apply to vectors of any kind, whether they be audio data, polynomials, etc., the inner product takes the idea of a dot product and makes it more general and abstract so that it can apply to any kind of vector. The inner product of two vectors is shown as $ \langle \vc{a}, \vc{b} \rangle $. The inner product is defined as any operator that adheres to the following properties:
+
+>Commutative: $ \inner{\vc a}{\vc b}  = \inner{\vc b}{\vc a} $  
+>Scalar Mult: $ \alpha \inner{\vc a}{\vc b}  = \inner{\alpha \vc a}{\vc b} $  
+>Distributive: $ \inner{\vc{a}}{\vc{b}+\vc{c}} = \langle \vc{a}, \vc{b} \rangle + \langle \vc{a}, \vc{c} \rangle $  
+>Positive Definite $ \inner{\vc v}{\vc v} \ge 0 $ and equal iff $ \vc v= 0 $
+
+We can also write the dot product, aka inner product, as the following matrix multiplication:
+
+$$
+\begin{aligned}
+\text{inner product} = \vc{u} \cdot \vc{v} = \vc{u}^\intercal \vc{v}
+&= \begin{bmatrix}
+u_x \\
+u_y \\
+u_z \\
+\end{bmatrix}^\intercal
+\begin{bmatrix}
+v_x \\
+v_y \\
+v_z \\
+\end{bmatrix} \\
+&= \begin{bmatrix} u_x & u_y & u_z \end{bmatrix}
+\begin{bmatrix} v_x \\ v_y \\ v_z \end{bmatrix}
+= u_x v_x + u_y v_y + u_z v_z \\
+\text{outer product} = \vc{u} \otimes \vc{v}
+= \vc{u} \vc{v}^\intercal
+&= \begin{bmatrix}
+u_x \\
+u_y \\
+u_z \\
+\end{bmatrix}
+\begin{bmatrix}
+v_x \\
+v_y \\
+v_z \\
+\end{bmatrix}^\intercal \\
+\end{aligned}
+$$
+
+Notice that for the inner product, the transpose is on the inner vector and for the outer product, the transpose is on the outer most vector.
+
+TODO
+
+# The Inner and Outer Products
+
+The dot product is very useful in $ \mathbb{R}^3 $ but also very specific to $ \mathbb{R}^3 $. Since goal of linear algebra is to apply to vectors of any kind, whether they be audio data, polynomials, etc., the inner product takes the idea of a dot product and makes it more general and abstract so that it can apply to any kind of vector. The inner product of two vectors is shown as $ \langle \vc{a}, \vc{b} \rangle $. The inner product is defined as any operator that adheres to the following properties:
+
+>Commutative: $ \inner{\vc a}{\vc b}  = \inner{\vc b}{\vc a} $  
+>Scalar Mult: $ \alpha \inner{\vc a}{\vc b}  = \inner{\alpha \vc a}{\vc b} $  
+>Distributive: $ \inner{\vc{a}}{\vc{b}+\vc{c}} = \langle \vc{a}, \vc{b} \rangle + \langle \vc{a}, \vc{c} \rangle $  
+>Positive Definite $ \inner{\vc v}{\vc v} \ge 0 $ and equal iff $ \vc v= 0 $
+
+We can also write the dot product, aka inner product, as the following matrix multiplication:
+
+$$
+\begin{aligned}
+\text{inner product} = \vc{u} \cdot \vc{v} = \vc{u}^\intercal \vc{v}
+&= \begin{bmatrix}
+u_x \\
+u_y \\
+u_z \\
+\end{bmatrix}^\intercal
+\begin{bmatrix}
+v_x \\
+v_y \\
+v_z \\
+\end{bmatrix} \\
+&= \begin{bmatrix} u_x & u_y & u_z \end{bmatrix}
+\begin{bmatrix} v_x \\ v_y \\ v_z \end{bmatrix}
+= u_x v_x + u_y v_y + u_z v_z \\
+\text{outer product} = \vc{u} \otimes \vc{v}
+= \vc{u} \vc{v}^\intercal
+&= \begin{bmatrix}
+u_x \\
+u_y \\
+u_z \\
+\end{bmatrix}
+\begin{bmatrix}
+v_x \\
+v_y \\
+v_z \\
+\end{bmatrix}^\intercal \\
+\end{aligned}
+$$
+
+Notice that for the inner product, the transpose is on the inner vector and for the outer product, the transpose is on the outer most vector.
+
+TODO
