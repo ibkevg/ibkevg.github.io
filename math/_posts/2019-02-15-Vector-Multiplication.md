@@ -16,6 +16,8 @@ $$
 
 # Introduction
 
+Testing $ \vc{a} $ testing 1 2 3.
+
 There are lots of ways to multiply vectors
 
 | *Notation* | *Description* | *Produces ...* |  
