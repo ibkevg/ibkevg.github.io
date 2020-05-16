@@ -65,7 +65,7 @@ Vectors are most often represented as an n x 1 matrix, called a column vector or
 
 While vectors can be represented in row form also, column form tends to be preferred. This may be because we like to think of matrices as functions, such as $ f(x) $, operating on an input vector and so, when using matrices, we try to emulate this notation using $ Mv $ rather than $ vM $. This requires we use column vectors because of the way matrix multiplication is defined.
 
-Note that there are two equivalent notations for matrices: ( ), [ ]. So for example, these column vectors are equivalent: $
+Note that there are two equivalent notations for matrices: $ ( ) $, $ [ ] $. So for example, these column vectors are equivalent: $
 \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} = \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} $ and these row vectors are equivalent $ \begin{pmatrix} 1 & 0 & 0 \end{pmatrix} = \begin{bmatrix} 1 & 0 & 0 \end{bmatrix} $. It's ok to use either bracket style. Some people think parenthesis notation is easier/faster to write by hand and less easily confused with the vertical bars the denote determinants.
 
 ### Importance of Column vs Row Vectors
