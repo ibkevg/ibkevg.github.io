@@ -42,7 +42,7 @@ Notice also that if the vectors are 1 dimensional, then the dot product simplifi
 
 ### Geometric Interpretation #1: the Angle between Two Vectors
 
-Another way to think of the dot product is as a means of determining the angle between two vectors. The angle should be independent of whatever lengths the two vectors may have so we can write:
+One way to think of the dot product is through it's ability to determine the angle between two vectors. The angle should be independent of whatever lengths the two vectors may have so we can write:
 
 $$ \hat{a} \cdot \hat{b} = \cos{\theta} $$
 
@@ -56,7 +56,7 @@ $$ \vc{a} \cdot \vc{b} = \lvert a \rvert \lvert b \rvert \cos {\theta} $$
 
 ### Geometric Interpretation #2: Parallel and Perpendicular Vectors
 
-Now to develop our intuition, let's first try this out with some simple vectors, $ \ihat $ and $ \jhat $ the x and y axis unit vectors.
+We can develop our intuition by trying the dot product out with some simple parallel and perpendicular vectors, $ \ihat $ and $ \jhat $ the x and y axis unit vectors.
 
 $$
 \begin{aligned}
@@ -75,7 +75,7 @@ $$
 \end{aligned}
 $$
 
-So the dot product can be a handy way to find out if two vectors are perpendicular or not. If dotting them produces 0 then they are perpendicular. Another way this can be useful is if you want to find a line that is perpendicular to the one you have.
+So the dot product can be a handy way to find out if two vectors are perpendicular or not. If dotting them produces 0 then they are perpendicular. You can also use this to find a line that is perpendicular to the one you have. The dot product of the vector you have and the one you're looking for will be 0.
 
 ### Geometric Interpretation #3: Projections
 
@@ -115,7 +115,7 @@ __Algebraic Definition:__ $ \vc{u} \cdot \vc{v} = u_x v_x + u_y v_y + u_z v_z $
 
 Remember that the dot product multiplies two vectors _but only the parts that lie in the same direction_, when dealing with coordinates, this is accomplished by multiplying like components together.
 
-Now lets look at how the algebraic definition can be derived from the geometric definition. Here we write $ \vc{u} $ and $ \vc{v} $ as a linear combination of the standard $ \mathbb{R}^3 $ unit vectors:
+Now lets look at how the algebraic definition can be derived. Here we write $ \vc{u} $ and $ \vc{v} $ as a linear combination of the standard $ \mathbb{R}^3 $ unit vectors:
 
 $$
 \begin{aligned}
@@ -124,19 +124,19 @@ $$
 \end{aligned}
 $$
 
-Now we can write out the dot product as:
+If we can write out the dot product as:
 
 $$ \vc{u} \cdot \vc{v}
 = \begin{pmatrix} u_x \ihat + u_y \jhat + u_z \khat \end{pmatrix} \cdot
 \begin{pmatrix} v_x \ihat + v_y \jhat + v_z \khat \end{pmatrix}
 $$
 
-Now we can multiply it all out because the dot product has the following properties:
+then we can multiply it all out because the dot product has the following properties:
 
 >Left Distributive over vector addition: $ \vc{a} \cdot (\vc{b} + \vc{c} ) = \vc{a} \cdot \vc{b} + \vc{a} \cdot \vc{c} $  
 Right Distributive over vector addition: $ (\vc{a} + \vc{b}) \cdot \vc{c} = \vc{a} \cdot \vc{c} + \vc{b} \cdot \vc {c} $  
 Scalar multiplication:  $ (c_{1}\vc {a} )\cdot (c_{2}\vc {b} )=c_{1}c_{2}(\vc {a} \cdot \vc {b} ) $  
-And we found above: $ \ihat \cdot \ihat = \jhat \cdot \jhat = \khat \cdot \khat = 1 $ and $ \ihat \cdot \jhat = \ihat \cdot \khat = \jhat \cdot \khat = 0 $
+And, as we found, above: $ \ihat \cdot \ihat = \jhat \cdot \jhat = \khat \cdot \khat = 1 $ and $ \ihat \cdot \jhat = \ihat \cdot \khat = \jhat \cdot \khat = 0 $
 
 $$
 \begin{aligned}
@@ -181,18 +181,17 @@ Again we find that the dot product is a useful tool for finding the projection o
 
 ## Applications
 
-Examples? Work (energy) is a dot product of force and displacement. The angle between two vectors is found by knowing that the cosine of the angle between them is their dot product divided by their self dot product.
+The angle between two vectors is found by knowing that the cosine of the angle between them is their dot product divided by their self dot product.
 
-Example: The work expression $ W = \vec{F} \cdot \vec{r} $, where only the force component parallel to the direction (or likewise, the position component parallel to the force) is wanted.
-The (magnetude of the) cross product gives you the multiplication of the perpendicular components.
+In physics, the work expression is $ W = \vec{F} \cdot \vec{r} $. Only the force component parallel to the direction (or likewise, the position component parallel to the force) is wanted.
 
 You’re often interested in knowing to what extent a vector quantity contributes in a given direction (the vector quantity’s component in that direction). This is what the dot (scalar) product, as used in physics, tells you.
 
 # Dot Product Emergence from Pythagoras' Theorem
 
-The dot product emerges naturally from Pythagoras' theorem. To see how this works, below we will take advantage of the fact that the dot product of two perpendicular vectors is zero.
+The dot product emerges naturally from Pythagoras' theorem. To see this happen, we will explore perpendicular vectors in the hopes that the relation emerges, where the dot product of two perpendicular vectors is zero.
 
-We first consider the case where $ \vc{a} $ is perpendicular to $ \vc{b} $. When $ \vc{a} \perp \vc{b} $, they form the opposite and adjacent sides of a right triangle, so we can apply Pythagoras to get:
+Consider vectors $ \vc{a} $ and $ \vc{b} $ where $ \vc{a} $ is perpendicular to $ \vc{b} $. Because $ \vc{a} \perp \vc{b} $, they form the opposite and adjacent sides of a right triangle and therefore, we can apply Pythagoras to get:
 
 $$
 \begin{aligned}
@@ -203,21 +202,21 @@ $$
 \end{aligned}
 $$
 
-Also, regardless of perpendicularity, 2 of the vectors that form the sides of the triangle must sum to the other. We arbitrarily choose $ \vc{a} = \vc{b} + \vc{s} $ or $ \vc{s} = \vc{a} - \vc{b} $ :
+Also, for any triangle, 2 of the vectors that form the sides of the triangle must sum to the other. We can arbitrarily choose $ \vc{s} = \vc{a} + \vc{b} $ or $ \vc{s} = \vc{a} - \vc{b} $ :
 
-$$ |\vc{s}|^2 = (a_x-b_x)^2 + (a_y-b_y)^2 + (a_z-b_z)^2 $$
+$$ |\vc{s}|^2 = (a_x+b_x)^2 + (a_y+b_y)^2 + (a_z+b_z)^2 $$
 
-Now when $ \vc{a} \perp \vc{b} $, we can equate $ \abs{\vc{s}}^2 = \abs{\vc{s}}^2_{perp} $:
+Since both equations are describing the same triangle, $ \abs{\vc{s}}^2 = \abs{\vc{s}}^2_{perp} $, and thus we can write:
 
 $$
 \begin{aligned}
-(a_x-b_x)^2 + (a_y-b_y)^2 + (a_z-b_z)^2
+(a_x+b_x)^2 + (a_y+b_y)^2 + (a_z+b_z)^2
 &= (a_x^2 + a_y^2 + a_z^2)  +  (b_x^2 + b_y^2 + b_z^2) \\
-a_x^2 - 2a_x b_x + b_x^2 +
-a_y^2 - 2a_y b_y + b_y^2 + 
-a_z^2 - 2a_z b_z + b_z^2
+a_x^2 + 2a_x b_x + b_x^2 +
+a_y^2 + 2a_y b_y + b_y^2 + 
+a_z^2 + 2a_z b_z + b_z^2
 &= a_x^2 + a_y^2 + a_z^2 + b_x^2 + b_y^2 + b_z^2 \\
--2a_x b_x - 2a_y b_y - 2a_z b_z
+2a_x b_x + 2a_y b_y + 2a_z b_z
 &= 0 \\
 a_x b_x + a_y b_y + a_z b_z &= 0
 \end{aligned}
@@ -226,52 +225,6 @@ $$
 This is consistent with the definition of the dot product which is 0 when the vectors are perpendicular:
 
 $$ \vc{a} \cdot \vc{b} = a_x b_x + a_y b_y + a_z b_z $$
-
-# The Inner and Outer Products
-
-The dot product is very useful in $ \mathbb{R}^3 $ but also very specific to $ \mathbb{R}^3 $. Since goal of linear algebra is to apply to vectors of any kind, whether they be audio data, polynomials, etc., the inner product takes the idea of a dot product and makes it more general and abstract so that it can apply to any kind of vector. The inner product of two vectors is shown as $ \langle \vc{a}, \vc{b} \rangle $. The inner product is defined as any operator that adheres to the following properties:
-
->Commutative: $ \inner{\vc a}{\vc b}  = \inner{\vc b}{\vc a} $  
->Scalar Mult: $ \alpha \inner{\vc a}{\vc b}  = \inner{\alpha \vc a}{\vc b} $  
->Distributive: $ \inner{\vc{a}}{\vc{b}+\vc{c}} = \langle \vc{a}, \vc{b} \rangle + \langle \vc{a}, \vc{c} \rangle $  
->Positive Definite $ \inner{\vc v}{\vc v} \ge 0 $ and equal iff $ \vc v= 0 $
-
-We can also write the dot product, aka inner product, as the following matrix multiplication:
-
-$$
-\begin{aligned}
-\text{inner product} = \vc{u} \cdot \vc{v} = \vc{u}^\intercal \vc{v}
-&= \begin{bmatrix}
-u_x \\
-u_y \\
-u_z \\
-\end{bmatrix}^\intercal
-\begin{bmatrix}
-v_x \\
-v_y \\
-v_z \\
-\end{bmatrix} \\
-&= \begin{bmatrix} u_x & u_y & u_z \end{bmatrix}
-\begin{bmatrix} v_x \\ v_y \\ v_z \end{bmatrix}
-= u_x v_x + u_y v_y + u_z v_z \\
-\text{outer product} = \vc{u} \otimes \vc{v}
-= \vc{u} \vc{v}^\intercal
-&= \begin{bmatrix}
-u_x \\
-u_y \\
-u_z \\
-\end{bmatrix}
-\begin{bmatrix}
-v_x \\
-v_y \\
-v_z \\
-\end{bmatrix}^\intercal \\
-\end{aligned}
-$$
-
-Notice that for the inner product, the transpose is on the inner vector and for the outer product, the transpose is on the outer most vector.
-
-TODO
 
 # The Inner and Outer Products
 

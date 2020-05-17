@@ -11,7 +11,81 @@ $$
 \newcommand{\abs}[1]{ \lvert #1 \rvert }
 $$
 
-# Scalar Multiplication
+# Vectors
+
+A vector is just a list of objects that are related in some way. The list describes properties of something that we need to keep separate but are still related and need to mathematically be treated in a way that makes sense for them as a group. For example:
+* $ \vec p = (x,y,z) $ : a vector position, $ \vec p $, could contain the (x, y, z) components of the position
+* $ \vec F = (F_x, F_y, F_z) $ : a vector force
+* $ \vec f = (apples, oranges) $ : a fruit vector might contain both (apples, oranges). We can't mix apples and oranges together so we have to keep count of them separately. That said, some things are convenient to do to both at the same time, for example, we could to triple the stock of all fruit by multiplying the fruit vector by 3, this would cause both apple and orange values to individually increase by a factor of 3.
+
+# Vector Operations
+## Scaling Vectors
+
+We scale a vector by multiplying by a scalar value.
+
+$$
+x \vec v = x
+\begin{bmatrix}
+a \\
+b 
+\end{bmatrix}
+= \begin{bmatrix}
+ax \\
+bx
+\end{bmatrix}
+$$
+
+So, for example:
+
+$$
+3
+\begin{bmatrix}
+1 \\
+2 
+\end{bmatrix}
+= \begin{bmatrix}
+3 \\
+6
+\end{bmatrix}
+$$
+
+## Adding Vectors
+
+$$
+\vec u + \vec v
+= \begin{bmatrix}
+a \\
+b 
+\end{bmatrix} +
+\begin{bmatrix}
+c \\
+d
+\end{bmatrix}
+= \begin{bmatrix}
+a+c \\
+b+d
+\end{bmatrix}
+$$
+
+So, for example:
+
+$$
+\begin{bmatrix}
+1 \\
+2 
+\end{bmatrix}
++
+\begin{bmatrix}
+3 \\
+4
+\end{bmatrix}
+= \begin{bmatrix}
+4 \\
+6
+\end{bmatrix}
+$$
+
+## Scalar Multiplication
 
 Multiplying a vector by a scalar produces another vector.
 
@@ -31,7 +105,7 @@ Much of the intuition from multipling two scalars applies when multiplying a vec
 </script>
 <div id="ggb-ScalarMultiplication"></div>
 
-## The Null or Zero Vector
+# The Null or Zero Vector
 
 If we multiply a vector by zero, we get a null vector aka a zero vector, $\vc{0}$.
 
@@ -64,7 +138,14 @@ So the reality is that a vector's direction is only meaningful when accompanied 
 
 So for $\vc{0}$, the length is zero, and the direction is undefined.
 
-## Unit Vectors
+# Vector Length or Norm
+
+A vector's length is:
+
+$$ \lvert\vc{u}\rvert = \sqrt{u_x^2 + u_y^2 + u_z^2} $$
+
+
+# Unit Vectors
 
 Scalar multiplication is also useful for creating and using unit vectors.
 

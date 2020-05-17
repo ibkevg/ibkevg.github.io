@@ -113,7 +113,7 @@ $$ 1 \cdot \vc{u} = \vc{u} $$
 
 We need a multiplicative inverse:
 
-$$ \vc{v} \cdot \vc{v}^{-1} = 1 $$?
+$$ \vc{v} \cdot \vc{v}^{-1} = 1 $$
 
 If we can make those work we can define division as dotting with an inverse.
 

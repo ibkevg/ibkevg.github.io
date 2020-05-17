@@ -18,18 +18,19 @@ $$
 
 There are several ways to abstractly represent vectors:
 
-|Name|Notation|Description|
-|-|-|-|
-| bar | $ \bar{u} $ | often easiest to use when writing by hand |
-| arrow on top | $ \vec{u} $ | also easy to use when writing by hand |
-| bold | $ \mathbf{u} $ | avoids busy combinations such as $ \dot{\vec{u}} $, often used in textbooks |
+Name|Notation|Notes
+-|-|-
+bar | $ \bar{u} $ | often easiest to use when writing by hand
+arrow | $ \vec{u} $ | also easy to use when writing by hand
+bold | $ \mathbf{u} $ | avoids busy combinations such as $ \dot{\vec{u}} $, often used in textbooks
 
 Also we have:
 
-|Name|Symbol|Description|
-|-|-|-|
-| unit vectors | $ \hat{a} $ | always has a magnitude of 1  |
-| basis vectors | $ \boldsymbol{e_1}, \boldsymbol{e_2}, ..., \boldsymbol{e_n} $ | |
+Name|Symbol|Notes
+-|-|-
+unit vectors | $ \hat{a} $ | always has a magnitude of 1
+basis vectors | $ \boldsymbol{e_1}, \boldsymbol{e_2}, ..., \boldsymbol{e_n} $ |
+basis vectors in $ \mathbb{R}3 $ | $ \ihat, \jhat, \khat $ | Usually used in geometric circumstances
 
 
 ## Component Form
