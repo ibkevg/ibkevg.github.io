@@ -40,7 +40,7 @@ Notice also that if the vectors are 1 dimensional, then the dot product simplifi
 </script>
 <div id="ggb-DotProduct"></div> 
 
-### Geometric Interpretation #1: the Angle between Two Vectors
+### Geometric Intuition #1: the Angle between Two Vectors
 
 One way to think of the dot product is through it's ability to determine the angle between two vectors. The angle should be independent of whatever lengths the two vectors may have so we can write:
 
@@ -54,7 +54,7 @@ we get the original definition:
 
 $$ \vc{a} \cdot \vc{b} = \lvert a \rvert \lvert b \rvert \cos {\theta} $$  
 
-### Geometric Interpretation #2: Parallel and Perpendicular Vectors
+### Geometric Intuition #2: Parallel and Perpendicular Vectors
 
 We can develop our intuition by trying the dot product out with some simple parallel and perpendicular vectors, $ \ihat $ and $ \jhat $ the x and y axis unit vectors.
 
@@ -77,7 +77,7 @@ $$
 
 So the dot product can be a handy way to find out if two vectors are perpendicular or not. If dotting them produces 0 then they are perpendicular. You can also use this to find a line that is perpendicular to the one you have. The dot product of the vector you have and the one you're looking for will be 0.
 
-### Geometric Interpretation #3: Projections
+### Geometric Intuition #3: Projections
 
 Next lets see what happens when we dot a regular vector, $ \vc{u} = ( r, \angle \theta) $, with these same unit vectors.
 
@@ -105,7 +105,7 @@ $$ \vc{u_v}
 = \frac{\vc{u} \cdot \vc{v}}{\lvert v \rvert^2} \vc{v}
 $$
 
-### Geometric Interpretation #4: Projection + Multiplication
+### Geometric Intuition #4: Projection + Multiplication
 
 Now we are in a position to put this all together. If instead of a unit vector we used a second regular vector, we would still have the $ r \cos \theta $ part but instead of (1) for the unit vector we will have the length of the second vector. It's saying take all of the second vector and multiply it by the amount of the first vector that lies in the same direction. Conversely you could think of the projection being from the second onto the first. It's symmetric so it doesn't matter.
 
@@ -115,7 +115,14 @@ __Algebraic Definition:__ $ \vc{u} \cdot \vc{v} = u_x v_x + u_y v_y + u_z v_z $
 
 Remember that the dot product multiplies two vectors _but only the parts that lie in the same direction_, when dealing with coordinates, this is accomplished by multiplying like components together.
 
-Now lets look at how the algebraic definition can be derived. Here we write $ \vc{u} $ and $ \vc{v} $ as a linear combination of the standard $ \mathbb{R}^3 $ unit vectors:
+Now lets look at how the algebraic definition can be derived. We already know that the dot product has the following properties:
+
+>Left Distributive over vector addition: $ \vc{a} \cdot (\vc{b} + \vc{c} ) = \vc{a} \cdot \vc{b} + \vc{a} \cdot \vc{c} $  
+Right Distributive over vector addition: $ (\vc{a} + \vc{b}) \cdot \vc{c} = \vc{a} \cdot \vc{c} + \vc{b} \cdot \vc {c} $  
+Scalar multiplication:  $ (c_{1}\vc {a} )\cdot (c_{2}\vc {b} )=c_{1}c_{2}(\vc {a} \cdot \vc {b} ) $  
+And, as we found, above: $ \ihat \cdot \ihat = \jhat \cdot \jhat = \khat \cdot \khat = 1 $ and $ \ihat \cdot \jhat = \ihat \cdot \khat = \jhat \cdot \khat = 0 $
+
+Here we write $ \vc{u} $ and $ \vc{v} $ as a linear combination of the standard $ \mathbb{R}^3 $ unit vectors:
 
 $$
 \begin{aligned}
@@ -124,19 +131,7 @@ $$
 \end{aligned}
 $$
 
-If we can write out the dot product as:
-
-$$ \vc{u} \cdot \vc{v}
-= \begin{pmatrix} u_x \ihat + u_y \jhat + u_z \khat \end{pmatrix} \cdot
-\begin{pmatrix} v_x \ihat + v_y \jhat + v_z \khat \end{pmatrix}
-$$
-
-then we can multiply it all out because the dot product has the following properties:
-
->Left Distributive over vector addition: $ \vc{a} \cdot (\vc{b} + \vc{c} ) = \vc{a} \cdot \vc{b} + \vc{a} \cdot \vc{c} $  
-Right Distributive over vector addition: $ (\vc{a} + \vc{b}) \cdot \vc{c} = \vc{a} \cdot \vc{c} + \vc{b} \cdot \vc {c} $  
-Scalar multiplication:  $ (c_{1}\vc {a} )\cdot (c_{2}\vc {b} )=c_{1}c_{2}(\vc {a} \cdot \vc {b} ) $  
-And, as we found, above: $ \ihat \cdot \ihat = \jhat \cdot \jhat = \khat \cdot \khat = 1 $ and $ \ihat \cdot \jhat = \ihat \cdot \khat = \jhat \cdot \khat = 0 $
+Now we can write out the dot product of these two vectors, and by applying the above properties, we can multiply it all out:
 
 $$
 \begin{aligned}
@@ -183,13 +178,13 @@ Again we find that the dot product is a useful tool for finding the projection o
 
 The angle between two vectors is found by knowing that the cosine of the angle between them is their dot product divided by their self dot product.
 
-In physics, the work expression is $ W = \vec{F} \cdot \vec{r} $. Only the force component parallel to the direction (or likewise, the position component parallel to the force) is wanted.
+In physics, you’re often interested in knowing to what extent a vector quantity contributes in a given direction (the vector quantity’s component in that direction). This is what the dot (scalar) product tells you.
 
-You’re often interested in knowing to what extent a vector quantity contributes in a given direction (the vector quantity’s component in that direction). This is what the dot (scalar) product, as used in physics, tells you.
+In physics, the work expression is $ W = \vec{F} \cdot \vec{r} $. Only the force component parallel to the direction (or likewise, the position component parallel to the force) is wanted.
 
 # Dot Product Emergence from Pythagoras' Theorem
 
-The dot product emerges naturally from Pythagoras' theorem. To see this happen, we will explore perpendicular vectors in the hopes that the relation emerges, where the dot product of two perpendicular vectors is zero.
+The dot product emerges naturally from Pythagoras' theorem. To see this happen, we will explore perpendicular vectors, which have the special property of having a dot product of zero, in the hopes that the dot product relation emerges.
 
 Consider vectors $ \vc{a} $ and $ \vc{b} $ where $ \vc{a} $ is perpendicular to $ \vc{b} $. Because $ \vc{a} \perp \vc{b} $, they form the opposite and adjacent sides of a right triangle and therefore, we can apply Pythagoras to get:
 
