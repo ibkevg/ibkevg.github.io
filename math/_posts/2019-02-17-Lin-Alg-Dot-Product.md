@@ -182,45 +182,6 @@ In physics, you’re often interested in knowing to what extent a vector quantit
 
 In physics, the work expression is $ W = \vec{F} \cdot \vec{r} $. Only the force component parallel to the direction (or likewise, the position component parallel to the force) is wanted.
 
-# Dot Product Emergence from Pythagoras' Theorem
-
-The dot product emerges naturally from Pythagoras' theorem. To see this happen, we will explore perpendicular vectors, which have the special property of having a dot product of zero, in the hopes that the dot product relation emerges.
-
-Consider vectors $ \vc{a} $ and $ \vc{b} $ where $ \vc{a} $ is perpendicular to $ \vc{b} $. Because $ \vc{a} \perp \vc{b} $, they form the opposite and adjacent sides of a right triangle and therefore, we can apply Pythagoras to get:
-
-$$
-\begin{aligned}
-|\vc{s}|^2_{perp}
-&=  \lvert \vc{a} \rvert^2  +  \lvert \vc{b} \rvert^2 \\
-|\vc{s}|^2_{perp}
-&=  (a_x^2 + a_y^2 + a_z^2)  +  (b_x^2 + b_y^2 + b_z^2)
-\end{aligned}
-$$
-
-Also, for any triangle, 2 of the vectors that form the sides of the triangle must sum to the other. We can arbitrarily choose $ \vc{s} = \vc{a} + \vc{b} $ or $ \vc{s} = \vc{a} - \vc{b} $ :
-
-$$ |\vc{s}|^2 = (a_x+b_x)^2 + (a_y+b_y)^2 + (a_z+b_z)^2 $$
-
-Since both equations are describing the same triangle, $ \abs{\vc{s}}^2 = \abs{\vc{s}}^2_{perp} $, and thus we can write:
-
-$$
-\begin{aligned}
-(a_x+b_x)^2 + (a_y+b_y)^2 + (a_z+b_z)^2
-&= (a_x^2 + a_y^2 + a_z^2)  +  (b_x^2 + b_y^2 + b_z^2) \\
-a_x^2 + 2a_x b_x + b_x^2 +
-a_y^2 + 2a_y b_y + b_y^2 + 
-a_z^2 + 2a_z b_z + b_z^2
-&= a_x^2 + a_y^2 + a_z^2 + b_x^2 + b_y^2 + b_z^2 \\
-2a_x b_x + 2a_y b_y + 2a_z b_z
-&= 0 \\
-a_x b_x + a_y b_y + a_z b_z &= 0
-\end{aligned}
-$$
-
-This is consistent with the definition of the dot product which is 0 when the vectors are perpendicular:
-
-$$ \vc{a} \cdot \vc{b} = a_x b_x + a_y b_y + a_z b_z $$
-
 # The Inner and Outer Products
 
 The dot product is very useful in $ \mathbb{R}^3 $ but also very specific to $ \mathbb{R}^3 $. Since goal of linear algebra is to apply to vectors of any kind, whether they be audio data, polynomials, etc., the inner product takes the idea of a dot product and makes it more general and abstract so that it can apply to any kind of vector. The inner product of two vectors is shown as $ \langle \vc{a}, \vc{b} \rangle $. The inner product is defined as any operator that adheres to the following properties:
