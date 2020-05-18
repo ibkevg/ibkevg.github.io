@@ -162,6 +162,7 @@ e_3 & 0 & 0 & 1
 $$
 
 Cross product multiplication table entries are zero when $ \vc{e}_i = \vc{e}_j $:
+
 $$
 \begin{array}{c|c|c|c}
 \times & e_1 & e_2 & e_3 \\ \hline
@@ -179,7 +180,7 @@ Lagrange's Identity is:
 
 $$
 {\lvert \vc{a} \rvert}^2 {\lvert\vc{b} \rvert}^2
-= {\lvert \vc{a} \times \vc{b} \rvert}^2 + \lvert \vc{a} \cdot \vc{b} \rvert^2
+= {\lvert \vc{a} \times \vc{b} \rvert}^2 + ( \vc{a} \cdot \vc{b} )^2
 $$
 
 It also shows us that the dot and cross products are two parts of a greater whole. It is analogous to Pythagoras Theorem applied to vector multiplication. We can find this using:
@@ -195,9 +196,9 @@ $$
 {\lvert \vc{a} \times \vc{b} \rvert}^2
 &= {\lvert \vc{a} \rvert}^2 {\lvert\vc{b} \rvert}^2 - ({\lvert \vc{a} \rvert} {\lvert\vc{b} \rvert} \cos{\theta} )^2 \\
 {\lvert \vc{a} \times \vc{b} \rvert}^2
-&= {\lvert \vc{a} \rvert}^2 {\lvert\vc{b} \rvert}^2 - \lvert \vc{a} \cdot \vc{b} \rvert^2 \\
+&= {\lvert \vc{a} \rvert}^2 {\lvert\vc{b} \rvert}^2 - (\vc{a} \cdot \vc{b} )^2 \\
 {\lvert \vc{a} \rvert}^2 {\lvert\vc{b} \rvert}^2
-&= {\lvert \vc{a} \times \vc{b} \rvert}^2 + \lvert \vc{a} \cdot \vc{b} \rvert^2
+&= {\lvert \vc{a} \times \vc{b} \rvert}^2 + ( \vc{a} \cdot \vc{b} )^2
 \end{aligned}
 $$
 
@@ -205,18 +206,18 @@ Or starting with the dot product:
 
 $$
 \begin{aligned}
-\lvert \vc{a} \cdot \vc{b} \rvert
+\vc{a} \cdot \vc{b}
 &= \lvert \vc{a} \rvert \lvert\vc{b} \rvert \cos{\theta} \\
-{\lvert \vc{a} \cdot \vc{b} \rvert}^2
+{( \vc{a} \cdot \vc{b} )}^2
 &= {\lvert \vc{a} \rvert}^2 {\lvert\vc{b} \rvert}^2 \cos{\theta}^2 \\
-{\lvert \vc{a} \cdot \vc{b} \rvert}^2
+{( \vc{a} \cdot \vc{b} )}^2
 &= {\lvert \vc{a} \rvert}^2 {\lvert\vc{b} \rvert}^2 (1 - \sin{\theta}^2) \\
-{\lvert \vc{a} \cdot \vc{b} \rvert}^2
+{( \vc{a} \cdot \vc{b} )}^2
 &= {\lvert \vc{a} \rvert}^2 {\lvert\vc{b} \rvert}^2 - ({\lvert \vc{a} \rvert} {\lvert\vc{b} \rvert} \sin{\theta} )^2 \\
-{\lvert \vc{a} \cdot \vc{b} \rvert}^2
+{( \vc{a} \cdot \vc{b} )}^2
 &= {\lvert \vc{a} \rvert}^2 {\lvert\vc{b} \rvert}^2 - \lvert \vc{a} \times \vc{b} \rvert^2 \\
 {\lvert \vc{a} \rvert}^2 {\lvert\vc{b} \rvert}^2
-&= {\lvert \vc{a} \times \vc{b} \rvert}^2 + \lvert \vc{a} \cdot \vc{b} \rvert^2
+&= {\lvert \vc{a} \times \vc{b} \rvert}^2 + ( \vc{a} \cdot \vc{b} )^2
 \end{aligned}
 $$
 
