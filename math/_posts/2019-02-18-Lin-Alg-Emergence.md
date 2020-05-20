@@ -148,7 +148,7 @@ $$
 
 # Combining Dot and Cross/Wedge Products
 
-The multiplication tables for dot and wedge products suggest that a two produce orthogonal results that may possibly be combined into a more general form of vector multiplication.
+The multiplication tables for dot and wedge products suggest that the two produce orthogonal results that may possibly be combined into a more general form of vector multiplication.
 
 Dot product multiplication table entries are zero when $ \vc{e}_i \neq \vc{e}_j $:
 
@@ -171,6 +171,18 @@ e_2 & -e_3 & 0 & e_1 \\ \hline
 e_3 & e_2 & -e_1 & 0
 \end{array} 
 $$
+
+Putting these together we find:
+
+$$
+\begin{array}{c|c|c|c}
+ & e_1 & e_2 & e_3 \\ \hline
+e_1 & \cdot & \times & \times \\ \hline
+e_2 & \times & \cdot & \times \\ \hline
+e_3 & \times & \times & \cdot
+\end{array} 
+$$
+
 
 ## Lagrange's Identity
 
