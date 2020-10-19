@@ -14,139 +14,24 @@ $$
 * This will become a table of contents (this text will be scraped).
 {:toc}
 
-Here we find equations that allow us to determine if two vectors are parallel or perpendicular. Although we start only with the basic laws of triangles like Pythagorus and the law of cosines, we will find that the equations for the dot and wedge products emerge.
+Big Picture
 
-We will then compare the multiplication tables for the dot and wedge products and find that they each address orthogonal parts, suggesting that the two may be combined.
+If we multiply vectors, we should be able to produce a result in every direction.
+If we construct a multiplication table for every basis vector.
+
+
+
+
+
+
+
+Here we compare the multiplication tables for the dot and wedge products and find that they each address orthogonal parts, suggesting that the two may be combined.
+
+We will then find equations that allow us to determine if two vectors are parallel or perpendicular. Although we start only with the basic laws of triangles like Pythagorus and the law of cosines, we will find that the equations for the dot and wedge products emerge.
 
 Finally we will look at Lagrange's Identity that further points in this direction.
 
-# Dot Product Emergence
-
-The dot product relation emerges naturally from Pythagoras' theorem. To see this happen, we will explore perpendicular vectors, which have the special property of having a dot product of zero.
-
-Consider vectors $ \vc{a} $ and $ \vc{b} $ where $ \vc{a} $ is perpendicular to $ \vc{b} $. Because $ \vc{a} \perp \vc{b} $, we can think of them as the opposite and adjacent sides of a right triangle and therefore, applying Pythagoras we get:
-
-$$
-\begin{aligned}
-|\vc{s}|^2_{perp}
-&=  \lvert \vc{a} \rvert^2  +  \lvert \vc{b} \rvert^2 \\
-|\vc{s}|^2_{perp}
-&=  (a_x^2 + a_y^2 + a_z^2)  +  (b_x^2 + b_y^2 + b_z^2)
-\end{aligned}
-$$
-
-Also, for any triangle, 2 of the vectors that form the sides of the triangle must sum to the other. We can arbitrarily choose $ \vc{s} = \vc{a} + \vc{b} $ or $ \vc{s} = \vc{a} - \vc{b} $ :
-
-$$ |\vc{s}|^2 = (a_x+b_x)^2 + (a_y+b_y)^2 + (a_z+b_z)^2 $$
-
-Since both equations are describing the same triangle, $ \abs{\vc{s}}^2 = \abs{\vc{s}}^2_{perp} $, and thus we can write:
-
-$$
-\begin{aligned}
-(a_x+b_x)^2 + (a_y+b_y)^2 + (a_z+b_z)^2
-&= (a_x^2 + a_y^2 + a_z^2)  +  (b_x^2 + b_y^2 + b_z^2) \\
-a_x^2 + 2a_x b_x + b_x^2 +
-a_y^2 + 2a_y b_y + b_y^2 + 
-a_z^2 + 2a_z b_z + b_z^2
-&= a_x^2 + a_y^2 + a_z^2 + b_x^2 + b_y^2 + b_z^2 \\
-2a_x b_x + 2a_y b_y + 2a_z b_z
-&= 0 \\
-a_x b_x + a_y b_y + a_z b_z &= 0
-\end{aligned}
-$$
-
-This is consistent with the definition of the dot product which is 0 when the vectors are perpendicular:
-
-$$ \vc{a} \cdot \vc{b} = a_x b_x + a_y b_y + a_z b_z $$
-
-# Cross Product Emergence
-
-> The cross product emerges naturally from Pythagoras' theorem. To see how this works, below we will take advantage of the fact that the cross product of two parallel vectors is zero.
-
-Now let's consider the case where $ \vc{a} $ is parallel to $ \vc{b} $. We can't directly apply Pythagoras but we can apply the law of cosines:
-
-$$ |\vc{s}|^2 = |\vc{a}|^2 + |\vc{b}|^2 - 2|\vc{a}||\vc{b}|\cos S $$
-
-and because our vectors are parallel, $ S = 180^\circ $ making $ \cos 180^\circ = -1 $, which gives:
-
-$$
-\begin{aligned}
-|\vc{s}|^2_{parallel}
-&=  |\vc{a}|^2 + |\vc{b}|^2 + 2|\vc{a}||\vc{b}| \\
-&=  (a_x^2 + a_y^2 + a_z^2)  +  (b_x^2 + b_y^2 + b_z^2) + 2|\vc{a}||\vc{b}|
-\end{aligned}
-$$
-
-Also, for any triangle, the sum of any $ \vc{a} $ and $ \vc{b} $ is $ \vc{s} = \vc{a} + \vc{b} $, therefore:
-
-$$ |\vc{s}|^2 = (a_x + b_x)^2 + (a_y + b_y)^2 + (a_z + b_z)^2 $$
-
-We can equate these two expressions, $ \abs{\vc{s}}^2 = \abs{\vc{s}}^2_{parallel} $, when $ \vc{a} \parallel \vc{b} $:
-
-$$
-\begin{aligned}
-2a_x b_x + 2a_y b_y + 2a_z b_z &= 2|\vc{a}||\vc{b}| \\
-a_x b_x + a_y b_y + a_z b_z &=  \sqrt{a_x^2 + a_y^2 + a_z^2}\sqrt{b_x^2 + b_y^2 + b_z^2} \\
-(a_x b_x + a_y b_y + a_z b_z)^2 &=  (a_x^2 + a_y^2 + a_z^2)(b_x^2 + b_y^2 + b_z^2) \\
-\end{aligned}
-$$
-
-Expanding these expressions and cancelling terms, we get:
-
-$$
-2a_x b_x a_y b_y + 2a_x b_x a_z b_z + 2a_y b_y a_z b_z
-= (a_x b_y)^2 + (a_x b_z)^2 + (a_y b_x)^2 + (a_y b_z)^2 + (a_z b_x)^2 + (a_z b_y)^2
-$$
-
-Notice that we can gather terms and re-write this as
-
-$$ (a_x b_y - b_x a_y)^2  +  (b_x a_z - a_x b_z)^2  +  (a_y b_z - b_y a_z)^2  =  0 $$
-
-This sum of squares equals zero only when $ \vc{a} \parallel \vc{b} $ and is consistent with the definition of the cross product:
-
-$$ \vc{a} \times \vc{b}
-= \begin{bmatrix}
-a_y b_z - b_y a_z \\
-a_y b_z - b_y a_z \\
-a_x b_y - b_x a_y
-\end{bmatrix}
-$$
-
-Also as we saw previously, the dot product of two vectors is 0 if the vectors are perpendicular. We can use this to confirm the following:
-
-that $ \vc{a} \times \vc{b} $ is perpendicular to $ \vc{a} $:
-
-$$
-\begin{aligned}
-\vc{a} \cdot (\vc{a} \times \vc{b})
-&= \begin{bmatrix} a_x, a_y, a_z \end{bmatrix} \cdot 
-\begin{bmatrix}
-a_y b_z - b_y a_z \\
-a_y b_z - b_y a_z \\
-a_x b_y - b_x a_y
-\end{bmatrix} = 0 \\
-&= a_x a_y b_z - a_x b_y a_z  +  a_y b_x a_z - a_y a_x b_z  +  a_z a_x b_y - a_z b_x a_y \\
-&= 0
-\end{aligned}
-$$
-
-that $ \vc{a} \times \vc{b} $ is perpendicular to $ \vc{b} $:
-
-$$
-\begin{aligned}
-\vc{b} \cdot (\vc{a} \times \vc{b})
-&= \begin{bmatrix} b_x, b_y, b_z \end{bmatrix} \cdot 
-\begin{bmatrix}
-a_y b_z - b_y a_z \\
-a_y b_z - b_y a_z \\
-a_x b_y - b_x a_y
-\end{bmatrix} = 0 \\
-&= b_x a_y b_z - b_x b_y a_z  +  b_y b_x a_z - b_y a_x b_z  +  b_z a_x b_y - b_z b_x a_y \\
-&= 0 
-\end{aligned}
-$$
-
-# Combining Dot and Cross/Wedge Products
+# Multiplication Tables
 
 The multiplication tables for dot and wedge products suggest that the two produce orthogonal results that may possibly be combined into a more general form of vector multiplication.
 
@@ -176,17 +61,16 @@ Putting these together we find:
 
 $$
 \begin{array}{c|c|c|c}
- & e_1 & e_2 & e_3 \\ \hline
-e_1 & \cdot & \times & \times \\ \hline
-e_2 & \times & \cdot & \times \\ \hline
-e_3 & \times & \times & \cdot
+    & e_1 & e_2 & e_3 \\ \hline
+e_1 & dot & cross & cross \\ \hline
+e_2 & cross & dot & cross \\ \hline
+e_3 & cross & cross & dot
 \end{array} 
 $$
 
-
 ## Lagrange's Identity
 
-Earlier we learned that $ \vc{u} \cdot \vc{v} \propto \cos{\theta} $ and $ \vc{u} \times \vc{v} \propto \sin{\theta} $ and this suggests that a pythagorean relation, $ \sin^2 + \cos^2 = 1 $, can be formed between them.
+Earlier we learned that $ \hat{u} \cdot \hat{v} = \cos{\theta} $ and $ \hat{u} \times \hat{v} = \sin{\theta} $ and this suggests that a pythagorean relation, $ \sin^2 + \cos^2 = 1 $, can be formed between them.
 
 Lagrange's Identity is:
 

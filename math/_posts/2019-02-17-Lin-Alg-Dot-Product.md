@@ -20,6 +20,50 @@ A dot product takes two vectors and produces a number that represents the degree
 
 Since it produces a number, it is sometimes referred to as the Scalar Product.
 
+# Dot Product Emergence
+
+The dot product relation emerges naturally from Pythagoras' theorem. To see this happen, we will explore perpendicular vectors, which have the special property of having a dot product of zero.
+
+Consider vectors $ \vc{a} $ and $ \vc{b} $ where $ \vc{a} $ is perpendicular to $ \vc{b} $. We can think of them as the opposite and adjacent sides of a right triangle and therefore, apply Pythagoras.
+
+When $ \vc{a} \perp \vc{b} $:
+
+$$
+\begin{aligned}
+|\vc{s}|^2_{perp}
+&=  \lvert \vc{a} \rvert^2  +  \lvert \vc{b} \rvert^2 \\
+|\vc{s}|^2_{perp}
+&=  (a_x^2 + a_y^2 + a_z^2)  +  (b_x^2 + b_y^2 + b_z^2)
+\end{aligned}
+$$
+
+Also, for any triangle, 2 of the vectors that form the sides of the triangle must sum to the other. We can arbitrarily choose $ \vc{s} = \vc{a} + \vc{b} $ or $ \vc{s} = \vc{a} - \vc{b} $ :
+
+$$ |\vc{s}|^2 = (a_x+b_x)^2 + (a_y+b_y)^2 + (a_z+b_z)^2 $$
+
+Since both equations are describing the same triangle, $ \abs{\vc{s}}^2 = \abs{\vc{s}}^2_{perp} $, and thus we can write:
+
+$$
+\begin{aligned}
+(a_x+b_x)^2 + (a_y+b_y)^2 + (a_z+b_z)^2
+&= (a_x^2 + a_y^2 + a_z^2)  +  (b_x^2 + b_y^2 + b_z^2) \\
+a_x^2 + 2a_x b_x + b_x^2 +
+a_y^2 + 2a_y b_y + b_y^2 + 
+a_z^2 + 2a_z b_z + b_z^2
+&= a_x^2 + a_y^2 + a_z^2 + b_x^2 + b_y^2 + b_z^2 \\
+2a_x b_x + 2a_y b_y + 2a_z b_z
+&= 0 \\
+a_x b_x + a_y b_y + a_z b_z &= 0
+\end{aligned}
+$$
+
+Now lets consider what we have here. We have found a function of two vectors $ f(\vc{a}, \vc{b}) = a_x b_x + a_y b_y + a_z b_z $ that is zero when the vectors are perpendicular.
+
+This is exactly the same as the dot product which is 0 when the vectors are perpendicular:
+
+$$ \vc{a} \cdot \vc{b} = a_x b_x + a_y b_y + a_z b_z $$
+
+
 ## Definition
 
 We will define the dot product in two different ways. Once from the perspective of geometry, where a vector has a length and a direction and the other from the perspective of algebra where a vector is comprised of coordinates. Let's start with the geometric viewpoint:

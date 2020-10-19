@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"Beautify active file": false,
+		"Open files list": false,
+		"markdown-preview-enhanced.mathRenderingOption": "MathJax",
+		"Toggle terminal": false
+	},
+	"mdmath.macros": {
+        "\\ihat": "\\hat{\\boldsymbol{\\imath}}}",
+        "\\jhat": "\\hat{\\boldsymbol{\\jmath}}}",
+        "\\khat": "\\hat{\\boldsymbol{k}}}",
+        "\\vc": "{\\mathbf{#1}}",
+        "\\inner": "{ \\langle #1, #2 \\rangle }",
+        "\\abs": "{ \\lvert #1}"
+	}
+}

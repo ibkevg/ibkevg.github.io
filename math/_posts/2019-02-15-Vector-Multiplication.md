@@ -35,6 +35,21 @@ My goal here is to:
 1. provide examples of how to use them
 1. show why the vector products took the form that they do and not some other form
 
+
+# What criteria identifies a math operation as a "product"?
+
+Today I was reading about geometric algebra and a kind of vector product that combines the dot and cross/wedge products together and it got me thinking about the meaning of "product". My math background is from an engineering perspective and I've always just accepted the dot and cross products as useful functions but it occurred to me that if someone had not told me that the dot and cross operators were "products" I wouldn't know any criteria that would allow me to justify calling them as such.
+
+I don't necessarily mean vectors specifically either. Imagine you were defining some new abstract mathematical object, say a foobar, how would you be able to tell which of the functions you came up with for working with them is a "product" as opposed to some other operation?
+
+If you only have one binary operation, then generally there is no clear distiction between "addition" and "multiplication". That said, addition is generally commutative, so if the operation is non-commutative, then it's a "product".
+
+When you have two binary operations, multiplication is distributive over addition:
+
+$$ a⋅(b+c)=(a⋅b)+(a⋅c) $$
+
+For these reasons, the vector dot and cross products are "product" operations. The cross product is non-commutative and both distribute over vector addition.
+
 # What was Hamilton looking for?
 
 One good way (especially in the present context) of describing Hamilton’s search for quaternions is to state that his search was for numbers with the following six characteristics, all of which are found in ordinary complex numbers: (1) associativity for multiplication and division, (2) commutativity for addition and multiplication, (3) the distributive property, (4) the property that division is unambiguous, (5) the property that the numbers obey the law of the moduli,4 (6) the property of being useful for the analysis of three-dimensional space. Quaternions possess all of six characteristics, with the exception that they are not commutative for multiplication. One can get a sense of why quaternionists objected to modern vector analysis when it is noted that modern vector analysis involves two forms of multiplication, the scalar (dot) and vector (cross) products. For the scalar product, associativity is irrelevant, and both the law of the moduli and unambiguity of division must be abandoned. For the vector product, the associative and commutative properties must be abandoned, division is not unambiguous, and the law of the moduli fails as well.
