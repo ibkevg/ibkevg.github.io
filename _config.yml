@@ -46,10 +46,11 @@ slack_url:
 twitter_url: https://twitter.com/
 
 # Build settings
-markdown: kramdown
+markdown: ghm
+#markdown: kramdown
 
-kramdown:
-  toc_levels: "1,2"
+#kramdown:
+#  toc_levels: "1,2"
 
 # Plugin: jekyll-seo-tag
 twitter:
