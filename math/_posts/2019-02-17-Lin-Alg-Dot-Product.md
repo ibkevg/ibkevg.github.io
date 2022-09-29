@@ -6,7 +6,7 @@ $$
 \newcommand\ihat{\hat{\boldsymbol{\imath}}}
 \newcommand\jhat{\hat{\boldsymbol{\jmath}}}
 \newcommand\khat{\hat{\boldsymbol{k}}}
-\def \vc#1{ \mathbf{#1} }
+\newcommand\vc[1]{ \mathbf{#1} }
 $$
 
 * This will become a table of contents (this text will be scraped).
