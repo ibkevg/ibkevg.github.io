@@ -9,6 +9,13 @@ $$
 \newcommand\vc[1]{ \mathbf{#1} }
 $$
 
+\(
+   \def\RR{{\bf R}}
+   \def\bold#1{{\bf #1}}
+\)
+
+$$ \bold{Kevin} $$
+
 * This will become a table of contents (this text will be scraped).
 {:toc}
 
