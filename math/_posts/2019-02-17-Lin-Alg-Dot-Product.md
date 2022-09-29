@@ -2,6 +2,11 @@
 title: Vector Dot Product
 layout: page
 ---
+$$
+\newcommand\ihat{\hat{\boldsymbol{\imath}}}
+\newcommand\jhat{\hat{\boldsymbol{\jmath}}}
+\newcommand\khat{\hat{\boldsymbol{k}}}
+$$
 
 * This will become a table of contents (this text will be scraped).
 {:toc}
