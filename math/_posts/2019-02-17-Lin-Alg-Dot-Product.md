@@ -6,9 +6,9 @@ $$
 \newcommand\ihat{\hat{\boldsymbol{\imath}}}
 \newcommand\jhat{\hat{\boldsymbol{\jmath}}}
 \newcommand\khat{\hat{\boldsymbol{k}}}
-\newcommand \vc [1] { \mathbf{#1} }
-\newcommand \inner [2] { \langle {#1}, {#2} \rangle }
-\newcommand \abs [2] { \lvert {#1} \rvert }
+\def \vc #1 { \mathbf{#1} }
+\def \inner #1 #2 { \langle {#1}, {#2} \rangle }
+\def \abs #1 #2 { \lvert {#1} \rvert }
 $$
 
 * This will become a table of contents (this text will be scraped).
