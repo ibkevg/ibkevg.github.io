@@ -14,7 +14,7 @@ $$
    \def\bold#1{{\bf #1}}
 $$
 
-$$ \bold{Kevin} $$
+$$ \bold Kevin $$
 
 * This will become a table of contents (this text will be scraped).
 {:toc}
