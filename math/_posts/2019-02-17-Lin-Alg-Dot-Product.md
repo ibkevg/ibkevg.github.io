@@ -2,14 +2,14 @@
 title: Vector Dot Product
 layout: page
 ---
-$
-\newcommand{\ihat}{\hat{\boldsymbol{\imath}}}
-\newcommand{\jhat}{\hat{\boldsymbol{\jmath}}}
-\newcommand{\khat}{\hat{\boldsymbol{k}}}
-\newcommand{\vc}[1]{\mathbf{#1}}
-\newcommand{\inner}[2]{ \langle #1, #2 \rangle }
-\newcommand{\abs}[1]{ \lvert #1 \rvert }
-$
+$$
+\newcommand\ihat{\hat{\boldsymbol{\imath}}}
+\newcommand\jhat{\hat{\boldsymbol{\jmath}}}
+\newcommand\khat{\hat{\boldsymbol{k}}}
+\newcommand\vc[1]{\mathbf{#1}}
+\newcommand\inner[2]{ \langle #1, #2 \rangle }
+\newcommand\abs[1]{ \lvert #1 \rvert }
+$$
 
 * This will become a table of contents (this text will be scraped).
 {:toc}
