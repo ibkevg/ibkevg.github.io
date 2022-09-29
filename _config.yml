@@ -46,7 +46,7 @@ slack_url:
 twitter_url: https://twitter.com/
 
 # Build settings
-markdown: ghm
+markdown: GHM
 #markdown: kramdown
 
 #kramdown:
