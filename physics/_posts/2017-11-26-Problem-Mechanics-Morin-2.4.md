@@ -76,11 +76,11 @@ $$
 
 \frac {\sin \theta} {\cos \theta} &= \frac 1 \mu \\
 
-\theta &= \tan^{-1} \frac 1 \mu \\
+\boxed { \theta &= \tan^{-1} \frac 1 \mu } \\
 \end{align}
 $$
 
-Now we substitute this value for $ \theta $ back into $ F(\theta) $
+So now we know what the angle of the minimum force is, let find what the minimum force is by substituting $ \theta $ back into $ F(\theta): $
 
 $$ F \geq \frac {gM} {\mu \cos \left( \tan^{-1} \frac 1 \mu \right) + \sin \left(\tan^{-1} \frac 1 \mu \right) } $$
 
@@ -100,7 +100,7 @@ F &\geq \frac {gM} {\mu \left( \frac \mu {\sqrt{1 + \mu^2}} \right) + \left( \fr
 
 F &\geq \frac {gM} {\left( \frac {1 + \mu^2} {\sqrt{1 + \mu^2}} \right)} \\
 
-F &\geq \frac {gM} {\sqrt{1 + \mu^2}}
+\boxed { F &\geq \frac {gM} {\sqrt{1 + \mu^2}} }
 \end{align}
 $$
 
