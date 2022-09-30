@@ -76,7 +76,7 @@ $$
 
 \frac {\sin \theta} {\cos \theta} &= \frac 1 \mu \\
 
-\boxed { \theta &= \tan^{-1} \frac 1 \mu } \\
+\theta &= \tan^{-1} \frac 1 \mu \\
 \end{align}
 $$
 
@@ -100,7 +100,7 @@ F &\geq \frac {gM} {\mu \left( \frac \mu {\sqrt{1 + \mu^2}} \right) + \left( \fr
 
 F &\geq \frac {gM} {\left( \frac {1 + \mu^2} {\sqrt{1 + \mu^2}} \right)} \\
 
-\boxed { F &\geq \frac {gM} {\sqrt{1 + \mu^2}} }
+F &\geq \frac {gM} {\sqrt{1 + \mu^2}}
 \end{align}
 $$
 
