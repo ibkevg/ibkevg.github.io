@@ -24,9 +24,9 @@ Y'(x) &= y'(x) + \eta'(x)
 \end{align}
 $$
 
-We do this by introducing a variation from the correct value by adding $$ \eta(x) $$. In this case, we define $$ \eta(x) $$ to not be zero, so that adding it to the original will always give a wrong answer. We also need to ensure $$ Y(x) $$ still connects the two points, so we also add the constraint that $$ \eta(x_1) = \eta(x_2) = 0 $$.) So, now $$ Y(x) $$ represents functions that could connect $$ (x_1,y_1) $$ and $$ (x_2, y_2) $$ _except_ the one we are really looking for.
+We do this by introducing a variation from the correct value by adding $ \eta(x) $. In this case, we define $ \eta(x) $ to not be zero, so that adding it to the original will always give a wrong answer. We also need to ensure $ Y(x) $ still connects the two points, so we also add the constraint that $ \eta(x_1) = \eta(x_2) = 0 $.) So, now $ Y(x) $ represents functions that could connect $ (x_1,y_1) $ and $ (x_2, y_2) $ _except_ the one we are really looking for.
 
-In a typical minimization problem, we will need to be able to express varying degrees of correctness/wrongness, so we introduce a scaling factor $$ \alpha $$:
+In a typical minimization problem, we will need to be able to express varying degrees of correctness/wrongness, so we introduce a scaling factor $ \alpha $:
 
 $$
 \begin{align}
@@ -35,21 +35,21 @@ Y'(\alpha, x) &= y'(x) + \alpha\eta'(x)
 \end{align}
 $$
 
-Now the bigger $$ \alpha $$ is, the more wrong $$ Y(x) $$ will be and $$ Y(x) $$ will be the correct answer when $$ \alpha = 0 $$. We refer to $$ \alpha\eta(x) $$ as a variation of the minimizing function.  Calculus of Variations owes it's name to this idea.
+Now the bigger $ \alpha $ is, the more wrong $ Y(x) $ will be and $ Y(x) $ will be the correct answer when $ \alpha = 0 $. We refer to $ \alpha\eta(x) $ as a variation of the minimizing function.  Calculus of Variations owes it's name to this idea.
 
 So we can rewrite our original problem in terms of our new function as:
 
 $$ S(\alpha, x) = \int_{x_1}^{x_2} \mathscr{L}(Y(\alpha, x), Y(\alpha, x)', x)\ dx $$
 
-Since S is a function of $$ \alpha $$ now, the original problem of finding the function that makes the integral of S stationary, has become a vanilla "find the local minimum" calculus problem where we set the derivative to zero. We now also require that $$ \alpha = 0 $$.
+Since S is a function of $ \alpha $ now, the original problem of finding the function that makes the integral of S stationary, has become a vanilla "find the local minimum" calculus problem where we set the derivative to zero. We now also require that $ \alpha = 0 $.
 
-Restating in mathematical notation, we want to solve this equation for the action $$ S $$:
+Restating in mathematical notation, we want to solve this equation for the action $ S $:
 
 $$ \left. \frac{\partial S(\alpha)}{\partial \alpha}\ \right |_{\alpha = 0} = 0 $$
 
-noting that we must use a partial derivative because $$ L $$ is a function of both $$ x $$ and $$ \alpha $$.
+noting that we must use a partial derivative because $ L $ is a function of both $ x $ and $ \alpha $.
 
-Expressing $$ S $$ in terms of $$ Y $$ we find:
+Expressing $ S $ in terms of $ Y $ we find:
 
 $$ \frac{\partial}{\partial \alpha}\ \left[\int_{x_1}^{x_2} L(Y, Y', x)\ dx\right]
 = \int_{x_1}^{x_2} \frac {\partial L} {\partial \alpha}\,dx = 0
@@ -74,9 +74,9 @@ $$
 = \int_{x_1}^{x_2} \left(  \eta\frac {\partial L} {\partial Y}+\eta'\frac {\partial L} {\partial Y'} \right)\,dx = 0
 $$
 
-At this point, $$ \eta $$ appears twice and we could gather them if one was not a derivative. We can fix this by taking advantage of the following property of integration by parts:
+At this point, $ \eta $ appears twice and we could gather them if one was not a derivative. We can fix this by taking advantage of the following property of integration by parts:
 
-$$ \int u dv = uv - \int v du $$, notice how $$ udv $$ and $$ vdu $$ switch places?
+$ \int u dv = uv - \int v du $, notice how $ udv $ and $ vdu $ switch places?
 
 We can now write:
 
@@ -94,20 +94,20 @@ $$
 \end{align}
 $$
 
-The last term evaluates to zero because we had to define $$ \eta $$ at the beginning so that $$ \eta(x_1) = \eta(x_2) = 0 $$, and so we have:
+The last term evaluates to zero because we had to define $ \eta $ at the beginning so that $ \eta(x_1) = \eta(x_2) = 0 $, and so we have:
 
 $$
 \left. \frac {\partial S} {\partial \alpha}\ \right |_{\alpha = 0}
 = \int_{x_1}^{x_2} \eta \left[ \frac {\partial L} {\partial Y} - \frac {d} {dx} \left( \frac {\partial L} {\partial Y'} \right) \right] \,dx = 0
 $$
 
-Above we defined $$ \eta $$ to be a non-zero function, in order for the integral to evaluate to zero, it must be the case that:
+Above we defined $ \eta $ to be a non-zero function, in order for the integral to evaluate to zero, it must be the case that:
 
 $$
 \left[ \frac {\partial L} {\partial Y} - \frac {d} {dx} \left( \frac {\partial L} {\partial Y'} \right) \right]_{\alpha = 0} = 0
 $$
 
-Because $$ \alpha = 0 $$, we find that $$ (Y, Y') = (y, y') $$ and so:
+Because $ \alpha = 0 $, we find that $ (Y, Y') = (y, y') $ and so:
 
 $$
 \boxed {\frac {\partial L} {\partial y} - \frac {d} {dx} \left( \frac {\partial L} {\partial y'} \right) = 0}
