@@ -24,7 +24,7 @@ layout: page
 
 
 | Symbol | Meaning | Notes |
-| :--: | :--: | |
+| :-- | :-- | :-- |
 | $$ \vee $$ | logical or | $$ P \vee Q $$ sometimes called the *disjunction* of P and Q |
 | $$ \wedge $$ | logical and | $$ P \wedge Q $$ sometimes called the *conjunction* of P and Q |
 | $$ \neg $$ | logical not | $$ \neg P $$ sometimes called the *negation* of P |
@@ -72,6 +72,7 @@ A *set* is a collection of objects.
 
 
 | Symbol | Means | |
+| :--     | :--     | :--  |
 | $$ \in $$ | is an element of | if $$ A = \{3,7,14\} $$ then $$ 7 \in A $$ |
 | $$ \notin $$ | not an element of |  $$ 11 \notin A $$|
 

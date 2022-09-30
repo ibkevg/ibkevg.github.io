@@ -15,11 +15,13 @@ We have a horizontal beam supported on each end and a support somewhere in the m
 
 ## Solution
 
-Let $$ F_1 $$, $$ F_2 $$ and $$ F_3 $$ be the upward force at the leftmost, inner and rightmost supports respectively.
-Let $$ a $$ be the distance from the leftmost support to the inner support.
-Let $$ b $$ be the distance from the inner support to the rightmost support.
+Let $ F_1 $, $ F_2 $ and $ F_3 $ be the upward force at the leftmost, inner and rightmost supports respectively.
+Let $ a $ be the distance from the leftmost support to the inner support.
+Let $ b $ be the distance from the inner support to the rightmost support.
 
 We can start by coming up with all the relevant equations by summing the forces to zero and summing the torque/moments to zero.
+
+$$ F_1 + F_2 + F_3 = Mg \tag{1} \label{eq:1} $$
 
 $$ F_1 + F_2 + F_3 = Mg \tag{1} \label{eq:1} $$
 
@@ -64,7 +66,7 @@ a+b & a+b & a+b & (a+b)Mg
 \end{bmatrix} 
 $$
 
-It looks like row 4 is just a linear combination of rows 1 and 2. We can zero row 4 out by dividing it by $$ (a+b) $$ and then subtracting row 1. Since we only needed 3 equations for 3 unknowns anyways lets just get rid of this one. Unfortunately, it also looks like row 3 is just a linear combination of rows 1 and 2. We can zero it out by dividing by $$ -a $$ and then subtracting row 1.
+It looks like row 4 is just a linear combination of rows 1 and 2. We can zero row 4 out by dividing it by $ (a+b) $ and then subtracting row 1. Since we only needed 3 equations for 3 unknowns anyways lets just get rid of this one. Unfortunately, it also looks like row 3 is just a linear combination of rows 1 and 2. We can zero it out by dividing by $ -a $ and then subtracting row 1.
 
 So it's turned out that we really only had 2 equations for our 3 unknowns. 
 
@@ -96,7 +98,7 @@ $$
 \end{bmatrix} 
 $$
 
-So our system is singular, i.e. cannot be fully resolved. $$ F_3 $$ is a free variable and our solution is going to be parametric in terms of $$ F_3 $$:
+So our system is singular, i.e. cannot be fully resolved. $ F_3 $ is a free variable and our solution is going to be parametric in terms of $ F_3 $:
 
 $$ \begin{align}
 F_1(f) &= \left( \frac {a-b} {a} \right) \frac {Mg} 2 + \frac b a f
@@ -118,13 +120,13 @@ F_2(f)           &= 0 \\
 f                &= \frac {Mg} 2
 \end{align} $$
 
-Plugging the value of $$ f $$ back in we find:
+Plugging the value of $ f $ back in we find:
 
 $$ ( F_1, F_2, F_3) = \left( \frac {Mg} 2, 0, \frac {Mg} 2 \right) $$
 
 Just as we predicted!
 
-What should happen if $$ b = 0 $$ ? $$ F_1 $$ should support the leftmost edge of the beam along with half of it's weight, while $$ F_2 $$ and $$ F_3 $$ should support the rightmost edge and the other half of the beam. Let's see if our solution works out that way...
+What should happen if $ b = 0 $ ? $ F_1 $ should support the leftmost edge of the beam along with half of it's weight, while $ F_2 $ and $ F_3 $ should support the rightmost edge and the other half of the beam. Let's see if our solution works out that way...
 
 $$ \begin{align}
 F_1(f) &= \left( \frac {a-0} {a} \right) \frac {Mg} 2 + \frac 0 a f = \frac {Mg} 2 \\

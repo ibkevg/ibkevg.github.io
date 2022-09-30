@@ -60,9 +60,7 @@ Now we can solve the partial derivative, and to do this we will need to apply th
 $$
 \begin{align}
 \frac {\partial} {\partial \alpha} L(Y(\alpha, x),Y'(\alpha, x), x)
-&= \frac {dY} {d\alpha} \ \frac {\partial L} {\partial Y}
- + \frac {dY'} {d\alpha}\ \frac {\partial L} {\partial Y'}
- + \frac {dx} {d\alpha} \ \frac {\partial L} {\partial x}\\[10pt]
+&= \frac {dY} {d\alpha} \ \frac {\partial L} {\partial Y} + \frac {dY'} {d\alpha}\ \frac {\partial L} {\partial Y'} + \frac {dx} {d\alpha} \ \frac {\partial L} {\partial x} \\[10pt]
 &= \eta\frac {\partial L} {\partial Y} + \eta'\frac {\partial L} {\partial Y'}
 \end{align}
 $$
@@ -82,15 +80,9 @@ We can now write:
 
 $$
 \begin{align}
-&= \int_{x_1}^{x_2} \eta\frac {\partial L} {\partial Y}\,dx
-+ \int_{x_1}^{x_2} \eta'\frac {\partial L} {\partial Y'}\,dx \\[10pt]
-
-&= \int_{x_1}^{x_2} \eta\frac {\partial L} {\partial Y}\,dx
-- \int_{x_1}^{x_2} \eta \frac {d} {dx} \left( \frac {\partial L} {\partial Y'} \right)\,dx
-+ \left[ \eta \frac {\partial L} {\partial y'} \right]_{x_1}^{x_2} \\[10pt]
-
-&= \int_{x_1}^{x_2} \eta \left[ \frac {\partial L} {\partial Y} - \frac {d} {dx} \left( \frac {\partial L} {\partial Y'} \right) \right] \,dx
-+ \left[ \eta \frac {\partial L} {\partial y'} \right]_{x_1}^{x_2}
+&= \int_{x_1}^{x_2} \eta\frac {\partial L} {\partial Y}\,dx + \int_{x_1}^{x_2} \eta'\frac {\partial L} {\partial Y'}\,dx \\[10pt]
+&= \int_{x_1}^{x_2} \eta\frac {\partial L} {\partial Y}\,dx - \int_{x_1}^{x_2} \eta \frac {d} {dx} \left( \frac {\partial L} {\partial Y'} \right)\,dx + \left[ \eta \frac {\partial L} {\partial y'} \right]_{x_1}^{x_2} \\[10pt]
+&= \int_{x_1}^{x_2} \eta \left[ \frac {\partial L} {\partial Y} - \frac {d} {dx} \left( \frac {\partial L} {\partial Y'} \right) \right] \,dx + \left[ \eta \frac {\partial L} {\partial y'} \right]_{x_1}^{x_2}
 \end{align}
 $$
 
