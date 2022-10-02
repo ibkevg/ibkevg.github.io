@@ -80,7 +80,7 @@ $$
 \end{align}
 $$
 
-So now we know what the angle of the minimum force is, let find what the minimum force is by substituting $ \theta $ back into $ F(\theta): $
+So now we know what the angle of the minimum force is, lets find what the minimum force itself is by substituting $ \theta $ back into $ F(\theta): $
 
 $$ F \geq \frac {gM} {\mu \cos \left( \tan^{-1} \frac 1 \mu \right) + \sin \left(\tan^{-1} \frac 1 \mu \right) } $$
 
