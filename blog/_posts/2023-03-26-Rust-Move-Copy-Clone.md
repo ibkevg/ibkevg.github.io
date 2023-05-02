@@ -72,8 +72,8 @@ If all fields of your struct or type have implemented Drop, then the Rust compil
 
 Going hand in hand with Rust's data ownership rules are the rules for passing data around. Both Rust and modern C++ use many of the same techniques to do this however, Rust has no requirement to be backwards compatible with C and this has led to Rust being able to choose different defaults, be more strict and generally have a different flavour when it comes to passing variables.
 
-*Move* : transfers ownership of data from one variable to another
-*Copy*: duplicate, using an inexpensive bitwise copy
+*Move* : transfers ownership of data from one variable to another \\
+*Copy*: duplicate, using an inexpensive bitwise copy \\
 *Clone*: general purpose duplicate, for example that allows for deep copy
 
 Move (the default):
