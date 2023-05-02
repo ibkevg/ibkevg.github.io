@@ -12,16 +12,16 @@ In order to be able to prove that Rust code is correct, the Rust compiler impose
 So it's not surprising then to find `unsafe` in the standard libraries but it may surprise you to see just how much:
 
 > rust/library/{core,std,alloc}
-128841 lines src
-4471 instances of unsafe
-28.8 lines per unsafe
+> 128841 lines src
+> 4471 instances of unsafe
+> 28.8 lines per unsafe
 
 Bidirectional linked lists are often cited as an example of a data structure that is tricky to build efficiently in Rust, due to Rust's expectation of hierarchical data ownership (see https://rust-unofficial.github.io/too-many-lists/). Sure enough we find:
 
 > In alloc/.../linked list its about:
-1000 lines src
-59 instances of unsafe
-16 lines per unsafe
+> 1000 lines src
+> 59 instances of unsafe
+> 16 lines per unsafe
 
 This explains at least some of the complexity of coming to grips with Rust programming:
   1. you have to adapt your design techniques to make the best of what Rust can prove is correct
