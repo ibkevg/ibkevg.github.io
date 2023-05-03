@@ -1,5 +1,5 @@
 ---
-title: Rust Surprising Amount of Unsafe Usage
+title: Rust To unsafe or not to unsafe?
 layout: page
 ---
 
