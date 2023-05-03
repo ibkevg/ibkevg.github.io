@@ -5,7 +5,7 @@ layout: page
 
 # Overview
 
-Given the much vaunted safety of the Rust language you might reasonably expect that the Rust standard libraries are a shining example of safe code. The usual purpose for a language's standard library is to provide a set of commonly needed helper routines, containers, etc. This is of course true for Rust too but Rust has an additional purpose for it's standard library: `unsafe` wrapping.
+Given that safety is a major design goal of the Rust language you might reasonably expect to find that the Rust standard libraries are a shining example of safe code and they are, but perhaps not in the way that you might expect. The usual purpose for a language's standard library is to provide a set of commonly needed helper routines, containers, etc. This is of course true for Rust too but Rust has an additional purpose for it's standard library: `unsafe` wrapping.
 
 # unsafe wrapping
 
@@ -48,7 +48,7 @@ https://doc.rust-lang.org/nomicon
 
 # Coding Standards vs Unsafe
 
-Coding standards are a common requirement in safety oriented development processes. They typically include both requirements and best practices and typically rein-in easy to misuse parts of the language, such as "goto shall be used only to jump forwards", for example. Similarly, in Rust, it's easy to imagine well intended limits being placed on the use of `unsafe`. Given that `unsafe` is such an important part of the Rust provability strategy, overly draconian limitations could cause serious problems. It would be easy imagine even small limits being placed on `unsafe` usage that engineers simply avoid it altogether to avoid the hassle, to the detriment of one or more measures of software quality, such as performance or maintainability.
+Coding standards are a common requirement in safety oriented development processes. They typically include both requirements and best practices to rein-in easy to misuse parts of the language, such as "goto shall be used only to jump forwards", for example. Similarly, in Rust, it's easy to imagine well intended limits being placed on the use of `unsafe`. However, given that `unsafe` is such an important part of the Rust provability strategy, overly draconian limitations could cause serious problems.
 
 # Data
 
