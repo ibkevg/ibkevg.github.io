@@ -9,7 +9,7 @@ Given that safety is a major design goal of the Rust language you might reasonab
 
 For example, bidirectional linked lists are often cited as an example of a data structure that is tricky to build both efficiently and in accordance with Rust safety rules (due in part to Rust's expectation of hierarchical data ownership, see https://rust-unofficial.github.io/too-many-lists/). Sure enough we find:
 
-> library/alloc/src/collections/linked_list.rs: ~1000 lines src, 59 instances of unsafe = ~16 lines per unsafe
+> rust/library/alloc/src/collections/linked_list.rs: ~1000 lines src, 59 instances of unsafe = ~16 lines per unsafe
 
 So what about the rest of the standard libraries then?
 
