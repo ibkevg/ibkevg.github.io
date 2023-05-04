@@ -5,7 +5,7 @@ layout: page
 
 # Overview
 
-Given that safety is a major design goal of the Rust language you might reasonably expect to find that the Rust standard libraries are a shining example of safe code. They are but perhaps not in the way that you might expect because the Rust standard libraries themselves contain `unsafe` code, a Get out of Jail Free card for breaking the language safety rules.
+Safety is a such a driving design goal of the Rust language you might reasonably expect to find that the Rust standard libraries are a shining example of safe code. They are but perhaps not in the way that you might expect because the Rust standard libraries themselves contain `unsafe` code, a Get out of Jail Free card for breaking the language safety rules.
 
 For example, bidirectional linked lists are often cited as an example of a data structure that is tricky to build both efficiently and in accordance with Rust safety rules (due in part to Rust's expectation of hierarchical data ownership, see https://rust-unofficial.github.io/too-many-lists/). Sure enough we find:
 
