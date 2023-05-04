@@ -7,7 +7,7 @@ layout: page
 
 Safety is a such a driving design goal of the Rust language you might reasonably expect to find that the Rust standard libraries are a shining example of safe code. They are but perhaps not in the way that you might expect because the Rust standard libraries themselves contain `unsafe` code, a Get out of Jail Free card for breaking the language safety rules.
 
-For example, bidirectional linked lists are often cited as an example of a data structure that is tricky to build both efficiently and in accordance with Rust safety rules (due in part to Rust's expectation of hierarchical data ownership, see https://rust-unofficial.github.io/too-many-lists/). Sure enough we find:
+For example, bidirectional linked lists are often cited as an example of a data structure that is tricky to build both efficiently and in accordance with Rust safety rules (due in part to Rust's expectation of hierarchical data ownership, see [*Learn Rust With Entirely Too Many Linked Lists*](https://rust-unofficial.github.io/too-many-lists/)). Sure enough we find:
 
 > rust/library/alloc/src/collections/linked_list.rs: ~1000 lines src, 59 instances of unsafe = ~16 lines per unsafe
 
@@ -38,14 +38,11 @@ We can now understand at least some of the complexity of coming to grips with Ru
 
   1. the need to adapt your design techniques to those that make the best of Rust's provability rules and the work arounds built into the Standard Library (thus far)
   2. distinguishing between cases that can be solved by judicious application of the standard library from cases that truly need unsafe may be difficult. It takes experience to have deep enough knowledge of the std library to be able to recognize when there is something in it that will help you and this is experience that will be hard won since the stdlib will be full of solutions to problems that you will initially not have experienced. This issue is at least mitigated by the helpful community.
-  3. tension between "machine provable safety" enforced by the compiler and other design qualities that are not but may at times be more important such as performance or development velocity
+  3. tension between "machine provable safety" enforced by the compiler at all times and other design qualities that are not but may at times be more important such as performance or development velocity
 
 # Using `unsafe` correctly
 
-So if `unsafe` will be necessary at times, how can you know if what you've written is any good? The Rustonomicon is the official document that describes what considerations are needed when writing `unsafe` code. Aside from being an interesting read with concise descriptions of the rules the compiler expects `unsafe` to abide by, it also offers examples where you might find yourself needing to use unsafe code and suggestions for ways to address it.
-
-https://doc.rust-lang.org/nomicon
-
+So if `unsafe` will be necessary at times, how can you know if what you've written is any good? The Rustonomicon ([https://doc.rust-lang.org/nomicon](https://doc.rust-lang.org/nomicon)), is the official document that describes what considerations are needed when writing `unsafe` code. Aside from being an interesting read with concise descriptions of the rules the compiler expects `unsafe` to abide by, it also offers examples where you might find yourself needing to use unsafe code and suggestions for ways to address it.
 
 ## Third Party Crates/Libraries
 
