@@ -5,7 +5,7 @@ layout: page
 
 # Rust Provability Rules vs `unsafe`
 
-Memory safety is a such a driving design goal of the Rust language you might reasonably expect to find that the Rust standard libraries are a shining example of machine proven, memory safe, code. It may surprise you then to learn that Rust standard libraries themselves contain `unsafe` code, Rust's Get out of Jail Free card for breaking the language safety rules.
+Memory safety is a such a driving design goal of the Rust language you might reasonably expect to find that the Rust standard libraries are a shining example of machine proven, memory safe, code. So, it may surprise you then to learn that Rust standard libraries themselves contain significant amounts of `unsafe` code, Rust's Get out of Jail Free card for breaking the language safety rules.
 
 For example, bidirectional linked lists are often cited as an example of a data structure that is tricky to build both efficiently and in accordance with Rust safety rules (due in part to Rust's expectation of hierarchical data ownership, see [*Learn Rust With Entirely Too Many Linked Lists*](https://rust-unofficial.github.io/too-many-lists/)). Sure enough we find:
 
