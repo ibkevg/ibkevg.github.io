@@ -75,7 +75,7 @@ Given this, a reasonable concern when considering whether to use Rust is if the 
 
 There's no easy answer to this short of simply doing some experiments and trying it out for yourself. A quick web search will reveal an enormous amount of enthusiasm, however, it's useful to contrast this with more sober criticism. The following is an interesting analysis written in 2018 that describes many of the early pain points and refinements that were introduced to address them: [*Things Rust Doesn't Let You Do*](https://medium.com/@GolDDranks/things-rust-doesnt-let-you-do-draft-f596a3c740a5). Interestingly, a number of items that were identified then are still issues today. More recently, in 2023 we find non-trivial pain points do still exist: [*When Rust Hurts*](https://mmapped.blog/posts/15-when-rust-hurts.html).
 
-On the thing to notice about Rust's evolution is that it shifts focus over time as adoption increases in various application domains. Here is the glossy brochure version: [https://www.rust-lang.org/what](https://www.rust-lang.org/what)
+One thing to notice about Rust's evolution is that it shifts focus over time as adoption increases in various application domains. Here is the glossy brochure version: [https://www.rust-lang.org/what](https://www.rust-lang.org/what)
 
 **Command Line Tools**
 Some of the earliest applications written in Rust were command line tools which I think is a reflection of Rust adoption by hobbyists. `ripgrep` is a fairly well known product of this era and it's pretty easy to find others. For example, this list is a start: [Rust Command Line Utilities](https://github.com/sts10/rust-command-line-utilities).
