@@ -33,7 +33,7 @@ Many people assume that `unsafe` disables ALL compiler checks, however, it only 
 
 **Dereference a raw pointer:** Rather than relaxing the borrow checker rules for references, unsafe Rust instead retains them and instead gives unconstrained access to pointers. This is especially important for C language interfacing.
 
-**Call an unsafe function/method or Access fields of unions:** These have several use cases but a big one is interfacing to C code.
+**Call an unsafe function/method or Access fields of unions:** A big use case here is interfacing to C code. Other examples include functions that provide higher performance such as by eliminating runtime range checking or providing building blocks for the creation of higher level abstractions.
 
 **Access or modify a mutable static variable:** Rust provability rules rely on local function knowledge only and since global variable usage cannot be understood without a global system usage analysis, Rust doesn't allow them in safe code.
 
