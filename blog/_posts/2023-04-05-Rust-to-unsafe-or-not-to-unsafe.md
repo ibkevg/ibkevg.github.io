@@ -1,7 +1,8 @@
 ---
-title: Rust To unsafe or not to unsafe?
+title: Does the need for `unsafe` mean Rust is Still a Science Project?
 layout: page
 ---
+
 
 # Rust Provability Rules vs `unsafe`
 
@@ -56,7 +57,7 @@ A great strength of `cargo` and Rust crates is the wide availabilty of 3rd party
 Coding standards are a common requirement in safety-oriented development processes. They typically include both requirements and best practices to rein-in easy to misuse parts of the language. For example, a C language standard may say: "goto shall not be used to jump backwards or to create loops.". Similarly, in Rust, it's easy to imagine well intended limits being placed on the use of `unsafe`. However, given that `unsafe` is such an important part of the Rust provability strategy, overly draconian limitations could lead to serious problems. One area in particular where `unsafe` is absolutely necessary is interfacing to C libraries.
 
 
-# Does the need for `unsafe` mean Rust is Still a Science Project?
+# Is Rust Still a Science Project?
 
 We can now understand at least some of the complexity of using/learning Rust programming as:
 
