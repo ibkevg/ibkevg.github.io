@@ -12,7 +12,7 @@ For example, bidirectional linked lists are often cited as an example of a data 
 
 > rust/library/alloc/src/collections/linked_list.rs: ~1000 lines src, 59 instances of unsafe = ~16 lines per unsafe
 
-Stepping back, we for the rest of the standard libraries we find:
+Stepping back, we find for the rest of the standard libraries:
 
 > rust/library/{core,std,alloc}: 128841 lines of src, 4471 instances of unsafe = 28.8 lines per unsafe
 
