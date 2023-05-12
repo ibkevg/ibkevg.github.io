@@ -6,7 +6,7 @@ layout: page
 
 # Rust Provability Rules vs `unsafe`
 
-Memory safety is a such a driving design goal of the Rust language you might reasonably expect to find that the Rust standard libraries are a shining example of machine proven, memory safe, code. So, it may surprise you then to learn that Rust standard libraries themselves contain significant amounts of `unsafe` code, Rust's Get out of Jail Free card for breaking the language safety rules.
+Memory safety is a such a driving design goal of the Rust language you might reasonably expect to find that the Rust standard libraries are a shining example of machine proven, memory safe, code. So, it may surprise you then to learn that not only does Rust have a Get out of Jail Free card for breaking the language safety rules, the `unsafe` keyword but the Rust standard libraries themselves contain significant amounts of `unsafe` code.
 
 For example, bidirectional linked lists are often cited as an example of a data structure that is tricky to build both efficiently and in accordance with Rust safety rules (due in part to Rust's expectation of hierarchical data ownership, see [*Learn Rust With Entirely Too Many Linked Lists*](https://rust-unofficial.github.io/too-many-lists/)). Sure enough we find:
 
@@ -22,7 +22,9 @@ So how can a language that claims to be safe, be itself chock full of unsafe cod
 
 The usual purpose for a language's standard library is to provide a set of commonly needed helper routines, containers, etc. This is of course true for Rust too but Rust has an additional purpose for it's standard library: `unsafe` wrapping.
 
-In order to prove that Rust code is correct, the Rust compiler imposes a much more strict set of rules than other languages. So much so that the strictness of these rules in practice would prevent most useful programs from being written. Thus Rust has an escape hatch, the `unsafe` keyword, that eases some of the restrictions and denotes code where the programmer is responsible for proving correctness. It's a bit of a grand experiment, where a big part of the language development process has been simply to try to write real software within these constraints to discover cases where relaxing the rules is either necessary period or would make it easier to write software achieve properties other than safety, such as performance. This can lead to the creation of new language features and often general purpose but safe-to-use abstractions/helpers are proposed to address this need, and provide a wrapper for the necessary unsafe code. This then goes into the std library for everyone to use and is eventually considered a "stable" part of the Rust language.
+In order to prove that Rust code is correct, the Rust compiler imposes a much more strict set of rules than other languages. So much so that the strictness of these rules in practice would prevent most useful programs from being written. Thus Rust has an escape hatch, the `unsafe` keyword, that eases some of the restrictions and denotes code where the programmer is responsible for proving correctness.
+
+It's a bit of a grand experiment really because **a big part of the Rust language development process has been to simply try writing real software within these constraints and discover cases where relaxing the rules is either necessary period or would make it easier to write software that achieves properties other than safety, such as performance.** This leads to the creation of new language features and or general purpose but safe-to-use abstractions to provide a wrapper for the necessary unsafe code. This then goes into the compiler or std library for everyone to use and is eventually considered a "stable" part of the Rust language.
 
 # Writing and Vetting `unsafe` Code
 
@@ -54,7 +56,7 @@ A great strength of `cargo` and Rust crates is the wide availabilty of 3rd party
 
 **Coding Standards vs Unsafe**
 
-Coding standards are a common requirement in safety-oriented development processes. They typically include both requirements and best practices to rein-in easy to misuse parts of the language. For example, a C language standard may say: "goto shall not be used to jump backwards or to create loops.". Similarly, in Rust, it's easy to imagine well intended limits being placed on the use of `unsafe`. However, given that `unsafe` is such an important part of the Rust provability strategy, overly draconian limitations could lead to serious problems. One area in particular where `unsafe` is absolutely necessary is interfacing to C libraries.
+Coding standards are a common requirement in safety-oriented development processes. They typically include both requirements and best practices to rein-in easy to misuse parts of the language. For example, one C language standard may say: "goto shall not be used to jump backwards or to create loops" while another says "goto shall not be used at all". Similarly, in Rust, it's easy to imagine well intended limits being placed on the use of `unsafe`. However, given that `unsafe` is such an important part of the Rust provability strategy, overly draconian limitations could lead to serious problems. One area in particular where `unsafe` is absolutely necessary is interfacing to C libraries.
 
 
 # Is Rust Still a Science Project?
