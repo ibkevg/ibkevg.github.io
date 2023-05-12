@@ -26,7 +26,46 @@ In order to prove that Rust code is correct, the Rust compiler imposes a much mo
 
 It's a bit of a grand experiment really because **a big part of the Rust language development process has been to simply try writing real software within these constraints and discover cases where relaxing the rules is either necessary period or would make it easier to write software that achieves properties other than safety, such as performance.** This leads to the creation of new language features and or general purpose but safe-to-use abstractions to provide a wrapper for the necessary unsafe code. This then goes into the compiler or std library for everyone to use and is eventually considered a "stable" part of the Rust language.
 
-# Writing and Vetting `unsafe` Code
+See the appendix below for more thoughts on working with `unsafe` code, including 3rd Party crates and coding standards.
+
+
+# Is Rust Still a Science Project?
+
+Rust is massively more expressive than simple languages like C. It has advanced features such as traits, generics, modules and Ada-style variant records (C union + desciminant), as well a different choices regarding basics such as type casting and copy versus move for assignment and parameter passing. For many, these features are part of the allure of Rust. However the complexity of learning and using Rust is not limited to simply understanding these features, we can now understand at least some of the complexity of using/learning Rust programming as:
+
+  1. the need to adapt your design techniques to those that make the best of Rust's provability rules and the work arounds built into the Standard Library (thus far)
+  2. distinguishing between cases that can be solved by judicious application of the standard library from cases that truly need `unsafe` will take experience. This is experience that will be hard won since the stdlib will be full of solutions to problems that you will initially not have experienced. This issue is at least mitigated by the helpful community.
+  3. the tension between "machine provable memory safety" enforced by the compiler at all times and other design qualities that are not enforced by the compiler but may at times be more important such as performance or development velocity
+
+Blandy et al, elegantly explain Rust's provability vs functionality strategy in their book *Programming Rust* as follows: 
+
+>In a certain sense, Rust is less powerful than other languages: every other practical programming language lets you build arbitrary graphs of objects that point to each other in whatever way you see fit. But it is exactly because Rust is less powerful that the analyses the language can carry out on your programs can be more powerful. Rust's safety guarantees are possible exactly because the relationships it may encounter in your code are more tractable. This is part of Rust's "radical wager": in practice, Rust claims, there is usually more than enough flexibility in how one goes about solving a problem to ensure that at least a few perfectly fine solutions fall within the restrictions the language imposes.
+
+Given this, a reasonable concern when considering whether to use Rust is if the Rust community has written software similar enough to what you intend to write that you will not be getting into uncharted, science project level, territory and need to create new kinds of `unsafe` wrappers or even language features?
+
+There's no easy answer to this short of simply doing some experiments and trying it out for yourself. A quick web search will reveal an enormous amount of enthusiasm, however, it's useful to contrast this with more sober criticism. The following is an interesting analysis written in 2018 that describes many of the early pain points and refinements that were introduced to address them: [*Things Rust Doesn't Let You Do*](https://medium.com/@GolDDranks/things-rust-doesnt-let-you-do-draft-f596a3c740a5). Interestingly, a number of items that were identified then are still issues today. More recently, in 2023 we find non-trivial pain points do still exist: [*When Rust Hurts*](https://mmapped.blog/posts/15-when-rust-hurts.html).
+
+One thing to notice about Rust's evolution is that it shifts focus over time as adoption increases in various application domains. Here is the glossy brochure version: [https://www.rust-lang.org/what](https://www.rust-lang.org/what)
+
+**Command Line Tools**
+Some of the earliest applications written in Rust were command line tools which I think is a reflection of Rust adoption by hobbyists. `ripgrep` is a fairly well known product of this era and it's pretty easy to find others. For example, this list is a start: [Rust Command Line Utilities](https://github.com/sts10/rust-command-line-utilities).
+
+**Web Services**
+Back-end web services were addressed in part by the introduction of `async` and associated gear. `async` is an increasingly common language feature used, for example, to reduce resource consumption by threads in large web servers. In Rust's case, adding this feature within the constraints of memory safety has been a complex ongoing effort since 2019 and is still under going refinement to reduce pain points and improve integration with the full language (e.g. async functions in traits are expected to be stabilized in 2023.) But given all this time, how mature is it and how complex is it to use? Consider this 2022 article, written by an experienced Rust programmer: [Rust Is Hard, Or: The Misery of Mainstream Programming](https://hirrolot.github.io/posts/rust-is-hard-or-the-misery-of-mainstream-programming.html). Also this: [When to use Rust and when to use Go](https://blog.logrocket.com/when-to-use-rust-when-to-use-golang)
+
+**OS and Embedded**
+Recently, the door has been opened for Rust to used to write Linux drivers. Microsoft is doing the same: [*Microsoft is Rewriting Parts of the Windows Kernel in Rust*](https://www.thurrott.com/windows/282471/microsoft-is-rewriting-parts-of-the-windows-kernel-in-rust) This will likely lead the embedded community to drive Rust enhancements and smooth out rough edges. For a more cautious perspective, consider: [Rust: A Critical Retrospective](https://www.bunniestudios.com/blog/?p=6375). The following enthusiastic twitter thread about success writing a graphics driver received a fair amount of attention in the Rust community: [Lina Asahi](https://twitter.com/LinaAsahi/status/1577667445719912450). So who is right?
+
+# Final Thoughts
+
+As adoption by the communities in various development domains grows, so too does Rust's suitability for and usability in those domains.
+
+If memory safety bugs form the bulk of the bugs historically in your bug tracking system or tend to be the ones that have had the most serious repercussions, then Rust will help you by putting it’s thumb on the scale as you code to reduce/eliminate these kinds of problems. This of course, was the case for the Mozilla Firefox web browser, the project that lead to the creation of Rust. The cost to you will be proveability constraints that you will be have to get used to/live with and some of these constraints will be the somewhat artificial/arbitrary consequence of the language design team not yet figuring out how to relax these constraints or not having time.
+
+If memory safety bugs are *not* a dominant source of defects in your system, the decision becomes more complex. Adoption of Rust for business or mission critical projects should be done cautiously and with eyes wide open. Perhaps, preceded by pilot projects to evaluate whether it's pain points are serious issues in your environment or not.
+
+
+# Appendix: Working with `unsafe` Code
 
 ## What does unsafe actually mean?
 
@@ -57,42 +96,6 @@ A great strength of `cargo` and Rust crates is the wide availabilty of 3rd party
 **Coding Standards vs Unsafe**
 
 Coding standards are a common requirement in safety-oriented development processes. They typically include both requirements and best practices to rein-in easy to misuse parts of the language. For example, one C language standard may say: "goto shall not be used to jump backwards or to create loops" while another says "goto shall not be used at all". Similarly, in Rust, it's easy to imagine well intended limits being placed on the use of `unsafe`. However, given that `unsafe` is such an important part of the Rust provability strategy, overly draconian limitations could lead to serious problems. One area in particular where `unsafe` is absolutely necessary is interfacing to C libraries.
-
-
-# Is Rust Still a Science Project?
-
-We can now understand at least some of the complexity of using/learning Rust programming as:
-
-  1. the need to adapt your design techniques to those that make the best of Rust's provability rules and the work arounds built into the Standard Library (thus far)
-  2. distinguishing between cases that can be solved by judicious application of the standard library from cases that truly need `unsafe` will take experience. This is experience that will be hard won since the stdlib will be full of solutions to problems that you will initially not have experienced. This issue is at least mitigated by the helpful community.
-  3. the tension between "machine provable memory safety" enforced by the compiler at all times and other design qualities that are not enforced by the compiler but may at times be more important such as performance or development velocity
-
-Blandy et al, elegantly explain Rust's provability vs functionality strategy in their book *Programming Rust* as follows: 
-
->In a certain sense, Rust is less powerful than other languages: every other practical programming language lets you build arbitrary graphs of objects that point to each other in whatever way you see fit. But it is exactly because Rust is less powerful that the analyses the language can carry out on your programs can be more powerful. Rust's safety guarantees are possible exactly because the relationships it may encounter in your code are more tractable. This is part of Rust's "radical wager": in practice, Rust claims, there is usually more than enough flexibility in how one goes about solving a problem to ensure that at least a few perfectly fine solutions fall within the restrictions the language imposes.
-
-Given this, a reasonable concern when considering whether to use Rust is if the Rust community has written software similar enough to what you intend to write that you will not be getting into uncharted, science project level, territory and need to create new kinds of `unsafe` wrappers or even language features?
-
-There's no easy answer to this short of simply doing some experiments and trying it out for yourself. A quick web search will reveal an enormous amount of enthusiasm, however, it's useful to contrast this with more sober criticism. The following is an interesting analysis written in 2018 that describes many of the early pain points and refinements that were introduced to address them: [*Things Rust Doesn't Let You Do*](https://medium.com/@GolDDranks/things-rust-doesnt-let-you-do-draft-f596a3c740a5). Interestingly, a number of items that were identified then are still issues today. More recently, in 2023 we find non-trivial pain points do still exist: [*When Rust Hurts*](https://mmapped.blog/posts/15-when-rust-hurts.html).
-
-One thing to notice about Rust's evolution is that it shifts focus over time as adoption increases in various application domains. Here is the glossy brochure version: [https://www.rust-lang.org/what](https://www.rust-lang.org/what)
-
-**Command Line Tools**
-Some of the earliest applications written in Rust were command line tools which I think is a reflection of Rust adoption by hobbyists. `ripgrep` is a fairly well known product of this era and it's pretty easy to find others. For example, this list is a start: [Rust Command Line Utilities](https://github.com/sts10/rust-command-line-utilities).
-
-**Web Services**
-Back-end web services were addressed in part by the introduction of `async` and associated gear. `async` is an increasingly common language feature used, for example, to reduce resource consumption by threads in large web servers. In Rust's case, adding this feature within the constraints of memory safety has been a complex ongoing effort since 2019 and is still under going refinement to reduce pain points and improve integration with the full language (e.g. async functions in traits are expected to be stabilized in 2023.) But given all this time, how mature is it and how complex is it to use? Consider this 2022 article, written by an experienced Rust programmer: [Rust Is Hard, Or: The Misery of Mainstream Programming](https://hirrolot.github.io/posts/rust-is-hard-or-the-misery-of-mainstream-programming.html). Also this: [When to use Rust and when to use Go](https://blog.logrocket.com/when-to-use-rust-when-to-use-golang)
-
-**OS and Embedded**
-Recently, the door has been opened for Rust to used to write Linux drivers. Microsoft is doing the same: [*Microsoft is Rewriting Parts of the Windows Kernel in Rust*](https://www.thurrott.com/windows/282471/microsoft-is-rewriting-parts-of-the-windows-kernel-in-rust) This will likely lead the embedded community to drive Rust enhancements and smooth out rough edges. For a more cautious perspective, consider: [Rust: A Critical Retrospective](https://www.bunniestudios.com/blog/?p=6375).
-
-# Final Thoughts
-
-As adoption by the communities in various development domains grows, so too does Rust's suitability for and usability in those domains.
-
-If memory safety bugs form the bulk of the bugs historically in your bug tracking system or tend to be the ones that have had the most serious repercussions, then Rust will help you by putting it’s thumb on the scale as you code to reduce/eliminate these kinds of problems. This of course, was the case for the Mozilla Firefox web browser, the project that lead to the creation of Rust. The cost to you will be proveability constraints that you will be have to get used to/live with and some of these constraints will be the somewhat artificial/arbitrary consequence of the language design team not yet figuring out how to relax these constraints or not having time.
-
-If memory safety bugs are *not* a dominant source of defects in your system, the decision becomes more complex. Adoption of Rust for business or mission critical projects should be done cautiously and with eyes wide open. Perhaps, preceded by pilot projects to evaluate whether it's pain points are serious issues in your environment or not.
 
 
 # Appendix
