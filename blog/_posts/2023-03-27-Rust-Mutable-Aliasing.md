@@ -5,7 +5,7 @@ layout: page
 
 # Performance, Rust References and Mutable Aliasing
 
-A big difference between C and Rust, is unconstrained use of pointers in Rust is allowed only in code tagged as `unsafe`. Ordinary Rust code is limited to using references which are highly constrained in comparison to C pointers. Although C++ also has references too, Rust references are much more constrained than those in C++.
+A big difference between C and Rust, is unconstrained use of pointers in Rust is allowed only in code tagged as `unsafe`. Ordinary Rust code is limited to using references that are highly constrained in comparison to C pointers. Although C++ also has references too, Rust references are much more constrained than those in C++.
 
 ## Rust References must always be valid
 
