@@ -127,7 +127,7 @@ Given that the Rust language design process is to *write software until you hit 
 
 There's no easy answer to this short of simply doing some experiments and trying it out for yourself. 
 
-## Examples of Known Rust Pain Points
+## Examples of Known Rust Pain Points and Limitations
 
 A quick web search will reveal an enormous amount of Rust enthusiasm and advocacy, however, it's also useful to contrast this with more sober criticism.
 
