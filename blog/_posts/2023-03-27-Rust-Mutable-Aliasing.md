@@ -5,20 +5,22 @@ layout: page
 
 # Performance, Rust References and Mutable Aliasing
 
+A big difference between C and Rust, is unconstrained use of pointers in Rust is allowed only in code tagged as `unsafe`. Ordinary Rust code is limited to using references which are highly constrained in comparison to C pointers. Although C++ also has references too, Rust references are much more constrained than those in C++.
+
 ## Rust References must always be valid
 
-The first rule of references is that they must always be valid - that is to say you can't create a reference to a variable that will go out of scope or be destroyed before the reference does. Imagine a function that returns the address of a local variable or a use-after-free bug.
+The first rule of references is not particularly surprising: references must always be valid - that is to say, you can't create a reference to a variable that will go out of scope or be destroyed before the reference does. So this prevents the creation of a function that returns the address of a local variable or a use-after-free bug.
 
-This hardly seems interesting new or even interesting: languages have had references for decades. Ada introduced this to military software in the early 80s and C++ got references in the 90s. But notice how I said "can't" instead of "shouldn't". In Rust the compiler ensures it's not even possible. Keep in mind it's not like you are a passive participant here and the compiler does all the work. In C++ this is the programmer's responsibility to ensure and in Rust it is also your responsibility except with the additional burden that you have to prove to the compiler that you met your responsibility. For example, if you want a struct to contain a reference, then you will have to prove to the compiler that an instance of your struct does not outlast the value that is being referenced. Sometimes the compiler can infer this but other times it cannot and this introduces a whole layer of clunky syntax for describing these lifetimes, not present in a language like C or C++.
+Now, languages have had references for decades so this type of constraint isn't new or even very interesting. Ada introduced references to military software in the early 80s and C++ got references in the 90s. But notice how I said "can't" instead of "shouldn't"? Rust adds an additional layer where the programmer must also prove to the compiler that they have met their obligation to use references correctly. For example, if you want a struct to contain a reference, then you will have to prove to the compiler that an instance of your struct does not outlast the value that is being referenced. Sometimes the compiler can infer this from the surrounding context but other times it cannot and this leads to new syntax, not present in a language like C or C++, for describing these lifetimes.
 
-Here is an example of a struct that contains a reference. Because it contains a reference, the compiler needs to ensure that an instance of the struct will outlive the thing the pointer points to. Here `'a` is a lifetime annotation in a struct that contains a reference to a bunch of characters:
+Below is an example where `'a` is a lifetime annotation on a struct that contains a reference to some characters. Because the struct contains a reference, the annotation informs the compiler that an instance of the struct must live at least as long as the thing the reference points to.
 
 ```
 struct Foo<'a> {
     bar: &'a str,
 }
 ```
-It seems like a common cheat people do in Rust if they can't figure out how to make the lifetimes work (ie. get it to compile) is to just use a reference counted pointer.
+Lifetimes can introduce a source of complexity that is not always easy to find a solution for (ie. get the code to compile.) Reference counted pointers can become a workaround (crutch?) in these instances, however they come with a performance cost.
 
 ## Rust References are like Readers/Writer locks
 
