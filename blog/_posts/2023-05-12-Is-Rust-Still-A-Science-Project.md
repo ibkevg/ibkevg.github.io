@@ -131,6 +131,10 @@ There's no easy answer to this short of simply doing some experiments and trying
 
 A quick web search will reveal an enormous amount of Rust enthusiasm and advocacy, however, it's also useful to contrast this with more sober criticism.
 
+A particularly interesting one relates to the often advertised feature of "fearless concurrency". This refers to the idea that Rust's memory safety and avoidance of data races extends to multi-threading races as well. While true, and very powerful, this fearless concurrency does not extend to deadlocks, because deadlocked threads are do not violate memory safety provability rules.
+
+Another interesting limitation, is memory leaks. Similar to deadlocks, Rust provability rules do not consider a memory leak to be a memory safety issue. And while a number of useful tools are provided by Rust to aid in memory/resource management such as reference counting, leaks are still possible, for example, via [reference count cycles](https://doc.rust-lang.org/book/ch15-06-reference-cycles.html).
+
 Rust has had three major editions so far: Rust 2015, Rust 2018, and Rust 2021. The following is an interesting analysis written in 2018 that describes many of the early pain points and refinements that were introduced to address them: [*Things Rust Doesn't Let You Do*](https://medium.com/@GolDDranks/things-rust-doesnt-let-you-do-draft-f596a3c740a5). Interestingly, a number of items that were identified then are still issues today.
 
 More recently, in 2023 we find non-trivial pain points do still exist, consider this article: [*When Rust Hurts*](https://mmapped.blog/posts/15-when-rust-hurts.html).
@@ -153,7 +157,7 @@ Recently, the door has been opened for Rust to be used to write Linux drivers. M
 
 As adoption by the communities in various development domains grows, so too does Rust's suitability for and usability in those domains.
 
-If memory safety bugs form the bulk of the bugs historically in your bug tracking system or tend to be the ones that have had the most serious repercussions, then Rust will help you by putting it’s thumb on the scale as you code to reduce/eliminate these kinds of problems. This of course, was the case for the Mozilla Firefox web browser, the project that lead to the creation of Rust. The cost to you will be proveability constraints that you will be have to get used to/live with and some of these constraints will be the somewhat artificial/arbitrary consequence of the language design team not yet figuring out how to relax these constraints or not having time.
+If memory safety bugs form the bulk of the bugs historically in your bug tracking system or tend to be the ones that have had the most serious repercussions, as was the case for the Mozilla Firefox web browser that lead to the creation of Rust in the first place, then Rust will help you by putting it’s thumb on the scale as you code, forcing you to address these concerns as you go. The cost to you will be proveability constraints that you will be have to get used to/live with and some of these constraints will be the somewhat artificial/arbitrary consequences of the language design team not yet figuring out how to relax these constraints or not having time.
 
 If memory safety bugs are *not* a dominant source of defects in your system, the decision becomes more complex. Adoption of Rust for business or mission critical projects should be done cautiously and with eyes wide open. Perhaps, preceded by pilot projects to evaluate whether it's pain points are serious issues in your environment or not.
 
