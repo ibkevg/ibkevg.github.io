@@ -131,7 +131,7 @@ There's no easy answer to this short of simply doing some experiments and trying
 
 A quick web search will reveal an enormous amount of Rust enthusiasm and advocacy, however, it's also useful to contrast this with more sober criticism.
 
-A particularly interesting one relates to the often advertised feature of "fearless concurrency". This refers to the idea that Rust's memory safety and avoidance of data races extends to multi-threading races as well. While true, and very powerful, this fearless concurrency does not extend to deadlocks, because deadlocked threads are do not violate memory safety provability rules.
+A particularly interesting one relates to the often advertised feature of "fearless concurrency". This refers to the idea that Rust's memory safety and avoidance of data races extends to multi-threading races as well. While true, and very powerful, this fearless concurrency does not extend to [deadlocks](https://doc.rust-lang.org/book/ch16-03-shared-state.html#similarities-between-refcelltrct-and-mutextarct), because deadlocked threads are do not violate memory safety provability rules.
 
 Another interesting limitation, is memory leaks. Similar to deadlocks, Rust provability rules do not consider a memory leak to be a memory safety issue. And while a number of useful tools are provided by Rust to aid in memory/resource management such as reference counting, leaks are still possible, for example, via [reference count cycles](https://doc.rust-lang.org/book/ch15-06-reference-cycles.html).
 
