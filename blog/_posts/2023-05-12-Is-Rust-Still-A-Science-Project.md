@@ -127,31 +127,30 @@ Given that the Rust language design process is to *write software until you hit 
 
 There's no easy answer to this short of simply doing some experiments and trying it out for yourself. 
 
-## Examples of Known Rust Pain Points and Limitations
-
-A quick web search will reveal an enormous amount of Rust enthusiasm and advocacy, however, it's also useful to contrast this with more sober criticism.
-
-A particularly interesting one relates to the often advertised feature of "fearless concurrency". This refers to the idea that Rust's memory safety and avoidance of data races extends to multi-threading races as well. While true, and very powerful, this fearless concurrency does not extend to [deadlocks](https://doc.rust-lang.org/book/ch16-03-shared-state.html#similarities-between-refcelltrct-and-mutextarct), because deadlocked threads are do not violate memory safety provability rules.
-
-Another interesting limitation, is memory leaks. Similar to deadlocks, Rust provability rules do not consider a memory leak to be a memory safety issue. And while a number of useful tools are provided by Rust to aid in memory/resource management such as reference counting, leaks are still possible, for example, via [reference count cycles](https://doc.rust-lang.org/book/ch15-06-reference-cycles.html).
-
-Rust has had three major editions so far: Rust 2015, Rust 2018, and Rust 2021. The following is an interesting analysis written in 2018 that describes many of the early pain points and refinements that were introduced to address them: [*Things Rust Doesn't Let You Do*](https://medium.com/@GolDDranks/things-rust-doesnt-let-you-do-draft-f596a3c740a5). Interestingly, a number of items that were identified then are still issues today.
-
-More recently, in 2023 we find non-trivial pain points do still exist, consider this article: [*When Rust Hurts*](https://mmapped.blog/posts/15-when-rust-hurts.html).
-
-
 ## Playing to Rust's Strengths
 
-One thing you *can* do is play to Rust's strengths and take into account how Rust's evolution has shifted focus over time as adoption increases in various application domains. Here is the glossy brochure version: [https://www.rust-lang.org/what](https://www.rust-lang.org/what)
+One thing you *can* do is play to Rust's strengths and take into account how Rust has evolved over time as adoption increased in various application domains. Here is the glossy brochure version: [https://www.rust-lang.org/what](https://www.rust-lang.org/what)
 
 **Command Line Tools**
 Some of the earliest applications written in Rust were command line tools which I think is a reflection of Rust adoption by hobbyists. `ripgrep` is a fairly well known product of this era and it's pretty easy to find others. For example, this list is a start: [Rust Command Line Utilities](https://github.com/sts10/rust-command-line-utilities).
 
 **Web Services**
-Back-end web services were addressed in part by the introduction of `async` and associated gear. `async` is an increasingly common language feature used, for example, to reduce resource consumption by threads in large web servers. In Rust's case, adding this feature within the constraints of memory safety has been a complex ongoing effort since 2019 and is still under going refinement to reduce pain points and improve integration with the full language (e.g. async functions in traits are expected to be stabilized in 2023.) But given all this time, how mature is it and how complex is it to use? Consider this 2022 article, written by an experienced Rust programmer: [Rust Is Hard, Or: The Misery of Mainstream Programming](https://hirrolot.github.io/posts/rust-is-hard-or-the-misery-of-mainstream-programming.html). Also this: [When to use Rust and when to use Go](https://blog.logrocket.com/when-to-use-rust-when-to-use-golang)
+Back-end web services as a domain have received a fair amount of attention in Rust. Several web frameworks exist for Rust, including [Actix](https://actix.rs) and [Rocket](https://rocket.rs). The language has evolved to support webservices in part by the introduction of `async` and associated gear. `async` is an increasingly common language feature used, for example, to reduce resource consumption by threads in large web servers. Adding this feature within the constraints of memory safety has been a complex ongoing effort since 2019 and is still under going refinement to reduce pain points and improve integration with the full language (e.g. async functions in traits are expected to be stabilized in 2023.) It seems that good progress is being made, however, also consider this 2022 article, written by an experienced Rust programmer: [Rust Is Hard, Or: The Misery of Mainstream Programming](https://hirrolot.github.io/posts/rust-is-hard-or-the-misery-of-mainstream-programming.html). Also this: [When to use Rust and when to use Go](https://blog.logrocket.com/when-to-use-rust-when-to-use-golang)
 
 **OS and Embedded**
-Recently, the door has been opened for Rust to be used to write Linux drivers. Microsoft is doing the same: [*Microsoft is Rewriting Parts of the Windows Kernel in Rust*](https://www.thurrott.com/windows/282471/microsoft-is-rewriting-parts-of-the-windows-kernel-in-rust) This will likely lead the embedded community to drive Rust enhancements and smooth out rough edges. For a more cautious perspective on working with low level code in Rust, consider: [Rust: A Critical Retrospective](https://www.bunniestudios.com/blog/?p=6375). The following enthusiastic twitter thread about success writing a graphics driver received a fair amount of attention in the Rust community: [Lina Asahi](https://twitter.com/LinaAsahi/status/1577667445719912450). So who is right?
+Recently, the door has been opened for Rust to be used to write Linux drivers. Microsoft is doing the same: [*Microsoft is Rewriting Parts of the Windows Kernel in Rust*](https://www.thurrott.com/windows/282471/microsoft-is-rewriting-parts-of-the-windows-kernel-in-rust) This will likely lead the embedded community to drive Rust enhancements and smooth out rough edges. The following enthusiastic twitter thread about success writing a graphics driver received a fair amount of attention in the Rust community: [Lina Asahi](https://twitter.com/LinaAsahi/status/1577667445719912450). A more cautious perspective on working with low level code in Rust is this one: [Rust: A Critical Retrospective](https://www.bunniestudios.com/blog/?p=6375).
+
+## Examples of Known Rust Pain Points and Limitations
+
+A quick web search will reveal an enormous amount of Rust enthusiasm and advocacy, however, it's also useful to contrast this with more sober criticism.
+
+An interesting limitation relates to the often advertised feature of "fearless concurrency". This refers to the idea that Rust's memory safety and avoidance of data races extends to multi-threading races as well. While true, and very powerful, deadlocked threads do not violate memory safety provability rules, thus fearless concurrency does not extend to [deadlocks](https://doc.rust-lang.org/book/ch16-03-shared-state.html#similarities-between-refcelltrct-and-mutextarct).
+
+Another interesting limitation is memory leaks. Similar to deadlocks, Rust provability rules do not consider a memory leak to be a memory safety issue. And while Rust provides a number of useful tools to aid in memory/resource management such as reference counting, leaks are still possible, for example, via [reference count cycles](https://doc.rust-lang.org/book/ch15-06-reference-cycles.html).
+
+As far as known pain points are concerned, Rust has had three major editions so far: Rust 2015, Rust 2018, and Rust 2021. The following is an interesting analysis written in 2018 that describes many of the early pain points and refinements that were introduced to address them: [*Things Rust Doesn't Let You Do*](https://medium.com/@GolDDranks/things-rust-doesnt-let-you-do-draft-f596a3c740a5). Interestingly, a number of items that were identified then are still issues today.
+
+More recently, in 2023 we find non-trivial pain points do still exist, consider this article: [*When Rust Hurts*](https://mmapped.blog/posts/15-when-rust-hurts.html).
 
 # Final Thoughts
 
