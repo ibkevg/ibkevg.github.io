@@ -39,11 +39,11 @@ Here are some examples of bugs we can avoid by preventing mutable aliasing:
 * *Callbacks* - imagine an API that has a callback interface. If the callback function can turn around and call back into the API including even the API function that did the callback in the first place. The API may call this undefined behaviour or it may allow it. If the API hasn't anticipated all the ways a callback could re-enter the API or the user didn't read the documentation then you could have a bug that might have been avoided if mutable aliasing were not possible.
 
 
-## Mutable Aliasing vs Performance
+## Could Rust Aliasing Rules make it Faster than C?
 
-For years, Fortran could generate faster code than C for vector math due to it's different aliasing rules. Fortran doesn't have pointers, it has formal array types that don't overlap and thus Fortran could assume that function arguments never alias. Over time, various enhancements to C were made, such as C adding the `restrict` keyword to declare that a pointer doesn't alias anything.
+For years, Fortran could generate faster code than C for vector math due to it's different aliasing rules. Fortran doesn't have pointers, it has formal array types that don't overlap and thus Fortran could assume that function arguments never alias. Over time, various enhancements to C were made, such as C adding the `restrict` keyword to declare that a pointer doesn't alias anything and thus it became possible for C to compete on performance with Fortran in these case. At least for those who understood how to use `restrict` and when to use it.
 
-Here's some thoughts on this from the C world:
+Here's some further thoughts on this from the C world:
   * [*The joys and perils of C and C++ aliasing, Part 1*](https://developers.redhat.com/blog/2020/06/02/the-joys-and-perils-of-c-and-c-aliasing-part-1)
   * [*The joys and perils of C and C++ aliasing, Part 2*](https://developers.redhat.com/blog/2020/06/03/the-joys-and-perils-of-aliasing-in-c-and-c-part-2)
 
@@ -54,7 +54,7 @@ Given that a Rust has more information than a C compiler does about aliasing, in
 
 [https://stackoverflow.com/questions/57259126/why-does-the-rust-compiler-not-optimize-code-assuming-that-two-mutable-reference](https://stackoverflow.com/questions/57259126/why-does-the-rust-compiler-not-optimize-code-assuming-that-two-mutable-reference)
 
-Now that it has been enabled for a while, I haven't seen people trumpeting that Rust is faster than C in general and frankly, I tend to distrust benchmarks that as often used for marketing as they are for technical comparison. That said, if you search around you can find benchmarks of various kinds and sometimes Rust is slower, sometimes Rust is faster. So it does seem reasonable to say the two are vary comparable in performance though it's hard to say to what degree the aliasing rules help with this.
+Now that it has been enabled for a while, I haven't seen people trumpeting that Rust is faster than C in general and frankly, I tend to distrust benchmarks that as often used for marketing as they are for technical comparison. That said, if you search around you can find benchmarks of various kinds and sometimes Rust is slower, sometimes Rust is faster. So it does seem reasonable to say the two are very comparable in performance though it's hard to say to what degree the aliasing rules help with this.
 
 
 ## Thoughts from Rust's Designers
