@@ -215,9 +215,9 @@ To wit, the following comment was observed in response to the essay [Love/Hate R
 4.- Apply smart pointers like Box, Rc, or Arc (mentioned already by you) to simplify the ownership model in your prototype, helping you avoid some of the complexity of lifetimes and borrowing.
 5.- Avoid concurrency during the initial prototyping phase to keep the code simpler, and introduce it later in the development process once the core functionality has been established.
 
-Of course, it's easy to see how tricks like these could be applied in service of "getting things done" in general. So, while on one hand, Rust offers excellent "Zero-cost abstractions", on the other hand it's strictness may also at times encourage shortcuts that defeat them.
+Of course, it's easy to see how tricks like these can be applied in service of "getting things done" in general. So, while on one hand, Rust offers excellent "Zero-cost abstractions", on the other hand it's strictness may also at times encourage shortcuts that defeat them.
 
-Shortcuts and anti-patterns exist in all languages and have their own unique smell, I think the key is to simply have awareness of this potential issue and have a good code review process in place to mitigate against it.
+Shortcuts and anti-patterns exist in all languages and tend to have their own unique smells, I think the key is to simply have awareness of this potential issue and have a good code review process in place to mitigate against it.
 
 
 # Final Thoughts
