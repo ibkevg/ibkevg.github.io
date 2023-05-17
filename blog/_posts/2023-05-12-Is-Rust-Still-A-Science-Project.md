@@ -195,15 +195,18 @@ Recently, the door has been opened for Rust to be used to write Linux drivers. M
 
 The other thing you can do is have your eyes wide open regarding pain points. A quick web search will reveal an enormous amount of Rust enthusiasm and advocacy, however, it's also useful to contrast this with more sober criticism.
 
+**Deadlocks and Memory Leaks**
 An interesting limitation relates to the often advertised feature of "fearless concurrency". This refers to the idea that Rust's memory safety and avoidance of data races extends to multi-threading races as well. While true, and very powerful, deadlocked threads do not violate memory safety provability rules, thus fearless concurrency does not extend to [deadlocks](https://doc.rust-lang.org/book/ch16-03-shared-state.html#similarities-between-refcelltrct-and-mutextarct).
 
 Another interesting limitation is memory leaks. Similar to deadlocks, Rust provability rules do not consider a memory leak to be a memory safety issue. And while Rust provides a number of useful tools to aid in memory/resource management such as reference counting, leaks are still possible, for example, via [reference count cycles](https://doc.rust-lang.org/book/ch15-06-reference-cycles.html).
 
-As far as known pain points are concerned, Rust has had three major editions so far: Rust 2015, Rust 2018, and Rust 2021. The following is an interesting analysis written in 2018 that describes many of the early pain points and refinements that were introduced to address them: [*Things Rust Doesn't Let You Do*](https://medium.com/@GolDDranks/things-rust-doesnt-let-you-do-draft-f596a3c740a5). Interestingly, a number of items that were identified then are still issues today.
+**GUIs**
+Similarly, the state of the Rust GUI ecosystem appears to be still evolving since traditional UI design patterns born out of the OOP/inheritance world require replacement with patterns better suited to Rust's strengths. Several discussions about this can be found online but here are a couple to give you the flavour: [Why is Building a UI in Rust so hard?](https://www.reddit.com/r/programming/comments/114cknb/why_is_building_a_ui_in_rust_so_hard/) and [Advice for the next dozen Rust GUIs](https://raphlinus.github.io/rust/gui/2022/07/15/next-dozen-guis.html).
+
+**General Surveys**
+The following is an interesting analysis written in 2018 (Rust has had three major editions so far: Rust 2015, Rust 2018, and Rust 2021) that describes many of the early pain points and refinements that were introduced to address them: [*Things Rust Doesn't Let You Do*](https://medium.com/@GolDDranks/things-rust-doesnt-let-you-do-draft-f596a3c740a5). Much has been addressed since then but interestingly, a number of items that were identified then are still issues today.
 
 More recently, in 2023 we find non-trivial pain points do still exist, consider this article: [*When Rust Hurts*](https://mmapped.blog/posts/15-when-rust-hurts.html).
-
-Also, the state of the Rust GUI ecosystem appears to be still evolving. [DAW Frontend Development Struggles](https://billydm.github.io/blog/daw-frontend-development-struggles/)
 
 ## Recognize the Tension between "Machine Provable Memory Safety" and other Characteristics
 
