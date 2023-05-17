@@ -4,7 +4,7 @@ layout: page
 ---
 
 
-Rust is massively more expressive than simple languages like C. It has advanced features such as traits, generics, modules, Ada-style variant records (C union + desciminant), as well as different choices regarding basics such as type casting, copy versus move for assignment and parameter passing, etc. For many, these features are a big part of the allure of Rust and it could be argued that if Rust provided only these features without any memory safety guarantees at all, it would be widely accepted as a big step forward.
+Rust is massively more expressive than simple languages like C. It has advanced features such as traits, generics, modules, Ada-style variant records (C union + desciminant), as well as different choices regarding basics such as type casting, copy versus move for assignment and parameter passing, etc. Also, in theory Rust could be faster than C code due to it's [different pointer aliasing rules](http://stationaryaction.com/blog/2023/03/27/Rust-Mutable-Aliasing.html). For many, these features are a big part of the allure of Rust and it could be argued that if Rust provided only these features without any memory safety guarantees at all, it would be widely accepted as a big step forward.
 
 However, the complexity of learning and using Rust is not limited to simply understanding how best to apply these features to your software project, the complexity also strongly relates to Rust's memory safety proveability rules.
 
@@ -90,7 +90,7 @@ You might now decide to just wrap this in `unsafe` and move on, however, `unsafe
     }
 ```
 
-Pretty gross. So we google a bit more and discover that a std lib routine, array::from_fn, was stablized in Rust 1.63 Aug/2022 to help with exactly this problem. We still have to initialize the array but we're nolonger limited to compile time constants and can instead have Rust call a function at runtime for each value as it is initialized. Using a closure, aka anonymous function, we can now write:
+Pretty gross. So we google a bit more and discover that a std lib routine, `from_fn`, was stablized in Rust 1.63 Aug/2022 to help with exactly this problem. We still have to initialize the array but we're nolonger limited to compile time constants and can instead have Rust call a function at runtime for each value as it is initialized. Using a closure, aka anonymous function, we can now write:
 ```
     pub fn rotate_90(&mut self) {
         let init = |r: usize, c: usize| self.grid[8 - c][r];  // init is a closure
@@ -101,7 +101,7 @@ Pretty gross. So we google a bit more and discover that a std lib routine, array
         self.grid = x;
     }
 ```
-(You might notice that nowhere do we specify the size of the matrix and that's because Rust's type inference feature figures it out automatically.)
+`from_fn` is an example of an `unsafe` wrapper that we talked about earlier and you can see exactly how it works it's magic here [library/core/src/array/mod.rs](https://github.com/rust-lang/rust/blob/master/library/core/src/array/mod.rs). Also, you might notice that nowhere do we specify the size of the matrix and that's because Rust's type inference feature figures it out automatically.
 
 For a final bit of clean up we can embed the enclosure right where it's needed in the call chain:
 ```
@@ -142,7 +142,7 @@ Many people assume that `unsafe` disables ALL compiler checks, however, it only 
 
 **Dereference a raw pointer:** Rather than relaxing the borrow checker rules for references, unsafe Rust instead retains them but gives unconstrained access to pointers. This is also especially important for C language interfacing.
 
-**Call an unsafe function/method or Access fields of unions:** Examples include functions that increase performance by relaxing safety, such as by eliminating runtime range checking. Also, unsafe functions may be used as the building blocks needed in the creation of higher level abstractions. Again, this is also especially important for C language interfacing.
+**Call an unsafe function/method or Access fields of unions:** Examples include functions that increase performance by relaxing safety, such as by eliminating runtime range checking. Also, unsafe functions may be used as the building blocks needed in the creation of higher level abstractions (above we saw `MaybeUninit::uninit()` is an example of this). Again, this is also especially important for C language interfacing.
 
 **Access or modify a mutable static variable:** Rust provability rules rely on local function knowledge only and since global variable usage cannot be understood without a global system usage analysis, Rust doesn't allow them in safe code.
 
