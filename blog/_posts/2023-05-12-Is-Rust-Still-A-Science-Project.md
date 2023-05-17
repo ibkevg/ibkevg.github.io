@@ -164,7 +164,7 @@ A great strength of `cargo` and Rust crates is the wide availabilty of 3rd party
 
 **Coding Standards vs Unsafe**
 
-Coding standards are a common requirement in safety-oriented development processes. They typically include both requirements and best practices to rein-in easy to misuse parts of the language. For example, one C language standard may say: "goto shall not be used to jump backwards or to create loops" while another says "goto shall not be used at all". Similarly, in Rust, it's easy to imagine well intended limits being placed on the use of `unsafe`. However, given that `unsafe` is such an important part of the Rust provability strategy, overly draconian limitations could lead to serious problems. One area in particular where `unsafe` is absolutely necessary is interfacing to C libraries.
+Coding standards are a common requirement in safety-oriented development processes. They typically include both requirements and best practices to rein-in easy to misuse parts of the language. For example, one C language standard may say: "goto shall not be used to jump backwards or to create loops" while another might say "goto shall not be used at all". Similarly, in Rust, it's easy to imagine well intended limits being placed on the use of `unsafe`. However, given that `unsafe` is such an important part of the Rust provability strategy, overly draconian limitations could lead to serious problems. One area in particular where `unsafe` is absolutely necessary is interfacing to C libraries.
 
 # Is Rust Still a Science Project?
 
