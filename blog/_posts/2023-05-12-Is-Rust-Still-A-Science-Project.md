@@ -203,6 +203,8 @@ As far as known pain points are concerned, Rust has had three major editions so 
 
 More recently, in 2023 we find non-trivial pain points do still exist, consider this article: [*When Rust Hurts*](https://mmapped.blog/posts/15-when-rust-hurts.html).
 
+Also, the state of the Rust GUI ecosystem appears to be still evolving. [DAW Frontend Development Struggles](https://billydm.github.io/blog/daw-frontend-development-struggles/)
+
 ## Recognize the Tension between "Machine Provable Memory Safety" and other Characteristics
 
 A strict teacher must be careful that their strictness is actually teaching the student what they intend. The strictness may simply teach the student to cheat rather than do things the way the teacher would prefer. This can be a risk with Rust too, especially at times when it's overriding concern for memory safety stands at odds with other characteristics required of a project such as development velocity, system performance, prototyping, etc. For example, it's not uncommon to find that people under time pressure and struggling with the mutable aliasing rules enforced by the borrow checker, give up and accept the overhead of a reference counted pointer instead.
