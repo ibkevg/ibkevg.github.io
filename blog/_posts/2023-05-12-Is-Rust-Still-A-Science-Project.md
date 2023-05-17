@@ -208,12 +208,12 @@ More recently, in 2023 we find non-trivial pain points do still exist, consider 
 A strict teacher must be careful that their strictness is actually teaching the student what they intend. The strictness may simply teach the student to cheat rather than do things the way the teacher would prefer. This can be a risk with Rust too, especially at times when it's overriding concern for memory safety stands at odds with other characteristics required of a project such as development velocity, system performance, prototyping, etc. For example, it's not uncommon to find that people under time pressure and struggling with the mutable aliasing rules enforced by the borrow checker, give up and accept the overhead of a reference counted pointer instead.
 
 To wit, the following comment was observed in response to the essay [Love/Hate Relationship with Rust Language](https://medium.com/@victor.ronin/love-hate-relationship-with-rust-language-part-2-c36f57d5485d), that identifies shortcuts people can use to get around Rust's strictness with the goal of easing prototyping. From user Pepitoscrespo:
-> In Perl for instance, there indeed exists a no strict directive to disable strictness checks temporarily for cases like prototyping. However, Rust does not have an equivalent feature. Despite that, you can still simplify prototyping in Rust by following these points (annoying i know but it is rusty philosophy) :
->1.- Use Option or Result types for basic error handling during prototyping, instead of implementing complex error handling mechanisms.
->2.- Utilize interior mutability with Cell, RefCell, or other similar types to avoid some borrow checker issues while prototyping.
->3.- Prefer owned types over references to prevent dealing with lifetimes during the prototyping phase.
->4.- Apply smart pointers like Box, Rc, or Arc (mentioned already by you) to simplify the ownership model in your prototype, helping you avoid some of the complexity of lifetimes and borrowing.
->5.- Avoid concurrency during the initial prototyping phase to keep the code simpler, and introduce it later in the development process once the core functionality has been established.
+> In Perl for instance, there indeed exists a no strict directive to disable strictness checks temporarily for cases like prototyping. However, Rust does not have an equivalent feature. Despite that, you can still simplify prototyping in Rust by following these points (annoying i know but it is rusty philosophy) : \\
+1.- Use Option or Result types for basic error handling during prototyping, instead of implementing complex error handling mechanisms. \\
+2.- Utilize interior mutability with Cell, RefCell, or other similar types to avoid some borrow checker issues while prototyping. \\
+3.- Prefer owned types over references to prevent dealing with lifetimes during the prototyping phase. \\
+4.- Apply smart pointers like Box, Rc, or Arc (mentioned already by you) to simplify the ownership model in your prototype, helping you avoid some of the complexity of lifetimes and borrowing. \\
+5.- Avoid concurrency during the initial prototyping phase to keep the code simpler, and introduce it later in the development process once the core functionality has been established.
 
 Of course, it's easy to see how tricks like these can be applied in service of "getting things done" in general. A handy technique that makes prototyping easier may be considered a sloppy shortcut in production code. So, while on one hand, Rust offers excellent "Zero-cost abstractions", on the other hand it's strictness may also encourage shortcuts that defeat them.
 
