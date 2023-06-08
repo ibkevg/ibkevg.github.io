@@ -3,10 +3,22 @@ title: Rust's "Radical Wager"
 layout: page
 ---
 
+* This will become a table of contents (this text will be scraped).
+{:toc}
 
-Rust is massively more expressive than simple languages like C. It has advanced features such as traits, generics, modules, Ada-style variant records (C union + desciminant), as well as different choices regarding basics such as type casting, copy versus move for assignment and parameter passing, etc. Also, in theory Rust could be faster than C code due to it's [different pointer aliasing rules](http://stationaryaction.com/blog/2023/03/27/Rust-Mutable-Aliasing.html). For many, these features are a big part of the allure of Rust and it could be argued that if Rust provided only these features without any memory safety guarantees at all, it would be widely accepted as a big step forward.
+# Introduction
 
-However, the complexity of learning and using Rust is not limited to simply understanding how best to apply these features to your software project, the complexity also strongly relates to Rust's memory safety proveability rules.
+I've been enthusiastic about the *idea* of a better C for many years now.
+
+What initially drew me to Rust was not so much memory safety but rather how massively more expressive and type safe it is than C while at the same time being suitable for environments C is necessary for. It has advanced features such as Ada-style variant records (C union + disciminant), generics, modules, traits and a robust, non-exception-based design for error handling. In theory Rust could even be faster than C code due to it's [different pointer aliasing rules](http://stationaryaction.com/blog/2023/03/27/Rust-Mutable-Aliasing.html).
+
+So I spent time coming to grips with the language back in the 2017/2018 time frame but ultimately bounced off. Rust has a reputation for being difficult to learn and certainly part of the the difficulty has to do with learning how to apply all these new language features but what I didn't expect was that Rust is actually two things: a traditional language and a memory-safety-correctness prover. This "prover" part of it's personality has it's own learning curve, such as learning how to choose designs that work within the confines of Rust's provability rules. For example, I wasn't expecting correct programs to be rejected because the provability rules are not always sophisticated enough to realize it (or could never be sophisticated enough). People often refer to this as "wrestling with the borrow checker" but IMHO it's more than that. 
+
+Also, I just generally ran into a number of papercuts, speedbumps and roadblocks, like I was turned off by [*Learn Rust With Entirely Too Many Linked Lists*](https://rust-unofficial.github.io/too-many-lists/), found the lifetime syntax noisy, ran into cases where correct code was not accepted by compiler, etc. Part of my issue too was that the difficulties were mainly about proving memory safety but when I go back through a list of the nastiest bugs I've ever had to wrestle with, it tends to be dominated by threading issues, unexpected event ordering, deadlocks, interrupts, stack overruns, hardware databook misunderstandings, etc. so do I really want to go to a lot of trouble for memory safety? Generally I felt like using Rust was how I imagined it would be like working in a large bureaucracy, like the federal government: lots of rules in place that were put in place for good reasons but taken together, make it hard to get things done.
+
+Now in 2023, with Linux and Windows making moves to put Rust into the kernel, is now the right time to return?
+
+So this time I decided I need to spend more time understanding the underlying philosophy of Rust as a language to better understand the underlying reasons for some of the complexity that goes beyond traditional languages.
 
 # Rust Provability Rules vs `unsafe`
 
@@ -20,9 +32,9 @@ Stepping back, we find for the rest of the standard libraries:
 
 > rust/library/{core,std,alloc}: 128841 lines of src, 4471 instances of unsafe = 28.8 lines per unsafe
 
-So how can a language that claims to be safe, be itself chock full of unsafe code? Is this a case of "do as I say, not as I do?"
+So how can a language that claims to be safe, be itself chock full of unsafe code? And if the standard library itself needs this large amount of `unsafe`, then shouldn't I expect my programs to need it too?
 
-# The Grand Experiment
+# `unsafe` Wrapping
 
 The usual purpose for a language's standard library is to provide a set of commonly needed helper routines, containers, etc. This is of course true for Rust too but Rust has an additional purpose for it's standard library: `unsafe` wrapping.
 
@@ -34,9 +46,11 @@ Blandy et al, elegantly explain Rust's provability vs functionality strategy in 
 
 >In a certain sense, Rust is less powerful than other languages: every other practical programming language lets you build arbitrary graphs of objects that point to each other in whatever way you see fit. But it is exactly because Rust is less powerful that the analyses the language can carry out on your programs can be more powerful. Rust's safety guarantees are possible exactly because the relationships it may encounter in your code are more tractable. This is part of Rust's "radical wager": in practice, Rust claims, there is usually more than enough flexibility in how one goes about solving a problem to ensure that at least a few perfectly fine solutions fall within the restrictions the language imposes.
 
-## An Example
+To me, the need for the standard library to contain safe to use wrappers for `unsafe` code is both a pro and a con. A pro because it’s a big part of what makes Rust even possible, a con because it takes time for the Rust language designers to come up with safe ways of doing common things and they exist as lingering pain points in the meantime. How much time? Did you know that Rust's first official release was in 2015? 8 years ago.
 
-Let's consider an example of the sort of thing someone coming from a language like C might run into that illustrates how the standard library first made something possible to express in Rust and years later, refined it to be fairly elegant to use.
+## An Example of `unsafe` wrapping
+
+Let's consider an example of the sort of thing someone coming from a language like C might run into that illustrates how the standard library first made the proveability rules tractable and then over time - a very long time - refined it to be fairly elegant to use.
 
 Imagine you're writing a set of Sudoku puzzle solving algorithms and find that a routine that can rotate the puzzle by 90 degrees would be useful. Your first attempt at such a function might look something like this (since Sudoku puzzles are only 9x9 we'll ignore inplace matrix rotation implementations):
 
@@ -134,37 +148,12 @@ And that's the fundamental strength/weakness of the Rust language design. You, t
 
 This may also inform whether a project may want to lock themselves to a specific compiler verion. Rust has had three major edition releases so far: Rust 2015, Rust 2018, and Rust 2021. A project that has adopted the latest one as it's standard compiler version, Rust 2021, would find that `array::from_fn` is not available to them. This is perhaps an argument for avoiding being too strict about locking to a specific edition, however safety critical projects that require certified compilers do not have this luxury.
 
-# Working with `unsafe` Code
+## A Better Example: `unsafe` Wrapping to Placate the Borrow Checker
 
-## What does unsafe actually mean?
+I had hoped to have time to write this myself but instead the following is an interesting analysis written in 2018 (Rust has had three major editions so far: Rust 2015, Rust 2018, and Rust 2021) that describes many of the early pain points and refinements that were introduced to address them: [*Things Rust Doesn't Let You Do*](https://medium.com/@GolDDranks/things-rust-doesnt-let-you-do-draft-f596a3c740a5). Much has been addressed since then but interestingly, a number of items that were identified then are still issues today.
 
-Many people assume that `unsafe` disables ALL compiler checks, however, it only relaxes a small number. For example, the compiler will still protect against uninitialized variables, full type checking will still be performed, the borrow checker will still constrain references, and many other checks will still be enforced. So what does `unsafe` actually let you do then? Only the following:
+More recently, in 2023 we find non-trivial pain points do still exist, consider this article: [*When Rust Hurts*](https://mmapped.blog/posts/15-when-rust-hurts.html).
 
-**Dereference a raw pointer:** Rather than relaxing the borrow checker rules for references, unsafe Rust instead retains them but gives unconstrained access to pointers. This is also especially important for C language interfacing.
-
-**Call an unsafe function/method or Access fields of unions:** Examples include functions that increase performance by relaxing safety, such as by eliminating runtime range checking. Also, unsafe functions may be used as the building blocks needed in the creation of higher level abstractions (above we saw `MaybeUninit::uninit()` is an example of this). Again, this is also especially important for C language interfacing.
-
-**Access or modify a mutable static variable:** Rust provability rules rely on local function knowledge only and since global variable usage cannot be understood without a global system usage analysis, Rust doesn't allow them in safe code.
-
-**Inline assembler** This is needed for OS level programming,especially where access to special purpose CPU system registers is necessary.
-
-**Implement an unsafe trait**
-
-Refer to section [Unsafe Rust](https://doc.rust-lang.org/book/ch19-01-unsafe-rust.html) in *The Rust Programming Language* and [Unsafety](https://doc.rust-lang.org/reference/unsafety.html) in *The Rust Reference* for more rationale.
-
-## Writing `unsafe` Code
-
-So if `unsafe` will be necessary at times, how can you know what rules you need to keep in mind as you do it? The Rustonomicon ([https://doc.rust-lang.org/nomicon](https://doc.rust-lang.org/nomicon)), is the official document that describes what considerations are needed when writing `unsafe` code. Aside from being an interesting read with concise descriptions of the rules the compiler expects `unsafe` to abide by, it also offers examples where you might find yourself needing to use unsafe code and suggestions for ways to address it.
-
-## Additional Considerations for `unsafe` code
-
-**Third Party Crates/Libraries vs Unsafe**
-
-A great strength of `cargo` and Rust crates is the wide availabilty of 3rd party libraries. However, a potential issue is the uncertain correctness of their usage of `unsafe`. While the Rust standard libraries have language experts reviewing unsafe usage (in addition to the community at large), 3rd party crates may not have such vetting.
-
-**Coding Standards vs Unsafe**
-
-Coding standards are a common requirement in safety-oriented development processes. They typically include both requirements and best practices to rein-in easy to misuse parts of the language. For example, one C language standard may say: "goto shall not be used to jump backwards or to create loops" while another might say "goto shall not be used at all". Similarly, in Rust, it's easy to imagine well intended limits being placed on the use of `unsafe`. However, given that `unsafe` is such an important part of the Rust provability strategy, overly draconian limitations could lead to serious problems. One area in particular where `unsafe` is absolutely necessary is interfacing to C libraries.
 
 # Is Rust Still a Science Project?
 
@@ -208,12 +197,54 @@ The following is an interesting analysis written in 2018 (Rust has had three maj
 
 More recently, in 2023 we find non-trivial pain points do still exist, consider this article: [*When Rust Hurts*](https://mmapped.blog/posts/15-when-rust-hurts.html).
 
-## Recognize the Tension between "Machine Provable Memory Safety" and other Characteristics
+# Final Thoughts
 
-A strict teacher must be careful that their strictness is actually teaching the student what they intend. The strictness may simply teach the student to cheat rather than do things the way the teacher would prefer. This can be a risk with Rust too, especially at times when it's overriding concern for memory safety stands at odds with other characteristics required of a project such as development velocity, system performance, prototyping, etc. For example, it's not uncommon to find that people under time pressure and struggling with the mutable aliasing rules enforced by the borrow checker, give up and accept the overhead of a reference counted pointer instead.
+As adoption by the communities in various development domains grows, so too does Rust's suitability for and usability in those domains.
 
-To wit, the following comment was observed in response to the essay [Love/Hate Relationship with Rust Language](https://medium.com/@victor.ronin/love-hate-relationship-with-rust-language-part-2-c36f57d5485d), that identifies shortcuts people can use to get around Rust's strictness with the goal of easing prototyping. From user Pepitoscrespo:
-> In Perl for instance, there indeed exists a no strict directive to disable strictness checks temporarily for cases like prototyping. However, Rust does not have an equivalent feature. Despite that, you can still simplify prototyping in Rust by following these points (annoying i know but it is rusty philosophy) : \\
+If memory safety bugs form the bulk of the bugs historically in your bug tracking system or tend to be the ones that have had the most serious repercussions, as was the case for the Mozilla Firefox web browser and lead to the creation of Rust in the first place, then Rust will help you by putting it’s thumb on the scale as you code, forcing you to address these concerns as you go. The cost to you will be proveability constraints that you will be have to get used to/live with and some of these constraints will be the somewhat artificial/arbitrary consequences of the language design community not yet having time to figure out how to elegantly work within these constraints.
+
+If memory safety bugs are *not* a dominant source of defects in your system, the decision becomes more complex. Adoption of Rust for business or mission critical projects should be done cautiously. Perhaps, preceded by pilot projects to evaluate whether it's pain points are serious issues in your environment or not. The memory safety Rust ensures is not free. A Rust programmer still has to write code in a memory safe way and that way has to be one that the compiler can prove. So a team could switch to Rust, and find the small number of memory safety bugs they were experiencing is even smaller now but the high runner type of bugs - deadlocks for example - are not improved plus it takes longer now to write code to satisfy Rust’s proveability rules.
+
+
+# Appendix 1: Working with `unsafe` Code
+
+## What does unsafe actually mean?
+
+Many people assume that `unsafe` disables ALL compiler checks, however, it only relaxes a small number. For example, the compiler will still protect against uninitialized variables, full type checking will still be performed, the borrow checker will still constrain references, and many other checks will still be enforced. So what does `unsafe` actually let you do then? Only the following:
+
+**Dereference a raw pointer:** Rather than relaxing the borrow checker rules for references, unsafe Rust instead retains them but gives unconstrained access to pointers. This is also especially important for C language interfacing.
+
+**Call an unsafe function/method or Access fields of unions:** Examples include functions that increase performance by relaxing safety, such as by eliminating runtime range checking. Also, unsafe functions may be used as the building blocks needed in the creation of higher level abstractions (above we saw `MaybeUninit::uninit()` is an example of this). Again, this is also especially important for C language interfacing.
+
+**Access or modify a mutable static variable:** Rust provability rules rely on local function knowledge only and since global variable usage cannot be understood without a global system usage analysis, Rust doesn't allow them in safe code.
+
+**Inline assembler** This is needed for OS level programming,especially where access to special purpose CPU system registers is necessary.
+
+**Implement an unsafe trait**
+
+Refer to section [Unsafe Rust](https://doc.rust-lang.org/book/ch19-01-unsafe-rust.html) in *The Rust Programming Language* and [Unsafety](https://doc.rust-lang.org/reference/unsafety.html) in *The Rust Reference* for more rationale.
+
+## Writing `unsafe` Code
+
+So if `unsafe` will be necessary at times, how can you know what rules you need to keep in mind as you do it? The Rustonomicon ([https://doc.rust-lang.org/nomicon](https://doc.rust-lang.org/nomicon)), is the official document that describes what considerations are needed when writing `unsafe` code. Aside from being an interesting read with concise descriptions of the rules the compiler expects `unsafe` to abide by, it also offers examples where you might find yourself needing to use unsafe code and suggestions for ways to address it.
+
+## Additional Considerations for `unsafe` code
+
+**Third Party Crates/Libraries vs Unsafe**
+
+A great strength of `cargo` and Rust crates is the wide availabilty of 3rd party libraries. However, a potential issue is the uncertain correctness of their usage of `unsafe`. While the Rust standard libraries have language experts reviewing unsafe usage (in addition to the community at large), 3rd party crates may not have such vetting.
+
+**Coding Standards vs Unsafe**
+
+Coding standards are a common requirement in safety-oriented development processes. They typically include both requirements and best practices to rein-in easy to misuse parts of the language. For example, one C language standard may say: "goto shall not be used to jump backwards or to create loops" while another might say "goto shall not be used at all". Similarly, in Rust, it's easy to imagine well intended limits being placed on the use of `unsafe`. However, given that `unsafe` is such an important part of the Rust provability strategy, overly draconian limitations could lead to serious problems. One area in particular where `unsafe` is absolutely necessary is interfacing to C libraries.
+
+# Appendix 2: Tension between "Machine Provable Memory Safety" and other Characteristics
+
+Rust's overriding concern for memory safety can be at odds with other characteristics required of a project such as development velocity, system performance, prototyping, etc. For example, it's not uncommon to find that people under time pressure and struggling with the mutable aliasing rules enforced by the borrow checker, give up and accept the overhead of a reference counted pointer instead.
+
+As a case in point, I saw the following comment on a Medium article that identifies shortcuts people can use to get around Rust's strictness with the goal of easing prototyping. From user :
+> Pepitoscrespo, about a month ago: \\
+> In Perl for instance, there indeed exists a no strict directive to disable strictness checks temporarily for cases like prototyping. However, Rust does not have an equivalent feature. Despite that, you can still simplify prototyping in Rust by following these points (annoying i know but it is rusty philosophy): \\
 1.- Use Option or Result types for basic error handling during prototyping, instead of implementing complex error handling mechanisms. \\
 2.- Utilize interior mutability with Cell, RefCell, or other similar types to avoid some borrow checker issues while prototyping. \\
 3.- Prefer owned types over references to prevent dealing with lifetimes during the prototyping phase. \\
@@ -223,12 +254,3 @@ To wit, the following comment was observed in response to the essay [Love/Hate R
 Of course, it's easy to see how tricks like these can be applied in service of "getting things done" in general. A handy technique that makes prototyping easier may be considered a sloppy shortcut in production code. So, while on one hand, Rust offers excellent "Zero-cost abstractions", on the other hand it's strictness may also encourage shortcuts that defeat them.
 
 Of course, shortcuts and anti-patterns exist in all languages and tend to have their own unique smells, I think the key is to simply have awareness of this potential issue and have a good code review process in place to mitigate against it.
-
-
-# Final Thoughts
-
-As adoption by the communities in various development domains grows, so too does Rust's suitability for and usability in those domains.
-
-If memory safety bugs form the bulk of the bugs historically in your bug tracking system or tend to be the ones that have had the most serious repercussions, as was the case for the Mozilla Firefox web browser that lead to the creation of Rust in the first place, then Rust will help you by putting it’s thumb on the scale as you code, forcing you to address these concerns as you go. The cost to you will be proveability constraints that you will be have to get used to/live with and some of these constraints will be the somewhat artificial/arbitrary consequences of the language design community not yet having time to figure out how to elegantly work within these constraints.
-
-If memory safety bugs are *not* a dominant source of defects in your system, the decision becomes more complex. Adoption of Rust for business or mission critical projects should be done cautiously. Perhaps, preceded by pilot projects to evaluate whether it's pain points are serious issues in your environment or not.
