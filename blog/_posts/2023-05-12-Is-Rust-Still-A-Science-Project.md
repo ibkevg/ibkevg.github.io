@@ -206,7 +206,7 @@ If memory safety bugs form the bulk of the bugs historically in your bug trackin
 If memory safety bugs are *not* a dominant source of defects in your system, the decision becomes more complex. Adoption of Rust for business or mission critical projects should be done cautiously. Perhaps, preceded by pilot projects to evaluate whether it's pain points are serious issues in your environment or not. The memory safety Rust ensures is not free. A Rust programmer still has to write code in a memory safe way and that way has to be one that the compiler can prove. So a team could switch to Rust, and find the small number of memory safety bugs they were experiencing is even smaller now but the high runner type of bugs - deadlocks for example - are not improved plus it takes longer now to write code to satisfy Rust’s proveability rules.
 
 
-# Appendix 1: Working with `unsafe` Code
+# Appendix A: Working with `unsafe` Code
 
 ## What does unsafe actually mean?
 
@@ -238,7 +238,7 @@ A great strength of `cargo` and Rust crates is the wide availabilty of 3rd party
 
 Coding standards are a common requirement in safety-oriented development processes. They typically include both requirements and best practices to rein-in easy to misuse parts of the language. For example, one C language standard may say: "goto shall not be used to jump backwards or to create loops" while another might say "goto shall not be used at all". Similarly, in Rust, it's easy to imagine well intended limits being placed on the use of `unsafe`. However, given that `unsafe` is such an important part of the Rust provability strategy, overly draconian limitations could lead to serious problems. One area in particular where `unsafe` is absolutely necessary is interfacing to C libraries.
 
-# Appendix 2: Tension between "Machine Provable Memory Safety" and other Characteristics
+# Appendix B: Tension between "Machine Provable Memory Safety" and other Characteristics
 
 Rust's overriding concern for memory safety can be at odds with other characteristics required of a project such as development velocity, system performance, prototyping, etc. For example, it's not uncommon to find that people under time pressure and struggling with the mutable aliasing rules enforced by the borrow checker, give up and accept the overhead of a reference counted pointer instead.
 
