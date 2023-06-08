@@ -152,12 +152,11 @@ This may also inform whether a project may want to lock themselves to a specific
 
 ## A Better Example: `unsafe` Wrapping to Placate the Borrow Checker
 
-I had hoped to have time to write this myself but instead the following is an interesting analysis written in 2018 (Rust has had three major editions so far: Rust 2015, Rust 2018, and Rust 2021) that describes many of the early pain points and refinements that were introduced to address them: [*Things Rust Doesn't Let You Do*](https://medium.com/@GolDDranks/things-rust-doesnt-let-you-do-draft-f596a3c740a5). Much has been addressed since then but interestingly, a number of items that were identified then are still issues today.
+Someday I'll take the time to write this myself but instead, for now, you can take a look at the source code for the Rust standard library's linked list: [linked_list.rs](https://github.com/rust-lang/rust/blob/master/library/alloc/src/collections/linked_list.rs)
 
-More recently, in 2023 we find non-trivial pain points do still exist, consider this article: [*When Rust Hurts*](https://mmapped.blog/posts/15-when-rust-hurts.html).
+Also, for examples of areas for future work, the following is an interesting analysis written in 2018 that describes many of the early pain points and refinements that were introduced to address them: [*Things Rust Doesn't Let You Do*](https://medium.com/@GolDDranks/things-rust-doesnt-let-you-do-draft-f596a3c740a5). Rust has had a 2 editions since then: Rust 2018 and Rust 2021, so much has been addressed since then but interestingly, a number of items that were identified then are still issues today. In 2023 we find non-trivial pain points do still exist, consider this article: [*When Rust Hurts*](https://mmapped.blog/posts/15-when-rust-hurts.html).
 
-
-# Is Rust Still a Science Project?
+# So is Rust Still a Science Project?
 
 We can now understand at least some of the complexity of using/learning Rust programming as:
 
