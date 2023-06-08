@@ -48,6 +48,8 @@ Blandy et al, elegantly explain Rust's provability vs functionality strategy in 
 
 To me, the need for the standard library to contain safe to use wrappers for `unsafe` code is both a pro and a con. A pro because it’s a big part of what makes Rust even possible, a con because it takes time for the Rust language designers to come up with safe ways of doing common things and they exist as lingering pain points in the meantime. How much time? Did you know that Rust's first official release was in 2015? 8 years ago.
 
+In a way, you could think that the ongoing need for the `unsafe` keyword implies that Rust is not yet finished. Like shouldn't there come a time when the language as a whole is "good enough" and `unsafe` is no longer required as it was at the beginning? Could it be eliminated or at least decomposed into finer grained controls like C++ did with C-style casting? Might `unsafe` be stripped back to the minimum set of controls needed to support interfacing with other languages like C and assembler? Time will tell but I suspect the answer is no and `unsafe` is here to stay. Refer to Appendix A for a description of what `unsafe` actually provides, it's already surprisingly close to the minimum surface area needed to interface with other languages, it just happens to also work quite well for new Rust language features.
+
 ## An Example of `unsafe` wrapping
 
 Let's consider an example of the sort of thing someone coming from a language like C might run into that illustrates how the standard library first made the proveability rules tractable and then over time - a very long time - refined it to be fairly elegant to use.
