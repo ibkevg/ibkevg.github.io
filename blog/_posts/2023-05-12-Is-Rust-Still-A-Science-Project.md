@@ -174,7 +174,7 @@ One thing you *can* do is play to Rust's strengths by taking into account how Ru
 **Command Line Tools**
 Some of the earliest applications written in Rust were command line tools which I think is a reflection of Rust adoption by hobbyists. `ripgrep` is a fairly well known product of this era and it's pretty easy to find others. For example, this list is a start: [Rust Command Line Utilities](https://github.com/sts10/rust-command-line-utilities).
 
-**Web Services**
+**Web Services and `async`**
 Back-end web services as a domain have received a fair amount of attention in Rust. Several web frameworks exist for Rust, including [Actix](https://actix.rs) and [Rocket](https://rocket.rs). The language has evolved to support webservices in part by the introduction of `async` and associated gear. `async` is an increasingly common language feature used, for example, to reduce resource consumption by threads in large web servers. Adding this feature within the constraints of memory safety has been a complex ongoing effort since 2019 and is still under going refinement to reduce pain points and improve integration with the full language (e.g. async functions in traits are expected to be stabilized in 2023.) It seems that good progress is being made, however, also consider this 2022 article, written by an experienced Rust programmer: [Rust Is Hard, Or: The Misery of Mainstream Programming](https://hirrolot.github.io/posts/rust-is-hard-or-the-misery-of-mainstream-programming.html). Also this: [When to use Rust and when to use Go](https://blog.logrocket.com/when-to-use-rust-when-to-use-golang)
 
 **OS and Embedded**
