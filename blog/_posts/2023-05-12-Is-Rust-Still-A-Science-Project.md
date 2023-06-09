@@ -14,7 +14,7 @@ What initially drew me to Rust was not so much memory safety but rather how mass
 
 So I spent time coming to grips with the language back in the 2017/2018 time frame but ultimately bounced off. Rust has a reputation for being difficult to learn and certainly part of the difficulty has to do with learning how to apply all these new language features but what I didn't expect was that Rust is actually two things: a traditional language and a memory-safety-correctness prover. This "prover" part of it's personality has it's own learning curve, such as learning how to choose designs that work within the confines of Rust's provability rules. Also I wasn't expecting correct programs to be rejected because it's memory safety analysis is not always sophisticated enough (or could never be sophisticated enough) to realize that a program is ok. People often refer to this as "wrestling with the borrow checker" but IMHO it's more than that. 
 
-Also, I just generally ran into a number of papercuts, speedbumps and roadblocks. I was shocked at the time to learn that something as simple as a linked list is surprisingly difficult in Rust [*Learn Rust With Entirely Too Many Linked Lists*](https://rust-unofficial.github.io/too-many-lists/). I found the lifetime syntax noisy, ran into cases where correct code was not accepted by compiler, etc. Part of my issue too was that the difficulties were mainly about proving memory safety but when I go back through a list of the nastiest bugs I've ever had to wrestle with, it tends to be dominated by threading issues, unexpected event ordering, deadlocks, interrupts, stack overruns, hardware databook misunderstandings, etc. so do I really want to go to a lot of trouble for memory safety? Generally I felt like using Rust was how I imagined it would be like working in a large bureaucracy, like the federal government: lots of rules in place that were put in place for good reasons but taken together, make it hard to get things done.
+Also, I just generally ran into a number of papercuts, speedbumps and roadblocks. I was shocked at the time to learn that something as simple as a linked list is surprisingly difficult in Rust[*Learn Rust With Entirely Too Many Linked Lists*](https://rust-unofficial.github.io/too-many-lists/). I found the lifetime syntax noisy, ran into cases where correct code was not accepted by compiler, etc. Part of my issue too was that the difficulties were mainly about proving memory safety but when I go back through a list of the nastiest bugs I've ever had to wrestle with, it tends to be dominated by threading issues, unexpected event ordering, deadlocks, interrupts, stack overruns, hardware databook misunderstandings, etc. so do I really want to go to a lot of trouble for memory safety? Generally I felt like using Rust was how I imagined it would be like working in a large bureaucracy, like the federal government: lots of rules in place that were put in place for good reasons but taken together, make it hard to get things done.
 
 Now in 2023, with Linux and Windows making moves to put Rust into the kernel, is now the right time to return?
 
@@ -52,7 +52,7 @@ In a way, you could think that the ongoing need for the `unsafe` keyword implies
 
 ## An Example of `unsafe` wrapping
 
-Let's consider an example of the sort of thing someone coming from a language like C might run into that illustrates how the standard library first made the proveability rules tractable and then over time - a very long time - refined it to be fairly elegant to use.
+Let's consider an example of the sort of thing someone coming from a language like C might run into that illustrates how the standard library first made the proveability rules tractable and then over a fairly long time, refined it to be fairly elegant to use (remember, the first Rust edition was 2015.)
 
 Imagine you're writing a set of Sudoku puzzle solving algorithms and find that a routine that can rotate the puzzle by 90 degrees would be useful. Your first attempt at such a function might look something like this (since Sudoku puzzles are only 9x9 we'll ignore inplace matrix rotation implementations):
 
@@ -87,7 +87,7 @@ Unfortunately, this won't compile because Rust does not allow an uninitialized a
 
 But doing this will cause the array to be initialized twice, so let's at least *try* to be performant.
 
-You might now decide to just wrap this in `unsafe` and move on, however, `unsafe` doesn't relax the variable intitialization rules, so we need to look for another solution. A short time spent googling will reveal that a std library feature called "MaybeUninit" can be applied as follows but you'll have to hold your nose:
+You might now decide to just wrap this in `unsafe` and move on, however, `unsafe` doesn't relax the variable intitialization rules, so we need to look for another solution. A short time spent googling will reveal that a std library feature called "MaybeUninit" can be applied as follows but the resulting code has a nasty smell, so you'll have to hold your nose:
 
 ```
     pub fn rotate_90(&mut self) {
@@ -106,7 +106,7 @@ You might now decide to just wrap this in `unsafe` and move on, however, `unsafe
     }
 ```
 
-Pretty gross. So we google a bit more and discover that a std lib routine, `from_fn`, was stablized in Rust 1.63 Aug/2022 to help with exactly this problem. We still have to initialize the array but we're nolonger limited to compile time constants and can instead have Rust call a function at runtime for each value as it is initialized. Using a closure, aka anonymous function, we can now write:
+So we google a bit more and discover that a std lib routine, `from_fn`, was stablized in Rust 1.63 Aug/2022 to help with exactly this problem. We still have to initialize the array but we're nolonger limited to compile time constants and can instead have Rust call a function at runtime for each value as it is initialized. Using a closure, aka anonymous function, we can now write:
 ```
     pub fn rotate_90(&mut self) {
         let init = |r: usize, c: usize| self.grid[8 - c][r];  // init is a closure
@@ -152,11 +152,13 @@ This may also inform whether a project may want to lock themselves to a specific
 
 ## A Better Example: `unsafe` Wrapping to Placate the Borrow Checker
 
-Someday I'll take the time to write this myself but instead, for now, you can take a look at the source code for the Rust standard library's linked list: [linked_list.rs](https://github.com/rust-lang/rust/blob/master/library/alloc/src/collections/linked_list.rs)
+Someday I'll take the time to write my own example but instead, for now, you can take a look at the source code for the Rust standard library's linked list and the many places where it has been necessary to use `unsafe`: [linked_list.rs](https://github.com/rust-lang/rust/blob/master/library/alloc/src/collections/linked_list.rs)
 
-# The Borrow Checker and Local Function Analysis
+# The Borrow Checker
 
-Here is an example where Rust may reject a perfectly safe program because of limitations in it's analysis abilities (taken from [reddit](https://www.reddit.com/r/rust/comments/1440094/problematic_pattern_ive_encountered_a_few_times/)):
+## Local Function Analysis
+
+To give you the flavour of the type of problem that people will describe as "fighting the borrow checker", here is an example where Rust rejects what may be a perfectly safe program because of limitations in it's analysis abilities (taken from [reddit](https://www.reddit.com/r/rust/comments/1440094/problematic_pattern_ive_encountered_a_few_times/)). Rust references work like reader/writer locks and thus it rejects have both a writable and read-only reference in scope at the same time. This causes the following code to not compile:
 
 ```
 struct Foo {
@@ -171,15 +173,24 @@ impl Foo {
     }
     
     fn run_one(&mut self, item: &u32) {
-        // CODE
+        // CODE - should it matter what is here?
     }
 }
 ```
-The compiler will fail to compile `run_all()` here because Rust references work like reader/writer locks and disallows an immutable borrow (which occurs at `&self.items`) and a mutable borrow (which occurs at `self.run_one(item)`) at the same time. Rust performs only a local function analysis to determine correctness and thus it assumes *any* operation on that mutable reference could happen in `run_one()` - for example, resizing the vec itself which could invalidate the iterator used in the loop. However, the actual use of `&mut self` at `CODE` may actually be perfectly safe and thus we could analyze this code and assess that it's perfectly memory safe.
+The compiler will fail to compile `run_all()` because Rust disallows an immutable borrow (which occurs at `&self.items`) and a mutable borrow (which occurs at `self.run_one(item)`) at the same time.
 
-Solving a compile error such as this depends entirely on what `run_one()` needs to do with it's parameters.
+Rust performs only a local function analysis to determine correctness and thus it assumes *any* operation on that mutable reference could happen in `run_one()` - for example, resizing the vec itself which could invalidate the iterator used in the loop. However, the actual use of `&mut self` at `CODE` may actually be perfectly memory safe and thus a person could review this code and assess that it's fine.
 
-Another restriction that derives from these borrowing rules is that Rust and circular references don't mix. Rust strongly prefers hierarchically structured data, such as trees.
+In C, this is where you'd stop but in Rust, the next step is to re-write the code into something Rust can analyze. Solving a compile error such as this depends entirely on what `run_one()` needs to do with it's parameters and what people tend to refer to as fighting the borrow checker.
+
+## Circular References
+
+Another restriction that derives from these borrowing rules is that Rust and circular references don't mix. Rust prefers hierarchically structured data, such as trees, to the point that you have to drop to `unsafe` to be circular.
+
+Probably the best illustration of this is the following:
+[*Learn Rust With Entirely Too Many Linked Lists*](https://rust-unofficial.github.io/too-many-lists/)
+
+Also, you can look into [std::pin<>](https://doc.rust-lang.org/std/pin/index.html) which is an `unsafe` language tool introduced to help with self referential structures.
 
 # So is Rust Still a Science Project?
 
