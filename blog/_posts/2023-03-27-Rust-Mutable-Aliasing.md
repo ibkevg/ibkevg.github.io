@@ -61,11 +61,11 @@ Solving a compile error such as this depends entirely on what `run_one()` needs 
 
 For years, Fortran could generate faster code than C for vector math due to it's different aliasing rules. Fortran doesn't have pointers, it has formal array types that don't overlap and thus Fortran could assume that function arguments never alias. Over time, various enhancements to C were made, such as C adding the `restrict` keyword to declare that a pointer doesn't alias anything and thus it became possible for C to compete on performance with Fortran in these case. At least for those who understood how to use `restrict` and when to use it.
 
-Here's some further thoughts on this from the C world:
-  * [*The joys and perils of C and C++ aliasing, Part 1*](https://developers.redhat.com/blog/2020/06/02/the-joys-and-perils-of-c-and-c-aliasing-part-1)
-  * [*The joys and perils of C and C++ aliasing, Part 2*](https://developers.redhat.com/blog/2020/06/03/the-joys-and-perils-of-aliasing-in-c-and-c-part-2)
+Much has been written on aliasing, so here's some well written thoughts on this from the C world:
+  * [*Redhat: The joys and perils of C and C++ aliasing, Part 1*](https://developers.redhat.com/blog/2020/06/02/the-joys-and-perils-of-c-and-c-aliasing-part-1)
+  * [*Redhat: The joys and perils of C and C++ aliasing, Part 2*](https://developers.redhat.com/blog/2020/06/03/the-joys-and-perils-of-aliasing-in-c-and-c-part-2)
 
-Here's some thoughts on this from the Rust world:
+The "Rustonomion", the official document that goes into detail about Rust provability rule, also has a section on aliasing:
 [https://doc.rust-lang.org/nomicon/aliasing.html](https://doc.rust-lang.org/nomicon/aliasing.html)
 
 Given that a Rust has more information than a C compiler does about aliasing, in theory Rust may be able to optimize code generated for data access through references/pointers. (It actually took a couple of years to be able to enable these compiler optimizations because compiler backends hadn't been exposed to this much aliasing information before.)
