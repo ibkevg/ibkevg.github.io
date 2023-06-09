@@ -25,9 +25,11 @@ So this time I decided I need to spend more time understanding the underlying ph
 Memory safety is a such a driving design goal of the Rust language that you might reasonably expect to find the Rust standard libraries are a shining example of machine proven, memory safe, code. So, it may surprise you then to learn that not only does Rust have a Get out of Jail Free card for breaking the language safety rules, the `unsafe` keyword but the Rust standard libraries themselves contain significant amounts of `unsafe` code.
 
 For example, bidirectional linked lists are often cited as an example of a data structure that is tricky to build both efficiently and in accordance with Rust safety rules (due in part to Rust's expectation of hierarchical data ownership, see [*Learn Rust With Entirely Too Many Linked Lists*](https://rust-unofficial.github.io/too-many-lists/)). Sure enough we find:
+
 > rust/library/alloc/src/collections/linked_list.rs: ~1000 lines src, 59 instances of unsafe = ~16 lines per unsafe
 
 Stepping back, we find for the rest of the standard libraries:
+
 > rust/library/{core,std,alloc}: 128841 lines of src, 4471 instances of unsafe = 28.8 lines per unsafe
 
 So how can a language that claims to be safe, be itself chock full of unsafe code? And if the standard library itself needs this large amount of `unsafe`, then shouldn't I expect my programs to need it too?
@@ -38,7 +40,7 @@ The usual purpose for a language's standard library is to provide a set of commo
 
 In order to prove that Rust code is correct, the Rust compiler imposes a much more strict set of rules than other languages. So much so that the strictness of these rules in practice would prevent most useful programs from being written. Thus Rust has an escape hatch, the `unsafe` keyword, that eases some of the restrictions and denotes code where the programmer is responsible for proving correctness. (See the section below for more thoughts on working with `unsafe` code, including 3rd Party crates and coding standards.)
 
-It's a bit of a grand experiment really because **a big part of the Rust language development process has been to simply try writing real software within these constraints and discover cases where relaxing the rules is either necessary period or would make it easier to write software that achieves properties other than safety, such as performance.** This leads to the creation of new language features and or general purpose but safe-to-use abstractions to provide a wrapper for the necessary unsafe code. This then goes into the compiler or std library for everyone to use and is eventually considered a "stable" part of the Rust language.
+It's a bit of a grand experiment really because *a big part of the Rust language development process has been to simply try writing real software within these constraints and discover cases where relaxing the rules is either necessary period or would make it easier to write software that achieves properties other than safety, such as performance.* This leads to the creation of new language features and or general purpose but safe-to-use abstractions to provide a wrapper for the necessary unsafe code. This then goes into the compiler or std library for everyone to use and is eventually considered a "stable" part of the Rust language.
 
 Blandy et al, elegantly explain Rust's provability vs functionality strategy in their excellent book *Programming Rust* as follows: 
 
@@ -152,6 +154,33 @@ This may also inform whether a project may want to lock themselves to a specific
 
 Someday I'll take the time to write this myself but instead, for now, you can take a look at the source code for the Rust standard library's linked list: [linked_list.rs](https://github.com/rust-lang/rust/blob/master/library/alloc/src/collections/linked_list.rs)
 
+# The Borrow Checker and Local Function Analysis
+
+Here is an example where Rust may reject a perfectly safe program because of limitations in it's analysis abilities (taken from [reddit](https://www.reddit.com/r/rust/comments/1440094/problematic_pattern_ive_encountered_a_few_times/)):
+
+```
+struct Foo {
+    items: Vec<u32>,
+}
+
+impl Foo {
+    fn run_all(&mut self) {
+        for item in &self.items {
+            self.run_one(item);
+        }
+    }
+    
+    fn run_one(&mut self, item: &u32) {
+        // CODE
+    }
+}
+```
+The compiler will fail to compile `run_all()` here because Rust references work like reader/writer locks and disallows an immutable borrow (which occurs at `&self.items`) and a mutable borrow (which occurs at `self.run_one(item)`) at the same time. Rust performs only a local function analysis to determine correctness and thus it assumes *any* operation on that mutable reference could happen in `run_one()` - for example, resizing the vec itself which could invalidate the iterator used in the loop. However, the actual use of `&mut self` at `CODE` may actually be perfectly safe and thus we could analyze this code and assess that it's perfectly memory safe.
+
+Solving a compile error such as this depends entirely on what `run_one()` needs to do with it's parameters.
+
+Another restriction that derives from these borrowing rules is that Rust and circular references don't mix. Rust strongly prefers hierarchically structured data, such as trees.
+
 # So is Rust Still a Science Project?
 
 We can now understand at least some of the complexity of using/learning Rust programming as:
@@ -166,7 +195,7 @@ There's no easy answer and probably the best thing to do is simply try it out fo
 
 ## Play to Rust's Strengths
 
-One thing you *can* do is play to Rust's strengths by taking into account how Rust has evolved over time as adoption increased in various application domains. Here is the glossy brochure version: [https://www.rust-lang.org/what](https://www.rust-lang.org/what)
+One thing you *can* do is concentrate on application domains with the most Rust adoption. Here is the glossy brochure version: [https://www.rust-lang.org/what](https://www.rust-lang.org/what)
 
 **Command Line Tools**
 Some of the earliest applications written in Rust were command line tools which I think is a reflection of Rust adoption by hobbyists. `ripgrep` is a fairly well known product of this era and it's pretty easy to find others. For example, this list is a start: [Rust Command Line Utilities](https://github.com/sts10/rust-command-line-utilities).
@@ -188,7 +217,7 @@ The following is an interesting analysis written in 2018 (Rust has had three maj
 
 More recently, in 2023 we find non-trivial pain points do still exist, consider this article: [*When Rust Hurts*](https://mmapped.blog/posts/15-when-rust-hurts.html).
 
-Also Graydon Hoare has a nice presentation that includes some honest pros/cons of the language: [Rust for "Modern C++" Devs](http://venge.net/graydon/talks/RustForModernCPPDevs.pdf)
+Also Graydon Hoare has a nice presentation that includes some honest "what is good/bad about Rust": [Rust for "Modern C++" Devs](http://venge.net/graydon/talks/RustForModernCPPDevs.pdf)
 
 **Deadlocks and Memory Leaks**
 An interesting limitation relates to the often advertised feature of "fearless concurrency". This refers to the idea that Rust's memory safety and avoidance of data races extends to multi-threading races as well. While true, and very powerful, deadlocked threads do not violate memory safety provability rules, thus fearless concurrency does not extend to [deadlocks](https://doc.rust-lang.org/book/ch16-03-shared-state.html#similarities-between-refcelltrct-and-mutextarct).

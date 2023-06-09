@@ -30,15 +30,30 @@ Anyone who's written concurrent code where data is shared between two threads wi
 
 Why burden single threaded code with the same constraints as multi-threaded?
 
-The short answer is: *Aliasing*, which occurs when multiple pointers point to the same memory. (See the section below for how the Rust designers themselves justify this decision.)
+The short answer is: *Aliasing*, which occurs when multiple pointers point to the same memory. (See the section below for how the Rust designers themselves justify this decision.) An example of a bug we can avoid by preventing mutable aliasing is *iterator invalidation*. You're iterating through a data structure and delete an element as you go, accidentally invalidating the iterator you're using. Most people using C++ iterators have likely hit this type of issue at least once.
 
-## Mutable Aliasing vs Bugs's 
+So this policy seems like an almost unambiguously good thing. Almost. The difficulty is that it can lead to some correct programs being rejected as well. Here is an example where Rust may reject a perfectly safe program (taken from [reddit](https://www.reddit.com/r/rust/comments/1440094/problematic_pattern_ive_encountered_a_few_times/)):
 
-Here are some examples of bugs we can avoid by preventing mutable aliasing:
+```
+struct Foo {
+    items: Vec<u32>,
+}
 
-* *iterator invalidation* - you're iterating through a data structure and delete an element as you go, accidentally invalidating the iterator you're using. Most people using C++ iterators have likely hit this type of issue at least once.
+impl Foo {
+    fn run_all(&mut self) {
+        for item in &self.items {
+            self.run_one(item);
+        }
+    }
+    
+    fn run_one(&mut self, item: &u32) {
+        // CODE
+    }
+}
+```
+The compiler will fail to compile `run_all()` here because Rust disallows both an immutable borrow (which occurs at `&self.items`) and a mutable borrow (which occurs at `self.run_one(item)`) at the same time. Rust performs only a local function analysis to determine correctness and thus it assumes *any* operation on that mutable reference could happen in `run_one()` - for example, resizing the vec itself which could invalidate the iterator used in the loop. However, the actual use of `&mut self` at `CODE` may actually be perfectly safe and thus we could analyze this code and assess that it's perfectly memory safe.
 
-* *Callbacks* - imagine an API that has a callback interface. If the callback function can turn around and call back into the API including even the API function that did the callback in the first place. The API may call this undefined behaviour or it may allow it. If the API hasn't anticipated all the ways a callback could re-enter the API or the user didn't read the documentation then you could have a bug that might have been avoided if mutable aliasing were not possible.
+Solving a compile error such as this depends entirely on what `run_one()` needs to do with it's parameters.
 
 
 ## Could Rust Aliasing Rules make it Faster than C?
