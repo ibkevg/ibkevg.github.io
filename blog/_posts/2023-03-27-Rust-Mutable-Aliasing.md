@@ -25,7 +25,7 @@ Lifetimes can introduce a source of complexity that is not always easy to find a
 
 ## Rust References are like Readers/Writer locks
 
-The second rule of Rust references is at any given time you can have either one mutable reference or any number of immutable references.
+The second rule of Rust references is at any given time you can have either one mutable reference or any number of immutable references. By "at any given time" we generally mean "in scope", but Rust is actually somewhat smarter than this (see [Non-Lexical Lifetimes](https://blog.rust-lang.org/2022/08/05/nll-by-default.html)).
 
 Anyone who's written concurrent code where data is shared between two threads will be familiar with need to control access to that data due to race conditions. Entire books have been written about techniques meant to address this problem such as mutexes, readers/writer locks, message passing, etc. but, perhaps surprisingly, Rust applies this to even single threaded code. All writable sharing of data via references is statically checked by the compiler almost as though a concurrency protecting readers/writer’s lock was in use.
 
