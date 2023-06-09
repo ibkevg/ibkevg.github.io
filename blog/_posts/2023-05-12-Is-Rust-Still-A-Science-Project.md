@@ -12,7 +12,7 @@ I've been enthusiastic about the *idea* of a better C for many years now.
 
 What initially drew me to Rust was not so much memory safety but rather how massively more expressive and type safe it is than C while at the same time being suitable for environments C is necessary for. It has advanced features such as Ada-style variant records (C union + disciminant), generics, modules, traits and a robust, non-exception-based design for error handling. In theory Rust could even be faster than C code due to it's [different pointer aliasing rules](http://stationaryaction.com/blog/2023/03/27/Rust-Mutable-Aliasing.html).
 
-So I spent time coming to grips with the language back in the 2017/2018 time frame but ultimately bounced off. Rust has a reputation for being difficult to learn and certainly part of the the difficulty has to do with learning how to apply all these new language features but what I didn't expect was that Rust is actually two things: a traditional language and a memory-safety-correctness prover. This "prover" part of it's personality has it's own learning curve, such as learning how to choose designs that work within the confines of Rust's provability rules. For example, I wasn't expecting correct programs to be rejected because the provability rules are not always sophisticated enough to realize it (or could never be sophisticated enough). People often refer to this as "wrestling with the borrow checker" but IMHO it's more than that. 
+So I spent time coming to grips with the language back in the 2017/2018 time frame but ultimately bounced off. Rust has a reputation for being difficult to learn and certainly part of the difficulty has to do with learning how to apply all these new language features but what I didn't expect was that Rust is actually two things: a traditional language and a memory-safety-correctness prover. This "prover" part of it's personality has it's own learning curve, such as learning how to choose designs that work within the confines of Rust's provability rules. Also I wasn't expecting correct programs to be rejected because it's memory safety analysis is not always sophisticated enough (or could never be sophisticated enough) to realize that a program is ok. People often refer to this as "wrestling with the borrow checker" but IMHO it's more than that. 
 
 Also, I just generally ran into a number of papercuts, speedbumps and roadblocks. I was shocked at the time to learn that something as simple as a linked list is surprisingly difficult in Rust [*Learn Rust With Entirely Too Many Linked Lists*](https://rust-unofficial.github.io/too-many-lists/). I found the lifetime syntax noisy, ran into cases where correct code was not accepted by compiler, etc. Part of my issue too was that the difficulties were mainly about proving memory safety but when I go back through a list of the nastiest bugs I've ever had to wrestle with, it tends to be dominated by threading issues, unexpected event ordering, deadlocks, interrupts, stack overruns, hardware databook misunderstandings, etc. so do I really want to go to a lot of trouble for memory safety? Generally I felt like using Rust was how I imagined it would be like working in a large bureaucracy, like the federal government: lots of rules in place that were put in place for good reasons but taken together, make it hard to get things done.
 
@@ -25,11 +25,9 @@ So this time I decided I need to spend more time understanding the underlying ph
 Memory safety is a such a driving design goal of the Rust language that you might reasonably expect to find the Rust standard libraries are a shining example of machine proven, memory safe, code. So, it may surprise you then to learn that not only does Rust have a Get out of Jail Free card for breaking the language safety rules, the `unsafe` keyword but the Rust standard libraries themselves contain significant amounts of `unsafe` code.
 
 For example, bidirectional linked lists are often cited as an example of a data structure that is tricky to build both efficiently and in accordance with Rust safety rules (due in part to Rust's expectation of hierarchical data ownership, see [*Learn Rust With Entirely Too Many Linked Lists*](https://rust-unofficial.github.io/too-many-lists/)). Sure enough we find:
-
 > rust/library/alloc/src/collections/linked_list.rs: ~1000 lines src, 59 instances of unsafe = ~16 lines per unsafe
 
 Stepping back, we find for the rest of the standard libraries:
-
 > rust/library/{core,std,alloc}: 128841 lines of src, 4471 instances of unsafe = 28.8 lines per unsafe
 
 So how can a language that claims to be safe, be itself chock full of unsafe code? And if the standard library itself needs this large amount of `unsafe`, then shouldn't I expect my programs to need it too?
@@ -154,8 +152,6 @@ This may also inform whether a project may want to lock themselves to a specific
 
 Someday I'll take the time to write this myself but instead, for now, you can take a look at the source code for the Rust standard library's linked list: [linked_list.rs](https://github.com/rust-lang/rust/blob/master/library/alloc/src/collections/linked_list.rs)
 
-Also, for examples of areas for future work, the following is an interesting analysis written in 2018 that describes many of the early pain points and refinements that were introduced to address them: [*Things Rust Doesn't Let You Do*](https://medium.com/@GolDDranks/things-rust-doesnt-let-you-do-draft-f596a3c740a5). Rust has had a 2 editions since then: Rust 2018 and Rust 2021, so much has been addressed since then but interestingly, a number of items that were identified then are still issues today. In 2023 we find non-trivial pain points do still exist, consider this article: [*When Rust Hurts*](https://mmapped.blog/posts/15-when-rust-hurts.html).
-
 # So is Rust Still a Science Project?
 
 We can now understand at least some of the complexity of using/learning Rust programming as:
@@ -185,6 +181,15 @@ Recently, the door has been opened for Rust to be used to write Linux drivers. M
 
 The other thing you can do is have your eyes wide open regarding pain points. A quick web search will reveal an enormous amount of Rust enthusiasm and advocacy, however, it's also useful to contrast this with more sober criticism.
 
+> "There are only two kinds of languages: the ones people complain about and the ones nobody uses." - Bjarne Stroustrup
+
+**General Surveys**
+The following is an interesting analysis written in 2018 (Rust has had three major editions so far: Rust 2015, Rust 2018, and Rust 2021) that describes many of the early pain points and refinements that were introduced to address them: [*Things Rust Doesn't Let You Do*](https://medium.com/@GolDDranks/things-rust-doesnt-let-you-do-draft-f596a3c740a5). Much has been addressed since then but interestingly, a number of items that were identified then are still issues today.
+
+More recently, in 2023 we find non-trivial pain points do still exist, consider this article: [*When Rust Hurts*](https://mmapped.blog/posts/15-when-rust-hurts.html).
+
+Also Graydon Hoare has a nice presentation that includes some honest pros/cons of the language: [Rust for "Modern C++" Devs](http://venge.net/graydon/talks/RustForModernCPPDevs.pdf)
+
 **Deadlocks and Memory Leaks**
 An interesting limitation relates to the often advertised feature of "fearless concurrency". This refers to the idea that Rust's memory safety and avoidance of data races extends to multi-threading races as well. While true, and very powerful, deadlocked threads do not violate memory safety provability rules, thus fearless concurrency does not extend to [deadlocks](https://doc.rust-lang.org/book/ch16-03-shared-state.html#similarities-between-refcelltrct-and-mutextarct).
 
@@ -192,11 +197,6 @@ Another interesting limitation is memory leaks. Similar to deadlocks, Rust prova
 
 **GUIs**
 Similarly, the state of the Rust GUI ecosystem appears to be still evolving since traditional UI design patterns born out of the OOP/inheritance world require replacement with patterns better suited to Rust's strengths. Several discussions about this can be found online but here are a couple to give you the flavour: [Why is Building a UI in Rust so hard?](https://www.reddit.com/r/programming/comments/114cknb/why_is_building_a_ui_in_rust_so_hard/) and [Advice for the next dozen Rust GUIs](https://raphlinus.github.io/rust/gui/2022/07/15/next-dozen-guis.html).
-
-**General Surveys**
-The following is an interesting analysis written in 2018 (Rust has had three major editions so far: Rust 2015, Rust 2018, and Rust 2021) that describes many of the early pain points and refinements that were introduced to address them: [*Things Rust Doesn't Let You Do*](https://medium.com/@GolDDranks/things-rust-doesnt-let-you-do-draft-f596a3c740a5). Much has been addressed since then but interestingly, a number of items that were identified then are still issues today.
-
-More recently, in 2023 we find non-trivial pain points do still exist, consider this article: [*When Rust Hurts*](https://mmapped.blog/posts/15-when-rust-hurts.html).
 
 # Final Thoughts
 
