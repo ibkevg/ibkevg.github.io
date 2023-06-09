@@ -13,6 +13,7 @@ The first rule of references is not particularly surprising: references must alw
 
 Now, languages have had references for decades so this type of constraint isn't new or even very interesting. Ada introduced references to military software in the early 80s and C++ got references in the 90s. But notice how I said "can't" instead of "shouldn't"? Rust adds an additional layer where the programmer must also prove to the compiler that they have met their obligation to use references correctly. For example, if you want a struct to contain a reference, then you will have to prove to the compiler that an instance of your struct does not outlast the value that is being referenced. Sometimes the compiler can infer this from the surrounding context but other times it cannot and this leads to new syntax, not present in a language like C or C++, for describing these lifetimes.
 
+**Lifetime Annotations**
 Below is an example where `'a` is a lifetime annotation on a struct that contains a reference to some characters. Because the struct contains a reference, the annotation informs the compiler that an instance of the struct must live at least as long as the thing the reference points to.
 
 ```
