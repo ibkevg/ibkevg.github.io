@@ -14,7 +14,7 @@ The first rule of references is not particularly surprising: references must alw
 Now, languages have had references for decades so this type of constraint isn't new or even very interesting. Ada introduced references to military software in the early 80s and C++ got references in the 90s. But notice how I said "can't" instead of "shouldn't"? Rust adds an additional layer where the programmer must also prove to the compiler that they have met their obligation to use references correctly. For example, if you want a struct to contain a reference, then you will have to prove to the compiler that an instance of your struct does not outlast the value that is being referenced. Sometimes the compiler can infer this from the surrounding context but other times it cannot and this leads to new syntax, not present in a language like C or C++, for describing these lifetimes.
 
 **Lifetime Annotations**
-Below is an example where `'a` is a lifetime annotation on a struct that contains a reference to some characters. Because the struct contains a reference, the annotation informs the compiler that an instance of the struct must live at least as long as the thing the reference points to.
+Below is an example where `'a` is a lifetime annotation on a struct `Foo` that contains a reference `bar` to some characters. Because `Foo` contains a reference, the annotation informs the compiler that an instance of `Foo` cannot live longer than the thing the reference, `bar`, points to.
 
 ```
 struct Foo<'a> {
@@ -65,15 +65,14 @@ Much has been written on aliasing, so here's some well written thoughts on this 
   * [*Redhat: The joys and perils of C and C++ aliasing, Part 1*](https://developers.redhat.com/blog/2020/06/02/the-joys-and-perils-of-c-and-c-aliasing-part-1)
   * [*Redhat: The joys and perils of C and C++ aliasing, Part 2*](https://developers.redhat.com/blog/2020/06/03/the-joys-and-perils-of-aliasing-in-c-and-c-part-2)
 
-The "Rustonomion", the official document that goes into detail about Rust provability rule, also has a section on aliasing:
+The "Rustonomion", the official document that goes into detail about Rust provability rules, also has a section on aliasing:
 [https://doc.rust-lang.org/nomicon/aliasing.html](https://doc.rust-lang.org/nomicon/aliasing.html)
 
 Given that a Rust has more information than a C compiler does about aliasing, in theory Rust may be able to optimize code generated for data access through references/pointers. (It actually took a couple of years to be able to enable these compiler optimizations because compiler backends hadn't been exposed to this much aliasing information before.)
 
 [https://stackoverflow.com/questions/57259126/why-does-the-rust-compiler-not-optimize-code-assuming-that-two-mutable-reference](https://stackoverflow.com/questions/57259126/why-does-the-rust-compiler-not-optimize-code-assuming-that-two-mutable-reference)
 
-Now that it has been enabled for a while, I haven't seen people trumpeting that Rust is faster than C in general and frankly, I tend to distrust benchmarks that as often used for marketing as they are for technical comparison. That said, if you search around you can find benchmarks of various kinds and sometimes Rust is slower, sometimes Rust is faster. So it does seem reasonable to say the two are very comparable in performance though it's hard to say to what degree the aliasing rules help with this.
-
+Now that it has been enabled for a while, I haven't seen people trumpeting that Rust is faster than C in general. If you search around you can find benchmarks of various kinds and sometimes Rust is slower, sometimes Rust is faster. So it does seem reasonable to say the two are very comparable in performance. I suspect that even if Rust aliasing rules do, on average, reclaim some lost performance, other Rust characteristics can negate that improvemnet. For example, it's not uncommon to find that people, struggling with the mutable aliasing rules enforced by the borrow checker, give up and accept the overhead of a reference counted pointer instead. So on one hand, Rust offers excellent "Zero-cost abstractions", on the other hand it's strictness may encourage shortcuts that defeat them.
 
 ## Thoughts from Rust's Designers
 
