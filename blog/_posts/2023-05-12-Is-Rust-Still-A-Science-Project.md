@@ -54,7 +54,7 @@ In a way, you could think that the ongoing need for the `unsafe` keyword implies
 
 Let's consider an example of the sort of thing someone coming from a language like C might run into that illustrates how the standard library first made the proveability rules tractable and then over a fairly long time, refined it to be fairly elegant to use (remember, the first Rust edition was 2015.)
 
-Imagine you're writing a set of Sudoku puzzle solving algorithms and find that a routine that can rotate the puzzle by 90 degrees would be useful. Your first attempt at such a function might look something like this (since Sudoku puzzles are only 9x9 we'll ignore inplace matrix rotation implementations):
+Imagine you're writing a set of Sudoku puzzle solving algorithms and find that a routine that can rotate the puzzle by 90 degrees would be useful. Your first attempt at such a function might look something like this (and for the sake of argument, lets ignore that an inplace rotation could be used instead):
 
 ```
 pub struct SudokuPuzzle {
@@ -158,7 +158,7 @@ Someday I'll take the time to write my own example but instead, for now, you can
 
 ## Local Function Analysis
 
-To give you the flavour of the type of problem that people will describe as "fighting the borrow checker", here is an example where Rust rejects what may be a perfectly safe program because of limitations in it's analysis abilities (taken from [reddit](https://www.reddit.com/r/rust/comments/1440094/problematic_pattern_ive_encountered_a_few_times/)). Rust references work like reader/writer locks and thus it rejects have both a writable and read-only reference in scope at the same time. This causes the following code to not compile:
+To give you the flavour of the type of problem that people will describe as "fighting the borrow checker", here is an example where Rust rejects what may be a perfectly safe program because of limitations in it's analysis abilities (taken from [reddit](https://www.reddit.com/r/rust/comments/1440094/problematic_pattern_ive_encountered_a_few_times/)). Rust references work like reader/writer locks and thus it rejects having both a writable and read-only reference in scope at the same time. This causes the following code to not compile:
 
 ```
 struct Foo {
