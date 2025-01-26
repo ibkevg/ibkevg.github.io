@@ -23,8 +23,6 @@ We can start by coming up with all the relevant equations by summing the forces 
 
 $$ F_1 + F_2 + F_3 = Mg \tag{1} \label{eq:1} $$
 
-$$ F_1 + F_2 + F_3 = Mg \tag{1} \label{eq:1} $$
-
 Take the moment around the 1st (leftmost) support assuming positive moment is in the counter-clockwise direction (righthand rule):
 
 $$ aF_2 + (a+b)F_3 = \left( \frac {a+b} {2} \right) Mg \tag{2} \label{eq:2} $$
