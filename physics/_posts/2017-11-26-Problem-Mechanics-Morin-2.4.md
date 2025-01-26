@@ -15,7 +15,7 @@ layout: page
 A block of mass $ M $ is positioned against a vertical wall. The coeffient of friction between the block and the wall is $ \mu $. You wish to keep the block from falling by pushing on it with a force of $ F $ at an angle $ \theta $ wrt horizontal ($ -\frac \pi 2 \lt \theta \lt \frac \pi 2 $).
 
 <div style="text-align:center;">
-<embed src="{{ site.url }}{{ site.baseurl }}/assets/svg/Mechanics-Morin-2.4-a.svg" type="image/svg"/>
+<img src="{{ site.url }}{{ site.baseurl }}/assets/svg/Mechanics-Morin-2.4-a.svg" type="image/svg+xml"/>
 </div>
 
 (a) What's the minimum force required to prevent the block from falling for any given angle $ \theta $?
