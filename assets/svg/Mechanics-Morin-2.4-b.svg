@@ -3,9 +3,9 @@
 <svg 
      version="1.1"
      baseProfile="full"
-     xmlns="http://www.w3.org/2000/svg"
-     xmlns:xlink="http://www.w3.org/1999/xlink"
-     xmlns:ev="http://www.w3.org/2001/xml-events"
+     xmlns="https://www.w3.org/2000/svg"
+     xmlns:xlink="https://www.w3.org/1999/xlink"
+     xmlns:ev="https://www.w3.org/2001/xml-events"
      width="7.8877733473403495cm"
      height="6.606852889225252cm"
      viewBox="0 0 350 293"
