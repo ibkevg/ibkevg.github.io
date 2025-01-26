@@ -9,7 +9,9 @@ jsarr: scripts/kev-chart.js
 
 # Proof
 
-In terms of physics/mechanics, our goal is: given a function representing a mechanics problem, and two points representing the start and end position and velocity, we want to find the function $ y(x) $ that would be the only path between the two points the satisfies the laws of physics. Mathematically, the goal is: given a Lagrangian, $ \mathscr{L} $ which is a function of the function $ y(x) $ that we are looking for, find $ y(x) $ that connects $ (x_1,y_1) $ and $ (x_2, y_2) $ and makes the integral of $ \mathscr{L} $, called the action, a min/max/inflection point. If we succeed, we have found a function that makes the action, $ S $, stationary. Now you might think at first that this is exactly the kind of min/max problem that calculus is good at by taking the derivative and solving it for 0. However, that can only tell us the value of x where there is a minimum. In this case, we're not simply looking for a value of x, we're looking for an entire function!
+Our goal, stated in terms of physics/mechanics, is: given a function representing a mechanics problem, and two points representing the start and end position and velocity, we want to find the function $ y(x) $ that would be the only path between the two points the satisfies the laws of physics.
+
+This goal, stated more mathematically, is: given a Lagrangian, $ \mathscr{L} $ which is a function of the function $ y(x) $ that we are looking for, find $ y(x) $ that connects $ (x_1,y_1) $ and $ (x_2, y_2) $ and makes the integral of $ \mathscr{L} $, called the action, a min/max/inflection point. If we succeed, we have found a function that makes the action, $ S $, stationary. Now you might think at first that this is exactly the kind of min/max problem that calculus is good at by taking the derivative and solving it for 0. However, that can only tell us the value of x where there is a minimum. In this case, we're not simply looking for a value of x, we're looking for an entire function!
 
 Here we want to find the function $ y(x) $ that makes the action $ S(x) $ stationary (or in our case, a minimum).
 
