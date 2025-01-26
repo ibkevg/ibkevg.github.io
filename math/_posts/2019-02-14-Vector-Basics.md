@@ -199,6 +199,16 @@ $$ \vc{b} = \lvert\vc{b}\rvert \hat{b} $$
 > $ (c \vc{a}) \cdot \vc{b} = \vc{a} \cdot (c \vc{b}) = c (\vc{a} \cdot \vc{b}) $ \\
 > $ (c \vc{a}) \times \vc{b} = \vc{a} \times (c \vc{b}) = c (\vc{a} \times \vc{b}) $
 
+> $$
+\begin{aligned}
+\vc{a} \cdot \vc{b} = (\lvert\vc{a} \rvert \hat{a}) \cdot (\lvert\vc{b} \rvert \hat{b})
+&= \lvert \vc{a} \rvert \lvert \vc{b} \rvert (\hat{a} \cdot \hat{b})\\
+\vc{a} \times \vc{b} = (\lvert\vc{a} \rvert \hat{a}) \times (\lvert\vc{b} \rvert \hat{b})
+&= \lvert \vc{a} \rvert \lvert \vc{b} \rvert (\hat{a} \times \hat{b})
+\end{aligned}
+$$
+
+
 Working this out, we can see that indeed both vector products begin by multiplying the vector lengths together:
 
 $$
