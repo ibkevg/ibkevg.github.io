@@ -198,8 +198,8 @@ $$ \vc{b} = \lvert\vc{b}\rvert \hat{b} $$
 >Note: we also need to know how the dot and cross products behave under scalar multiplication. For now, please accept that the following properties are true:  
 > $$
 \begin{aligned}
-c \vc{a}) \cdot \vc{b} = \vc{a} \cdot (c \vc{b}) = c (\vc{a} \cdot \vc{b} \\
-c \vc{a}) \times \vc{b} = \vc{a} \times (c \vc{b}) = c (\vc{a} \times \vc{b}
+ \(c \vc{a}) \cdot \vc{b} = \vc{a} \cdot (c \vc{b}) = c (\vc{a} \cdot \vc{b}) \\
+ \(c \vc{a}) \times \vc{b} = \vc{a} \times (c \vc{b}) &= c (\vc{a} \times \vc{b})
 \end{aligned}
 $$
 
