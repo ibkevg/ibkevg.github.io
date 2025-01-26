@@ -13,13 +13,15 @@ When I started my calculus refresher, I found myself needing to be reminded of t
 
 | Originator | First derivative   | Second derivative            | Indicates ... |
 | :--        | :--:               | :--:                         | :-- |
-| Newton     | $$ \dot{s}$$       | $$ \ddot{s}$$                | change in s wrt time |
-| Leibniz    | $$ \frac{dy}{dt}$$ | $$ \frac{d^{2}y}{d{t}^{2}}$$ | change in y wrt t |
-| Lagrange   | $$ y'$$            | $$ y''$$                     | change in y wrt an unspecified variable |
-| Euler      | $$ f'(t)$$         | $$ f''(t)$$                  | change in f wrt t |
+| Newton     | $ \dot{s} $       | $ \ddot{s} $                | change in s wrt time |
+| Leibniz    | $ \frac{dy}{dt} $ | $ \frac{d^{2}y}{d{t}^{2}} $ | change in y wrt t |
+| Lagrange   | $ y' $            | $ y'' $                     | change in y wrt an unspecified variable |
+| Euler      | $ f'(t) $         | $ f''(t) $                  | change in f wrt t |
 
 Example equivalent first derivatives:
-$$ \frac{dy}{dx}=y'=f'(x)$$
+$$
+\frac{dy}{dx}=y'=f'(x)
+$$
 
 *Notes:*
 + *Newton's Notation* - This notation is compact and although it doesn't show the independent variable, by convention it is always time
