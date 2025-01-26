@@ -26,7 +26,7 @@ There are lots of ways to multiply vectors
 | $ \inner{\vc u}{\vc v} $ | inner product (~= dot product) | scalar |  
 | $ \vc{u} \otimes \vc{v} $ | outer product (aka tensor product) | tensor, multilinear matrix |  
 | $ \vc{u} \wedge \vc{v} $ | exterior product (aka wedge product) | bivector |  
-| $ \vc{u}\vc{v} = \vc{u} \cdot \vc{v} + \vc{u} \wedge \vc{v} $ | geometric product | multivector |  
+| \\ $ \vc{u}\vc{v} = \vc{u} \cdot \vc{v} + \vc{u} \wedge \vc{v} $ | geometric product | multivector |  
 
 My goal here is to:
 
