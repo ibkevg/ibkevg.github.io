@@ -18,10 +18,7 @@ When I started my calculus refresher, I found myself needing to be reminded of t
 | Lagrange   | $ y' $            | $ y'' $                     | change in y wrt an unspecified variable |
 | Euler      | $ f'(t) $         | $ f''(t) $                  | change in f wrt t |
 
-Example equivalent first derivatives:
-$$
-\frac{dy}{dx}=y'=f'(x)
-$$
+Example equivalent first derivatives: $ \frac{dy}{dx}=y'=f'(x) $
 
 *Notes:*
 + *Newton's Notation* - This notation is compact and although it doesn't show the independent variable, by convention it is always time
