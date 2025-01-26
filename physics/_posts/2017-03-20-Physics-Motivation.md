@@ -18,7 +18,7 @@ These are some great resources that can help motivate and inspire learning physi
 
 # Web
 
-[The Particle Adventure](http://particleadventure.org)
+[The Particle Adventure](https://particleadventure.org)
 
 # Books
 
